@@ -62,7 +62,7 @@ CREATE TABLE "Listing_Contract" (
     "248" VARCHAR
 );
 
-CREATE TABLE "Purchase_Contract"(
+CREATE TABLE "Purchase_Agreement"(
     "id" SERIAL PRIMARY KEY,
     "BUYER_1" VARCHAR, 
     "SIGNATURE_BUYER_1" VARCHAR, 
