@@ -18,6 +18,7 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import Documents from '../Documents/Documents';
 import Drafts from '../Drafts/Drafts';
+// import Signature from '../Signature/Signature';
 
 import './App.css';
 
@@ -53,6 +54,13 @@ class App extends Component {
               path="/drafts"
               component={Drafts}
             />
+            {/* <ProtectedRoute
+              exact
+              path="/Signature"
+              component={Signature}
+            /> */}
+            {/* This works the same as the other protected route, except that if the user is logged in,
+            they will see the info page instead. */}
             <ProtectedRoute
               exact
               path="/info"
