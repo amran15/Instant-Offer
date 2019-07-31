@@ -19,8 +19,10 @@ import InfoPage from '../InfoPage/InfoPage';
 import Documents from '../Documents/Documents';
 import Drafts from '../Drafts/Drafts';
 // import Signature from '../Signature/Signature';
+import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
 
 import './App.css';
+import ListingContract from '../ListingContract/ListingContract';
 
 class App extends Component {
   componentDidMount() {
@@ -53,6 +55,16 @@ class App extends Component {
               exact
               path="/drafts"
               component={Drafts}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingContract"
+              component={ListingContract}
+            />
+            <ProtectedRoute
+              exact
+              path="/PurchaseAgreement"
+              component={PurchaseAgreement}
             />
             {/* <ProtectedRoute
               exact
