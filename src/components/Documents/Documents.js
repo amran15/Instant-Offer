@@ -5,7 +5,7 @@ class Documents extends Component {
         return (
             <div className="DocumentDiv">
             <p>
-                This is the documents page
+                This is the documents page!
             </p>
             </div>
         )
