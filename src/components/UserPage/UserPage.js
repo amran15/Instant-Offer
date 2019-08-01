@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 // import LogOutButton from '../LogOutButton/LogOutButton';
-import ListingButton from '../ListingButton/ListingButton';
-import Offer from '../Offer/Offer';
+import ListingContractButton from '../ListingContractButton/ListingContractButton';
+import PurchaseAgreementButton from '../PurchaseAgreementButton/PurchaseAgreementButton';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
@@ -13,9 +13,9 @@ const UserPage = (props) => (
       Welcome, { props.user.username }!
     </h1>
     {/* <p>Your ID is: {props.user.id}</p> */}
-    <ListingButton />
+    <ListingContractButton />
     <br/>
-    <Offer />
+    <PurchaseAgreementButton />
     <br/>
     
     {/* <LogOutButton className="log-in" /> */}
