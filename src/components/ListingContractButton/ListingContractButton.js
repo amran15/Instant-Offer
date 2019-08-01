@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
-import '../ListingButton/ListingButton.css';
+import './ListingContractButton.css'
 import {withRouter} from 'react-router';
 
 
 
-class ListingButton extends Component {
+class ListingContractButton extends Component {
     
     //this will push us to the ListingContract page
     handleClickForListingDocuments = () => {
@@ -18,7 +18,7 @@ class ListingButton extends Component {
         return (
             <div className="ListingDiv">
                 <p>
-                    <button onClick={this.handleClickForListingDocuments} id="listingDocButton">Listing</button>
+                    <button onClick={this.handleClickForListingDocuments} id="listingDocButton">Listing Contract</button>
                 </p>
             </div>
         )
@@ -27,6 +27,6 @@ class ListingButton extends Component {
 
 // bringing redux store so we can have access to it
 const mapReduxStateToProps = reduxState => ({reduxState})
-export default connect (mapReduxStateToProps)(withRouter(ListingButton));
+export default connect (mapReduxStateToProps)(withRouter(ListingContractButton));
 
 
