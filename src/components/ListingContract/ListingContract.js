@@ -184,5 +184,6 @@ class ListingContract extends Component {
 }
 
 
-const mapReduxStateToProps = reduxState => ({ reduxState })
+const mapReduxStateToProps = reduxState => ({reduxState});
+
 export default connect(mapReduxStateToProps)(ListingContract);
