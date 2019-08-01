@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 // import {Link} from 'react-router-dom';
-import '../Offer/Offer.css';
+import './PurchaseAgreementButton.css'
 import {withRouter} from 'react-router';
 
 
