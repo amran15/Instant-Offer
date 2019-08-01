@@ -17,6 +17,8 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import Documents from '../Documents/Documents';
+import Drafts from '../Drafts/Drafts';
+
 import ListingDrafts  from '../ListingDrafts/ListingDrafts';
 // import Signature from '../Signature/Signature';
 import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
