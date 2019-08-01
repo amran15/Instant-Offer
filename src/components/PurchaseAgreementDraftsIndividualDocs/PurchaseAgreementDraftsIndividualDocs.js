@@ -15,7 +15,7 @@ const styles = {
     },
 };
 
-class ListingDraftsIndividualDocs extends Component {
+class PurchaseAgreementDraftsIndividualDocs extends Component {
     render() {
         return (
             <div>
@@ -25,7 +25,7 @@ class ListingDraftsIndividualDocs extends Component {
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={10}>
                                 <div style={styles.title}>
-                                    <h3>Bob's Listing Contract</h3>
+                                    <h3>Bob's Purchase Agreement</h3>
                                     <p>August 1, 2019</p>
                                 </div>
                             </Grid>
@@ -45,4 +45,4 @@ class ListingDraftsIndividualDocs extends Component {
         )
     }
 }
-export default ListingDraftsIndividualDocs;
+export default PurchaseAgreementDraftsIndividualDocs;

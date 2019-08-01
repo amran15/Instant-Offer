@@ -26,7 +26,6 @@ class ListingDrafts extends Component {
                                     <h3>John Doe's Purchase Agreement</h3>
                                     <p>August 1, 2019</p>
                                 </div>
-                                <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre>
                             </Grid>
                             <Grid
                                 item xs={2}
