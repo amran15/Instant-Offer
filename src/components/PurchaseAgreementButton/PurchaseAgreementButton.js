@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 // import {Link} from 'react-router-dom';
 import './PurchaseAgreementButton.css'
 import {withRouter} from 'react-router';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -20,7 +21,7 @@ class Offer extends Component {
         return (
             <div className="OfferDiv">
                 
-                <button onClick={this.handleClickForOfferDocuments} id="OfferDocButton">Purchase Agreement</button>
+                <Button variant="contained" color="secondary" onClick={this.handleClickForOfferDocuments} id="OfferDocButton">Purchase Agreement</Button>
                 
             </div>
         )
