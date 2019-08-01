@@ -178,6 +178,12 @@ class ListingContract extends Component {
                             </Grid>
                         </Grid>
                     </Card>
+                    <br />
+                    <Grid item xs={12} sm={2}>
+                        <div align="right">
+                            <Button>Next</Button>
+                        </div>
+                    </Grid>
                 </Container>
             </div>
         )
