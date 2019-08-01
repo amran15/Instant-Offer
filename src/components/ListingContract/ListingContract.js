@@ -3,9 +3,7 @@ import React, { Component } from "react";
 import {connect} from 'react-redux';
 
 
-
-
-
+//this component will hold all of the categories for listing Contract
 
 class ListingContract extends Component {
     render() {
