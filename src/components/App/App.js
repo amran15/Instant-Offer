@@ -23,7 +23,15 @@ import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
 
 import './App.css';
 import ListingContract from '../ListingContract/ListingContract';
-import ListingCategories from '../ListingQuestions/ListingCategories';
+import PurchaseCategories from '../PurchaseAgreementQuestions/PurchaseCategories';
+import PurchaseCategory1 from '../PurchaseAgreementQuestions/PurchaseCategory1';
+import PurchaseCategory2 from '../PurchaseAgreementQuestions/PurchaseCategory2';
+import PurchaseCategory3 from '../PurchaseAgreementQuestions/PurchaseCategory3';
+import PurchaseCategory4 from '../PurchaseAgreementQuestions/PurchaseCategory4';
+import PurchaseCategory5 from '../PurchaseAgreementQuestions/PurchaseCategory5';
+import PurchaseCategory6 from '../PurchaseAgreementQuestions/PurchaseCategory6';
+import PurchaseCategory7 from '../PurchaseAgreementQuestions/PurchaseCategory7';
+import PurchaseCategory8 from '../PurchaseAgreementQuestions/PurchaseCategory8';
 
 class App extends Component {
   componentDidMount() {
@@ -69,8 +77,48 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/ListingCategories"
-              component={ListingCategories}
+              path="/PurchaseCategories"
+              component={PurchaseCategories}
+            /> 
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory1"
+              component={PurchaseCategory1}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory2"
+              component={PurchaseCategory2}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory3"
+              component={PurchaseCategory3}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory4"
+              component={PurchaseCategory4}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory5"
+              component={PurchaseCategory5}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory6"
+              component={PurchaseCategory6}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory7"
+              component={PurchaseCategory7}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory8"
+              component={PurchaseCategory8}
             />
             {/* <ProtectedRoute
               exact
