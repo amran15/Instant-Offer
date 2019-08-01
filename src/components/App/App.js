@@ -18,11 +18,14 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import Documents from '../Documents/Documents';
 import Drafts from '../Drafts/Drafts';
+
+import ListingDrafts  from '../ListingDrafts/ListingDrafts';
 // import Signature from '../Signature/Signature';
 import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
 
 import './App.css';
 import ListingContract from '../ListingContract/ListingContract';
+import ListingCategories from '../ListingQuestions/ListingCategories';
 
 class App extends Component {
   componentDidMount() {
@@ -53,8 +56,8 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/drafts"
-              component={Drafts}
+              path="/listingDrafts"
+              component={ListingDrafts}
             />
             <ProtectedRoute
               exact
@@ -65,6 +68,11 @@ class App extends Component {
               exact
               path="/PurchaseAgreement"
               component={PurchaseAgreement}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategories"
+              component={ListingCategories}
             />
             {/* <ProtectedRoute
               exact

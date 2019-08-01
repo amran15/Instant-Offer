@@ -20,7 +20,7 @@ class Offer extends Component {
         return (
             <div className="OfferDiv">
                 
-                <button onClick={this.handleClickForOfferDocuments} id="OfferDocButton">Offer</button>
+                <button onClick={this.handleClickForOfferDocuments} id="OfferDocButton">Purchase Agreement</button>
                 
             </div>
         )
