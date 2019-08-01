@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 // import {Link} from 'react-router-dom';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 //Material UI
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -18,6 +18,7 @@ const styles = {
 };
 
 class ListingContract extends Component {
+    
     render() {
         return (
             <div>
@@ -177,13 +178,12 @@ class ListingContract extends Component {
                             </Grid>
                         </Grid>
                     </Card>
-                </Container>
+                </Container> 
             </div>
+           
         )
     }
 }
 
 
-const mapReduxStateToProps = reduxState => ({reduxState});
-
-export default connect(mapReduxStateToProps)(ListingContract);
+export default ListingContract;
