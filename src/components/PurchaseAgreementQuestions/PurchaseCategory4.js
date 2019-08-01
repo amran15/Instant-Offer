@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 
-class ListingCategory4 extends Component {
+class PurchaseCategory4 extends Component {
     render() {
         return (
             <>
-                This will hold category4 questions
+                This will hold category 4 questions
             </>
         )
     }
 }
 
 const mapReduxStateToProps = reduxState => ({ reduxState })
-export default connect(mapReduxStateToProps)(withRouter(ListingCategory4));
+export default connect(mapReduxStateToProps)(withRouter(PurchaseCategory4));

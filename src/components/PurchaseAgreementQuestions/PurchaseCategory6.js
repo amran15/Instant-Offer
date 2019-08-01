@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 
-class ListingCategory6 extends Component {
+class PurchaseCategory6 extends Component {
     render() {
         return (
             <>
-                This will hold ListingCategory6 questions
+                This will hold Category 6 questions
             </>
         )
     }
 }
 
 const mapReduxStateToProps = reduxState => ({ reduxState })
-export default connect(mapReduxStateToProps)(withRouter(ListingCategory6));
+export default connect(mapReduxStateToProps)(withRouter(PurchaseCategory6));

@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 // import {Link} from 'react-router-dom';
-// import { connect } from 'react-redux';
+
+import { connect } from 'react-redux';
+import {withRouter} from 'react-router';
 
 //Material UI
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import ListingCategory1 from "../PurchaseAgreementQuestions/PurchaseCategory1";
 
 const styles = {
     title: {
@@ -41,7 +44,8 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
+                                <ListingCategory1 />
                             </Grid>
                         </Grid>
                     </Card>
@@ -60,7 +64,7 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
@@ -79,7 +83,7 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
@@ -98,7 +102,7 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
@@ -117,7 +121,7 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
@@ -136,7 +140,7 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
@@ -155,7 +159,7 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
@@ -174,7 +178,7 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
@@ -193,4 +197,6 @@ class ListingContract extends Component {
 }
 
 
-export default ListingContract;
+const mapReduxStateToProps = reduxState => ({ reduxState })
+export default connect(mapReduxStateToProps)(withRouter(ListingContract));
+

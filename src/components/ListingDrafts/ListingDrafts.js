@@ -1,10 +1,17 @@
 import React, { Component } from "react";
+
+import { connect } from 'react-redux';
+import {withRouter} from 'react-router';
 // import { connect } from 'react-redux';
 import ListingDraftsIndividualDocs from "../ListingDraftsIndividualDocs/ListingDraftsIndividualDocs";
 
 //Material UI
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+// import Paper from '@material-ui/core/Paper';
+// import ListingCategory1 from '../ListingQuestions/ListingCategory1';
+
 
 class ListingDrafts extends Component {
     render() {
@@ -34,7 +41,7 @@ class ListingDrafts extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
@@ -54,7 +61,7 @@ class ListingDrafts extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
@@ -64,5 +71,9 @@ class ListingDrafts extends Component {
         )
     }
 }
-export default ListingDrafts;
+
+
+
+const mapReduxStateToProps = reduxState => ({reduxState})
+export default connect (mapReduxStateToProps)(withRouter(ListingDrafts));
 
