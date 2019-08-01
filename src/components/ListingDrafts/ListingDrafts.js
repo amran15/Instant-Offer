@@ -1,25 +1,19 @@
 import React, { Component } from "react";
+
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router';
+// import { connect } from 'react-redux';
+import ListingDraftsIndividualDocs from "../ListingDraftsIndividualDocs/ListingDraftsIndividualDocs";
 
 //Material UI
 import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 // import Paper from '@material-ui/core/Paper';
 // import ListingCategory1 from '../ListingQuestions/ListingCategory1';
 
-const styles = {
-    title: {
-        // textAlign: 'center',
-        // fontSize: '20px',
-        margin: '25px 0px 25px 40px',
-        // marginTop: '40px',
-    },
-};
 
-class Drafts extends Component {
+class ListingDrafts extends Component {
     render() {
         return (
             <div>
@@ -71,7 +65,7 @@ class Drafts extends Component {
                             </Grid>
                         </Grid>
                     </Card>
-
+                    <ListingDraftsIndividualDocs />
                 </Container>
             </div>
         )
@@ -79,5 +73,7 @@ class Drafts extends Component {
 }
 
 
+
 const mapReduxStateToProps = reduxState => ({reduxState})
-export default connect (mapReduxStateToProps)(withRouter (Drafts));
+export default connect (mapReduxStateToProps)(withRouter(ListingDrafts));
+

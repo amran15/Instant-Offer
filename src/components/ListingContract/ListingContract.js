@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 // import {Link} from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router';
 
@@ -20,6 +21,7 @@ const styles = {
 };
 
 class ListingContract extends Component {
+    
     render() {
         return (
             <div>
@@ -180,8 +182,17 @@ class ListingContract extends Component {
                             </Grid>
                         </Grid>
                     </Card>
+
+                </Container> 
+                    <br />
+                    <Grid item xs={12} sm={2}>
+                        <div align="right">
+                            <Button>Next</Button>
+                        </div>
+                    </Grid>
                 </Container>
             </div>
+           
         )
     }
 }
@@ -189,3 +200,4 @@ class ListingContract extends Component {
 
 const mapReduxStateToProps = reduxState => ({ reduxState })
 export default connect(mapReduxStateToProps)(withRouter(ListingContract));
+
