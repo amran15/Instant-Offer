@@ -17,7 +17,6 @@ const styles = {
     },
 };
 
-
 class ListingContract extends Component {
     render() {
         return (
