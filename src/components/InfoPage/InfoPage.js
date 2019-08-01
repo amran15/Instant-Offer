@@ -1,6 +1,4 @@
 import React from 'react';
-import Listing_contract from '../pdfDesign/listing_contract';
-import Purchase_agreement from '../pdfDesign/purchase_agreement';
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -9,8 +7,8 @@ import Purchase_agreement from '../pdfDesign/purchase_agreement';
 const InfoPage = () => (
   <div>
     
-      <Listing_contract/>
-      <Purchase_agreement/>
+      {/* <Listing_contract/> */}
+      {/* <Purchase_agreement/> */}
     
   </div>
 );
