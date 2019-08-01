@@ -19,6 +19,46 @@ class ListingDrafts extends Component {
                     </center>
                     <br />
                     <br />
+                    <Card>
+                        <Grid item xs={12} container spacing={3}>
+                            <Grid item xs={10}>
+                                <div style={styles.title}>
+                                    <h3>John Doe's Purchase Agreement</h3>
+                                    <p>August 1, 2019</p>
+                                </div>
+                                <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre>
+                            </Grid>
+                            <Grid
+                                item xs={2}
+                                className="arrow"
+                                container
+                                direction="row"
+                                justify="center"
+                                alignItems="center">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </Grid>
+                        </Grid>
+                    </Card>
+                    <br />
+                    <Card>
+                        <Grid item xs={12} container spacing={3}>
+                            <Grid item xs={10}>
+                                <div style={styles.title}>
+                                    <h3>Bob's Purchase Agreement</h3>
+                                    <p>August 1, 2019</p>
+                                </div>
+                            </Grid>
+                            <Grid
+                                item xs={2}
+                                className="arrow"
+                                container
+                                direction="row"
+                                justify="center"
+                                alignItems="center">
+                                <i class="material-icons">arrow_forward_ios</i>
+                            </Grid>
+                        </Grid>
+                    </Card>
                     <ListingDraftsIndividualDocs />
                 </Container>
             </div>
@@ -26,3 +66,4 @@ class ListingDrafts extends Component {
     }
 }
 export default ListingDrafts;
+
