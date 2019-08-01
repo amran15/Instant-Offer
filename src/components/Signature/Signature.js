@@ -55,5 +55,5 @@ class Signature extends Component {
 }
 
 
-const mapReduxToStateToProps = reduxState => ({reduxState})
-export default connect(mapReduxToStateToProps)(Signature);
+const mapReduxStateToProps = reduxState => ({reduxState})
+export default connect(mapReduxStateToProps)(Signature);
