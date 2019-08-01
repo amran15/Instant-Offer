@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {connect} from 'react-redux';
 import './ListingContractButton.css'
 import {withRouter} from 'react-router';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -18,7 +19,7 @@ class ListingContractButton extends Component {
         return (
             <div className="ListingDiv">
                 <p>
-                    <button onClick={this.handleClickForListingDocuments} id="listingDocButton">Listing Contract</button>
+                    <Button variant="contained" color="primary" onClick={this.handleClickForListingDocuments} id="listingDocButton">Listing Contract</Button>
                 </p>
             </div>
         )
