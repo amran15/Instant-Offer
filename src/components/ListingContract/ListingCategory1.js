@@ -4,9 +4,9 @@ import { withRouter } from 'react-router';
 
 //Material UI
 import Button from '@material-ui/core/Button';
-// import Container from '@material-ui/core/Container';
-// import Grid from '@material-ui/core/Grid';
-// import swal from 'sweetalert';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class ListingCategory1 extends Component {
@@ -97,9 +97,31 @@ class ListingCategory1 extends Component {
                     fullWidth
                     variant="outlined"
                 />
-
-                <Button variant="contained">Back</Button>
-                <Button variant="contained">Save</Button>
+                
+                <Container component="main">
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
+                            <div align="left">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    Back
+                        </Button>
+                            </div>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <div align="right">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    Save
+                        </Button>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </Container>
             </>
         )
     }

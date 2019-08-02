@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 
-//Material UI
+//Material UI       
 import Button from '@material-ui/core/Button';
-// import Container from '@material-ui/core/Container';
-// import Grid from '@material-ui/core/Grid';
-// // import swal from 'sweetalert';
-// import Checkbox from '@material-ui/core/Checkbox';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField, Checkbox } from '@material-ui/core';
 
 
@@ -19,7 +18,6 @@ class ListingCategory2 extends Component {
     render() {
         return (
             <>
-             
                <p>Option 1. Listing display on the internet.</p>
                <Checkbox/>
                <span>Yes<Checkbox/></span>
@@ -41,8 +39,31 @@ class ListingCategory2 extends Component {
                <span>Yes<Checkbox/></span>
                <span>No</span>
             <br/>
-            <Button variant="contained">Back</Button>
-            <Button variant="contained">Save</Button>
+            <br/>
+            <Container component="main">
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
+                            <div align="left">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    Back
+                        </Button>
+                            </div>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <div align="right">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    Save
+                        </Button>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </Container>
             </>
         )
     }
@@ -50,14 +71,3 @@ class ListingCategory2 extends Component {
 
 const mapReduxStateToProps = reduxState => ({ reduxState })
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory2));
-
-
-            {/* <TextField
-                    // label="Song Title"
-                    id="buyers_earnest_money"
-                    // value={this.state.song_title}
-                    // onChange={this.handleInputChangeFor('song_title')}
-                    minWidth
-                    variant="outlined"
-                    input type="date"
-                /> */}
