@@ -13,6 +13,10 @@ import Button from '@material-ui/core/Button';
 
 
 class ListingCategory8 extends Component {
+    handleClick = () =>{ 
+        this.props.history.push('/ListingContract')
+    }
+
     render() {
         return (
             <div>
@@ -89,6 +93,7 @@ class ListingCategory8 extends Component {
                                 <Button
                                     variant="contained"
                                     color="primary"
+                                    onClick={this.handleClick}
                                 >
                                     Back
                         </Button>
@@ -99,6 +104,7 @@ class ListingCategory8 extends Component {
                                 <Button
                                     variant="contained"
                                     color="primary"
+                                    onClick={this.handleSave}
                                 >
                                     Save
                         </Button>
