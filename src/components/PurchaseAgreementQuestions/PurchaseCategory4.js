@@ -228,10 +228,9 @@ class PurchaseCategory4 extends Component {
                                         value="checkedB"
                                         color="primary"
                                     />}
-                                label="If Buyer cannot secure the financing specified in this Purchase Agreement, and this Purchase Agreement does not close on thie closing date specified, this Purchase Agreement is canceled. Buyer and Seller shall immediately sign a Cancellation of Purchase Agreement confirming said cancellation and directing all earnest moeny paid here to be"
+                                label="If Buyer cannot secure the financing specified in this Purchase Agreement, and this Purchase Agreement does not close on the closing date specified, this Purchase Agreement is canceled. Buyer and Seller shall immediately sign a Cancellation of Purchase Agreement confirming said cancellation and directing all earnest moeny paid here to be"
                             />
                         </Grid>
-                        <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox
@@ -252,7 +251,6 @@ class PurchaseCategory4 extends Component {
                                     />}
                                 label="Forfeited to seller"
                             />
-                        </Grid>
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={
