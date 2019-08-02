@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 //Material UI
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-// import swal from 'sweetalert';
 import Checkbox from '@material-ui/core/Checkbox';
 import Container from '@material-ui/core/Container';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
-
 
 class PurchaseCategory1 extends Component {
     render() {
@@ -26,13 +25,8 @@ class PurchaseCategory1 extends Component {
                             <p>Date</p>
                             <TextField
                                 id="date"
-                                // label="Birthday"
+                                variant="outlined"
                                 type="date"
-                                defaultValue="2017-05-24"
-                                // className={classes.textField}
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -56,28 +50,41 @@ class PurchaseCategory1 extends Component {
                                 fullWidth
                                 variant="outlined"
                             />
+                        </Grid>
+                        <Grid item xs={12}>
                             <TextField
-                                label="$"
                                 id="buyers_earnest_money"
                                 // value={this.state.song_title}
                                 // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
+                                InputProps={{
+                                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                }}
                             />
                             <p>shall be delivered to listing broker, or if checked, to</p>
-                            <Checkbox
-                                // checked={state.checkedB}
-                                // onChange={handleChange('checkedB')}
-                                value="checkedB"
-                                color="primary"
-                            />
-                            <TextField
-                                id="brokers_name"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
-                                fullWidth
-                                variant="outlined"
-                            />
+
+                            <Grid container spacing={2}>
+                                <Grid item xs={2}>
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />
+                                </Grid>
+                                <Grid item xs={10}>
+                                    <TextField
+                                        id="brokers_name"
+                                        // value={this.state.song_title}
+                                        // onChange={this.handleInputChangeFor('song_title')}
+                                        fullWidth
+                                        variant="outlined"
+                                    />
+                                </Grid>
+                            </Grid>
+
+
                             <p>no later than two (2) Business Days after Final Acceptance Date of this Purchase Agreement.</p>
                         </Grid>
                         <Grid item xs={12}>
@@ -90,6 +97,8 @@ class PurchaseCategory1 extends Component {
                                 fullWidth
                                 variant="outlined"
                             />
+                        </Grid>
+                        <Grid item xs={12}>
                             <TextField
                                 label="City"
                                 id="city"
@@ -98,6 +107,8 @@ class PurchaseCategory1 extends Component {
                                 fullWidth
                                 variant="outlined"
                             />
+                        </Grid>
+                        <Grid item xs={12}>
                             <TextField
                                 label="County"
                                 id="county"
@@ -139,7 +150,31 @@ class PurchaseCategory1 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-
+                <br />
+                <Container component="main">
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
+                            <div align="left">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    Back
+                        </Button>
+                            </div>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <div align="right">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    Save
+                        </Button>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </Container>
             </div >
         )
     }
