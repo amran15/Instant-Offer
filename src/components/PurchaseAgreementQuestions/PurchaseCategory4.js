@@ -2,13 +2,335 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
+//Material UI
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Checkbox from '@material-ui/core/Checkbox';
+import Container from '@material-ui/core/Container';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import { TextField } from '@material-ui/core';
 
 class PurchaseCategory4 extends Component {
     render() {
         return (
-            <>
-                This will hold category 4 questions
-            </>
+            <div>
+                <Container component="main">
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <center>
+                                <h2>Mortgage Financing</h2>
+                            </center>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <h4>Is this Purchase Agreement subject to the mortgage financing provisions below? If yes, complete the mortgage financing section below. If not, proceed to the Seller's Contributions to Buyer's Cost.</h4>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />}
+                                label="Yes"
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />}
+                                label="No"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <h4>Such mortgage financing shall be: <i>(Check one)</i></h4>
+                            <Grid item xs={12}>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            // checked={state.checkedB}
+                                            // onChange={handleChange('checkedB')}
+                                            value="checkedB"
+                                            color="primary"
+                                        />}
+                                    label="First Mortgage only"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            // checked={state.checkedB}
+                                            // onChange={handleChange('checkedB')}
+                                            value="checkedB"
+                                            color="primary"
+                                        />}
+                                    label="First morgtage and subordinate financing"
+                                />
+                            </Grid>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <h4>Does financing include a grant, bond program, or other loan assistance program?</h4>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />}
+                                label="Yes"
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />}
+                                label="No"
+                            />
+                            <Grid item xs={12}>
+                                <h4>If yes, please specify:</h4>
+                                <TextField
+                                    id="morgtage_loan_assistance"
+                                    // value={this.state.song_title}
+                                    // onChange={this.handleInputChangeFor('song_title')}
+                                    fullWidth
+                                    variant="outlined"
+                                />
+                            </Grid>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <h4>Buyer shall apply for and secure, at Buyer's expense, a: <i>(Check all that apply)</i></h4>
+                            <Grid item xs={12}>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            // checked={state.checkedB}
+                                            // onChange={handleChange('checkedB')}
+                                            value="checkedB"
+                                            color="primary"
+                                        />}
+                                    label="Conventional"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            // checked={state.checkedB}
+                                            // onChange={handleChange('checkedB')}
+                                            value="checkedB"
+                                            color="primary"
+                                        />}
+                                    label="Department of Veteran's Affairs (DVA) Guaranteed"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            // checked={state.checkedB}
+                                            // onChange={handleChange('checkedB')}
+                                            value="checkedB"
+                                            color="primary"
+                                        />}
+                                    label="Federal Housing Administration (FHA) Insured"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            // checked={state.checkedB}
+                                            // onChange={handleChange('checkedB')}
+                                            value="checkedB"
+                                            color="primary"
+                                        />}
+                                    label="Privately Insured Conventional"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            // checked={state.checkedB}
+                                            // onChange={handleChange('checkedB')}
+                                            value="checkedB"
+                                            color="primary"
+                                        />}
+                                    label="United States Department of Agricultural (USDA) Rural Development"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            // checked={state.checkedB}
+                                            // onChange={handleChange('checkedB')}
+                                            value="checkedB"
+                                            color="primary"
+                                        />}
+                                    label="Other"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    id="morgtage_loan_other"
+                                    // value={this.state.song_title}
+                                    // onChange={this.handleInputChangeFor('song_title')}
+                                    fullWidth
+                                    variant="outlined"
+                                />
+                            </Grid>
+                            <h4>mortgage in the amount stated in this Purchase Agreement, amortized over a period of not more than</h4>
+                            <Grid item xs={12}>
+                                <TextField
+                                    id="amortized_period"
+                                    // value={this.state.song_title}
+                                    // onChange={this.handleInputChangeFor('song_title')}
+                                    fullWidth
+                                    variant="outlined"
+                                />
+                            </Grid>
+                            <h4>years, with an initial interest rate at no more than</h4>
+                            <Grid item xs={12}>
+                                <TextField
+                                    id="interest_rate"
+                                    // value={this.state.song_title}
+                                    // onChange={this.handleInputChangeFor('song_title')}
+                                    fullWidth
+                                    variant="outlined"
+                                    InputProps={{
+                                        endAdornment: <InputAdornment position="end">%</InputAdornment>,
+                                    }}
+                                />
+                            </Grid>
+                            <h4>per annum.</h4>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <center>
+                                <h3>Mortgage Financing Contingency</h3>
+                            </center>
+                        </Grid>
+                        <h4>This Purchase Agreement is contingent upon the following and applies to the first mortgage and any subordinate financing. <i>(Check One)</i></h4>
+                        <Grid item xs={12}>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />}
+                                label="If Buyer cannot secure the financing specified in this Purchase Agreement, and this Purchase Agreement does not close on thie closing date specified, this Purchase Agreement is canceled. Buyer and Seller shall immediately sign a Cancellation of Purchase Agreement confirming said cancellation and directing all earnest moeny paid here to be"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />}
+                                label="Refunded to Buyer"
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />}
+                                label="Forfeited to seller"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />}
+                                label="Buyer shall provide Seller, or licensee representing or assisting Seller, with the Written Statement, on or before"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                        <TextField
+                                id="date"
+                                variant="outlined"
+                                type="date"
+                            />
+                            </Grid>
+                            <Grid item xs={12}>
+                            <center>
+                                <h3>Locking of Mortgage Interest Rate</h3>
+                            </center>
+                        </Grid>
+                        <h4>The Rate shall be loced with the lenders(s) by Buyer:<i>(Chck one)</i></h4>
+                        <Grid item xs={12}>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />}
+label="Within five (5) business days of final acceptance date of this purchase agreement"                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />}
+label="At any time prior to closing or as required by lenders(s)"                            />
+                        </Grid>
+
+
+
+
+                    </Grid>
+                </Container>
+                <Container component="main">
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
+                            <div align="left">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    Back
+                        </Button>
+                            </div>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <div align="right">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    Save
+                        </Button>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </div>
         )
     }
 }
