@@ -23,8 +23,7 @@ class ListingCategory4 extends Component {
                     id="buyers_earnest_money"
                     // value={this.state.song_title}
                     // onChange={this.handleInputChangeFor('song_title')}
-                    minWidth
-                    variant="outlined"
+                    minWidth variant="outlined"
                 /></p>
                 <p>at the commencement of this Contract, which fee should be kept by Broker whether or not Seller sells the Property. The retainer fee will apply toward satisfaction of any obligation to compensate Broker.</p>
                 <p>Seller shall pay Broker, as Broker's compensation, <TextField
