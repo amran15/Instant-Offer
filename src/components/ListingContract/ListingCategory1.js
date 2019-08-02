@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 //Material UI
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 // import Container from '@material-ui/core/Container';
 // import Grid from '@material-ui/core/Grid';
 // import swal from 'sweetalert';
@@ -75,7 +75,7 @@ class ListingCategory1 extends Component {
                     // onChange={this.handleInputChangeFor('song_title')}
                     minWidth
                     variant="outlined"
-                    input type="date"
+                    type="date"
                 />
                 <p>. This Contract terminates upon successful closing of the property(ies) specified in this Contract or expiration or expiration or cancellation of this Contract,<br/>
                  whichever occurs first.</p>
@@ -97,6 +97,9 @@ class ListingCategory1 extends Component {
                     fullWidth
                     variant="outlined"
                 />
+
+                <Button variant="contained">Back</Button>
+                <Button variant="contained">Save</Button>
             </>
         )
     }
