@@ -35,7 +35,7 @@ import ListingCategory7 from '../ListingContract/ListingCategory7';
 import ListingCategory8 from '../ListingContract/ListingCategory8';
 
 //this will hold purchase categories/questions
-import PurchaseCategories from '../PurchaseAgreementQuestions/PurchaseCategories';
+// import PurchaseCategories from '../PurchaseAgreementQuestions/PurchaseCategories';
 import PurchaseCategory1 from '../PurchaseAgreementQuestions/PurchaseCategory1';
 import PurchaseCategory2 from '../PurchaseAgreementQuestions/PurchaseCategory2';
 import PurchaseCategory3 from '../PurchaseAgreementQuestions/PurchaseCategory3';
@@ -127,11 +127,6 @@ class App extends Component {
               path="/PurchaseAgreement"
               component={PurchaseAgreement}
             />
-            <ProtectedRoute
-              exact
-              path="/PurchaseCategories"
-              component={PurchaseCategories}
-            /> 
              <ProtectedRoute
               exact
               path="/PurchaseCategory1"
