@@ -23,6 +23,19 @@ import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
 
 import './App.css';
 import ListingContract from '../ListingContract/ListingContract';
+
+// these are the listing question categories
+import ListingCategory1 from '../ListingContract/ListingCategory1';
+import ListingCategory2 from '../ListingContract/ListingCategory2';
+import ListingCategory3 from '../ListingContract/ListingCategory3';
+import ListingCategory4 from '../ListingContract/ListingCategory4';
+import ListingCategory5 from '../ListingContract/ListingCategory5';
+import ListingCategory6 from '../ListingContract/ListingCategory6';
+import ListingCategory7 from '../ListingContract/ListingCategory7';
+import ListingCategory8 from '../ListingContract/ListingCategory8';
+
+//this will hold purchase categories/questions
+// import PurchaseCategories from '../PurchaseAgreementQuestions/PurchaseCategories';
 import PurchaseCategory1 from '../PurchaseAgreementQuestions/PurchaseCategory1';
 import PurchaseCategory2 from '../PurchaseAgreementQuestions/PurchaseCategory2';
 import PurchaseCategory3 from '../PurchaseAgreementQuestions/PurchaseCategory3';
@@ -68,6 +81,46 @@ class App extends Component {
               exact
               path="/ListingContract"
               component={ListingContract}
+            />
+             <ProtectedRoute
+              exact
+              path="/ListingCategory1"
+              component={ListingCategory1}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategory2"
+              component={ListingCategory2}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategory3"
+              component={ListingCategory3}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategory4"
+              component={ListingCategory4}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategory5"
+              component={ListingCategory5}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategory6"
+              component={ListingCategory6}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategory7"
+              component={ListingCategory7}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategory8"
+              component={ListingCategory8}
             />
             <ProtectedRoute
               exact
