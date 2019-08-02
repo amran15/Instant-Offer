@@ -306,8 +306,8 @@ class PurchaseCategory4 extends Component {
                             </center>
                         </Grid>
                         <h4>Nothing in this Purchase Agreement shall be construed as a warranty that Seller shall make repairs required by the lender commitment. However, Seller agrees to pay up to the following amount to make repairs as required by the lender commitment.</h4>
-<Grid item xs={12}>
-<TextField
+                        <Grid item xs={12}>
+                            <TextField
                                 id="buyers_earnest_money"
                                 // value={this.state.song_title}
                                 // onChange={this.handleInputChangeFor('song_title')}
@@ -317,9 +317,9 @@ class PurchaseCategory4 extends Component {
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
                             />
-    </Grid>
-    <h4>The following party agrees to pay any reinspection fee required by Buyer's lenders(s).</h4>
-    <Grid item xs={12}>
+                        </Grid>
+                        <h4>The following party agrees to pay any reinspection fee required by Buyer's lenders(s).</h4>
+                        <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox
@@ -345,8 +345,8 @@ class PurchaseCategory4 extends Component {
                             </center>
                         </Grid>
                         <h4>Appraised value of the Property</h4>
-<Grid item xs={12}>
-<TextField
+                        <Grid item xs={12}>
+                            <TextField
                                 id="buyers_earnest_money"
                                 // value={this.state.song_title}
                                 // onChange={this.handleInputChangeFor('song_title')}
@@ -356,12 +356,100 @@ class PurchaseCategory4 extends Component {
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
                             />
-</Grid>
-
-
-
-
+                        </Grid>
+                        <Grid item xs={12}>
+                            <center>
+                                <h3>Lender Processing Fees (FHA, DVA Financing Only)</h3>
+                            </center>
+                        </Grid>
+                        <h4>Seller agrees to apy Buyer's closing fees and miscellaneous processing fees which cannot be charged to Buyer, not to exceed the follwing amount.</h4>
+                        <Grid item xs={12}>
+                            <TextField
+                                id="buyers_earnest_money"
+                                // value={this.state.song_title}
+                                // onChange={this.handleInputChangeFor('song_title')}
+                                fullWidth
+                                variant="outlined"
+                                InputProps={{
+                                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <center>
+                                <h3>DVA FUNDING FEE (DVA Financing Only)</h3>
+                            </center>
+                        </Grid>
+                        <h4>Pursuant to federal regulations, a one-time Funding Fee must be paid at the closing of this transaction as follows:</h4>
+                        <Grid item xs={12}>
+                            <h4>Paid by Buyer</h4>
+                            <TextField
+                                id="buyers_earnest_money"
+                                // value={this.state.song_title}
+                                // onChange={this.handleInputChangeFor('song_title')}
+                                fullWidth
+                                variant="outlined"
+                                InputProps={{
+                                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />}
+                                label="At closing"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />}
+                                label="Added to mortgage amount"
+                            />
+                        </Grid>
+                        <h4>Paid by the Seller</h4>
+                        <Grid item xs={12}>
+                            <TextField
+                                id="buyers_earnest_money"
+                                // value={this.state.song_title}
+                                // onChange={this.handleInputChangeFor('song_title')}
+                                fullWidth
+                                variant="outlined"
+                                InputProps={{
+                                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <center>
+                                <h3>Other Mortgage Financing Items</h3>
+                            </center>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                id="buyers_earnest_money"
+                                // value={this.state.song_title}
+                                // onChange={this.handleInputChangeFor('song_title')}
+                                fullWidth
+                                variant="outlined"
+                                InputProps={{
+                                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                }}
+                            />
+                        </Grid>
                     </Grid>
+                    <br/>
                 </Container>
                 <Container component="main">
                     <Grid container spacing={2}>
