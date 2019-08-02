@@ -41,7 +41,7 @@ class ListingCategory4 extends Component {
                     </div>
                 </Grid>
             </Grid>
-        </Container>
+        </Container>                
         )
     }
 }
