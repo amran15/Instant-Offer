@@ -266,13 +266,13 @@ class PurchaseCategory4 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                        <TextField
+                            <TextField
                                 id="date"
                                 variant="outlined"
                                 type="date"
                             />
-                            </Grid>
-                            <Grid item xs={12}>
+                        </Grid>
+                        <Grid item xs={12}>
                             <center>
                                 <h3>Locking of Mortgage Interest Rate</h3>
                             </center>
@@ -287,7 +287,7 @@ class PurchaseCategory4 extends Component {
                                         value="checkedB"
                                         color="primary"
                                     />}
-label="Within five (5) business days of final acceptance date of this purchase agreement"                            />
+                                label="Within five (5) business days of final acceptance date of this purchase agreement" />
                         </Grid>
                         <Grid item xs={12}>
                             <FormControlLabel
@@ -298,8 +298,65 @@ label="Within five (5) business days of final acceptance date of this purchase a
                                         value="checkedB"
                                         color="primary"
                                     />}
-label="At any time prior to closing or as required by lenders(s)"                            />
+                                label="At any time prior to closing or as required by lenders(s)" />
                         </Grid>
+                        <Grid item xs={12}>
+                            <center>
+                                <h3>Lender Commitment Work Orders</h3>
+                            </center>
+                        </Grid>
+                        <h4>Nothing in this Purchase Agreement shall be construed as a warranty that Seller shall make repairs required by the lender commitment. However, Seller agrees to pay up to the following amount to make repairs as required by the lender commitment.</h4>
+<Grid item xs={12}>
+<TextField
+                                id="buyers_earnest_money"
+                                // value={this.state.song_title}
+                                // onChange={this.handleInputChangeFor('song_title')}
+                                fullWidth
+                                variant="outlined"
+                                InputProps={{
+                                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                }}
+                            />
+    </Grid>
+    <h4>The following party agrees to pay any reinspection fee required by Buyer's lenders(s).</h4>
+    <Grid item xs={12}>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />}
+                                label="Seller" />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        value="checkedB"
+                                        color="primary"
+                                    />}
+                                label="Buyer" />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <center>
+                                <h3>FHA Escape Clause (FHA Financing only)</h3>
+                            </center>
+                        </Grid>
+                        <h4>Appraised value of the Property</h4>
+<Grid item xs={12}>
+<TextField
+                                id="buyers_earnest_money"
+                                // value={this.state.song_title}
+                                // onChange={this.handleInputChangeFor('song_title')}
+                                fullWidth
+                                variant="outlined"
+                                InputProps={{
+                                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                }}
+                            />
+</Grid>
 
 
 
