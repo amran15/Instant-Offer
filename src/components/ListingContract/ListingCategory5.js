@@ -1,4 +1,14 @@
+import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+
+//Material UI
 import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import { TextField, InputAdornment } from '@material-ui/core';
 
 
 
