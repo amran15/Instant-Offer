@@ -8,7 +8,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { TextField } from '@material-ui/core';
+import { TextField, InputAdornment } from '@material-ui/core';
 
 class ListingCategory1 extends Component {
     handleClick = () => {
@@ -16,99 +16,78 @@ class ListingCategory1 extends Component {
     }
     render() {
         return (
-            <Container component="main">
-                <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                        <center>
-                            <h2>General Information</h2>
-                        </center>
-                    </Grid>
-                </Grid>
-                <Grid item xs={12}>
-                    <h4>What is the property address?</h4>
-                    <TextField
-                        id="property_address"
-                        fullWidth
-                        variant="outlined"
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <h4>Who is the Seller?</h4>
-                    <TextField
-                        id="seller_name"
-                        fullWidth
-                        variant="outlined"
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <h4>Who is the Broker?</h4>
-                    <TextField
-                        id="broker_name"
-                        fullWidth
-                        variant="outlined"
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <h4>Contract Start Date</h4>
-                    <TextField
-                        id="start_date"
-                        variant="outlined"
-                        type="date"
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <h4>Contract End Date</h4>
-                    <TextField
-                        id="end_date"
-                        variant="outlined"
-                        type="date"
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <h4>What is the property ?</h4>
-                    <TextField
-                        id="property_price"
-                        fullWidth
-                        variant="outlined"
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <h4>Additional Terms:</h4>
-                    <TextField
-                        id="following_terms"
-                        fullWidth
-                        variant="outlined"
-                    />
-                </Grid>
-                <br />
-                <br />
+            <div>
                 <Container component="main">
                     <Grid container spacing={2}>
-                        <Grid item xs={6}>
-                            <div align="left" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleClick}
-                                >
-                                    Back
-                </Button>
-                            </div>
+                        <Grid item xs={12}>
+                            <center>
+                                <h2>Broker's Compensation</h2>
+                            </center>
                         </Grid>
-                        <Grid item xs={6}>
-                            <div align="right" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleClick}
-                                >
-                                    Save
-                </Button>
-                            </div>
-                        </Grid>
+                        <h4>Broker's retainer fee</h4>
+                        <TextField
+                            id="retainer_fee"
+                            fullWidth
+                            variant="outlined"
+                            InputProps={{
+                                startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                            }}
+                        />
+                        <h4>Percent of selling price</h4>
+                        <TextField
+                            id="percent"
+                            fullWidth
+                            variant="outlined"
+                            InputProps={{
+                                endAdornment: <InputAdornment position="end">%</InputAdornment>,
+                            }}
+                        />
+                        <h4>Broker's commission price in CASH </h4>
+                        <TextField
+                            id="commission_price"
+                            fullWidth
+                            variant="outlined"
+                            InputProps={{
+                                startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                            }}
+                        />
+                        <h4>Other</h4>
+                        <TextField
+                            id="additional_info"
+                            fullWidth
+                            variant="outlined"
+                        />
                     </Grid>
+                    <br />
+                    <br />
+                    <Container component="main">
+                        <Grid container spacing={2}>
+                            <Grid item xs={6}>
+                                <div align="left" className="Button">
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={this.handleClick}
+                                    >
+                                        Back
+                </Button>
+                                </div>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <div align="right" className="Button">
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={this.handleClick}
+                                    >
+                                        Save
+                </Button>
+                                </div>
+                            </Grid>
+                        </Grid>
+                    </Container>
                 </Container>
-            </Container>
+            </div>
         )
     }
 }
