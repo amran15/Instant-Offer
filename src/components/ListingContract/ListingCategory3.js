@@ -52,7 +52,7 @@ class ListingCategory3 extends Component {
                             variant="outlined"
                         />
                         </Grid>
-                        <h4>If selected no, the property can be listed for lease during the terms of this contract with another broker?</h4>
+                        <h4>If selected no, the property can be listed for lease during the terms of this contract with another broker</h4>
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={

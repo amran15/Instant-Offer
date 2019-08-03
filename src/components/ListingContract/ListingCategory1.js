@@ -8,7 +8,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { TextField } from '@material-ui/core';
+import { TextField, InputAdornment } from '@material-ui/core';
 
 class ListingCategory1 extends Component {
     handleClick = () => {
@@ -65,15 +65,18 @@ class ListingCategory1 extends Component {
                     />
                 </Grid>
                 <Grid item xs={12}>
-                    <h4>What is the property ?</h4>
+                    <h4>What is the property price?</h4>
                     <TextField
                         id="property_price"
                         fullWidth
                         variant="outlined"
+                        InputProps={{
+                            startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                        }}
                     />
                 </Grid>
                 <Grid item xs={12}>
-                    <h4>Additional Terms:</h4>
+                    <h4>Additional Terms</h4>
                     <TextField
                         id="following_terms"
                         fullWidth
