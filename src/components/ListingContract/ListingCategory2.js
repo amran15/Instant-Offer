@@ -7,7 +7,7 @@ import { withRouter } from 'react-router';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import { TextField, Checkbox, FormControlLabel } from '@material-ui/core';
+import {Checkbox, FormControlLabel } from '@material-ui/core';
 
 
 class ListingCategory2 extends Component {
