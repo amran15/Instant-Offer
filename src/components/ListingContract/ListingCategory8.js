@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 
 
 class ListingCategory8 extends Component {
+
     
 
     state = {
@@ -46,7 +47,7 @@ class ListingCategory8 extends Component {
 
 
     handleClickBack = () => {
-        this.props.history.push('/home')
+        this.props.history.push('/ListingContract')
     }
 
     handleSaveButton = () =>{
@@ -55,7 +56,6 @@ class ListingCategory8 extends Component {
     }
 
     
-
 
     render() {
         return (
@@ -69,7 +69,7 @@ class ListingCategory8 extends Component {
                         </Grid>
                     </Grid>
                     <Grid container spacing={2}>
-                    <h4>Seller will agree to dual agency and will consider offers made by buyers represented by Broker?</h4>
+                    <h4>Seller will agree to dual agency and will consider offers made by buyers represented by broker?</h4>
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={
@@ -91,7 +91,7 @@ class ListingCategory8 extends Component {
                                 label="No"
                             />
                         </Grid>
-                        <h4>Seller will not agree to dual agency and not consider offers made by buyers represented by Broker?</h4>
+                        <h4>Seller will not agree to dual agency and not consider offers made by buyers represented by broker?</h4>
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={
@@ -132,6 +132,8 @@ class ListingCategory8 extends Component {
                         />
                     </Grid>
                     </Grid>
+                    <br/>
+                    <br/>
                 </Container>
                 <Container component="main">
                     <Grid container spacing={2}>
@@ -153,6 +155,7 @@ class ListingCategory8 extends Component {
                                     onClick={this.handleSaveButton}
                                     variant="contained"
                                     color="primary"
+                                    onClick={this.handleSave}
                                 >
                                     Save
                         </Button>

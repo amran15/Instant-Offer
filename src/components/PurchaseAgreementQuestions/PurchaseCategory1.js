@@ -91,7 +91,7 @@ class PurchaseCategory1 extends Component {
                             <p>Property Address</p>
                             <TextField
                                 id="street_address"
-                                label="Street Addres"
+                                label="Street Address"
                                 // value={this.state.song_title}
                                 // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
@@ -139,7 +139,7 @@ class PurchaseCategory1 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <p>The following item(s) are exlcuded from the purchase:</p>
+                            <p>The following item(s) are excluded from the purchase:</p>
                             <TextField
                                 id="excluded_items"
                                 // value={this.state.song_title}

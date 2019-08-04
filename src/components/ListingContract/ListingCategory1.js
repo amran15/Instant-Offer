@@ -6,130 +6,146 @@ import { withRouter } from 'react-router';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-// import InputAdornment from '@material-ui/core/InputAdornment';
-import { TextField } from '@material-ui/core';
+import { TextField, InputAdornment } from '@material-ui/core';
 
 class ListingCategory1 extends Component {
+
 
    
 
 
 
     
-
+    handleClick = () => {
+        this.props.history.push('/ListingContract')
+    }
+    
+    
     render() {
         return (
-            <>
-            <p>Date</p>
-            <TextField
-                    // label="Song Title"
-                    id="buyers_earnest_money"
-                    // value={this.state.song_title}
-                    // onChange={this.handleInputChangeFor('song_title')}
-                    minWidth
-                    variant="outlined"
-                    input type="date"
-                />
-                <p><strong>DEFINITIONS:</strong> This Contract involves ths property located at </p>
-                <TextField
-                    // label="Song Title"
-                    id="buyers_name"
-                    // value={this.state.song_title}
-                    // onChange={this.handleInputChangeFor('song_title')}
-                    fullWidth
-                    variant="outlined"
-                />
-                <p>Legally described as</p>
-                <TextField
-                    // label="Song Title"
-                    id="buyers_earnest_money"
-                    // value={this.state.song_title}
-                    // onChange={this.handleInputChangeFor('song_title')}
-                    fullWidth
-                    variant="outlined"
-                /> 
-                <p>Seller's Name </p>
-                <TextField
-                    // label="Song Title"
-                    id="buyers_earnest_money"
-                    // value={this.state.song_title}
-                    // onChange={this.handleInputChangeFor('song_title')}
-                    fullWidth
-                    variant="outlined"
-                />
-                <p>Broker's Name</p>
-                <TextField
-                    // label="Song Title"
-                    id="buyers_earnest_money"
-                    // value={this.state.song_title}
-                    // onChange={this.handleInputChangeFor('song_title')}
-                    fullWidth
-                    variant="outlined"
-                />
-                <p>This Contract starts on  </p> <TextField
-                    // label="Song Title"
-                    id="buyers_earnest_money"
-                    // value={this.state.song_title}
-                    // onChange={this.handleInputChangeFor('song_title')}
-                    minWidth
-                    variant="outlined"
-                    input type="date"
-                /><p>, and ends at 11:59 p.m. on</p>
-                <TextField
-                    // label="Song Title"
-                    id="buyers_earnest_money"
-                    // value={this.state.song_title}
-                    // onChange={this.handleInputChangeFor('song_title')}
-                    minWidth
-                    variant="outlined"
-                    type="date"
-                />
-                <p>. This Contract terminates upon successful closing of the property(ies) specified in this Contract or expiration or expiration or cancellation of this Contract,<br/>
-                 whichever occurs first.</p>
-                 <p>This Contract may only be canceled by written mutual agreement of the parties.</p>
-                 <p><strong>PRICE:</strong>Seller offers the Property for sale for the price</p>
-                 <TextField
-                    label="$"
-                    id="buyers_earnest_money"
-                    // value={this.state.song_title}
-                    // onChange={this.handleInputChangeFor('song_title')}
-                    minWidth
-                    variant="outlined"
-                /><p>upon the following terms:</p>
-                  <TextField
-                    // label="$"
-                    id="buyers_earnest_money"
-                    // value={this.state.song_title}
-                    // onChange={this.handleInputChangeFor('song_title')}
-                    fullWidth
-                    variant="outlined"
-                />
-                
+            <div>
+                <Container component="main">
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <center>
+                                <h2>General Information</h2>
+                            </center>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <h4>Property Address</h4>
+                            <TextField
+                                id="street_address"
+                                label="Street Address"
+                                fullWidth
+                                variant="outlined"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                label="City"
+                                id="city"
+                                fullWidth
+                                variant="outlined"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                label="County"
+                                id="county"
+                                fullWidth
+                                variant="outlined"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <h4>Legal description of property</h4>
+                            <TextField
+                                id="legal_description"
+                                fullWidth
+                                variant="outlined"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <h4>Who is the Seller?</h4>
+                            <TextField
+                                id="seller_name"
+                                fullWidth
+                                variant="outlined"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <h4>Who is the Broker?</h4>
+                            <TextField
+                                id="broker_name"
+                                fullWidth
+                                variant="outlined"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <h4>Contract Start Date</h4>
+                            <TextField
+                                id="start_date"
+                                variant="outlined"
+                                type="date"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <h4>Contract End Date</h4>
+                            <TextField
+                                id="end_date"
+                                variant="outlined"
+                                type="date"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <h4>What is the property price?</h4>
+                            <TextField
+                                id="property_price"
+                                fullWidth
+                                variant="outlined"
+                                InputProps={{
+                                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <h4>Additional Terms</h4>
+                            <TextField
+                                id="following_terms"
+                                fullWidth
+                                variant="outlined"
+                            />
+                        </Grid>
+                    </Grid>
+                </Container>
+                <br />
+                <br />
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={6}>
-                            <div align="left">
+                            <div align="left" className="Button">
                                 <Button
                                     variant="contained"
                                     color="primary"
+                                    onClick={this.handleClick}
                                 >
                                     Back
-                        </Button>
+                </Button>
                             </div>
                         </Grid>
                         <Grid item xs={6}>
-                            <div align="right">
+                            <div align="right" className="Button">
                                 <Button
                                     variant="contained"
                                     color="primary"
+                                    onClick={this.handleClick}
                                 >
                                     Save
-                        </Button>
+                </Button>
                             </div>
                         </Grid>
                     </Grid>
                 </Container>
-            </>
+            </div>
         )
     }
 }
