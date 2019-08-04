@@ -134,7 +134,7 @@ class ListingCategory8 extends Component {
                                 id="other_communication_options"
                                 fullWidth
                                 variant="outlined"
-                                onChange={this.hanldeChangeForInputs('consent')}
+                                onChange={this.handleChangeForInputs('consent')}
                             />
                         </Grid>
                     </Grid>
@@ -149,7 +149,7 @@ class ListingCategory8 extends Component {
                                     onClick={this.handleClickBack}
                                     variant="contained"
                                     color="primary"
-                                    onChange={this.hanldeChangeForInputs}
+                                    onChange={this.handleChangeForInputs}
                                 >
                                     Back
                         </Button>
