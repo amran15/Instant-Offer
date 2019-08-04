@@ -9,14 +9,36 @@ import Grid from '@material-ui/core/Grid';
 import { TextField, InputAdornment } from '@material-ui/core';
 
 
+
+
 class ListingCategory4 extends Component {
 
-   
+    state = {
+        brokerCompensation: {
+            retainerFee: '',
+            sellingPrice: '',
+            brokerCommision: '',
+            other: ''
+        }
+    }
 
 
+    handleChange = (propertyName) => (event) => {
+        this.setState({
+            brokerCompensation: {
+                ...this.state.brokerCompensation, [propertyName]: event.target.value
+            }
+        })
+    }
 
-class ListingCategory1 extends Component {
+
     handleClick = () => {
+        this.props.history.push('/ListingContract')
+    }
+
+    handleClickToSave = () => {
+        console.log('we are posting listing cat 4 - Brokers Comp')
+        this.props.dispatch({ type: 'POST_BROKERCOMPENSATION', payload: this.state.brokerCompensation })
         this.props.history.push('/ListingContract')
     }
 
@@ -38,6 +60,7 @@ class ListingCategory1 extends Component {
                             InputProps={{
                                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
                             }}
+                            onChange={this.handleChange('retainerFee')}
                         />
                         <h4>Percent of selling price</h4>
                         <TextField
@@ -47,6 +70,7 @@ class ListingCategory1 extends Component {
                             InputProps={{
                                 endAdornment: <InputAdornment position="end">%</InputAdornment>,
                             }}
+                            onChange={this.handleChange('sellingPrice')}
                         />
                         <h4>Broker's commission price in CASH </h4>
                         <TextField
@@ -56,12 +80,14 @@ class ListingCategory1 extends Component {
                             InputProps={{
                                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
                             }}
+                            onChange={this.handleChange('brokerCommision')}
                         />
                         <h4>Other</h4>
                         <TextField
                             id="additional_info"
                             fullWidth
                             variant="outlined"
+                            onChange={this.handleChange('other')}
                         />
                     </Grid>
                     <br />
@@ -84,7 +110,7 @@ class ListingCategory1 extends Component {
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        onClick={this.handleClick}
+                                        onClick={this.handleClickToSave}
                                     >
                                         Save
                 </Button>
@@ -93,10 +119,14 @@ class ListingCategory1 extends Component {
                         </Grid>
                     </Container>
                 </Container>
+
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
             </div>
         )
     }
 }
 
 const mapReduxStateToProps = reduxState => ({ reduxState })
-export default connect(mapReduxStateToProps)(withRouter(ListingCategory1));
+export default connect(mapReduxStateToProps)(withRouter(ListingCategory4));

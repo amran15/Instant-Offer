@@ -13,13 +13,52 @@ import { TextField, InputAdornment } from '@material-ui/core';
 
 class ListingCategory5 extends Component {
 
+    state = {
+        compensationDisclosure: {
+            cooperatingBrokers: '',
+            grossPercent: '',
+            grossCash: '',
+        }
+    }
 
 
-    
+    handleClickForCheckbox = (propertyName) => (event) => {
+        this.setState({
+            compensationDisclosure: {
+                ...this.state.compensationDisclosure, [propertyName]: true,
+            }
+        })
+    }
+
+    handleClickForCheckboxNo = (propertyName) => (event) => {
+        this.setState({
+            compensationDisclosure: {
+                ...this.state.compensationDisclosure, [propertyName]: false,
+            }
+        })
+    }
+
+    handleChangeForInputs = (propertyName) => (event) => {
+        this.setState({
+            compensationDisclosure: {
+                ...this.state.compensationDisclosure, [propertyName]: event.target.value
+            }
+        })
+    }
+
 
     handleClick = () => {
         this.props.history.push('/ListingContract')
     }
+
+    handleClickToSave = () => {
+        console.log('we can save listingcat5 now!!!!!!!!');
+        this.props.dispatch({type:'POST_COMPENSATION_DISCLOSURE', payload:this.state.compensationDisclosure})
+        this.props.history.push('/ListingContract')
+    }
+
+
+
 
     render() {
         return (
@@ -37,7 +76,9 @@ class ListingCategory5 extends Component {
                                 control={
                                     <Checkbox
                                         value="checkedB"
-                                        color="primary" />
+                                        color="primary"
+                                        onClick={this.handleClickForCheckbox('cooperatingBrokers')}
+                                    />
                                 }
                                 label="Yes"
                             />
@@ -45,7 +86,9 @@ class ListingCategory5 extends Component {
                                 control={
                                     <Checkbox
                                         value="checkedB"
-                                        color="primary" />
+                                        color="primary"
+                                        onClick={this.handleClickForCheckboxNo('cooperatingBrokers')}
+                                    />
                                 }
                                 label="No"
                             />
@@ -60,6 +103,7 @@ class ListingCategory5 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
+                                onChange={this.handleChangeForInputs('grossPercent')}
                             />
                             <h4>Gross sales price in CASH </h4>
                             <TextField
@@ -69,6 +113,7 @@ class ListingCategory5 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
+                                onChange={this.handleChangeForInputs('grossCash')}
                             />
                         </Grid>
                     </Grid>
@@ -92,7 +137,7 @@ class ListingCategory5 extends Component {
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        onClick={this.handleClick}
+                                        onClick={this.handleClickToSave}
                                     >
                                         Save
                 </Button>
@@ -101,6 +146,10 @@ class ListingCategory5 extends Component {
                         </Grid>
                     </Container>
                 </Container>
+
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
             </div>
 
         )
