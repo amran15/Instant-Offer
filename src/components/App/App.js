@@ -44,6 +44,7 @@ import PurchaseCategory5 from '../PurchaseAgreementQuestions/PurchaseCategory5';
 import PurchaseCategory6 from '../PurchaseAgreementQuestions/PurchaseCategory6';
 import PurchaseCategory7 from '../PurchaseAgreementQuestions/PurchaseCategory7';
 import PurchaseCategory8 from '../PurchaseAgreementQuestions/PurchaseCategory8';
+import PurchaseCategory9 from '../PurchaseAgreementQuestions/PurchaseCategory9';
 
 class App extends Component {
   componentDidMount() {
@@ -166,6 +167,11 @@ class App extends Component {
               exact
               path="/PurchaseCategory8"
               component={PurchaseCategory8}
+            />
+            <ProtectedRoute
+              exact
+              path="/PurchaseCategory9"
+              component={PurchaseCategory9}
             />
             {/* <ProtectedRoute
               exact

@@ -447,8 +447,8 @@ class PurchaseCategory4 extends Component {
                             />
                         </Grid>
                     </Grid>
-                    <br/>
                 </Container>
+                <br/>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={6}>
