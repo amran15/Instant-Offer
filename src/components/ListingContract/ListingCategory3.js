@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 
 // Material UI
 // import Button from '@material-ui/core/Button';
-import { TextField, Checkbox,  FormControlLabel } from '@material-ui/core';
+import { TextField, Checkbox, FormControlLabel } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -13,9 +13,49 @@ import Grid from '@material-ui/core/Grid';
 
 class ListingCategory3 extends Component {
 
+    state = {
+        listedForLease: {
+            listedProperty: '',
+            ifYes: '',
+            ifNo: '',
+        }
+    }
 
+    //this will handle the checkbox event -  if the answer is yes
+    hanldeClickForCheckBox = (propertyName) => (event) => {
+        this.setState({
+            listedForLease: {
+                ...this.state.listedForLease, [propertyName]: true,
+            }
+        })
+    }
 
+    // this will handle the checkbox if no is the answer
+    handleClickForCheckBoxNo = (propertyName) => (event) => {
+        this.setState({
+            listedForLease: {
+                ...this.state.listedForLease, [propertyName]: false,
+            }
+        })
+    }
 
+    handleChangeForInput = (propertyName) => (event) => {
+        console.log(this.state.ifYes);
+        this.setState({
+            listedForLease: {
+            ...this.state.listedForLease, [propertyName]: event.target.value,
+        }})
+    }
+
+    // this.setState ({
+    //     ...this.state, [event.target.id]:event.target.value,
+    //  });
+
+    handleSaveButton = () => {
+        console.log('we are saving category 3');
+        this.props.dispatch({ type: 'POST_LISTEDFOR_LEASE', payload: this.state.listedForLease })
+        this.props.history.push('ListingContract')
+    }
 
 
     handleClick = () => {
@@ -37,27 +77,34 @@ class ListingCategory3 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        value="checkedB"
-                                        color="primary" />
+                                        id="checkedB"
+                                        color="primary"
+                                        value={this.state.listedForLease.listedProperty}
+                                        onClick={this.hanldeClickForCheckBox('listedProperty')}
+                                    />
                                 }
                                 label="Yes"
                             />
-                               <FormControlLabel
+                            <FormControlLabel
                                 control={
                                     <Checkbox
                                         value="checkedB"
-                                        color="primary" />
+                                        color="primary"
+                                        onClick={this.handleClickForCheckBoxNo('listedProperty')}
+                                    />
                                 }
                                 label="No"
                             />
                         </Grid>
                         <h4>If selected yes, who is the listing broker?</h4>
                         <Grid item xs={12}>
-                        <TextField
-                            id="listing_broker"
-                            fullWidth
-                            variant="outlined"
-                        />
+                            <TextField
+                                id="listing_broker"
+                                fullWidth
+                                variant="outlined"
+                                value={this.state.ifYes}
+                                onChange={this.handleChangeForInput}
+                            />
                         </Grid>
                         <h4>If selected no, the property can be listed for lease during the terms of this contract with another broker</h4>
                         <Grid item xs={12}>
@@ -65,15 +112,19 @@ class ListingCategory3 extends Component {
                                 control={
                                     <Checkbox
                                         value="checkedB"
-                                        color="primary" />
+                                        color="primary"
+                                        onClick={this.hanldeClickForCheckBox('ifNo')}
+                                    />
                                 }
                                 label="Yes"
                             />
-                               <FormControlLabel
+                            <FormControlLabel
                                 control={
                                     <Checkbox
                                         value="checkedB"
-                                        color="primary" />
+                                        color="primary"
+                                        onClick={this.handleClickForCheckBoxNo('ifNo')}
+                                    />
                                 }
                                 label="No"
                             />
@@ -100,7 +151,7 @@ class ListingCategory3 extends Component {
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={this.handleClick}
+                                    onClick={this.handleSaveButton}
                                 >
                                     Save
                 </Button>
@@ -108,6 +159,9 @@ class ListingCategory3 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
             </div>
         )
     }

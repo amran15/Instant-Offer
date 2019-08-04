@@ -14,35 +14,41 @@ import Button from '@material-ui/core/Button';
 
 class ListingCategory8 extends Component {
 
-    
+
 
     state = {
         agencyRep: {
             sellerAgree: '',
             sellerDoesNotAgree: '',
             companyName: '',
-            consent:'',
+            consent: '',
         }
     }
 
-        //this will handle the yes checkbox for seller will not agree
+    //this will handle the yes checkbox for seller will not agree
     handleClickCheckbox = (propertyName) => (event) => {
-        this.setState({agencyRep:{
-            ...this.state.agencyRep,[propertyName]:true,
-        }})
+        this.setState({
+            agencyRep: {
+                ...this.state.agencyRep, [propertyName]: true,
+            }
+        })
     }
 
     //this will handle the No checkbox for seller will agree
     handleClickCheckNo = (propertyName) => (event) => {
-        this.setState({agencyRep:{
-            ...this.state.agencyRep,[propertyName]:false,
-        }})
+        this.setState({
+            agencyRep: {
+                ...this.state.agencyRep, [propertyName]: false,
+            }
+        })
     }
 
-    hanldeChangeForInputs =(propertyName) => (event) => {
-        this.setState({agencyRep:{
-            ...this.state.agencyRep,[propertyName]: event.target.value
-        }})
+    handleChangeForInputs = (propertyName) => (event) => {
+        this.setState({
+            agencyRep: {
+                ...this.state.agencyRep, [propertyName]: event.target.value
+            }
+        })
     }
 
 
@@ -50,12 +56,12 @@ class ListingCategory8 extends Component {
         this.props.history.push('/ListingContract')
     }
 
-    handleSaveButton = () =>{
-        this.props.dispatch ({type:'POST_AGENCY_REPRESENTATION', payload: this.state.agencyRep})
+    handleSaveButton = () => {
+        this.props.dispatch({ type: 'POST_AGENCY_REPRESENTATION', payload: this.state.agencyRep })
         this.props.history.push('/ListingContract')
     }
 
-    
+
 
     render() {
         return (
@@ -69,15 +75,15 @@ class ListingCategory8 extends Component {
                         </Grid>
                     </Grid>
                     <Grid container spacing={2}>
-                    <h4>Seller will agree to dual agency and will consider offers made by buyers represented by broker?</h4>
+                        <h4>Seller will agree to dual agency and will consider offers made by buyers represented by broker?</h4>
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox
                                         id="checkedB"
                                         value={this.state.agencyRep.sellerAgree}
-                                        color="primary" 
-                                        onClick={this.handleClickCheckbox('sellerAgree')}/>
+                                        color="primary"
+                                        onClick={this.handleClickCheckbox('sellerAgree')} />
                                 }
                                 label="Yes"
                             />
@@ -98,16 +104,16 @@ class ListingCategory8 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        onClick={this.handleClickCheckbox('sellerDoesNotAgree')}/>
+                                        onClick={this.handleClickCheckbox('sellerDoesNotAgree')} />
                                 }
                                 label="Yes"
                             />
-                               <FormControlLabel
+                            <FormControlLabel
                                 control={
                                     <Checkbox
                                         value="checkedB"
-                                        color="primary" 
-                                        onClick={this.handleClickCheckNo('sellerDoesNotAgree')}/>
+                                        color="primary"
+                                        onClick={this.handleClickCheckNo('sellerDoesNotAgree')} />
                                 }
                                 label="No"
                             />
@@ -117,23 +123,23 @@ class ListingCategory8 extends Component {
                             id="name_real_estate"
                             fullWidth
                             variant="outlined"
-                            onChange={this.hanldeChangeForInputs('companyName')}
+                            onChange={this.handleChangeForInputs('companyName')}
                         />
                         <Grid item xs={12}>
-                    <h4>Electronic Signatures:</h4> <p>The parties agree the electronic signature of any party on any document related to this transaction constitute valid, binding signatures.</p>
+                            <h4>Electronic Signatures:</h4> <p>The parties agree the electronic signature of any party on any document related to this transaction constitute valid, binding signatures.</p>
 
-                    <h4>Consent for communication:</h4> <p>Seller authorizes Broker and its representatives to contract Seller by mail, phone, fax, email or other means of communication during the term of this Contract and anytime thereafter.</p>
-                    <h4>Other:</h4>
-                    <TextField
-                            id="other_communication_options"
-                            fullWidth
-                            variant="outlined"
-                            onChange={this.hanldeChangeForInputs('consent')}
-                        />
+                            <h4>Consent for communication:</h4> <p>Seller authorizes Broker and its representatives to contract Seller by mail, phone, fax, email or other means of communication during the term of this Contract and anytime thereafter.</p>
+                            <h4>Other:</h4>
+                            <TextField
+                                id="other_communication_options"
+                                fullWidth
+                                variant="outlined"
+                                onChange={this.hanldeChangeForInputs('consent')}
+                            />
+                        </Grid>
                     </Grid>
-                    </Grid>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                 </Container>
                 <Container component="main">
                     <Grid container spacing={2}>
@@ -155,7 +161,7 @@ class ListingCategory8 extends Component {
                                     onClick={this.handleSaveButton}
                                     variant="contained"
                                     color="primary"
-                                    onClick={this.handleSave}
+                                    // onClick={this.handleSave}
                                 >
                                     Save
                         </Button>

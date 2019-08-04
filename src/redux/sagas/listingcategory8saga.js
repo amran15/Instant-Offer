@@ -17,9 +17,9 @@ function* postAgencyRep (action) {
 
 
 // This is will combine our sagas
-function* category8Saga(){
+function* listingCategory8Saga(){
     yield takeLatest ('POST_AGENCY_REPRESENTATION', postAgencyRep)
 }
 
 
-export default category8Saga;
+export default listingCategory8Saga;
