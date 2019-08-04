@@ -15,7 +15,7 @@ class ListingCategory4 extends Component {
 
 
 
-class ListingCategory1 extends Component {
+
     handleClick = () => {
         this.props.history.push('/ListingContract')
     }
@@ -99,4 +99,4 @@ class ListingCategory1 extends Component {
 }
 
 const mapReduxStateToProps = reduxState => ({ reduxState })
-export default connect(mapReduxStateToProps)(withRouter(ListingCategory1));
+export default connect(mapReduxStateToProps)(withRouter(ListingCategory4));
