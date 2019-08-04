@@ -13,9 +13,49 @@ import Button from '@material-ui/core/Button';
 
 
 class ListingCategory8 extends Component {
-    handleClick = () =>{ 
+
+    
+
+    state = {
+        agencyRep: {
+            sellerAgree: '',
+            sellerDoesNotAgree: '',
+            companyName: '',
+            consent:'',
+        }
+    }
+
+        //this will handle the yes checkbox for seller will not agree
+    handleClickCheckbox = (propertyName) => (event) => {
+        this.setState({agencyRep:{
+            ...this.state.agencyRep,[propertyName]:true,
+        }})
+    }
+
+    //this will handle the No checkbox for seller will agree
+    handleClickCheckNo = (propertyName) => (event) => {
+        this.setState({agencyRep:{
+            ...this.state.agencyRep,[propertyName]:false,
+        }})
+    }
+
+    hanldeChangeForInputs =(propertyName) => (event) => {
+        this.setState({agencyRep:{
+            ...this.state.agencyRep,[propertyName]: event.target.value
+        }})
+    }
+
+
+    handleClickBack = () => {
         this.props.history.push('/ListingContract')
     }
+
+    handleSaveButton = () =>{
+        this.props.dispatch ({type:'POST_AGENCY_REPRESENTATION', payload: this.state.agencyRep})
+        this.props.history.push('/ListingContract')
+    }
+
+    
 
     render() {
         return (
@@ -34,15 +74,18 @@ class ListingCategory8 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        value="checkedB"
-                                        color="primary" />
+                                        id="checkedB"
+                                        value={this.state.agencyRep.sellerAgree}
+                                        color="primary" 
+                                        onClick={this.handleClickCheckbox('sellerAgree')}/>
                                 }
                                 label="Yes"
                             />
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        value="checkedB"
+                                        id="checkedB"
+                                        onClick={this.handleClickCheckNo('sellerAgree')}
                                         color="primary" />
                                 }
                                 label="No"
@@ -54,7 +97,8 @@ class ListingCategory8 extends Component {
                                 control={
                                     <Checkbox
                                         value="checkedB"
-                                        color="primary" />
+                                        color="primary"
+                                        onClick={this.handleClickCheckbox('sellerDoesNotAgree')}/>
                                 }
                                 label="Yes"
                             />
@@ -62,7 +106,8 @@ class ListingCategory8 extends Component {
                                 control={
                                     <Checkbox
                                         value="checkedB"
-                                        color="primary" />
+                                        color="primary" 
+                                        onClick={this.handleClickCheckNo('sellerDoesNotAgree')}/>
                                 }
                                 label="No"
                             />
@@ -72,6 +117,7 @@ class ListingCategory8 extends Component {
                             id="name_real_estate"
                             fullWidth
                             variant="outlined"
+                            onChange={this.hanldeChangeForInputs('companyName')}
                         />
                         <Grid item xs={12}>
                     <h4>Electronic Signatures:</h4> <p>The parties agree the electronic signature of any party on any document related to this transaction constitute valid, binding signatures.</p>
@@ -82,6 +128,7 @@ class ListingCategory8 extends Component {
                             id="other_communication_options"
                             fullWidth
                             variant="outlined"
+                            onChange={this.hanldeChangeForInputs('consent')}
                         />
                     </Grid>
                     </Grid>
@@ -93,9 +140,10 @@ class ListingCategory8 extends Component {
                         <Grid item xs={6}>
                             <div align="left" className="Button">
                                 <Button
+                                    onClick={this.handleClickBack}
                                     variant="contained"
                                     color="primary"
-                                    onClick={this.handleClick}
+                                    onChange={this.hanldeChangeForInputs}
                                 >
                                     Back
                         </Button>
@@ -104,6 +152,7 @@ class ListingCategory8 extends Component {
                         <Grid item xs={6}>
                             <div align="right" className="Button">
                                 <Button
+                                    onClick={this.handleSaveButton}
                                     variant="contained"
                                     color="primary"
                                     onClick={this.handleSave}
@@ -114,6 +163,9 @@ class ListingCategory8 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
             </div>
         )
     }

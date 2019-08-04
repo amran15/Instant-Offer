@@ -11,9 +11,14 @@ import {Checkbox, FormControlLabel } from '@material-ui/core';
 
 
 class ListingCategory2 extends Component {
+
+
+
+
     handleClick = () => {
         this.props.history.push('/ListingContract')
     }
+
     render() {
         return (
             <div>
