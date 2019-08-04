@@ -20,9 +20,7 @@ class PurchaseCategory1 extends Component {
                             <center>
                                 <h2>General Information</h2>
                             </center>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <p>Date</p>
+                            <h4>Date</h4>
                             <TextField
                                 id="date"
                                 variant="outlined"
@@ -30,7 +28,7 @@ class PurchaseCategory1 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <p>Buyer's Name</p>
+                            <h4>Buyer's Name</h4>
                             <TextField
                                 // label="Song Title"
                                 id="buyers_name"
@@ -41,7 +39,7 @@ class PurchaseCategory1 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <p>Buyer's earnest money in the amount of</p>
+                            <h4>Buyer's earnest money in the amount of</h4>
                             <TextField
                                 // label="Song Title"
                                 id="buyers_earnest_money"
@@ -62,7 +60,7 @@ class PurchaseCategory1 extends Component {
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
                             />
-                            <p>shall be delivered to listing broker, or if checked, to</p>
+                            <h4>shall be delivered to listing broker, or if checked, to</h4>
 
                             <Grid container spacing={2}>
                                 <Grid item xs={2}>
@@ -85,10 +83,10 @@ class PurchaseCategory1 extends Component {
                             </Grid>
 
 
-                            <p>no later than two (2) Business Days after Final Acceptance Date of this Purchase Agreement.</p>
+                            <h4>no later than two (2) Business Days after Final Acceptance Date of this Purchase Agreement.</h4>
                         </Grid>
                         <Grid item xs={12}>
-                            <p>Property Address</p>
+                            <h4>Property Address</h4>
                             <TextField
                                 id="street_address"
                                 label="Street Address"
@@ -119,7 +117,7 @@ class PurchaseCategory1 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <p>Legal description of property</p>
+                            <h4>Legal description of property</h4>
                             <TextField
                                 id="legal_description"
                                 // value={this.state.song_title}
@@ -129,7 +127,7 @@ class PurchaseCategory1 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <p>Built-Ins and the following personal property shall be transferred with no additional monetary value, and free and clear of all liens and encumbrances:</p>
+                            <h4>Built-Ins and the following personal property shall be transferred with no additional monetary value, and free and clear of all liens and encumbrances:</h4>
                             <TextField
                                 id="built_ins"
                                 // value={this.state.song_title}
@@ -139,7 +137,7 @@ class PurchaseCategory1 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <p>The following item(s) are excluded from the purchase:</p>
+                            <h4>The following item(s) are excluded from the purchase:</h4>
                             <TextField
                                 id="excluded_items"
                                 // value={this.state.song_title}

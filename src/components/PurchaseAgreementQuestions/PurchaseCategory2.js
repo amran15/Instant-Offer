@@ -19,9 +19,7 @@ class PurchaseCategory2 extends Component {
                             <center>
                                 <h2>Purchase Price</h2>
                             </center>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <p>Seller has agreed to sell the Property to Buyer for the sum of</p>
+                            <h4>Seller has agreed to sell the Property to Buyer for the sum of</h4>
                             <TextField
                                 id="sum"
                                 // value={this.state.song_title}
@@ -43,8 +41,8 @@ class PurchaseCategory2 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <p>Buyer agrees to pay in the following manner:</p>
-                            <p>Sale price in CASH</p>
+                            <h4>Buyer agrees to pay in the following manner:</h4>
+                            <h4>Sale price in CASH</h4>
                             <TextField
                                 id="percent"
                                 // value={this.state.song_title}
@@ -55,7 +53,7 @@ class PurchaseCategory2 extends Component {
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
                             />
-                            <p>Sale price in MORTGAGE FINANCING</p>
+                            <h4>Sale price in MORTGAGE FINANCING</h4>
                             <TextField
                                 id="percent"
                                 // value={this.state.song_title}
@@ -66,7 +64,7 @@ class PurchaseCategory2 extends Component {
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
                             />
-                            <p>Sale price by ASSUMING Seller's current mortgage</p>
+                            <h4>Sale price by ASSUMING Seller's current mortgage</h4>
                             <TextField
                                 id="percent"
                                 // value={this.state.song_title}
@@ -77,7 +75,7 @@ class PurchaseCategory2 extends Component {
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
                             />
-                            <p>Sale price by CONTRACT FOR DEED</p>
+                            <h4>Sale price by CONTRACT FOR DEED</h4>
                             <TextField
                                 id="percent"
                                 // value={this.state.song_title}

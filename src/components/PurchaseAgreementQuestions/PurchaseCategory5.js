@@ -21,9 +21,6 @@ class PurchaseCategory5 extends Component {
                             <center>
                                 <h2>Seller's Contributions to Buyer's Costs</h2>
                             </center>
-                        </Grid>
-                        <Grid item xs={12}>
-
                             <h4>Will Seller be contributing to Buyer's costs.</h4>
                             <FormControlLabel
                                 control={
@@ -94,29 +91,29 @@ class PurchaseCategory5 extends Component {
                             <h4>of the sale price</h4>
                         </Grid>
                         <Container component="main">
-                    <Grid container spacing={2}>
-                        <Grid item xs={6}>
-                            <div align="left">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                >
-                                    Back
+                            <Grid container spacing={2}>
+                                <Grid item xs={6}>
+                                    <div align="left">
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                        >
+                                            Back
                         </Button>
-                            </div>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <div align="right">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                >
-                                    Save
+                                    </div>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <div align="right">
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                        >
+                                            Save
                         </Button>
-                            </div>
-                        </Grid>
-                    </Grid>
-                </Container>
+                                    </div>
+                                </Grid>
+                            </Grid>
+                        </Container>
 
 
                     </Grid>

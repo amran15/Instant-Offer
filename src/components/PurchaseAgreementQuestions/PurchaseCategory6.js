@@ -19,8 +19,6 @@ class PurchaseCategory6 extends Component {
                             <center>
                                 <h2>Inspections</h2>
                             </center>
-                        </Grid>
-                        <Grid item xs={12}>
                             <h4>Does the buyer agree to have a Property inspection performed at Buyer's expense?</h4>
                             <FormControlLabel
                                 control={
@@ -97,18 +95,18 @@ class PurchaseCategory6 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                                <h4>Other Inspection Items:</h4>
-                                <TextField
-                                    id="other_inspection_items"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
-                                    fullWidth
-                                    variant="outlined"
-                                />
-                            </Grid>
+                            <h4>Other Inspection Items:</h4>
+                            <TextField
+                                id="other_inspection_items"
+                                // value={this.state.song_title}
+                                // onChange={this.handleInputChangeFor('song_title')}
+                                fullWidth
+                                variant="outlined"
+                            />
+                        </Grid>
                     </Grid>
                 </Container>
-                <br/>
+                <br />
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={6}>

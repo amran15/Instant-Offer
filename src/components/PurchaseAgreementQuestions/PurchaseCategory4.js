@@ -21,8 +21,6 @@ class PurchaseCategory4 extends Component {
                             <center>
                                 <h2>Mortgage Financing</h2>
                             </center>
-                        </Grid>
-                        <Grid item xs={12}>
                             <h4>Is this Purchase Agreement subject to the mortgage financing provisions below? If yes, complete the mortgage financing section below. If not, proceed to the Seller's Contributions to Buyer's Cost.</h4>
                             <FormControlLabel
                                 control={
@@ -231,26 +229,26 @@ class PurchaseCategory4 extends Component {
                                 label="If Buyer cannot secure the financing specified in this Purchase Agreement, and this Purchase Agreement does not close on the closing date specified, this Purchase Agreement is canceled. Buyer and Seller shall immediately sign a Cancellation of Purchase Agreement confirming said cancellation and directing all earnest moeny paid here to be"
                             />
                         </Grid>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="Refunded to Buyer"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="Forfeited to seller"
-                            />
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    // checked={state.checkedB}
+                                    // onChange={handleChange('checkedB')}
+                                    value="checkedB"
+                                    color="primary"
+                                />}
+                            label="Refunded to Buyer"
+                        />
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    // checked={state.checkedB}
+                                    // onChange={handleChange('checkedB')}
+                                    value="checkedB"
+                                    color="primary"
+                                />}
+                            label="Forfeited to seller"
+                        />
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={
@@ -448,7 +446,7 @@ class PurchaseCategory4 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-                <br/>
+                <br />
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={6}>

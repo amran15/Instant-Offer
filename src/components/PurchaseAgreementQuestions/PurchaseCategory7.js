@@ -21,8 +21,6 @@ class PurchaseCategory7 extends Component {
                             <center>
                                 <h2>Seller's Contributions to Buyer's Costs</h2>
                             </center>
-                        </Grid>
-                        <Grid item xs={12}>
                             <h4>Please check one.</h4>
                             <FormControlLabel
                                 control={
@@ -44,7 +42,7 @@ class PurchaseCategory7 extends Component {
                                     />}
                                 label="This Purchase Agreement is contingent upon the succesful closing on the Buyer's property."
                             />
-                             <FormControlLabel
+                            <FormControlLabel
                                 control={
                                     <Checkbox
                                         // checked={state.checkedB}
@@ -57,7 +55,7 @@ class PurchaseCategory7 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-                <br/>
+                <br />
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={6}>
