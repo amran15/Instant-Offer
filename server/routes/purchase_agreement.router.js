@@ -4,7 +4,7 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
- * GET route purchase_contract 
+ * GET route purchase_agreement
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
     console.log('GET PURCHASE AGREEMENT  SERVER HIT');
@@ -20,7 +20,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         })
 });
  
-// gets all pages for PDF contruction
+// gets all pages for PDF contruction for purchase_agreement
 router.get('/PDF_pages', (req,res)=>{
     pool.query(`
     select "Purchase_Agreement"."PAGE_1","Purchase_Agreement"."PAGE_2","Purchase_Agreement"."PAGE_3",
@@ -37,10 +37,25 @@ router.get('/PDF_pages', (req,res)=>{
 });
 
 /**
- * POST route purchase_contract
+ * POST route purchase_agreement
  */
 router.post('/', (req, res) => {
 
+});
+
+/**
+ * DELETE route purchase_agreement
+ */
+router.delete('/delete/:id', (req, res) => {
+    console.log('delete/:id route hit for purchase_agreement')
+    const queryDelete = `DELETE FROM "Purchase_Agreement" WHERE "id"=$1`;
+    pool.query(queryDelete, [req.params.id])
+        .then(response => {
+            res.send(response.rows)
+        }).catch(error => {
+            console.log('error making DELETE for purchase agreement', error);
+            res.sendStatus(500);
+        })
 });
 
 module.exports = router;

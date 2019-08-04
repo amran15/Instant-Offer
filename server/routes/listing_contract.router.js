@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
         })
 });
 
-// gets all pages for PDF contruction
+// gets all pages for PDF contruction for listing_contract
 router.get('/PDF_pages', (req,res)=>{
     pool.query(` 
     select "Listing_Contract"."PAGE_1", "Listing_Contract"."PAGE_2", 
@@ -40,6 +40,21 @@ router.get('/PDF_pages', (req,res)=>{
  */
 router.post('/', (req, res) => {
 
+});
+
+/**
+ * DELETE route listing_contract
+ */
+router.delete('/delete/:id', (req, res) => {
+    console.log('delete/:id route hit for listing_contract')
+    const queryDelete = `DELETE FROM "Listing_Contract" WHERE "id"=$1`;
+    pool.query(queryDelete, [req.params.id])
+        .then(response => {
+            res.send(response.rows)
+        }).catch(error => {
+            console.log('error making DELETE for listing contract', error);
+            res.sendStatus(500);
+        })
 });
 
 module.exports = router;
