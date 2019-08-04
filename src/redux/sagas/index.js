@@ -7,6 +7,7 @@ import fetchListingAnswers from './fetchListingAnswers';
 
 import pdfListing from './pdfListing'
 import pdfOffer from './pdfOffer'
+import category8Saga from './listingcategory8saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,5 +24,6 @@ export default function* rootSaga() {
     fetchListingAnswers(),
     pdfListing(),
     pdfOffer(),
+    category8Saga(),
   ]);
 }

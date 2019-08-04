@@ -36,10 +36,27 @@ router.get('/PDF_pages', (req,res)=>{
 
 
 /**
- * POST route listing_contract
+ * POST route listing_contract category 8
  */
-router.post('/', (req, res) => {
-
+router.post('/category8', (req, res) => {
+console.log('we are posting listing category 8 answers to the database', req.body)    
+res.sendStatus(200);
 });
+
+
+
+
+// router.post('/signature', (req, res) =>{
+//     // console.log('i just sent the image to database', req.body);
+//     pool.query (`INSERT INTO "signature" (sign)
+//     VALUES ($1); `, [...req.body])
+//     res.sendStatus(200);
+// });
+
+
+
+/**
+ * POST route listing_contract category ?
+ */
 
 module.exports = router;
