@@ -1,0 +1,27 @@
+#listingDocButton {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.ListingDiv {
+    width: 100%;
+    /* height: 20px; */
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  button {
+    /* height: 20px; */
+    width: 100px;
+  }
