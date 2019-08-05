@@ -1,8 +1,8 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-// const { rejectUnauthenticated } = require('../modules/authentication-middleware');
-// rejectUnauthenticated,
+//const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+//rejectUnauthenticated
 
 
 //GET route listing_contract 
@@ -87,17 +87,8 @@ router.post('/save', (req, res) => {
         })
 });
 
-/**
- * POST route listing_contract category 3
- */
-router.post('/saved', (req, res) => {
-    console.log('we are posting listing category 3 answers to the database', req.body)
-    res.sendStatus(200);
-});
 
-/**
- * DELETE route listing_contract
- */
+// DELETE route listing_contract
 router.delete('/delete/:id', (req, res) => {
     console.log('delete/:id route hit for listing_contract')
     const queryDelete = `DELETE FROM "Listing_Contract" WHERE "id"=$1`;
@@ -109,56 +100,5 @@ router.delete('/delete/:id', (req, res) => {
             res.sendStatus(500);
         })
 });
-
-/**
-* POST route listing_contract category 4
-*/
-router.post('/category4', (req, res) => {
-    console.log('we are posting listing category 4 answers to the database', req.body)
-    res.sendStatus(200);
-});
-
-
-/**
-* POST route listing_contract category 5
-*/
-router.post('/category5', (req, res) => {
-    console.log('we are posting listing category 5 answers to the database', req.body)
-    res.sendStatus(200);
-});
-
-/**
-* POST route listing_contract category 6
-*/
-router.post('/category6', (req, res) => {
-    console.log('we are posting listing category 6 answers to the database', req.body)
-    res.sendStatus(200);
-});
-
-/**
-* POST route listing_contract category 7
-*/
-router.post('/category7', (req, res) => {
-    console.log('we are posting listing category 7 answers to the database', req.body)
-    res.sendStatus(200);
-});
-
-
-/**
- * POST route listing_contract category 8
- */
-router.post('/category8', (req, res) => {
-    console.log('we are posting listing category 8 answers to the database', req.body)
-    res.sendStatus(200);
-});
-
-
-
-
-
-/**
- * POST route listing_contract category ?
- */
-
 
 module.exports = router;
