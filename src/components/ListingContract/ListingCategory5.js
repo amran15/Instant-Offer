@@ -58,6 +58,11 @@ class ListingCategory5 extends Component {
     }
 
 
+    handleClickNext = () => {
+        this.props.history.push('/ListingCategory6')
+    }
+
+
 
 
     render() {
@@ -120,8 +125,8 @@ class ListingCategory5 extends Component {
                     <br />
                     <br />
                     <Container component="main">
-                        <Grid container spacing={2}>
-                            <Grid item xs={6}>
+                        <Grid container spacing={3}>
+                            <Grid item xs={4}>
                                 <div align="left" className="Button">
                                     <Button
                                         variant="contained"
@@ -132,14 +137,25 @@ class ListingCategory5 extends Component {
                 </Button>
                                 </div>
                             </Grid>
-                            <Grid item xs={6}>
-                                <div align="right" className="Button">
+                            <Grid item xs={4}>
+                                <div align="center" className="Button">
                                     <Button
                                         variant="contained"
                                         color="primary"
                                         onClick={this.handleClickToSave}
                                     >
                                         Save
+                </Button>
+                                </div>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <div align="right" className="Button">
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={this.handleClickNext}
+                                    >
+                                        Next
                 </Button>
                                 </div>
                             </Grid>

@@ -11,16 +11,19 @@ import { TextField, InputAdornment } from '@material-ui/core';
 class ListingCategory1 extends Component {
 
 
-   
 
 
 
-    
+
+
     handleClick = () => {
         this.props.history.push('/ListingContract')
     }
-    
-    
+
+    handleClickNext = () => {
+        this.props.history.push('/ListingCategory2')
+    }
+
     render() {
         return (
             <div>
@@ -120,8 +123,8 @@ class ListingCategory1 extends Component {
                 <br />
                 <br />
                 <Container component="main">
-                    <Grid container spacing={2}>
-                        <Grid item xs={6}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={4}>
                             <div align="left" className="Button">
                                 <Button
                                     variant="contained"
@@ -132,8 +135,8 @@ class ListingCategory1 extends Component {
                 </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={6}>
-                            <div align="right" className="Button">
+                        <Grid item xs={4}>
+                            <div align="center" className="Button">
                                 <Button
                                     variant="contained"
                                     color="primary"
@@ -141,6 +144,19 @@ class ListingCategory1 extends Component {
                                 >
                                     Save
                 </Button>
+
+                            </div>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <div align="right" className="Button">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleClickNext}
+                                >
+                                    Next
+                </Button>
+
                             </div>
                         </Grid>
                     </Grid>
