@@ -11,6 +11,8 @@ import listingCategory8Saga from './listingcategory8saga';
 import listingCategory3Saga from './listingcategory3saga';
 import listingCategory4Saga from './listingcategory4saga';
 import listingCategory5Saga from './listingcategory5saga';
+import listingCategory6Saga from './listingcategory6saga';
+import listingCategory7Saga from './listingcategory7saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -31,5 +33,7 @@ export default function* rootSaga() {
     listingCategory3Saga(),
     listingCategory4Saga(),
     listingCategory5Saga(),
+    listingCategory6Saga(),
+    listingCategory7Saga(),
   ]);
 }

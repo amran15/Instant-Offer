@@ -11,9 +11,42 @@ import Button from '@material-ui/core/Button';
 
 
 class ListingCategory6 extends Component {
+    state= {
+        closingServices: {
+            arrangeClosing:'',
+            conductClosing :'',
+            initials:'',
+        }
+    }
+
+
+    handleClickForCheckBox = (propertyName) => (event) => {
+        this.setState({
+            closingServices: {
+                ...this.state.closingServices, [propertyName]: true,
+            }
+        })
+    }
+
+    handleChangeForInitials = (propertyName) => (event) => {
+        this.setState({
+            closingServices: {
+                ...this.state.closingServices, [propertyName]:event.target.value,
+            }
+        })
+    }
+
+
     handleClick = () => {
         this.props.history.push('/ListingContract')
     }
+
+    handleClickToSave = () => {
+        this.props.dispatch({type:'CLOSING_SERVICES', payload:this.state.closingServices});
+        this.props.history.push('/ListingContract');
+    }
+
+
     render() {
         return (
             <div>
@@ -33,6 +66,7 @@ class ListingCategory6 extends Component {
                                         color="primary" />
                                 }
                                 label="Broker will arrange for the closing."
+                                onClick={this.handleClickForCheckBox('arrangeClosing')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -43,6 +77,7 @@ class ListingCategory6 extends Component {
                                         color="primary" />
                                 }
                                 label="Qualified agent or Seller's attorney will conduct the closing."
+                                onClick={this.handleClickForCheckBox('conductClosing')}
                             />
                         </Grid>
                         <br />
@@ -52,6 +87,8 @@ class ListingCategory6 extends Component {
                                 label="Seller's Initials"
                                 fullWidth
                                 variant="outlined"
+                                value={this.setState.initials}
+                                onChange={this.handleChangeForInitials('initials')}
                             />
                         </Grid>
                     </Grid>
@@ -76,7 +113,7 @@ class ListingCategory6 extends Component {
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={this.handleClick}
+                                    onClick={this.handleClickToSave}
                                 >
                                     Save
                 </Button>
@@ -84,6 +121,9 @@ class ListingCategory6 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
             </div>
         )
     }

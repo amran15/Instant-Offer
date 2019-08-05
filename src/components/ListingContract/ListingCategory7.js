@@ -11,7 +11,37 @@ import Button from '@material-ui/core/Button';
 
 
 class ListingCategory7 extends Component {
+
+    state = {
+        foreignInvestment: {
+            sellerRepYes:'',
+            sellerRepNo:'',
+        }
+    }
+
+    handleClickForCheckBox = (propertyName) => (event) => {
+        this.setState({
+            foreignInvestment: {
+                ...this.state.foreignInvestment, [propertyName]:true
+            }
+        })
+    }
+
+    handleClickForCheckBoxNo = (propertyName) => (event) => {
+        this.setState({
+            foreignInvestment: {
+                ...this.state.foreignInvestment, [propertyName]:false
+            }
+        })
+    }
+   
+
     handleClick = () => {
+        this.props.history.push('/ListingContract')
+    }
+
+    handleClickToSave = () => {
+        this.props.dispatch({type:'POST_FOREIGN_INVESTMENT', payload:this.state.foreignInvestment});
         this.props.history.push('/ListingContract')
     }
     render() {
@@ -33,6 +63,7 @@ class ListingCategory7 extends Component {
                                         color="primary" />
                                 }
                                 label="Yes"
+                                onClick={this.handleClickForCheckBox('sellerRepYes')}
                             />
                             <FormControlLabel
                                 control={
@@ -41,6 +72,7 @@ class ListingCategory7 extends Component {
                                         color="primary" />
                                 }
                                 label="No"
+                                onClick={this.handleClickForCheckBoxNo('sellerRepNo')}
                             />
                         </Grid>
                         <p>Due to the complexity and potential risks of failing to comply with FIRPTA, Seller should <b>seek appropiate legal and tax advice regarding FIRPTA compliance, as Broker will be unable to confirm whether Seeker is a foreign person or whether the withholding requirements of FIRPTA apply.</b> </p>
@@ -66,7 +98,7 @@ class ListingCategory7 extends Component {
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={this.handleClick}
+                                    onClick={this.handleClickToSave}
                                 >
                                     Save
                 </Button>
@@ -74,6 +106,9 @@ class ListingCategory7 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
             </div >
         )
     }

@@ -102,8 +102,8 @@ class ListingCategory3 extends Component {
                                 id="listing_broker"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.ifYes}
-                                onChange={this.handleChangeForInput}
+                                value={this.setState.ifYes}
+                                onChange={this.handleChangeForInput('ifYes')}
                             />
                         </Grid>
                         <h4>If selected no, the property can be listed for lease during the terms of this contract with another broker</h4>
