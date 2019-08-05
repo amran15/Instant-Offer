@@ -68,15 +68,11 @@ class ListingCategory8 extends Component {
             <div>
                 <Container component="main">
                     <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                            <center>
+                        <Grid item xs={12}>  
+                         <center>
                                 <h2>Agency Representation</h2>
                             </center>
-                        </Grid>
-                    </Grid>
-                    <Grid container spacing={2}>
                         <h4>Seller will agree to dual agency and will consider offers made by buyers represented by broker?</h4>
-                        <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox
@@ -96,7 +92,6 @@ class ListingCategory8 extends Component {
                                 }
                                 label="No"
                             />
-                        </Grid>
                         <h4>Seller will not agree to dual agency and not consider offers made by buyers represented by broker?</h4>
                         <Grid item xs={12}>
                             <FormControlLabel
@@ -118,7 +113,7 @@ class ListingCategory8 extends Component {
                                 label="No"
                             />
                         </Grid>
-                        <p>Real Estate Company Name:</p>
+                        <h4>Real Estate Company Name:</h4>
                         <TextField
                             id="name_real_estate"
                             fullWidth
@@ -137,6 +132,7 @@ class ListingCategory8 extends Component {
                                 onChange={this.handleChangeForInputs('consent')}
                             />
                         </Grid>
+                    </Grid>
                     </Grid>
                     <br />
                     <br />

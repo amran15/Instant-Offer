@@ -6,27 +6,42 @@ import { withRouter } from 'react-router';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 import { TextField, InputAdornment } from '@material-ui/core';
 
 
-
-
-class ListingCategory4 extends Component {
+class ListingCategory5 extends Component {
 
     state = {
-        brokerCompensation: {
-            retainerFee: '',
-            sellingPrice: '',
-            brokerCommision: '',
-            other: ''
+        compensationDisclosure: {
+            cooperatingBrokers: '',
+            grossPercent: '',
+            grossCash: '',
         }
     }
 
 
-    handleChange = (propertyName) => (event) => {
+    handleClickForCheckbox = (propertyName) => (event) => {
         this.setState({
-            brokerCompensation: {
-                ...this.state.brokerCompensation, [propertyName]: event.target.value
+            compensationDisclosure: {
+                ...this.state.compensationDisclosure, [propertyName]: true,
+            }
+        })
+    }
+
+    handleClickForCheckboxNo = (propertyName) => (event) => {
+        this.setState({
+            compensationDisclosure: {
+                ...this.state.compensationDisclosure, [propertyName]: false,
+            }
+        })
+    }
+
+    handleChangeForInputs = (propertyName) => (event) => {
+        this.setState({
+            compensationDisclosure: {
+                ...this.state.compensationDisclosure, [propertyName]: event.target.value
             }
         })
     }
@@ -37,15 +52,18 @@ class ListingCategory4 extends Component {
     }
 
     handleClickToSave = () => {
-        console.log('we are posting listing cat 4 - Brokers Comp')
-        this.props.dispatch({ type: 'POST_BROKERCOMPENSATION', payload: this.state.brokerCompensation })
+        console.log('we can save listingcat5 now!!!!!!!!');
+        this.props.dispatch({ type: 'POST_COMPENSATION_DISCLOSURE', payload: this.state.compensationDisclosure })
         this.props.history.push('/ListingContract')
     }
 
 
     handleClickNext = () => {
-        this.props.history.push('/ListingCategory5')
+        this.props.history.push('/ListingCategory6')
     }
+
+
+
 
     render() {
         return (
@@ -54,20 +72,31 @@ class ListingCategory4 extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h2>Broker's Compensation</h2>
+                                <h2>Compensation Disclosure</h2>
                             </center>
-                        </Grid>
-                        <h4>Broker's retainer fee</h4>
-                        <TextField
-                            id="retainer_fee"
-                            fullWidth
-                            variant="outlined"
-                            InputProps={{
-                                startAdornment: <InputAdornment position="start">$</InputAdornment>,
-                            }}
-                            onChange={this.handleChange('retainerFee')}
-                        />
-                        <h4>Percent of selling price</h4>
+                            <h4>Broker will offer compensation to cooperating brokers?</h4>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        value="checkedB"
+                                        color="primary"
+                                        onClick={this.handleClickForCheckbox('cooperatingBrokers')}
+                                    />
+                                }
+                                label="Yes"
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        value="checkedB"
+                                        color="primary"
+                                        onClick={this.handleClickForCheckboxNo('cooperatingBrokers')}
+                                    />
+                                }
+                                label="No"
+                            />
+                        <h4>If yes, the compensation to cooperating shall be as follows:</h4>
+                        <h4>Percent of gross sales price</h4>
                         <TextField
                             id="percent"
                             fullWidth
@@ -75,9 +104,9 @@ class ListingCategory4 extends Component {
                             InputProps={{
                                 endAdornment: <InputAdornment position="end">%</InputAdornment>,
                             }}
-                            onChange={this.handleChange('sellingPrice')}
+                            onChange={this.handleChangeForInputs('grossPercent')}
                         />
-                        <h4>Broker's commission price in CASH </h4>
+                        <h4>Gross sales price in CASH </h4>
                         <TextField
                             id="commission_price"
                             fullWidth
@@ -85,15 +114,9 @@ class ListingCategory4 extends Component {
                             InputProps={{
                                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
                             }}
-                            onChange={this.handleChange('brokerCommision')}
+                            onChange={this.handleChangeForInputs('grossCash')}
                         />
-                        <h4>Other</h4>
-                        <TextField
-                            id="additional_info"
-                            fullWidth
-                            variant="outlined"
-                            onChange={this.handleChange('other')}
-                        />
+                             </Grid>
                     </Grid>
                     <br />
                     <br />
@@ -107,7 +130,7 @@ class ListingCategory4 extends Component {
                                         onClick={this.handleClick}
                                     >
                                         Back
-                </Button>
+                                    </Button>
                                 </div>
                             </Grid>
                             <Grid item xs={4}>
@@ -118,7 +141,7 @@ class ListingCategory4 extends Component {
                                         onClick={this.handleClickToSave}
                                     >
                                         Save
-                </Button>
+                                    </Button>
                                 </div>
                             </Grid>
                             <Grid item xs={4}>
@@ -129,20 +152,17 @@ class ListingCategory4 extends Component {
                                         onClick={this.handleClickNext}
                                     >
                                         Next
-                </Button>
+                                    </Button>
                                 </div>
                             </Grid>
                         </Grid>
                     </Container>
                 </Container>
-
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
             </div>
+
         )
     }
 }
 
 const mapReduxStateToProps = reduxState => ({ reduxState })
-export default connect(mapReduxStateToProps)(withRouter(ListingCategory4));
+export default connect(mapReduxStateToProps)(withRouter(ListingCategory5));

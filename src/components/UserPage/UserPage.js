@@ -1,8 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import LogOutButton from '../LogOutButton/LogOutButton';
 import ListingContractButton from '../ListingContractButton/ListingContractButton';
 import PurchaseAgreementButton from '../PurchaseAgreementButton/PurchaseAgreementButton';
+
+//Material UI
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import { Checkbox, FormControlLabel } from '@material-ui/core';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (

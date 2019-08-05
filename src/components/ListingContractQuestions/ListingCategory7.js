@@ -5,33 +5,32 @@ import { withRouter } from 'react-router';
 import Grid from '@material-ui/core/Grid';
 import Checkbox from '@material-ui/core/Checkbox';
 import Container from '@material-ui/core/Container';
-import { TextField } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 
 
-class ListingCategory6 extends Component {
-    state= {
-        closingServices: {
-            arrangeClosing:'',
-            conductClosing :'',
-            initials:'',
+
+class ListingCategory7 extends Component {
+
+    state = {
+        foreignInvestment: {
+            sellerRepYes: '',
+            sellerRepNo: '',
         }
     }
 
-
     handleClickForCheckBox = (propertyName) => (event) => {
         this.setState({
-            closingServices: {
-                ...this.state.closingServices, [propertyName]: true,
+            foreignInvestment: {
+                ...this.state.foreignInvestment, [propertyName]: true
             }
         })
     }
 
-    handleChangeForInitials = (propertyName) => (event) => {
+    handleClickForCheckBoxNo = (propertyName) => (event) => {
         this.setState({
-            closingServices: {
-                ...this.state.closingServices, [propertyName]:event.target.value,
+            foreignInvestment: {
+                ...this.state.foreignInvestment, [propertyName]: false
             }
         })
     }
@@ -42,12 +41,12 @@ class ListingCategory6 extends Component {
     }
 
     handleClickToSave = () => {
-        this.props.dispatch({type:'CLOSING_SERVICES', payload:this.state.closingServices});
-        this.props.history.push('/ListingContract');
+        this.props.dispatch({ type: 'POST_FOREIGN_INVESTMENT', payload: this.state.foreignInvestment });
+        this.props.history.push('/ListingContract')
     }
 
     handleClickNext = () => {
-        this.props.history.push('/ListingCategory7')
+        this.props.history.push('/ListingCategory8')
     }
 
 
@@ -58,49 +57,35 @@ class ListingCategory6 extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h2>Closing Services</h2>
+                                <h2>Foreign Investment</h2>
                             </center>
-                        </Grid>
-                        <h4>Seller's choice for closing services (Check one):</h4>
-                        <Grid item xs={12}>
+                            <h4>Seller represents and warrants that seller is a foreign person for purpose of income taxation</h4>
                             <FormControlLabel
                                 control={
                                     <Checkbox
                                         value="checkedB"
                                         color="primary" />
                                 }
-                                label="Broker will arrange for the closing."
-                                onClick={this.handleClickForCheckBox('arrangeClosing')}
+                                label="Yes"
+                                onClick={this.handleClickForCheckBox('sellerRepYes')}
                             />
-                        </Grid>
-                        <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox
                                         value="checkedB"
                                         color="primary" />
                                 }
-                                label="Qualified agent or Seller's attorney will conduct the closing."
-                                onClick={this.handleClickForCheckBox('conductClosing')}
+                                label="No"
+                                onClick={this.handleClickForCheckBoxNo('sellerRepNo')}
                             />
-                        </Grid>
-                        <br />
-                        <br />
-                        <Grid item xs={12}>
-                            <TextField
-                                label="Seller's Initials"
-                                fullWidth
-                                variant="outlined"
-                                value={this.setState.initials}
-                                onChange={this.handleChangeForInitials('initials')}
-                            />
+                        <h4>Due to the complexity and potential risks of failing to comply with FIRPTA, Seller should <b>seek appropiate legal and tax advice regarding FIRPTA compliance, as Broker will be unable to confirm whether Seeker is a foreign person or whether the withholding requirements of FIRPTA apply.</b> </h4>
                         </Grid>
                     </Grid>
                 </Container>
                 <br />
                 <br />
                 <Container component="main">
-                    <Grid container spacing={3}>
+                    <Grid container spacing={2}>
                         <Grid item xs={4}>
                             <div align="left" className="Button">
                                 <Button
@@ -139,10 +124,10 @@ class ListingCategory6 extends Component {
                 <pre>
                     {JSON.stringify(this.state, null, 2)}
                 </pre>
-            </div>
+            </div >
         )
     }
 }
 
 const mapReduxStateToProps = reduxState => ({ reduxState })
-export default connect(mapReduxStateToProps)(withRouter(ListingCategory6));
+export default connect(mapReduxStateToProps)(withRouter(ListingCategory7));
