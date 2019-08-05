@@ -4,28 +4,28 @@ import ListingContractButton from '../ListingContractButton/ListingContractButto
 import PurchaseAgreementButton from '../PurchaseAgreementButton/PurchaseAgreementButton';
 
 //Material UI
-import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import { Checkbox, FormControlLabel } from '@material-ui/core';
 
-// this could also be written with destructuring parameters as:
-// const UserPage = ({ user }) => (
-// and then instead of `props.user.username` you could use `user.username`
 const UserPage = (props) => (
   <div>
-    <h1 id="welcome">
-      Welcome, { props.user.username }!
-    </h1>
-    {/* <p>Your ID is: {props.user.id}</p> */}
-    <ListingContractButton />
-    <br/>
-    <PurchaseAgreementButton />
-    <br/>
-    
-    {/* <LogOutButton className="log-in" /> */}
-
-
+    <center>
+    <h1>Welcome, {props.user.username}!</h1>
+      <h4>Please select one of the forms below to begin.</h4>
+    </center>
+    <br />
+    <div align="center">
+    <Container component="main" maxWidth="xs">
+      <Grid item xs={12}>
+        <ListingContractButton />
+        <br />
+        <br />
+      </Grid>
+      <Grid item xs={12}>
+        <PurchaseAgreementButton />
+      </Grid>
+    </Container>
+    </div>
   </div>
 );
 
