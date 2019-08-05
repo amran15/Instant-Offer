@@ -35,6 +35,19 @@ router.get('/PDF_pages', (req,res)=>{
 });
 
 
+router.get('/answers/:id', (req,res)=>{
+    pool.query(` select * from "Listing_Contract" where "id" = $1;`,[req.params.id])
+    .then((results)=>{
+        console.log(results.rows)
+        res.send(results.rows)
+    }).catch((error)=>{
+        console.log('error in purchase agreement',error)
+    })
+});
+
+
+
+
 /**
  * POST route listing_contract category 3
  */

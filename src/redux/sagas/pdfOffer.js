@@ -2,25 +2,32 @@ import axios from 'axios';
 import jsPDF from 'jspdf';
 import { takeLatest } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "FETCH_USER" actions
-function* fetchListing() {
+function* fetchOffer(action) {
   try {
-    yield console.log('hit pdf offer')
-    const response = yield axios.get(`/api/listing/PDF_pages`)
-    .catch(error =>{
-      console.log('WHY ARENT YOU WORKING listing contract?', error)
+      // gets the base64 img files
+      yield console.log('hit pdf offer')
+      const response = yield axios.get(`/api/purchase/PDF_pages`)
+      .catch(error =>{
+      console.log('WHY ARENT YOU WORKING purchase contract?', error)
     })
+    //gets all data from row ${see page info pages for params details}
+    yield 
+      const answers = yield axios({ method: 'get', url:`/api/purchase/answers/${action.payload}`})
+      .catch(error =>{
+        console.log('error in pdf offer getting answers?', error)
+      })
     yield
-
-        let doc = new jsPDF()
-    
-    // --------------------------------------------------------------------------------------
+    console.log(answers.data[0].id)
+    let doc = new jsPDF()
+    // -----------------------------------------------------------------------------------------
     //                              page # 1
     // ------------------------------------------------------------------------------------------
+    
     doc.addImage(response.data[0].PAGE_1, 'JPEG',0,0,210,297)
+    doc.text(`${answers.data[0].id}`, 10,10)
     // -----------------------------------------------------------------------------------------
     //                              page # 2
-    // ------------------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_2, 'JPEG',0,0,210,297)
     // -----------------------------------------------------------------------------------------
@@ -48,15 +55,47 @@ function* fetchListing() {
     // ------------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_7, 'JPEG',0,0,210,297)
+    // -----------------------------------------------------------------------------------------
+    //                              page # 8
+    // ------------------------------------------------------------------------------------------
+    doc.addPage()
+    doc.addImage(response.data[0].PAGE_8, 'JPEG',0,0,210,297)
+    // -----------------------------------------------------------------------------------------
+    //                              page # 9
+    // ------------------------------------------------------------------------------------------
+    doc.addPage()
+    doc.addImage(response.data[0].PAGE_9, 'JPEG',0,0,210,297)
+    // -----------------------------------------------------------------------------------------
+    //                              page # 10
+    // ------------------------------------------------------------------------------------------    
+    doc.addPage()
+    doc.addImage(response.data[0].PAGE_10, 'JPEG',0,0,210,297)
+    // -----------------------------------------------------------------------------------------
+    //                              page # 11
+    // ------------------------------------------------------------------------------------------ 
+    doc.addPage()
+    doc.addImage(response.data[0].PAGE_11, 'JPEG',0,0,210,297)
+    // -----------------------------------------------------------------------------------------
+    //                              page # 12
+    // ------------------------------------------------------------------------------------------ 
+    doc.addPage()
+    doc.addImage(response.data[0].PAGE_12, 'JPEG',0,0,210,297)
+    // -----------------------------------------------------------------------------------------
+    //                              page # 13
+    // ------------------------------------------------------------------------------------------ 
+    doc.addPage()
+    doc.addImage(response.data[0].PAGE_13, 'JPEG',0,0,210,297)
+
+    doc.save('a4.pdf')
+
         
-        doc.save('a4.pdf')
   } catch (error) {
-    console.log('pdfListing listing failed', error);
+    console.log('pdfOffer listing failed', error);
   }
 }
 
-function* pdfListing() {
-  yield takeLatest('FETCH_OFFER', fetchListing);
+function* pdfOffer() {
+  yield takeLatest('FETCH_OFFER', fetchOffer);
 }
 
-export default pdfListing;
+export default pdfOffer;
