@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 
 
 //Material UI
+import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -209,6 +210,18 @@ class PurchaseAgreement extends Component {
                             </Grid>
                         </Grid>
                     </Card>
+                </Container>
+                <br />
+                <Container>
+                    <Grid item xs={12} sm={2}>
+                        <div align="right">
+                            <Button
+                                variant="contained"
+                                color="primary">
+                                Next
+                            </Button>
+                        </div>
+                    </Grid>
                 </Container>
             </div>
         )
