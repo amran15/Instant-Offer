@@ -18,18 +18,71 @@ function* fetchListing(action) {
       })
     yield
       console.log(answers.data[0].id)//
+      const answer = answers.data[0]
         let doc = new jsPDF()
     
     // --------------------------------------------------------------------------------------
     //                              page # 1
     // ------------------------------------------------------------------------------------------
     doc.addImage(response.data[0].PAGE_1, 'JPEG',0,0,210,297)
-    doc.text(`${answers.data[0].id}`, 10,10)
+    // doc.text(`${answer.id}`, 10,10)
+    doc.text(`${answer.DATE}`,130,38)
+    doc.text(`${answer.DATE}`,136,45)
+    doc.text(`${answer.L3}`,117,52)
+    doc.text(`${answer.L4}`,52,59)
+    doc.text(`${answer.L5}`,35,66)
+    doc.text(`${answer.BUYER_1}`,35,73)
+    doc.text(`${answer.L7}`,35,80)
+    doc.text(`${answer.L8A}`,60,90)
+    doc.text(`${answer.L8B}`,105,90)
+    doc.text(`${answer.L8C}`,160,90)
+    doc.text(`${answer.L9}`,26,97)
+    doc.text(`${answer.L12}`,115,113)
+    doc.text(`${answer.L13}`,35,120)
+    //logic
+    answer.L41?
+    doc.text(`X`,189,262)//true    
+    :
+    doc.text(`X`,173,262)//false
     // -----------------------------------------------------------------------------------------
     //                              page # 2
     // ------------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_2, 'JPEG',0,0,210,297)
+    doc.text(`${answer.L3}`,55,35)
+
+
+    answer.L54 ?
+    doc.text(`X`,189,82)//true 
+    :
+    doc.text(`X`,173,82)//false
+       
+
+    answer.L63 ?
+    doc.text(`X`,189,127)//true 
+    :
+    doc.text(`X`,173,127)//false
+
+
+    answer.L71 ?
+    doc.text(`X`,189,169)//true 
+    :
+    doc.text(`X`,173,169)//false
+
+    
+    answer.L72 ?
+    doc.text(`X`,95,178)//true 
+    :
+    doc.text(`X`,83,178)//false
+
+    doc.text(`${answer.L7}`,25,185)
+
+    answer.L73 ?
+    doc.text(`X`,124,187)//true 
+    :
+    doc.text(`X`,111,187)//false
+
+
     // -----------------------------------------------------------------------------------------
     //                              page # 3
     // ------------------------------------------------------------------------------------------

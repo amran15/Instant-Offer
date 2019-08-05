@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 
 class InfoPage extends Component {
   componentDidMount(){
-//  this.props.dispatch({type: 'FETCH_LISTING', payload: 3})
+ this.props.dispatch({type: 'FETCH_LISTING', payload: 3})
 //  this.props.dispatch({type: 'FETCH_OFFER', payload: 3})
   }
     render() {
