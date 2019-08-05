@@ -8,6 +8,8 @@ import listingCategory3Reducer from './listingcategory3Reducer';
 import listingCategory4Reducer from './listingcategory4Reducer';
 import listingCategory5Reducer from './listingcategory5Reducer';
 import listingCategory8Reducer from './listingcategory8reducer';
+import deleteListingAnswerReducer from './deleteListingAnswerReducer';
+import deletePurchaseAnswerReducer from './deletePurchaseAnswerReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -25,6 +27,8 @@ const rootReducer = combineReducers({
   listingCategory4Reducer,
   listingCategory5Reducer,
   listingCategory8Reducer,
+  deleteListingAnswerReducer, 
+  deletePurchaseAnswerReducer,
 });
 
 export default rootReducer;
