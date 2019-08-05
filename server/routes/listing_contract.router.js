@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
         })
 });
 
-// gets all pages for PDF contruction for listing_contract
+// gets all pages for PDF pages for listing_contract
 router.get('/PDF_pages', (req, res) => {
     pool.query(` 
     select "Listing_Contract"."PAGE_1", "Listing_Contract"."PAGE_2", 
@@ -60,10 +60,10 @@ router.put('/update/:id', (req, res) => {
 });
 
 /**
- * POST route listing_contract category 3
+ * POST route listing_contract for saving local answers to DB
  */
-router.post('/confirm', rejectUnauthenticated, (req, res) => {
-    console.log('CONFIRM POST SERVER', req.body)
+router.post('/save', (req, res) => {
+    console.log('LISTING POST SERVER', req.body)
     const querySave = `INSERT INTO "Listing_Contract"("BUYER_1", "SIGNATURE_BUYER_1", "PRINTED_SIGNATURE_BUYER_1",
      "DATE", "PAGE_1", "PAGE_2", "PAGE_3", "PAGE_4", "PAGE_5", "PAGE_6", "PAGE_7", "PAGE_8", "L3", "L4", "L6", 
      "L7", "L8", "L12", "L13", "L41", "L54", "L63", "L71", "L72", "L73", "L115", "L118", "L119", "L121", "L146", 
