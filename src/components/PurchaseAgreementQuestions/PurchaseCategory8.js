@@ -24,8 +24,8 @@ class PurchaseCategory8 extends Component {
                             <center>
                                 <h3>Real Estate Taxes</h3>
                             </center>
-                            <h4>Seller shall pay on the date of closing all real estate taxes due and payable in all prior years including all penalties and interest.</h4>
                             <Grid item xs={12}>
+                            <h4>Seller shall pay on the date of closing all real estate taxes due and payable in all prior years including all penalties and interest.</h4>
                                 <h4>Buyer shall pay: <i>(Check one)</i></h4>
                                 <FormControlLabel
                                     control={

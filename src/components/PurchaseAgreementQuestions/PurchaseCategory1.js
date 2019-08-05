@@ -81,8 +81,6 @@ class PurchaseCategory1 extends Component {
                                     />
                                 </Grid>
                             </Grid>
-
-
                             <h4>no later than two (2) Business Days after Final Acceptance Date of this Purchase Agreement.</h4>
                         </Grid>
                         <Grid item xs={12}>
