@@ -12,6 +12,10 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory9 extends Component {
+    handleClick = () => {
+        this.props.history.push('/PurchaseAgreement')
+    }
+
     render() {
         return (
             <div>
@@ -630,7 +634,7 @@ class PurchaseCategory9 extends Component {
                                         <Button
                                             variant="contained"
                                             color="primary"
-                                            onClick={this.handleClickNext}
+                                            onClick={this.handleClick}
                                         >
                                             Next
                                         </Button>

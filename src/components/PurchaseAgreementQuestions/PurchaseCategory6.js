@@ -10,6 +10,14 @@ import { Checkbox, FormControlLabel } from '@material-ui/core';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory6 extends Component {
+    handleClick = () => {
+        this.props.history.push('/PurchaseAgreement')
+    }
+
+    handleClickNext = () => {
+        this.props.history.push('/PurchaseCategory7')
+    }
+
     render() {
         return (
             <div>

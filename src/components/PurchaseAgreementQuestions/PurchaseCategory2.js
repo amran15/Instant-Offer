@@ -10,6 +10,14 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory2 extends Component {
+    handleClick = () => {
+        this.props.history.push('/PurchaseAgreement')
+    }
+
+    handleClickNext = () => {
+        this.props.history.push('/PurchaseCategory3')
+    }
+
     render() {
         return (
             <div>
