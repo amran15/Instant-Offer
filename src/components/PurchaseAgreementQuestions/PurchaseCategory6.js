@@ -108,29 +108,42 @@ class PurchaseCategory6 extends Component {
                 </Container>
                 <br />
                 <Container component="main">
-                    <Grid container spacing={2}>
-                        <Grid item xs={6}>
-                            <div align="left">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                >
-                                    Back
-                        </Button>
-                            </div>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <div align="right">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                >
-                                    Save
-                        </Button>
-                            </div>
-                        </Grid>
-                    </Grid>
-                </Container>
+                            <Grid container spacing={3}>
+                                <Grid item xs={4}>
+                                    <div align="left" className="Button">
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            onClick={this.handleClick}
+                                        >
+                                            Back
+                                        </Button>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={4}>
+                                    <div align="center" className="Button">
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            onClick={this.handleClick}
+                                        >
+                                            Save
+                                        </Button>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={4}>
+                                    <div align="right" className="Button">
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            onClick={this.handleClickNext}
+                                        >
+                                            Next
+                                        </Button>
+                                    </div>
+                                </Grid>
+                            </Grid>
+                        </Container>           
             </div>
         )
     }

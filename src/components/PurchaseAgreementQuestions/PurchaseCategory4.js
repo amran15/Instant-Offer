@@ -340,8 +340,8 @@ class PurchaseCategory4 extends Component {
                                 <h3>FHA Escape Clause (FHA Financing only)</h3>
                             </center>
                         </Grid>
-                        <h4>Appraised value of the Property</h4>
                         <Grid item xs={12}>
+                        <h4>Appraised value of the Property</h4>
                             <TextField
                                 id="buyers_earnest_money"
                                 // value={this.state.song_title}
@@ -414,8 +414,8 @@ class PurchaseCategory4 extends Component {
                                 label="Added to mortgage amount"
                             />
                         </Grid>
-                        <h4>Paid by the Seller</h4>
                         <Grid item xs={12}>
+                        <h4>Paid by the Seller</h4>
                             <TextField
                                 id="buyers_earnest_money"
                                 // value={this.state.song_title}
@@ -447,26 +447,42 @@ class PurchaseCategory4 extends Component {
                     </Grid>
                 </Container>
                 <br />
+                <br />
                 <Container component="main">
-                    <Grid container spacing={2}>
-                        <Grid item xs={6}>
-                            <div align="left">
+                    <Grid container spacing={3}>
+                        <Grid item xs={4}>
+                            <div align="left" className="Button">
                                 <Button
                                     variant="contained"
                                     color="primary"
+                                    onClick={this.handleClick}
                                 >
                                     Back
-                        </Button>
+                </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={6}>
-                            <div align="right">
+                        <Grid item xs={4}>
+                            <div align="center" className="Button">
                                 <Button
                                     variant="contained"
                                     color="primary"
+                                    onClick={this.handleClick}
                                 >
                                     Save
-                        </Button>
+                </Button>
+
+                            </div>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <div align="right" className="Button">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleClickNext}
+                                >
+                                    Next
+                </Button>
+
                             </div>
                         </Grid>
                     </Grid>

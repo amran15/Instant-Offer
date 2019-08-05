@@ -303,31 +303,42 @@ class PurchaseCategory8 extends Component {
                             </Grid>
                         </Grid>
                         <Container component="main">
-                            <Grid container spacing={2}>
-                                <Grid item xs={6}>
-                                    <div align="left">
+                            <Grid container spacing={3}>
+                                <Grid item xs={4}>
+                                    <div align="left" className="Button">
                                         <Button
                                             variant="contained"
                                             color="primary"
+                                            onClick={this.handleClick}
                                         >
                                             Back
-                        </Button>
+                                        </Button>
                                     </div>
                                 </Grid>
-                                <Grid item xs={6}>
-                                    <div align="right">
+                                <Grid item xs={4}>
+                                    <div align="center" className="Button">
                                         <Button
                                             variant="contained"
                                             color="primary"
+                                            onClick={this.handleClick}
                                         >
                                             Save
-                        </Button>
+                                        </Button>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={4}>
+                                    <div align="right" className="Button">
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            onClick={this.handleClickNext}
+                                        >
+                                            Next
+                                        </Button>
                                     </div>
                                 </Grid>
                             </Grid>
                         </Container>
-
-
                     </Grid>
                 </Container>
             </div>
