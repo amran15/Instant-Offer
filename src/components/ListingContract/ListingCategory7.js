@@ -11,9 +11,45 @@ import Button from '@material-ui/core/Button';
 
 
 class ListingCategory7 extends Component {
+
+    state = {
+        foreignInvestment: {
+            sellerRepYes:'',
+            sellerRepNo:'',
+        }
+    }
+
+    handleClickForCheckBox = (propertyName) => (event) => {
+        this.setState({
+            foreignInvestment: {
+                ...this.state.foreignInvestment, [propertyName]:true
+            }
+        })
+    }
+
+    handleClickForCheckBoxNo = (propertyName) => (event) => {
+        this.setState({
+            foreignInvestment: {
+                ...this.state.foreignInvestment, [propertyName]:false
+            }
+        })
+    }
+   
+
     handleClick = () => {
         this.props.history.push('/ListingContract')
     }
+
+    handleClickToSave = () => {
+        this.props.dispatch({type:'POST_FOREIGN_INVESTMENT', payload:this.state.foreignInvestment});
+        this.props.history.push('/ListingContract')
+    }
+
+    handleClickNext = () => {
+        this.props.history.push('/ListingCategory8')
+    }
+
+
     render() {
         return (
             <div>
@@ -33,6 +69,7 @@ class ListingCategory7 extends Component {
                                         color="primary" />
                                 }
                                 label="Yes"
+                                onClick={this.handleClickForCheckBox('sellerRepYes')}
                             />
                             <FormControlLabel
                                 control={
@@ -41,6 +78,7 @@ class ListingCategory7 extends Component {
                                         color="primary" />
                                 }
                                 label="No"
+                                onClick={this.handleClickForCheckBoxNo('sellerRepNo')}
                             />
                         </Grid>
                         <p>Due to the complexity and potential risks of failing to comply with FIRPTA, Seller should <b>seek appropiate legal and tax advice regarding FIRPTA compliance, as Broker will be unable to confirm whether Seeker is a foreign person or whether the withholding requirements of FIRPTA apply.</b> </p>
@@ -50,7 +88,7 @@ class ListingCategory7 extends Component {
                 <br />
                 <Container component="main">
                     <Grid container spacing={2}>
-                        <Grid item xs={6}>
+                        <Grid item xs={4}>
                             <div align="left" className="Button">
                                 <Button
                                     variant="contained"
@@ -61,19 +99,33 @@ class ListingCategory7 extends Component {
                 </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={6}>
-                            <div align="right" className="Button">
+                        <Grid item xs={4}>
+                            <div align="center" className="Button">
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={this.handleClick}
+                                    onClick={this.handleClickToSave}
                                 >
                                     Save
                 </Button>
                             </div>
                         </Grid>
+                        <Grid item xs={4}>
+                            <div align="right" className="Button">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleClickNext}
+                                >
+                                    Next
+                </Button>
+                            </div>
+                        </Grid>
                     </Grid>
                 </Container>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
             </div >
         )
     }

@@ -13,6 +13,9 @@ import listingCategory4Saga from './listingcategory4saga';
 import listingCategory5Saga from './listingcategory5saga';
 import deleteListingAnswer from './deleteListingAnswer';
 import deletePurchaseAnswerSaga from './deletePurchaseAnswer';
+import listingCategory6Saga from './listingcategory6saga';
+import listingCategory7Saga from './listingcategory7saga';
+
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -34,5 +37,7 @@ export default function* rootSaga() {
     listingCategory5Saga(),
     deleteListingAnswer(),
     deletePurchaseAnswerSaga(),
+    listingCategory6Saga(),
+    listingCategory7Saga(),
   ]);
 }

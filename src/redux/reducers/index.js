@@ -7,6 +7,8 @@ import listingCategory1 from './listingCategory1Reducer';
 import listingCategory3Reducer from './listingcategory3Reducer';
 import listingCategory4Reducer from './listingcategory4Reducer';
 import listingCategory5Reducer from './listingcategory5Reducer';
+import listingCategory6Reducer from './listingcategory6Reducer';
+import listingCategory7Reducer from './listingcategory7Reducer';
 import listingCategory8Reducer from './listingcategory8reducer';
 import deleteListingAnswerReducer from './deleteListingAnswerReducer';
 import deletePurchaseAnswerReducer from './deletePurchaseAnswerReducer';
@@ -26,6 +28,8 @@ const rootReducer = combineReducers({
   listingCategory3Reducer,
   listingCategory4Reducer,
   listingCategory5Reducer,
+  listingCategory6Reducer,
+  listingCategory7Reducer,
   listingCategory8Reducer,
   deleteListingAnswerReducer, 
   deletePurchaseAnswerReducer,

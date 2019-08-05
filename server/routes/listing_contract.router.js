@@ -35,6 +35,19 @@ router.get('/PDF_pages', (req,res)=>{
 });
 
 
+router.get('/answers/:id', (req,res)=>{
+    pool.query(` select * from "Listing_Contract" where "id" = $1;`,[req.params.id])
+    .then((results)=>{
+        console.log(results.rows)
+        res.send(results.rows)
+    }).catch((error)=>{
+        console.log('error in purchase agreement',error)
+    })
+});
+
+
+
+
 /**
  * POST route listing_contract category 3
  */
@@ -78,18 +91,18 @@ router.delete('/delete/:id', (req, res) => {
       /**
  * POST route listing_contract category 6
  */
-// router.post('/category6', (req, res) => {
-//     console.log('we are posting listing category 6 answers to the database', req.body)    
-//     res.sendStatus(200);
-//     });
+router.post('/category6', (req, res) => {
+    console.log('we are posting listing category 6 answers to the database', req.body)    
+    res.sendStatus(200);
+    });
 
   /**
  * POST route listing_contract category 7
  */
-// router.post('/category7', (req, res) => {
-//     console.log('we are posting listing category 7 answers to the database', req.body)    
-//     res.sendStatus(200);
-//     });
+router.post('/category7', (req, res) => {
+    console.log('we are posting listing category 7 answers to the database', req.body)    
+    res.sendStatus(200);
+    });
 
 
 /**
