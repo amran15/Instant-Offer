@@ -10,6 +10,14 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory3 extends Component {
+    handleClick = () => {
+        this.props.history.push('/PurchaseAgreement')
+    }
+
+    handleClickNext = () => {
+        this.props.history.push('/PurchaseCategory4')
+    }
+
     render() {
         return (
             <div>
@@ -17,11 +25,9 @@ class PurchaseCategory3 extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h2>Closing Date</h2>
+                                <h4>Closing Date</h4>
                             </center>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <p>Date</p>
+                            <h4>Date</h4>
                             <TextField
                                 id="date"
                                 variant="outlined"
@@ -31,26 +37,42 @@ class PurchaseCategory3 extends Component {
                     </Grid>
                 </Container>
                 <br />
+                <br />
                 <Container component="main">
-                    <Grid container spacing={2}>
-                        <Grid item xs={6}>
-                            <div align="left">
+                    <Grid container spacing={3}>
+                        <Grid item xs={4}>
+                            <div align="left" className="Button">
                                 <Button
                                     variant="contained"
                                     color="primary"
+                                    onClick={this.handleClick}
                                 >
                                     Back
-                        </Button>
+                </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={6}>
-                            <div align="right">
+                        <Grid item xs={4}>
+                            <div align="center" className="Button">
                                 <Button
                                     variant="contained"
                                     color="primary"
+                                    onClick={this.handleClick}
                                 >
                                     Save
-                        </Button>
+                </Button>
+
+                            </div>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <div align="right" className="Button">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleClickNext}
+                                >
+                                    Next
+                </Button>
+
                             </div>
                         </Grid>
                     </Grid>

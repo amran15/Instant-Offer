@@ -12,6 +12,14 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory4 extends Component {
+    handleClick = () => {
+        this.props.history.push('/PurchaseAgreement')
+    }
+
+    handleClickNext = () => {
+        this.props.history.push('/PurchaseCategory5')
+    }
+
     render() {
         return (
             <div>
@@ -21,8 +29,6 @@ class PurchaseCategory4 extends Component {
                             <center>
                                 <h2>Mortgage Financing</h2>
                             </center>
-                        </Grid>
-                        <Grid item xs={12}>
                             <h4>Is this Purchase Agreement subject to the mortgage financing provisions below? If yes, complete the mortgage financing section below. If not, proceed to the Seller's Contributions to Buyer's Cost.</h4>
                             <FormControlLabel
                                 control={
@@ -231,26 +237,26 @@ class PurchaseCategory4 extends Component {
                                 label="If Buyer cannot secure the financing specified in this Purchase Agreement, and this Purchase Agreement does not close on the closing date specified, this Purchase Agreement is canceled. Buyer and Seller shall immediately sign a Cancellation of Purchase Agreement confirming said cancellation and directing all earnest moeny paid here to be"
                             />
                         </Grid>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="Refunded to Buyer"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="Forfeited to seller"
-                            />
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    // checked={state.checkedB}
+                                    // onChange={handleChange('checkedB')}
+                                    value="checkedB"
+                                    color="primary"
+                                />}
+                            label="Refunded to Buyer"
+                        />
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    // checked={state.checkedB}
+                                    // onChange={handleChange('checkedB')}
+                                    value="checkedB"
+                                    color="primary"
+                                />}
+                            label="Forfeited to seller"
+                        />
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={
@@ -342,8 +348,8 @@ class PurchaseCategory4 extends Component {
                                 <h3>FHA Escape Clause (FHA Financing only)</h3>
                             </center>
                         </Grid>
-                        <h4>Appraised value of the Property</h4>
                         <Grid item xs={12}>
+                        <h4>Appraised value of the Property</h4>
                             <TextField
                                 id="buyers_earnest_money"
                                 // value={this.state.song_title}
@@ -416,8 +422,8 @@ class PurchaseCategory4 extends Component {
                                 label="Added to mortgage amount"
                             />
                         </Grid>
-                        <h4>Paid by the Seller</h4>
                         <Grid item xs={12}>
+                        <h4>Paid by the Seller</h4>
                             <TextField
                                 id="buyers_earnest_money"
                                 // value={this.state.song_title}
@@ -448,27 +454,43 @@ class PurchaseCategory4 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-                <br/>
+                <br />
+                <br />
                 <Container component="main">
-                    <Grid container spacing={2}>
-                        <Grid item xs={6}>
-                            <div align="left">
+                    <Grid container spacing={3}>
+                        <Grid item xs={4}>
+                            <div align="left" className="Button">
                                 <Button
                                     variant="contained"
                                     color="primary"
+                                    onClick={this.handleClick}
                                 >
                                     Back
-                        </Button>
+                </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={6}>
-                            <div align="right">
+                        <Grid item xs={4}>
+                            <div align="center" className="Button">
                                 <Button
                                     variant="contained"
                                     color="primary"
+                                    onClick={this.handleClick}
                                 >
                                     Save
-                        </Button>
+                </Button>
+
+                            </div>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <div align="right" className="Button">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleClickNext}
+                                >
+                                    Next
+                </Button>
+
                             </div>
                         </Grid>
                     </Grid>
