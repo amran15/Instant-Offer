@@ -10,12 +10,6 @@ import { TextField, InputAdornment } from '@material-ui/core';
 
 class ListingCategory1 extends Component {
 
-
-
-
-
-
-
     handleClick = () => {
         this.props.history.push('/ListingContract')
     }
@@ -30,11 +24,9 @@ class ListingCategory1 extends Component {
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
-                            <center>
+                        <center>
                                 <h2>General Information</h2>
                             </center>
-                        </Grid>
-                        <Grid item xs={12}>
                             <h4>Property Address</h4>
                             <TextField
                                 id="street_address"

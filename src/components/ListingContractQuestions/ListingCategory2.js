@@ -7,13 +7,10 @@ import { withRouter } from 'react-router';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import {Checkbox, FormControlLabel } from '@material-ui/core';
+import { Checkbox, FormControlLabel } from '@material-ui/core';
 
 
 class ListingCategory2 extends Component {
-
-
-
 
     handleClick = () => {
         this.props.history.push('/ListingContract')
@@ -32,8 +29,6 @@ class ListingCategory2 extends Component {
                             <center>
                                 <h2>MLS Data Feed Options</h2>
                             </center>
-                        </Grid>
-                        <Grid item xs={12}>
                             <h4>Display listing on the internet?</h4>
                             <FormControlLabel
                                 control={

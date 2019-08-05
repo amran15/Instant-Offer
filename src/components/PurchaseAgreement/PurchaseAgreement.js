@@ -30,6 +30,10 @@ class PurchaseAgreement extends Component {
         this.props.history.push(`${[propertyName]}`);
     }
 
+    handleClickNext = () => {
+        this.props.history.push('/PurchaseAgreementReview');
+    }
+
     render() {
         return (
             <div>
@@ -217,7 +221,8 @@ class PurchaseAgreement extends Component {
                         <div align="right">
                             <Button
                                 variant="contained"
-                                color="primary">
+                                color="primary"
+                                onClick={this.handleClickNext}>
                                 Next
                             </Button>
                         </div>

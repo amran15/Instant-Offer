@@ -1,28 +1,46 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-// import {Link} from 'react-router-dom';
-import './PurchaseAgreementButton.css'
-import {withRouter} from 'react-router';
+import { withRouter } from 'react-router';
+
+//Material UI
 import Button from '@material-ui/core/Button';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
 
+const styles = {
+    button: {
+        color: 'white',
+    },
+};
 
+const theme = createMuiTheme({
+    palette: {
+        secondary: { main: '#E09E19' },
+    },
+});
 
-class Offer extends Component {
-
+class PurchaseAgreementButton extends Component {
 
     // on the Onclick of this, we will be routed to the Purchase Agreement page
-    handleClickForOfferDocuments = () => {
+    handleClickOfferDocuments = () => {
         this.props.history.push('/PurchaseAgreement')
-        console.log('our Offer documents go here in  a drop down')
     }
 
 
     render() {
         return (
-            <div className="OfferDiv">
-                
-                <Button variant="contained" color="secondary" onClick={this.handleClickForOfferDocuments} id="OfferDocButton">Purchase Agreement</Button>
-                
+            <div>
+                <ThemeProvider theme={theme}>
+                    <Button
+                        id="OfferDocButton"
+                        variant="contained"
+                        color="secondary"
+                        style={styles.button}
+                        onClick={this.handleClickOfferDocuments}
+                    >
+                        Purchase Agreement
+                    </Button>
+                </ThemeProvider>
             </div>
         )
     }
@@ -30,6 +48,6 @@ class Offer extends Component {
 
 //bring in redux store to access to it and use props
 const mapReduxStateToProps = reduxState => ({ reduxState })
-export default connect(mapReduxStateToProps)(withRouter(Offer));
+export default connect(mapReduxStateToProps)(withRouter(PurchaseAgreementButton));
 
 
