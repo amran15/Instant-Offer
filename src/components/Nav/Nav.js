@@ -48,7 +48,7 @@ class Nav extends Component {
           </Link>
         </ListItem>
         <ListItem>
-          <Link className="nav-link" to="/listingDrafts">
+          <Link className="nav-link" to="/Drafts">
             Drafts
           </Link>
         </ListItem>

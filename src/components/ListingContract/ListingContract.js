@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 // import {Link} from 'react-router-dom';
+
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router';
 
 //Material UI
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+
 
 const styles = {
     title: {
@@ -18,6 +21,13 @@ const styles = {
 };
 
 class ListingContract extends Component {
+
+
+    handleClick = (propertyName) => (event) => {
+        this.props.history.push(`${[propertyName]}`);
+        console.log('we are inside Listing Categories pages')
+    }
+    
     render() {
         return (
             <div>
@@ -26,7 +36,7 @@ class ListingContract extends Component {
                     <center>
                         <p>Please answer the following questions pertaining to the Listing Offer.</p>
                     </center>
-                    <Card>
+                    <Card onClick={this.handleClick('/ListingCategory1')} value="/ListingCategory1">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={10}>
                                 <div style={styles.title}>
@@ -40,12 +50,12 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
                     <br />
-                    <Card>
+                    <Card onClick={this.handleClick('/ListingCategory2')} value="/ListingCategory2">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={10}>
                                 <div style={styles.title}>
@@ -59,12 +69,12 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
                     <br />
-                    <Card>
+                    <Card onClick={this.handleClick('/ListingCategory3')} value="/ListingCategory3">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={10}>
                                 <div style={styles.title}>
@@ -78,12 +88,12 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
                     <br />
-                    <Card>
+                    <Card onClick={this.handleClick('/ListingCategory4')} value="/ListingCategory4">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={10}>
                                 <div style={styles.title}>
@@ -97,12 +107,12 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
                     <br />
-                    <Card>
+                    <Card onClick={this.handleClick('/ListingCategory5')} value="/ListingCategory5">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={10}>
                                 <div style={styles.title}>
@@ -116,12 +126,12 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
                     <br />
-                    <Card>
+                    <Card onClick={this.handleClick('/ListingCategory6')} value="/ListingCategory6">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={10}>
                                 <div style={styles.title}>
@@ -135,12 +145,12 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
                     <br />
-                    <Card>
+                    <Card onClick={this.handleClick('/ListingCategory7')} value="/ListingCategory7">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={10}>
                                 <div style={styles.title}>
@@ -154,12 +164,12 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
                     <br />
-                    <Card>
+                    <Card onClick={this.handleClick('/ListingCategory8')} value="/ListingCategory8">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={10}>
                                 <div style={styles.title}>
@@ -173,10 +183,18 @@ class ListingContract extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>
+                </Container> 
+                    <br />
+                    <Container>
+                    <Grid item xs={12} sm={2}>
+                        <div align="right">
+                            <Button>Next</Button>
+                        </div>
+                    </Grid>
                 </Container>
             </div>
         )
@@ -185,4 +203,5 @@ class ListingContract extends Component {
 
 
 const mapReduxStateToProps = reduxState => ({ reduxState })
-export default connect(mapReduxStateToProps)(ListingContract);
+export default connect(mapReduxStateToProps)(withRouter(ListingContract));
+

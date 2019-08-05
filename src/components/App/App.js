@@ -9,7 +9,7 @@ import {
 import { connect } from 'react-redux';
 
 import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
+// import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
@@ -18,14 +18,33 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import Documents from '../Documents/Documents';
 import Drafts from '../Drafts/Drafts';
-
-import ListingDrafts  from '../ListingDrafts/ListingDrafts';
 // import Signature from '../Signature/Signature';
 import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
 
 import './App.css';
 import ListingContract from '../ListingContract/ListingContract';
-import ListingCategories from '../ListingQuestions/ListingCategories';
+
+// these are the listing question categories
+import ListingCategory1 from '../ListingContract/ListingCategory1';
+import ListingCategory2 from '../ListingContract/ListingCategory2';
+import ListingCategory3 from '../ListingContract/ListingCategory3';
+import ListingCategory4 from '../ListingContract/ListingCategory4';
+import ListingCategory5 from '../ListingContract/ListingCategory5';
+import ListingCategory6 from '../ListingContract/ListingCategory6';
+import ListingCategory7 from '../ListingContract/ListingCategory7';
+import ListingCategory8 from '../ListingContract/ListingCategory8';
+
+//this will hold purchase categories/questions
+// import PurchaseCategories from '../PurchaseAgreementQuestions/PurchaseCategories';
+import PurchaseCategory1 from '../PurchaseAgreementQuestions/PurchaseCategory1';
+import PurchaseCategory2 from '../PurchaseAgreementQuestions/PurchaseCategory2';
+import PurchaseCategory3 from '../PurchaseAgreementQuestions/PurchaseCategory3';
+import PurchaseCategory4 from '../PurchaseAgreementQuestions/PurchaseCategory4';
+import PurchaseCategory5 from '../PurchaseAgreementQuestions/PurchaseCategory5';
+import PurchaseCategory6 from '../PurchaseAgreementQuestions/PurchaseCategory6';
+import PurchaseCategory7 from '../PurchaseAgreementQuestions/PurchaseCategory7';
+import PurchaseCategory8 from '../PurchaseAgreementQuestions/PurchaseCategory8';
+import PurchaseCategory9 from '../PurchaseAgreementQuestions/PurchaseCategory9';
 
 class App extends Component {
   componentDidMount() {
@@ -56,23 +75,103 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/listingDrafts"
-              component={ListingDrafts}
+              path="/Drafts"
+              component={Drafts}
             />
             <ProtectedRoute
               exact
               path="/ListingContract"
               component={ListingContract}
             />
+             <ProtectedRoute
+              exact
+              path="/ListingCategory1"
+              component={ListingCategory1}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategory2"
+              component={ListingCategory2}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategory3"
+              component={ListingCategory3}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategory4"
+              component={ListingCategory4}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategory5"
+              component={ListingCategory5}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategory6"
+              component={ListingCategory6}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategory7"
+              component={ListingCategory7}
+            />
+            <ProtectedRoute
+              exact
+              path="/ListingCategory8"
+              component={ListingCategory8}
+            />
             <ProtectedRoute
               exact
               path="/PurchaseAgreement"
               component={PurchaseAgreement}
             />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory1"
+              component={PurchaseCategory1}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory2"
+              component={PurchaseCategory2}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory3"
+              component={PurchaseCategory3}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory4"
+              component={PurchaseCategory4}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory5"
+              component={PurchaseCategory5}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory6"
+              component={PurchaseCategory6}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory7"
+              component={PurchaseCategory7}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseCategory8"
+              component={PurchaseCategory8}
+            />
             <ProtectedRoute
               exact
-              path="/ListingCategories"
-              component={ListingCategories}
+              path="/PurchaseCategory9"
+              component={PurchaseCategory9}
             />
             {/* <ProtectedRoute
               exact
@@ -89,7 +188,7 @@ class App extends Component {
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Router>
     )

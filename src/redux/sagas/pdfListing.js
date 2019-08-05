@@ -50,59 +50,82 @@ function* fetchListing(action) {
     doc.addPage()
     doc.addImage(response.data[0].PAGE_2, 'JPEG',0,0,210,297)
     doc.text(`${answer.L3}`,55,35)
-
-
     answer.L54 ?
     doc.text(`X`,189,82)//true 
     :
     doc.text(`X`,173,82)//false
-       
-
     answer.L63 ?
     doc.text(`X`,189,127)//true 
     :
     doc.text(`X`,173,127)//false
-
-
     answer.L71 ?
     doc.text(`X`,189,169)//true 
     :
     doc.text(`X`,173,169)//false
-
-    
     answer.L72 ?
     doc.text(`X`,95,178)//true 
     :
     doc.text(`X`,83,178)//false
-
     doc.text(`${answer.L7}`,25,185)
-
     answer.L73 ?
     doc.text(`X`,124,187)//true 
     :
     doc.text(`X`,111,187)//false
-
-
     // -----------------------------------------------------------------------------------------
     //                              page # 3
     // ------------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_3, 'JPEG',0,0,210,297)
+    doc.text(`${answer.L3}`,55,35)
+    doc.text(`${answer.L115}`,99,148)
+    doc.text(`${answer.L118}`,115,164)
+    doc.text(`${answer.L119}`,30,170)
+    doc.text(`${answer.L121}`,35,183)
+    doc.text(`${answer.L131}`,35,233)
     // -----------------------------------------------------------------------------------------
     //                              page # 4
     // ------------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_4, 'JPEG',0,0,210,297)
+    doc.text(`${answer.L3}`,55,35)
+    if(answer.L146){ 
+      doc.text(`X`,85,57)
+      //  line 148
+      if(answer.L148A){doc.text(`X`,21,71)}
+      if(answer.L148B){doc.text(`${answer.L148B}`,28,70)}
+      if(answer.L148C){doc.text(`${answer.L148C}`,92,70)}
+      // line 150
+      if(answer.L150A){doc.text(`X`,21,82)}
+      if(answer.L150B){doc.text(`${answer.L150B}`,28,81)}
+      if(answer.L150C){doc.text(`${answer.L150C}`,92,81)}
+      // line 152
+      if (answer.L152A){doc.text(`X`,21,94)}
+      if(answer.L152B){doc.text(`${answer.L152B}`,38,93)}
+    }else doc.text(`X`,103,57)//false
+    // we did need line 164 in the DB
+    answer.L163 ?
+    doc.text(`X`,21,159)//true 
+    :
+    doc.text(`X`,21,165)//false
+    // initials
+    if(answer.L165A){doc.text(`${answer.L165A}`,21,172)}
+    if(answer.L165A){doc.text(`${answer.L165A}`,49,172)}
+    answer.L175 ?
+    doc.text(`X`,88,231)//true 
+    :
+    doc.text(`X`,98,231)//false
     // -----------------------------------------------------------------------------------------
     //                              page # 5
     // ------------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_5, 'JPEG',0,0,210,297)
+    doc.text(`${answer.L3}`,55,33)
     // -----------------------------------------------------------------------------------------
     //                              page # 6
     // ------------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_6, 'JPEG',0,0,210,297)
+    doc.text(`${answer.L3}`,55,35)
     // -----------------------------------------------------------------------------------------
     //                              page # 7
     // ------------------------------------------------------------------------------------------

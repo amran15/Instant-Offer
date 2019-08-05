@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 // import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
+// import {withRouter} from 'react-router';
+import '../PurchaseAgreement/PurchaseAgreement.css';
+// import {Link, Route} from 'react-router-dom';
+import { connect } from 'react-redux';
 
+
+ 
 //Material UI
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+// import ListingCategory1 from "../ListingQuestions/ListingCategory1";
 
 const styles = {
     title: {
@@ -19,6 +26,11 @@ const styles = {
 
 
 class PurchaseAgreement extends Component {
+
+    handleClick = (propertyName) => (event) => {
+        this.props.history.push(`${[propertyName]}`);
+        console.log('we are inside Purchase agreement pages');
+    }
     render() {
         return (
             <div>
@@ -27,26 +39,28 @@ class PurchaseAgreement extends Component {
                 <center>
                     <p>Please answer the following questions pertaining to the Purchase Agreement.</p>
                 </center>
-                <Card>
+                
+                <Card id="generalInfo" onClick={this.handleClick('/PurchaseCategory1')}  value="/PurchaseCategory1" >
                     <Grid item xs={12} container spacing={3}>
                         <Grid item xs={10}>
                             <div style={styles.title}>
                                 <h5>General Information</h5>
                             </div>
                         </Grid>
-                        <Grid
+                        <Grid id="generalInfoCard"
                             item xs={2}
                             className="arrow"
                             container
                             direction="row"
                             justify="center"
                             alignItems="center">
-                            <i class="material-icons">arrow_forward_ios</i>
+                            <i className="material-icons">arrow_forward_ios</i>
                         </Grid>
                     </Grid>
                 </Card>
+                
                 <br />
-                <Card>
+                <Card onClick={this.handleClick('/PurchaseCategory2')} value="/PurchaseCategory2">
                     <Grid item xs={12} container spacing={3}>
                         <Grid item xs={10}>
                             <div style={styles.title}>
@@ -60,12 +74,12 @@ class PurchaseAgreement extends Component {
                             direction="row"
                             justify="center"
                             alignItems="center">
-                            <i class="material-icons">arrow_forward_ios</i>
+                            <i className="material-icons">arrow_forward_ios</i>
                         </Grid>
                     </Grid>
                 </Card>
                 <br />
-                <Card>
+                <Card onClick={this.handleClick('/PurchaseCategory3')} value="PurchaseCategory3">
                     <Grid item xs={12} container spacing={3}>
                         <Grid item xs={10}>
                             <div style={styles.title}>
@@ -79,12 +93,12 @@ class PurchaseAgreement extends Component {
                             direction="row"
                             justify="center"
                             alignItems="center">
-                            <i class="material-icons">arrow_forward_ios</i>
+                            <i className="material-icons">arrow_forward_ios</i>
                         </Grid>
                     </Grid>
                 </Card>
                 <br />
-                <Card>
+                <Card onClick={this.handleClick('/PurchaseCategory4')} value="PurchaseCategory4">
                     <Grid item xs={12} container spacing={3}>
                         <Grid item xs={10}>
                             <div style={styles.title}>
@@ -98,12 +112,12 @@ class PurchaseAgreement extends Component {
                             direction="row"
                             justify="center"
                             alignItems="center">
-                            <i class="material-icons">arrow_forward_ios</i>
+                            <i className="material-icons">arrow_forward_ios</i>
                         </Grid>
                     </Grid>
                 </Card>
                 <br />
-                <Card>
+                <Card onClick={this.handleClick('/PurchaseCategory5')} value="PurchaseCategory5">
                     <Grid item xs={12} container spacing={3}>
                         <Grid item xs={10}>
                             <div style={styles.title}>
@@ -117,12 +131,12 @@ class PurchaseAgreement extends Component {
                             direction="row"
                             justify="center"
                             alignItems="center">
-                            <i class="material-icons">arrow_forward_ios</i>
+                            <i className="material-icons">arrow_forward_ios</i>
                         </Grid>
                     </Grid>
                 </Card>
                 <br />
-                <Card>
+                <Card onClick={this.handleClick('/PurchaseCategory6')} value="PurchaseCategory6">
                     <Grid item xs={12} container spacing={3}>
                         <Grid item xs={10}>
                             <div style={styles.title}>
@@ -136,12 +150,12 @@ class PurchaseAgreement extends Component {
                             direction="row"
                             justify="center"
                             alignItems="center">
-                            <i class="material-icons">arrow_forward_ios</i>
+                            <i className="material-icons">arrow_forward_ios</i>
                         </Grid>
                     </Grid>
                 </Card>
                 <br />
-                <Card>
+                <Card onClick={this.handleClick('/PurchaseCategory7')} value="PurchaseCategory7">
                     <Grid item xs={12} container spacing={3}>
                         <Grid item xs={10}>
                             <div style={styles.title}>
@@ -155,12 +169,12 @@ class PurchaseAgreement extends Component {
                             direction="row"
                             justify="center"
                             alignItems="center">
-                            <i class="material-icons">arrow_forward_ios</i>
+                            <i className="material-icons">arrow_forward_ios</i>
                         </Grid>
                     </Grid>
                 </Card>
                 <br />
-                <Card>
+                <Card onClick={this.handleClick('/PurchaseCategory8')} value="PurchaseCategory8">
                     <Grid item xs={12} container spacing={3}>
                         <Grid item xs={10}>
                             <div style={styles.title}>
@@ -174,17 +188,17 @@ class PurchaseAgreement extends Component {
                             direction="row"
                             justify="center"
                             alignItems="center">
-                            <i class="material-icons">arrow_forward_ios</i>
+                            <i className="material-icons">arrow_forward_ios</i>
                         </Grid>
                     </Grid>
-                </Card>
-            </Container>
-        </div>
+                    </Card>
+                </Container>
+            </div>
         )
     }
 }
 
 
 const mapReduxStateToProps = reduxState => ({ reduxState })
-export default connect(mapReduxStateToProps)(PurchaseAgreement);
-// export default PurchaseAgreement;
+export default connect(mapReduxStateToProps)(withRouter(PurchaseAgreement));
+
