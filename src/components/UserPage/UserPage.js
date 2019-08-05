@@ -1,26 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import LogOutButton from '../LogOutButton/LogOutButton';
 import ListingContractButton from '../ListingContractButton/ListingContractButton';
 import PurchaseAgreementButton from '../PurchaseAgreementButton/PurchaseAgreementButton';
 
-// this could also be written with destructuring parameters as:
-// const UserPage = ({ user }) => (
-// and then instead of `props.user.username` you could use `user.username`
+//Material UI
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+
 const UserPage = (props) => (
   <div>
-    <h1 id="welcome">
-      Welcome, { props.user.username }!
-    </h1>
-    {/* <p>Your ID is: {props.user.id}</p> */}
-    <ListingContractButton />
-    <br/>
-    <PurchaseAgreementButton />
-    <br/>
-    
-    {/* <LogOutButton className="log-in" /> */}
-
-
+    <center>
+    <h1>Welcome, {props.user.username}!</h1>
+      <h4>Please select one of the forms below to begin.</h4>
+    </center>
+    <br />
+    <div align="center">
+    <Container component="main" maxWidth="xs">
+      <Grid item xs={12}>
+        <ListingContractButton />
+        <br />
+        <br />
+      </Grid>
+      <Grid item xs={12}>
+        <PurchaseAgreementButton />
+      </Grid>
+    </Container>
+    </div>
   </div>
 );
 

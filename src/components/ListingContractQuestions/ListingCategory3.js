@@ -43,8 +43,9 @@ class ListingCategory3 extends Component {
         console.log(this.state.ifYes);
         this.setState({
             listedForLease: {
-            ...this.state.listedForLease, [propertyName]: event.target.value,
-        }})
+                ...this.state.listedForLease, [propertyName]: event.target.value,
+            }
+        })
     }
 
     // this.setState ({
@@ -76,9 +77,7 @@ class ListingCategory3 extends Component {
                             <center>
                                 <h2>Listed for Lease</h2>
                             </center>
-                        </Grid>
-                        <h4>The property is currently listed for lease?</h4>
-                        <Grid item xs={12}>
+                            <h4>The property is currently listed for lease?</h4>
                             <FormControlLabel
                                 control={
                                     <Checkbox
@@ -101,7 +100,7 @@ class ListingCategory3 extends Component {
                                 label="No"
                             />
                         </Grid>
-                        <h4>If selected yes, who is the listing broker?</h4>
+                        <h4>If yes, who is the listing broker?</h4>
                         <Grid item xs={12}>
                             <TextField
                                 id="listing_broker"
@@ -111,7 +110,7 @@ class ListingCategory3 extends Component {
                                 onChange={this.handleChangeForInput('ifYes')}
                             />
                         </Grid>
-                        <h4>If selected no, the property can be listed for lease during the terms of this contract with another broker</h4>
+                        <h4>If no, the property can be listed for lease during the terms of this contract with another broker.</h4>
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={
@@ -148,7 +147,7 @@ class ListingCategory3 extends Component {
                                     onClick={this.handleClick}
                                 >
                                     Back
-                </Button>
+                                </Button>
                             </div>
                         </Grid>
                         <Grid item xs={4}>
@@ -159,7 +158,7 @@ class ListingCategory3 extends Component {
                                     onClick={this.handleSaveButton}
                                 >
                                     Save
-                </Button>
+                                 </Button>
                             </div>
                         </Grid>
                         <Grid item xs={4}>
@@ -170,14 +169,11 @@ class ListingCategory3 extends Component {
                                     onClick={this.handleClickNext}
                                 >
                                     Next
-                </Button>
+                                 </Button>
                             </div>
                         </Grid>
                     </Grid>
                 </Container>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
             </div>
         )
     }

@@ -15,6 +15,7 @@ class PurchaseCategory9 extends Component {
     handleClick = () => {
         this.props.history.push('/PurchaseAgreement')
     }
+    
 
     render() {
         return (
