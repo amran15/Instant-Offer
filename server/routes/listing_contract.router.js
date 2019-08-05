@@ -115,8 +115,6 @@ router.post('/category8', (req, res) => {
 
 
 
-
-
 /**
  * POST route listing_contract category ?
  */
