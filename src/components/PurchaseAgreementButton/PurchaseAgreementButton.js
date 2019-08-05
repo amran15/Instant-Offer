@@ -32,7 +32,7 @@ class PurchaseAgreementButton extends Component {
             <div>
                 <ThemeProvider theme={theme}>
                     <Button
-                        id="OfferDocButton"
+                        id="purchaseDocButton"
                         variant="contained"
                         color="secondary"
                         style={styles.button}
