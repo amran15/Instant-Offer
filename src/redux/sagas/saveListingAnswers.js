@@ -5,7 +5,7 @@ import axios from 'axios';
 function* saveListingContractAnswers(action) {
     try {
         yield axios.post('/api/listing/save', action.payload);
-        yield put ({ type: LISTING_CATEGORY_1 })
+        // yield put ({ type: LISTING_CATEGORY_1 })
         // yield put ({ type: '2' });
         // yield put ({ type: '3' });
         // yield put ({ type: '4' });
