@@ -7,24 +7,24 @@ import {
 } from 'react-router-dom';
 
 import { connect } from 'react-redux';
+import './App.css';
 
 import Nav from '../Nav/Nav';
 // import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
-import Documents from '../Documents/Documents';
 import Drafts from '../Drafts/Drafts';
-import Signature from '../Signature/Signature';
-import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
 
 import './App.css';
-import ListingContract from '../ListingContract/ListingContract';
+import Signature from '../Signature/Signature';
+import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
+import SignedDocs from '../SignedDocs/SignedDocs';
 
 // these are the listing question categories
+import ListingContract from '../ListingContract/ListingContract';
 import ListingCategory1 from '../ListingContractQuestions/ListingCategory1';
 import ListingCategory2 from '../ListingContractQuestions/ListingCategory2';
 import ListingCategory3 from '../ListingContractQuestions/ListingCategory3';
@@ -36,7 +36,6 @@ import ListingCategory8 from '../ListingContractQuestions/ListingCategory8';
 import ListingReview from '../ListingReview/ListingReview';
 
 //this will hold purchase categories/questions
-// import PurchaseCategories from '../PurchaseAgreementQuestions/PurchaseCategories';
 import PurchaseCategory1 from '../PurchaseAgreementQuestions/PurchaseCategory1';
 import PurchaseCategory2 from '../PurchaseAgreementQuestions/PurchaseCategory2';
 import PurchaseCategory3 from '../PurchaseAgreementQuestions/PurchaseCategory3';
@@ -47,6 +46,7 @@ import PurchaseCategory7 from '../PurchaseAgreementQuestions/PurchaseCategory7';
 import PurchaseCategory8 from '../PurchaseAgreementQuestions/PurchaseCategory8';
 import PurchaseCategory9 from '../PurchaseAgreementQuestions/PurchaseCategory9';
 import PurchaseAgreementReview from '../PurchaseAgreementReview/PurchaseAgreementReview';
+
 
 class App extends Component {
   componentDidMount() {
@@ -72,8 +72,8 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/documents"
-              component={Documents}
+              path="/signed-documents"
+              component={SignedDocs}
             />
             <ProtectedRoute
               exact

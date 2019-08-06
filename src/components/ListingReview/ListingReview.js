@@ -4,15 +4,20 @@ import { withRouter } from 'react-router';
 
 
 //material UI
-import Grid from '@material-ui/core/Grid';
-// import Checkbox from '@material-ui/core/Checkbox';
+//Material UI       
+import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
-// import { TextField } from '@material-ui/core';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import Button from '@material-ui/core/Button';
-
+import Grid from '@material-ui/core/Grid';
 
 class ListingReview extends Component {
+    handleClickBack = () => {
+        this.props.history.push('/ListingContract')
+    }
+
+    handleClickSign = () => {
+        this.props.history.push('/Signature')
+    }
+
     render() {
         return (
             <>
@@ -26,6 +31,32 @@ class ListingReview extends Component {
                             </Grid>
                         </Grid>
                     </Container>
+                    <Container component="main">
+                    <Grid container spacing={3}>
+                        <Grid item xs={6}>
+                            <div align="left" className="Button">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleClickBack}
+                                >
+                                    Back
+                                </Button>
+                            </div>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <div align="right" className="Button">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleClickSign}
+                                >
+                                    Sign
+                                </Button>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </Container>
                 </div>
             </>
         )
