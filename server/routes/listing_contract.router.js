@@ -62,6 +62,17 @@ router.get('/answers/:id', (req, res) => {
 // });
 
 
+/**
+ * POST route listing_contract category 3
+ */
+router.post('/category3', (req, res) => {
+    console.log('we are posting listing category 3 answers to the database', req.body)    
+    res.sendStatus(200);
+    });
+
+/**
+ * DELETE route listing_contract
+ */
 router.post('/save', (req, res) => {
     console.log('LISTING POST SERVER', req.body)
     const querySave = `INSERT INTO "Listing_Contract"("BUYER_1", "SIGNATURE_BUYER_1", "PRINTED_SIGNATURE_BUYER_1",
@@ -101,8 +112,49 @@ router.delete('/delete/:id', (req, res) => {
         })
 });
 
-/**
- * POST route listing_contract category ?
+
+    /**
+ * POST route listing_contract category 4
  */
+    router.post('/category4', (req, res) => {
+        console.log('we are posting listing category 4 answers to the database', req.body)    
+        res.sendStatus(200);
+        });
+
+
+          /**
+ * POST route listing_contract category 5
+ */
+    router.post('/category5', (req, res) => {
+        console.log('we are posting listing category 5 answers to the database', req.body)    
+        res.sendStatus(200);
+        });
+
+      /**
+ * POST route listing_contract category 6
+ */
+router.post('/category6', (req, res) => {
+    console.log('we are posting listing category 6 answers to the database', req.body)    
+    res.sendStatus(200);
+    });
+
+  /**
+ * POST route listing_contract category 7
+ */
+router.post('/category7', (req, res) => {
+    console.log('we are posting listing category 7 answers to the database', req.body)    
+    res.sendStatus(200);
+    });
+
+
+/**
+ * POST route listing_contract category 8
+ */
+router.post('/category8', (req, res) => {
+    console.log('we are posting listing category 8 answers to the database', req.body)    
+    res.sendStatus(200);
+    });
+
+
 
 module.exports = router;

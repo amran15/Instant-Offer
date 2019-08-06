@@ -1,46 +1,28 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-
-//Material UI
+// import {Link} from 'react-router-dom';
+import './PurchaseAgreementButton.css'
+import {withRouter} from 'react-router';
 import Button from '@material-ui/core/Button';
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
 
-const styles = {
-    button: {
-        color: 'white',
-    },
-};
 
-const theme = createMuiTheme({
-    palette: {
-        secondary: { main: '#E09E19' },
-    },
-});
 
-class PurchaseAgreementButton extends Component {
+class Offer extends Component {
+
 
     // on the Onclick of this, we will be routed to the Purchase Agreement page
-    handleClickOfferDocuments = () => {
+    handleClickForOfferDocuments = () => {
         this.props.history.push('/PurchaseAgreement')
+        console.log('our Offer documents go here in  a drop down')
     }
 
 
     render() {
         return (
-            <div>
-                <ThemeProvider theme={theme}>
-                    <Button
-                        id="purchaseDocButton"
-                        variant="contained"
-                        color="secondary"
-                        style={styles.button}
-                        onClick={this.handleClickOfferDocuments}
-                    >
-                        Purchase Agreement
-                    </Button>
-                </ThemeProvider>
+            <div className="OfferDiv">
+                
+                <Button variant="contained" color="secondary" onClick={this.handleClickForOfferDocuments} id="OfferDocButton">Purchase Agreement</Button>
+                
             </div>
         )
     }
@@ -48,6 +30,6 @@ class PurchaseAgreementButton extends Component {
 
 //bring in redux store to access to it and use props
 const mapReduxStateToProps = reduxState => ({ reduxState })
-export default connect(mapReduxStateToProps)(withRouter(PurchaseAgreementButton));
+export default connect(mapReduxStateToProps)(withRouter(Offer));
 
 
