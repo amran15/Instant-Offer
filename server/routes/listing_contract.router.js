@@ -66,9 +66,7 @@ router.get('/answers/:id', (req, res) => {
 
 
 
-/**
- * POST route listing_contract
- */
+// POST route listing_contract
 router.post('/save', (req, res) => {
     console.log('LISTING POST SERVER', req.body)
     const querySave = `INSERT INTO "Listing_Contract"("BUYER_1", "BUYER_1_ADDRESS","BUYER_1_PHONE", "BUYER_1_EMAIL", "SIGNATURE_BUYER_1", "PRINTED_SIGNATURE_BUYER_1",

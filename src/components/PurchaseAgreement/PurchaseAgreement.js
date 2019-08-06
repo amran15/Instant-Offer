@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 
  
 //Material UI
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -203,7 +203,7 @@ class PurchaseAgreement extends Component {
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={10}>
                                 <div style={styles.title}>
-                                    <h5>Addtional Provisions</h5>
+                                    <h5>Additional Provisions</h5>
                                 </div>
                             </Grid>
                             <Grid
