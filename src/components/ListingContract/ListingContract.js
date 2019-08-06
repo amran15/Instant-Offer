@@ -27,6 +27,10 @@ class ListingContract extends Component {
         this.props.history.push(`${[propertyName]}`);
         console.log('we are inside Listing Categories pages')
     }
+
+    handleClickNext = () => {
+        this.props.history.push('/ListingReview')
+    }
     
     render() {
         return (
@@ -191,8 +195,13 @@ class ListingContract extends Component {
                     <br />
                     <Container>
                     <Grid item xs={12} sm={2}>
-                        <div align="right">
-                            <Button>Next</Button>
+                        <div align="right"
+                        className="Button">
+                            <Button
+                              variant="contained"
+                              color="primary"
+                              onClick={this.handleClickNext}
+                            >Next</Button>
                         </div>
                     </Grid>
                 </Container>

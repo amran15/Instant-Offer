@@ -25,14 +25,15 @@ import './App.css';
 import ListingContract from '../ListingContract/ListingContract';
 
 // these are the listing question categories
-import ListingCategory1 from '../ListingContract/ListingCategory1';
-import ListingCategory2 from '../ListingContract/ListingCategory2';
-import ListingCategory3 from '../ListingContract/ListingCategory3';
-import ListingCategory4 from '../ListingContract/ListingCategory4';
-import ListingCategory5 from '../ListingContract/ListingCategory5';
-import ListingCategory6 from '../ListingContract/ListingCategory6';
-import ListingCategory7 from '../ListingContract/ListingCategory7';
-import ListingCategory8 from '../ListingContract/ListingCategory8';
+import ListingCategory1 from '../ListingContractQuestions/ListingCategory1';
+import ListingCategory2 from '../ListingContractQuestions/ListingCategory2';
+import ListingCategory3 from '../ListingContractQuestions/ListingCategory3';
+import ListingCategory4 from '../ListingContractQuestions/ListingCategory4';
+import ListingCategory5 from '../ListingContractQuestions/ListingCategory5';
+import ListingCategory6 from '../ListingContractQuestions/ListingCategory6';
+import ListingCategory7 from '../ListingContractQuestions/ListingCategory7';
+import ListingCategory8 from '../ListingContractQuestions/ListingCategory8';
+import ListingReview from '../ListingReview/ListingReview';
 
 //this will hold purchase categories/questions
 // import PurchaseCategories from '../PurchaseAgreementQuestions/PurchaseCategories';
@@ -45,6 +46,7 @@ import PurchaseCategory6 from '../PurchaseAgreementQuestions/PurchaseCategory6';
 import PurchaseCategory7 from '../PurchaseAgreementQuestions/PurchaseCategory7';
 import PurchaseCategory8 from '../PurchaseAgreementQuestions/PurchaseCategory8';
 import PurchaseCategory9 from '../PurchaseAgreementQuestions/PurchaseCategory9';
+import PurchaseAgreementReview from '../PurchaseAgreementReview/PurchaseAgreementReview';
 
 class App extends Component {
   componentDidMount() {
@@ -123,6 +125,11 @@ class App extends Component {
               path="/ListingCategory8"
               component={ListingCategory8}
             />
+              <ProtectedRoute
+              exact
+              path="/ListingReview"
+              component={ListingReview}
+            />
             <ProtectedRoute
               exact
               path="/PurchaseAgreement"
@@ -172,6 +179,11 @@ class App extends Component {
               exact
               path="/PurchaseCategory9"
               component={PurchaseCategory9}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseAgreementReview"
+              component={PurchaseAgreementReview}
             />
             {/* <ProtectedRoute
               exact

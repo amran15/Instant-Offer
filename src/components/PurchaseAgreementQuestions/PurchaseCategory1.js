@@ -11,6 +11,14 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory1 extends Component {
+    handleClick = () => {
+        this.props.history.push('/PurchaseAgreement')
+    }
+
+    handleClickNext = () => {
+        this.props.history.push('/PurchaseCategory2')
+    }
+
     render() {
         return (
             <div>
@@ -20,9 +28,7 @@ class PurchaseCategory1 extends Component {
                             <center>
                                 <h2>General Information</h2>
                             </center>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <p>Date</p>
+                            <h4>Date</h4>
                             <TextField
                                 id="date"
                                 variant="outlined"
@@ -30,7 +36,7 @@ class PurchaseCategory1 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <p>Buyer's Name</p>
+                            <h4>Buyer's Name</h4>
                             <TextField
                                 // label="Song Title"
                                 id="buyers_name"
@@ -41,7 +47,7 @@ class PurchaseCategory1 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <p>Buyer's earnest money in the amount of</p>
+                            <h4>Buyer's earnest money in the amount of</h4>
                             <TextField
                                 // label="Song Title"
                                 id="buyers_earnest_money"
@@ -62,8 +68,7 @@ class PurchaseCategory1 extends Component {
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
                             />
-                            <p>shall be delivered to listing broker, or if checked, to</p>
-
+                            <h4>shall be delivered to listing broker, or if checked, to</h4>
                             <Grid container spacing={2}>
                                 <Grid item xs={2}>
                                     <Checkbox
@@ -83,12 +88,10 @@ class PurchaseCategory1 extends Component {
                                     />
                                 </Grid>
                             </Grid>
-
-
-                            <p>no later than two (2) Business Days after Final Acceptance Date of this Purchase Agreement.</p>
+                            <h4>no later than two (2) Business Days after Final Acceptance Date of this Purchase Agreement.</h4>
                         </Grid>
                         <Grid item xs={12}>
-                            <p>Property Address</p>
+                            <h4>Property Address</h4>
                             <TextField
                                 id="street_address"
                                 label="Street Address"
@@ -119,7 +122,7 @@ class PurchaseCategory1 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <p>Legal description of property</p>
+                            <h4>Legal description of property</h4>
                             <TextField
                                 id="legal_description"
                                 // value={this.state.song_title}
@@ -129,7 +132,7 @@ class PurchaseCategory1 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <p>Built-Ins and the following personal property shall be transferred with no additional monetary value, and free and clear of all liens and encumbrances:</p>
+                            <h4>Built-Ins and the following personal property shall be transferred with no additional monetary value, and free and clear of all liens and encumbrances:</h4>
                             <TextField
                                 id="built_ins"
                                 // value={this.state.song_title}
@@ -139,7 +142,7 @@ class PurchaseCategory1 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <p>The following item(s) are excluded from the purchase:</p>
+                            <h4>The following item(s) are excluded from the purchase:</h4>
                             <TextField
                                 id="excluded_items"
                                 // value={this.state.song_title}
@@ -151,26 +154,42 @@ class PurchaseCategory1 extends Component {
                     </Grid>
                 </Container>
                 <br />
+                <br />
                 <Container component="main">
-                    <Grid container spacing={2}>
-                        <Grid item xs={6}>
-                            <div align="left">
+                    <Grid container spacing={3}>
+                        <Grid item xs={4}>
+                            <div align="left" className="Button">
                                 <Button
                                     variant="contained"
                                     color="primary"
+                                    onClick={this.handleClick}
                                 >
                                     Back
-                        </Button>
+                </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={6}>
-                            <div align="right">
+                        <Grid item xs={4}>
+                            <div align="center" className="Button">
                                 <Button
                                     variant="contained"
                                     color="primary"
+                                    onClick={this.handleClick}
                                 >
                                     Save
-                        </Button>
+                </Button>
+
+                            </div>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <div align="right" className="Button">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleClickNext}
+                                >
+                                    Next
+                </Button>
+
                             </div>
                         </Grid>
                     </Grid>

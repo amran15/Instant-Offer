@@ -12,6 +12,14 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory5 extends Component {
+    handleClick = () => {
+        this.props.history.push('/PurchaseAgreement')
+    }
+
+    handleClickNext = () => {
+        this.props.history.push('/PurchaseCategory6')
+    }
+
     render() {
         return (
             <div>
@@ -21,10 +29,7 @@ class PurchaseCategory5 extends Component {
                             <center>
                                 <h2>Seller's Contributions to Buyer's Costs</h2>
                             </center>
-                        </Grid>
-                        <Grid item xs={12}>
-
-                            <h4>Will Seller be contributing to Buyer's costs.</h4>
+                            <h4>Will Seller be contributing to Buyer's costs?</h4>
                             <FormControlLabel
                                 control={
                                     <Checkbox
@@ -47,7 +52,7 @@ class PurchaseCategory5 extends Component {
                             />
                         </Grid>
 
-                        <h4>If yes, Seller agrees to pay at closing, up to: <i>(Check one)</i></h4>
+                        <h4>If yes, Seller agrees to pay at closing, up toht eamount amount of the sale price: <i>(Check one)</i></h4>
                         <Grid container spacing={2}>
                             <Grid item xs={2}>
                                 <Checkbox
@@ -69,8 +74,6 @@ class PurchaseCategory5 extends Component {
                                     }}
                                 />
                             </Grid>
-                        </Grid>
-                        <Grid container spacing={2}>
                             <Grid item xs={2}>
                                 <Checkbox
                                     // checked={state.checkedB}
@@ -90,35 +93,49 @@ class PurchaseCategory5 extends Component {
                                         endAdornment: <InputAdornment position="start">%</InputAdornment>,
                                     }}
                                 />
+                                <br />
+                                <br />
                             </Grid>
-                            <h4>of the sale price</h4>
                         </Grid>
+                        <br />
+                        <br />
                         <Container component="main">
-                    <Grid container spacing={2}>
-                        <Grid item xs={6}>
-                            <div align="left">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                >
-                                    Back
-                        </Button>
-                            </div>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <div align="right">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                >
-                                    Save
-                        </Button>
-                            </div>
-                        </Grid>
-                    </Grid>
-                </Container>
-
-
+                            <Grid container spacing={3}>
+                                <Grid item xs={4}>
+                                    <div align="left" className="Button">
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            onClick={this.handleClick}
+                                        >
+                                            Back
+                                        </Button>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={4}>
+                                    <div align="center" className="Button">
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            onClick={this.handleClick}
+                                        >
+                                            Save
+                                        </Button>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={4}>
+                                    <div align="right" className="Button">
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            onClick={this.handleClickNext}
+                                        >
+                                            Next
+                                        </Button>
+                                    </div>
+                                </Grid>
+                            </Grid>
+                        </Container>
                     </Grid>
                 </Container>
             </div>
