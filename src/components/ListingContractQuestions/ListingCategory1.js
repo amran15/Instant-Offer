@@ -9,10 +9,40 @@ import Grid from '@material-ui/core/Grid';
 import { TextField, InputAdornment } from '@material-ui/core';
 
 class ListingCategory1 extends Component {
+    state = {
+        generalInfo : {
+            streetAddress :'',
+            city:'',
+            county:'',
+            legalDescription:'',
+            seller:'',
+            broker:'',
+            startDate:'',
+            endDate: '',
+            propertyPrice:'',
+            additionalTerms:'',
+        }
+    }
+
+    handleChangeForGeneralInfo = (propertyName) => (event) => {
+        this.setState({
+            generalInfo:{
+                ...this.state.generalInfo, [propertyName]:event.target.value,
+            }
+        })
+    }
+
+
 
     handleClick = () => {
         this.props.history.push('/ListingContract')
     }
+
+    handleClickToSave = () => {
+        this.props.dispatch({type:'POST_GENERAL_INFO', payload:this.state.generalInfo})
+        this.props.history.push('/ListingCategory2')
+    }
+
 
     handleClickNext = () => {
         this.props.history.push('/ListingCategory2')
@@ -33,6 +63,8 @@ class ListingCategory1 extends Component {
                                 label="Street Address"
                                 fullWidth
                                 variant="outlined"
+                                value ={this.state.streetAddress}
+                                onChange={this.handleChangeForGeneralInfo('streetAddress')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -41,6 +73,8 @@ class ListingCategory1 extends Component {
                                 id="city"
                                 fullWidth
                                 variant="outlined"
+                                value ={this.state.city}
+                                onChange={this.handleChangeForGeneralInfo('city')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -49,6 +83,8 @@ class ListingCategory1 extends Component {
                                 id="county"
                                 fullWidth
                                 variant="outlined"
+                                value ={this.state.county}
+                                onChange={this.handleChangeForGeneralInfo('county')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -57,6 +93,8 @@ class ListingCategory1 extends Component {
                                 id="legal_description"
                                 fullWidth
                                 variant="outlined"
+                                value ={this.state.legalDescription}
+                                onChange={this.handleChangeForGeneralInfo('legalDescription')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -65,6 +103,8 @@ class ListingCategory1 extends Component {
                                 id="seller_name"
                                 fullWidth
                                 variant="outlined"
+                                value ={this.state.seller}
+                                onChange={this.handleChangeForGeneralInfo('seller')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -73,6 +113,8 @@ class ListingCategory1 extends Component {
                                 id="broker_name"
                                 fullWidth
                                 variant="outlined"
+                                value ={this.state.broker}
+                                onChange={this.handleChangeForGeneralInfo('broker')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -81,6 +123,9 @@ class ListingCategory1 extends Component {
                                 id="start_date"
                                 variant="outlined"
                                 type="date"
+                                value ={this.state.startDate}
+                                onChange={this.handleChangeForGeneralInfo('startDate')}
+
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -89,6 +134,9 @@ class ListingCategory1 extends Component {
                                 id="end_date"
                                 variant="outlined"
                                 type="date"
+                                value ={this.state.endDate}
+                                onChange={this.handleChangeForGeneralInfo('endDate')}
+
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -100,6 +148,8 @@ class ListingCategory1 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
+                                value ={this.state.propertyPrice}
+                                onChange={this.handleChangeForGeneralInfo('propertyPrice')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -108,6 +158,9 @@ class ListingCategory1 extends Component {
                                 id="following_terms"
                                 fullWidth
                                 variant="outlined"
+                                value ={this.state.additionalTerms}
+                                onChange={this.handleChangeForGeneralInfo('additionalTerms')}
+
                             />
                         </Grid>
                     </Grid>
@@ -132,7 +185,7 @@ class ListingCategory1 extends Component {
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={this.handleClick}
+                                    onClick={this.handleClickToSave}
                                 >
                                     Save
                 </Button>
@@ -153,6 +206,10 @@ class ListingCategory1 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
+
             </div>
         )
     }
