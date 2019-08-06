@@ -5,11 +5,11 @@ import userSaga from './userSaga';
 
 import fetchListingAnswers from './fetchListingAnswers';
 
+import saveListingAnswers from './saveListingAnswers';saveListingAnswers
 
-// import pdfListing from './pdfListing'
-// import pdfOffer from './pdfOffer'
-import listingCategorySaga from './listingcategorysaga';
-// 
+//what does this Saga do?
+import listingCategorySaga from './listingCategorySaga';
+
 
 import pdfListing from './pdfListing';
 import pdfOffer from './pdfOffer';
@@ -32,6 +32,7 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     fetchListingAnswers(),
+    saveListingAnswers(),
     pdfListing(),
     pdfOffer(),
     listingCategorySaga(),
