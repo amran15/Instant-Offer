@@ -146,6 +146,9 @@ class ListingCategory4 extends Component {
                         </Grid>
                     </Container>
                 </Container>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
             </div>
         )
     }
