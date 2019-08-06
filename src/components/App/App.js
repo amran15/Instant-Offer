@@ -57,7 +57,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav />
+          {this.props.user.id && <Nav />}
           <Switch>
             <Redirect exact from="/" to="/home" />
             <Route
@@ -207,4 +207,8 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+const mapStateToProps = state => ({
+  user: state.user,
+});
+
+export default connect(mapStateToProps)(App);

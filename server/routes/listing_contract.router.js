@@ -112,6 +112,7 @@ router.delete('/delete/:id', (req, res) => {
         })
 });
 
+
     /**
  * POST route listing_contract category 4
  */
@@ -154,13 +155,6 @@ router.post('/category8', (req, res) => {
     res.sendStatus(200);
     });
 
-
-
-
-
-/**
- * POST route listing_contract category ?
- */
 
 
 module.exports = router;

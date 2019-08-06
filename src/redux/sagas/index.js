@@ -5,11 +5,18 @@ import userSaga from './userSaga';
 
 import fetchListingAnswers from './fetchListingAnswers';
 
+
+// import pdfListing from './pdfListing'
+// import pdfOffer from './pdfOffer'
+import listingCategorySaga from './listingcategorysaga';
+// 
+
 import pdfListing from './pdfListing';
 import pdfOffer from './pdfOffer';
 
 import deleteListingAnswer from './deleteListingAnswer';
 import deletePurchaseAnswerSaga from './deletePurchaseAnswer';
+
 
 
 // rootSaga is the primary saga.
@@ -27,7 +34,8 @@ export default function* rootSaga() {
     fetchListingAnswers(),
     pdfListing(),
     pdfOffer(),
+    listingCategorySaga(),
     deleteListingAnswer(),
-    deletePurchaseAnswerSaga()
+    deletePurchaseAnswerSaga(),
   ]);
 }

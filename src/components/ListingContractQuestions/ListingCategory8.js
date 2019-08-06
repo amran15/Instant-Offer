@@ -13,9 +13,6 @@ import Button from '@material-ui/core/Button';
 
 
 class ListingCategory8 extends Component {
-
-
-
     state = {
         agencyRep: {
             sellerAgree: '',
@@ -24,6 +21,8 @@ class ListingCategory8 extends Component {
             consent: '',
         }
     }
+
+    
 
     //this will handle the yes checkbox for seller will not agree
     handleClickCheckbox = (propertyName) => (event) => {
@@ -36,12 +35,14 @@ class ListingCategory8 extends Component {
 
     //this will handle the No checkbox for seller will agree
     handleClickCheckNo = (propertyName) => (event) => {
-        this.setState({
-            agencyRep: {
-                ...this.state.agencyRep, [propertyName]: false,
-            }
-        })
-    }
+            this.setState ({
+                agencyRep: {
+                    ...this.state.agencyRep, [propertyName]: false,
+                }
+            })
+        }
+
+        
 
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
@@ -60,8 +61,6 @@ class ListingCategory8 extends Component {
         this.props.dispatch({ type: 'POST_AGENCY_REPRESENTATION', payload: this.state.agencyRep })
         this.props.history.push('/ListingContract')
     }
-
-
 
     render() {
         return (
