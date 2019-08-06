@@ -18,7 +18,6 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import Documents from '../Documents/Documents';
 import Drafts from '../Drafts/Drafts';
-// import Signature from '../Signature/Signature';
 import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
 
 import './App.css';
