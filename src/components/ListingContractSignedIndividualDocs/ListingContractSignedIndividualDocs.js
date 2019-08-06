@@ -24,7 +24,7 @@ class PurchaseAgreementDraftsIndividualDocs extends Component {
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={10}>
                                 <div style={styles.title}>
-                                    <h3>Joes's Purchase Agreement</h3>
+                                    <h3>Joe's Purchase Agreement</h3>
                                     <p>August 1, 2019</p>
                                 </div>
                             </Grid>

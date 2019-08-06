@@ -33,6 +33,9 @@ class Drafts extends Component {
             <div>
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
                 <Container component="main" maxWidth="lg">
+                <center>
+                        <h2>Drafts</h2>
+                    </center>
                     <br />
                     <center>
                         <Button
