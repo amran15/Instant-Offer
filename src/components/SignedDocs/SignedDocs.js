@@ -1,31 +1,26 @@
 import React, { Component } from "react";
-// import { connect } from 'react-redux';
-import ListingDraftsIndividualDocs from "../ListingDraftsIndividualDocs/ListingDraftsIndividualDocs";
-import PurchaseAgreementDraftsIndividualDocs from "../PurchaseAgreementDraftsIndividualDocs/PurchaseAgreementDraftsIndividualDocs";
+import ListingContractSignedIndividualDocs from '../ListingContractSignedIndividualDocs/ListingContractSignedIndividualDocs';
+import PurchaseAgreementSignedIndividualDocs from '../PurchaseAgreementSignedIndividualDocs/PurchaseAgreementSignedIndividualDocs';
 
 //Material UI
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 
-class Drafts extends Component {
+class SignedDocuments extends Component {
     state = {
         listing: true,
     }
 
     handleClickListing = () => {
-        console.log('in handleclick Listing');
         this.setState({
             listing: true,
-          });
-          console.log(this.state)
+        });
     }
 
     handleClickPurchase = () => {
-        console.log('in handleclick Purchase');
         this.setState({
             listing: false,
-          });
-          console.log(this.state)
+        });
     }
 
     render() {
@@ -33,8 +28,8 @@ class Drafts extends Component {
             <div>
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
                 <Container component="main" maxWidth="lg">
-                <center>
-                        <h2>Drafts</h2>
+                    <center>
+                        <h2>Signed Documents</h2>
                     </center>
                     <br />
                     <center>
@@ -45,24 +40,24 @@ class Drafts extends Component {
                         >
                             Listing Contract
                             </Button>
-                        
+
                         <Button
-                        variant="contained"
-                        color="secondary"
-                        onClick={this.handleClickPurchase}
+                            variant="contained"
+                            color="secondary"
+                            onClick={this.handleClickPurchase}
                         >Purchase Agreement
                         </Button>
                     </center>
                     <br />
                     <br />
-                    {this.state.listing === true ? 
-                    <ListingDraftsIndividualDocs />
-                    :
-                    <PurchaseAgreementDraftsIndividualDocs />
+                    {this.state.listing === true ?
+                        <ListingContractSignedIndividualDocs />
+                        :
+                        <PurchaseAgreementSignedIndividualDocs />
                     }
                 </Container>
             </div>
         )
     }
 }
-export default Drafts;
+export default SignedDocuments;
