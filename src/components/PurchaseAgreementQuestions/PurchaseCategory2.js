@@ -10,8 +10,35 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory2 extends Component {
+    state = {
+        purchasePrice:{
+            propertySumValue:'',
+            propertySum:'',
+            salePriceCash:'',
+            mortgageFinancing:'',
+            assumedCurrentMortgage:'',
+            contractForDeed:'',
+        }
+    }
+
+
+    hanldleChangeForPurchasePrice = (propertyName) => (event) => {
+        this.setState ({
+            purchasePrice: {
+                ...this.state.purchasePrice, [propertyName]:event.target.value
+            }
+        })
+    }
+
+
+
     handleClick = () => {
         this.props.history.push('/PurchaseAgreement')
+    }
+
+    handleClickToSave = () => {
+        this.props.dispatch({type:'POST_PURCHASE_PRICE', payload:this.state.purchasePrice})
+        this.props.history.push('/PurchaseCategory3')
     }
 
     handleClickNext = () => {
@@ -37,6 +64,8 @@ class PurchaseCategory2 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
+                                value ={this.state.propertySumValue}
+                                onChange={this.hanldleChangeForPurchasePrice('propertySumValue')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -46,6 +75,8 @@ class PurchaseCategory2 extends Component {
                                 // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
+                                value ={this.state.propertySum}
+                                onChange={this.hanldleChangeForPurchasePrice('propertySum')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -60,6 +91,8 @@ class PurchaseCategory2 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
+                                value ={this.state.salePriceCash}
+                                onChange={this.hanldleChangeForPurchasePrice('salePriceCash')}
                             />
                             <h4>Sale price in MORTGAGE FINANCING</h4>
                             <TextField
@@ -71,6 +104,8 @@ class PurchaseCategory2 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
+                                value ={this.state.mortgageFinancing}
+                                onChange={this.hanldleChangeForPurchasePrice('mortgageFinancing')}
                             />
                             <h4>Sale price by ASSUMING Seller's current mortgage</h4>
                             <TextField
@@ -82,6 +117,8 @@ class PurchaseCategory2 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
+                                value ={this.state.assumedCurrentMortgage}
+                                onChange={this.hanldleChangeForPurchasePrice('assumedCurrentMortgage')}
                             />
                             <h4>Sale price by CONTRACT FOR DEED</h4>
                             <TextField
@@ -93,6 +130,8 @@ class PurchaseCategory2 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
+                                value ={this.state.contractForDeed}
+                                onChange={this.hanldleChangeForPurchasePrice('contractForDeed')}
                             />
                         </Grid>
                     </Grid>
@@ -117,7 +156,7 @@ class PurchaseCategory2 extends Component {
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={this.handleClick}
+                                    onClick={this.handleClickToSave}
                                 >
                                     Save
                 </Button>
@@ -138,6 +177,9 @@ class PurchaseCategory2 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
             </div>
         )
     }
