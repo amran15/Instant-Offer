@@ -22,9 +22,10 @@ import Drafts from '../Drafts/Drafts';
 import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
 
 import './App.css';
-import ListingContract from '../ListingContract/ListingContract';
+import Signature from '../Signature/Signature';
 
 // these are the listing question categories
+import ListingContract from '../ListingContract/ListingContract';
 import ListingCategory1 from '../ListingContractQuestions/ListingCategory1';
 import ListingCategory2 from '../ListingContractQuestions/ListingCategory2';
 import ListingCategory3 from '../ListingContractQuestions/ListingCategory3';
@@ -47,6 +48,7 @@ import PurchaseCategory7 from '../PurchaseAgreementQuestions/PurchaseCategory7';
 import PurchaseCategory8 from '../PurchaseAgreementQuestions/PurchaseCategory8';
 import PurchaseCategory9 from '../PurchaseAgreementQuestions/PurchaseCategory9';
 import PurchaseAgreementReview from '../PurchaseAgreementReview/PurchaseAgreementReview';
+
 
 class App extends Component {
   componentDidMount() {
@@ -185,11 +187,11 @@ class App extends Component {
               path="/PurchaseAgreementReview"
               component={PurchaseAgreementReview}
             />
-            {/* <ProtectedRoute
+            <ProtectedRoute
               exact
               path="/Signature"
               component={Signature}
-            /> */}
+            />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
             <ProtectedRoute
