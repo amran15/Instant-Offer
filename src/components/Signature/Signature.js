@@ -3,6 +3,11 @@ import {Component} from  'react';
 import {connect} from 'react-redux';
 import SignatureCanvas from 'react-signature-canvas';
 
+//Material UI       
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+
 class Signature extends Component {
     
     state = {
@@ -15,6 +20,11 @@ class Signature extends Component {
     clearSig = () => {
         this.sigPad.clear();
         console.log('OnClick:', this.state.trimmedDataURL);
+    }
+
+    //exit out of the signature page. return to the review page without saving.
+    returnToReview = () => {
+        this.props.history.push('/ListingReview')
     }
 
     //this will trim down the signature and get rid of the white space
@@ -41,9 +51,10 @@ class Signature extends Component {
                 <SignatureCanvas penColor="black" canvasProps={{width: 500, height:150, className:'sigCanvas'}} ref={(ref) => {this.sigPad = ref}}/>
             </div>
             <div>
-                <button onClick={this.clearSig}>Clear</button>
-                <button onClick={this.handleClickToSaveSignature}>Confirm</button>
-                <button onClick={this.trimSignature}>Trim</button>
+            <Button onClick={this.returnToReview}>Back</Button>
+                <Button onClick={this.clearSig}>Clear</Button>
+                <Button onClick={this.handleClickToSaveSignature}>Confirm</Button>
+                <Button onClick={this.trimSignature}>Trim</Button>
             </div>
             {
                 trimmedDataURL ? <img src={trimmedDataURL} alt=""/> : null
