@@ -22,7 +22,15 @@ class ListingCategory8 extends Component {
         }
     }
 
-    
+    // handleChangeForCheckboxes = (e, {value}) => this.setState({value})
+
+    // Check = () => {
+    //   document.getElementById('sellerAgree').checked = true;
+    // }
+
+    // unCheck = () => {
+    //     document.getElementById('sellerAgree').checked = false;
+    // }
 
     //this will handle the yes checkbox for seller will not agree
     handleClickCheckbox = (propertyName) => (event) => {
@@ -78,6 +86,7 @@ class ListingCategory8 extends Component {
                                         id="checkedB"
                                         value={this.state.agencyRep.sellerAgree}
                                         color="primary"
+                                        // checked={this.state.value ==='agencyRep.sellerAgree'}
                                         onClick={this.handleClickCheckbox('sellerAgree')} />
                                 }
                                 label="Yes"

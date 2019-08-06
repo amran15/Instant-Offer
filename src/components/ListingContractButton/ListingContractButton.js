@@ -7,6 +7,12 @@ import Button from '@material-ui/core/Button';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
+const styles = {
+    button: {
+        color: 'white',
+    },
+};
+
 const theme = createMuiTheme({
     palette: {
         primary: { main: '#000080' },
@@ -15,24 +21,25 @@ const theme = createMuiTheme({
 
 class ListingContractButton extends Component {
 
-//this will push us to the ListingContract page
+    //this will push us to the ListingContract page
     handleClickListingDocuments = () => {
         this.props.history.push('/ListingContract')
     }
 
     render() {
-        return (      
+        return (
             <div className="ListingDiv">
-                    <ThemeProvider theme={theme}>
+                <ThemeProvider theme={theme}>
                     <Button
+                        id="listingDocButton"
                         variant="contained"
                         color="primary"
+                        style={styles.button}
                         onClick={this.handleClickListingDocuments}
-                        id="listingDocButton"
                     >
                         Listing Contract
                     </Button>
-                    </ThemeProvider>
+                </ThemeProvider>
             </div>
         )
     }
