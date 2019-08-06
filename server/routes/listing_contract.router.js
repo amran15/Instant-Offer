@@ -75,18 +75,18 @@ router.post('/category3', (req, res) => {
  */
 router.post('/save', (req, res) => {
     console.log('LISTING POST SERVER', req.body)
-    const querySave = `INSERT INTO "Listing_Contract"("BUYER_1", "SIGNATURE_BUYER_1", "PRINTED_SIGNATURE_BUYER_1",
+    const querySave = `INSERT INTO "Listing_Contract"("BUYER_1", "BUYER_1_ADDRESS","BUYER_1_PHONE", "BUYER_1_EMAIL", "SIGNATURE_BUYER_1", "PRINTED_SIGNATURE_BUYER_1",
     "DATE", "PAGE_1", "PAGE_2", "PAGE_3", "PAGE_4", "PAGE_5", "PAGE_6", "PAGE_7", "PAGE_8", "L3", "L4", "L6", "L7", 
-    "L8", "L12", "L13", "L41", "L54", "L63", "L71", "L72", "L73", "L115", "L118", "L119", "L121", "L131","L146", 
+    "L8", "L9", "L12", "L13", "L41", "L54", "L63", "L71", "L72", "L73", "L115", "L118", "L119", "L121", "L131","L146", 
     "L148A", "L148B", "L148C", "L150A", "L150B", "L150C", "L152A", "L152B", "L163", "L164",  "L165A", "L165B",
     "L175", "L196", "L198", "L200", "L237") 
     VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, 
         $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36,$37, $38, $39, $40, $41, $42, $43, $44, $45, 
-        $46, $47, $48);`
-    pool.query(querySave, [req.body.BUYER_1, req.body.SIGNATURE_BUYER_1, req.body.PRINTED_SIGNATURE_BUYER_1, 
+        $46, $47, $48, $49, $50, $51, $52);`
+    pool.query(querySave, [req.body.BUYER_1, req.body.BUYER_1_ADDRESS, req.body.BUYER_1_PHONE,req.body.BUYER_1_EMAIL, req.body.SIGNATURE_BUYER_1, req.body.PRINTED_SIGNATURE_BUYER_1, 
         req.body.DATE, req.body.PAGE_1, req.body.PAGE_2, req.body.PAGE_3, req.body.PAGE_4, req.body.PAGE_5,
         req.body.PAGE_6, req.body.PAGE_7, req.body.PAGE_8, req.body.L3, req.body.L4,req.body.L6, req.body.L7, 
-        req.body.L8, req.body.L12, req.body.L13, req.body.L41, req.body.L54, req.body.L63, req.body.L71, req.body.L72, 
+        req.body.L8, req.body.L9, req.body.L12, req.body.L13, req.body.L41, req.body.L54, req.body.L63, req.body.L71, req.body.L72, 
         req.body.L73, req.body.L115, req.body.L118, req.body.L119, req.body.L121, req.body.L131, req.body.L146, req.body.L148A, 
         req.body.L148B, req.body.L148C, req.body.L150A, req.body.L150B, req.body.L150C, req.body.L152A, req.body.L152B, req.body.L163,
         req.body.L164, req.body.L165A, req.body.L165B, req.body.L175, req.body.L196, req.body.L198,req.body.L200, req.body.L237])
