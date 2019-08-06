@@ -10,6 +10,14 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
 class ListingReview extends Component {
+    handleClickBack = () => {
+        this.props.history.push('/ListingContract')
+    }
+
+    handleClickSign = () => {
+        this.props.history.push('/Signature')
+    }
+
     render() {
         return (
             <>
@@ -30,7 +38,7 @@ class ListingReview extends Component {
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={this.handleClick}
+                                    onClick={this.handleClickBack}
                                 >
                                     Back
                                 </Button>
@@ -41,7 +49,7 @@ class ListingReview extends Component {
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={this.handleClick}
+                                    onClick={this.handleClickSign}
                                 >
                                     Sign
                                 </Button>
