@@ -39,7 +39,7 @@ class ListingCategory1 extends Component {
     }
 
     handleClickToSave = () => {
-        this.props.dispatch({type:'POST_GENERAL_INFO', payload:this.state.generalInfo})
+        this.props.dispatch({type:'SAVE_LISTING_ANSWER', payload:this.state.generalInfo})
         this.props.history.push('/ListingCategory2')
     }
 
@@ -216,4 +216,5 @@ class ListingCategory1 extends Component {
 }
 
 const mapReduxStateToProps = reduxState => ({ reduxState })
+
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory1));

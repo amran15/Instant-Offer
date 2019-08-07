@@ -11,8 +11,43 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory1 extends Component {
+
+    state = {
+        generalInformation: {
+            date:'',
+            buyerName:'',
+            earnestMoney:'',
+            earnestMoneyValue:'',
+            earnestChecked:'',
+            businessName:'',
+            streetAddress:'',
+            city:'',
+            county:'',
+            legalDescription:'',
+            builtIns:'',
+            excludedItems:'',
+        }
+    }
+
+
+
+    handleChangeForGeneralInformation = (propertyName) => (event) => {
+        this.setState({
+            generalInformation:{
+                ...this.state.generalInformation, [propertyName]:event.target.value,
+            }
+        })
+    }
+
+
+
     handleClick = () => {
         this.props.history.push('/PurchaseAgreement')
+    }
+
+    handleClickToSave = () => {
+        this.props.dispatch({type:'POST_GENERAL_INFORMATION', payload:this.state.generalInformation})
+        this.props.history.push('/PurchaseCategory2')
     }
 
     handleClickNext = () => {
@@ -33,6 +68,8 @@ class PurchaseCategory1 extends Component {
                                 id="date"
                                 variant="outlined"
                                 type="date"
+                                value={this.state.date}
+                                onChange={this.handleChangeForGeneralInformation('date')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -44,6 +81,8 @@ class PurchaseCategory1 extends Component {
                                 // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
+                                value={this.state.buyerName}
+                                onChange={this.handleChangeForGeneralInformation('buyerName')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -55,6 +94,8 @@ class PurchaseCategory1 extends Component {
                                 // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
+                                value={this.state.earnestMoney}
+                                onChange={this.handleChangeForGeneralInformation('earnestMoney')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -67,6 +108,8 @@ class PurchaseCategory1 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
+                                value={this.state.earnestMoneyValue}
+                                onChange={this.handleChangeForGeneralInformation('earnestMoneyValue')}
                             />
                             <h4>shall be delivered to listing broker, or if checked, to</h4>
                             <Grid container spacing={2}>
@@ -76,6 +119,8 @@ class PurchaseCategory1 extends Component {
                                         // onChange={handleChange('checkedB')}
                                         value="checkedB"
                                         color="primary"
+                                        value={this.state.earnestChecked}
+                                        onChange={this.handleChangeForGeneralInformation('earnestChecked')}
                                     />
                                 </Grid>
                                 <Grid item xs={10}>
@@ -85,6 +130,8 @@ class PurchaseCategory1 extends Component {
                                         // onChange={this.handleInputChangeFor('song_title')}
                                         fullWidth
                                         variant="outlined"
+                                        value={this.state.businessName}
+                                        onChange={this.handleChangeForGeneralInformation('businessName')}
                                     />
                                 </Grid>
                             </Grid>
@@ -99,6 +146,8 @@ class PurchaseCategory1 extends Component {
                                 // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
+                                value={this.state.streetAddress}
+                                onChange={this.handleChangeForGeneralInformation('streetAddress')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -109,6 +158,8 @@ class PurchaseCategory1 extends Component {
                                 // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
+                                value={this.state.city}
+                                onChange={this.handleChangeForGeneralInformation('city')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -173,7 +224,7 @@ class PurchaseCategory1 extends Component {
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={this.handleClick}
+                                    onClick={this.handleClickToSave}
                                 >
                                     Save
                 </Button>
@@ -194,6 +245,9 @@ class PurchaseCategory1 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
             </div >
         )
     }

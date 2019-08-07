@@ -8,8 +8,23 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
+import { classPrivateProperty } from "@babel/types";
 
 class PurchaseCategory3 extends Component {
+    state = {
+        closingDate: {
+            date: '',
+        }
+    }
+
+
+    handleClickDate = (propertyName) => (event)=> {
+        this.setState({ 
+            closingDate:{
+            ...this.setState.closingDate,[propertyName]:event.target.value
+        }})
+    }
+
     handleClick = () => {
         this.props.history.push('/PurchaseAgreement')
     }
@@ -32,6 +47,8 @@ class PurchaseCategory3 extends Component {
                                 id="date"
                                 variant="outlined"
                                 type="date"
+                                value={this.state.closingDate.date}
+                                onChange={this.handClickDate}
                             />
                         </Grid>
                     </Grid>
@@ -56,7 +73,7 @@ class PurchaseCategory3 extends Component {
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={this.handleClick}
+                                    onClick={this.handleClickToSave}
                                 >
                                     Save
                 </Button>
@@ -77,6 +94,9 @@ class PurchaseCategory3 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
             </div>
         )
     }

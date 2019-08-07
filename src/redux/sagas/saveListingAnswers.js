@@ -4,8 +4,8 @@ import axios from 'axios';
 
 function* saveListingContractAnswers(action) {
     try {
-        yield axios.post('/api/trail/save', action.payload);
-        // yield put ({ type: '1' });
+        yield axios.post('/api/listing/save', action.payload);
+        // yield put ({ type: LISTING_CATEGORY_1 })
         // yield put ({ type: '2' });
         // yield put ({ type: '3' });
         // yield put ({ type: '4' });
@@ -14,7 +14,7 @@ function* saveListingContractAnswers(action) {
         // yield put ({ type: '7' });
         // yield put ({ type: '8' });
     } catch (error) {
-        console.log('error saving listing_contract answers', error);
+        console.log('error posting/saving listing_contract answers', error);
     }
 }
 

@@ -2,14 +2,6 @@ import { combineReducers } from 'redux';
 import errors from './errorsReducer';
 import loginMode from './loginModeReducer';
 import user from './userReducer';
-import listingCategory1 from './listingCategory1Reducer';
-
-import listingCategory3Reducer from './listingcategory3Reducer';
-import listingCategory4Reducer from './listingcategory4Reducer';
-import listingCategory5Reducer from './listingcategory5Reducer';
-import listingCategory6Reducer from './listingcategory6Reducer';
-import listingCategory7Reducer from './listingcategory7Reducer';
-import listingCategory8Reducer from './listingcategory8reducer';
 
 import listingContract1 from './listingContract1Reducer';
 import listingContract2 from './listingContract2Reducer';
@@ -22,6 +14,11 @@ import listingContract8 from './listingContract8Reducer';
 
 import deleteListingAnswerReducer from './deleteListingAnswerReducer';
 import deletePurchaseAnswerReducer from './deletePurchaseAnswerReducer';
+
+import purchaseAgreementCategory1 from './purchaseAgreementReducer1';
+import purchaseAgreementCategory2 from './purchaseAgreementReducer2';
+
+import signReducer from './signReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -46,6 +43,11 @@ const rootReducer = combineReducers({
 
   deleteListingAnswerReducer, 
   deletePurchaseAnswerReducer,
+
+  purchaseAgreementCategory1,
+  purchaseAgreementCategory2,
+
+  signReducer,
 });
 
 export default rootReducer;
