@@ -54,7 +54,6 @@ class ListingCategory5 extends Component {
     handleClickToSave = () => {
         console.log('we can save listingcat5 now!!!!!!!!');
         this.props.dispatch({ type: 'POST_COMPENSATION_DISCLOSURE', payload: this.state.compensationDisclosure })
-        this.props.history.push('/ListingContract')
     }
 
 

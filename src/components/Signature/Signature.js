@@ -5,8 +5,7 @@ import SignatureCanvas from 'react-signature-canvas';
 
 //Material UI       
 import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+
 
 class Signature extends Component {
     
@@ -24,7 +23,7 @@ class Signature extends Component {
 
     //exit out of the signature page. return to the review page without saving.
     returnToReview = () => {
-        this.props.history.push('/ListingReview')
+        this.props.history.push('/ListingContract')
     }
 
     //this will trim down the signature and get rid of the white space

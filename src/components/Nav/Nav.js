@@ -35,13 +35,14 @@ class Nav extends Component {
     >
       <List>
         <ListItem>
-        <Link className="nav-link" to="/home">
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+          <Link className="nav-link" to="/home">
             {/* Show this link if they are logged in or not,
             but call this link 'Home' if they are logged in,
             and call this link 'Login / Register' if they are not */}
-            {this.props.user.id ? 
-              'Home' 
-              : 
+            {this.props.user.id ?
+              'Home'
+              :
               'Login'}
           </Link>
         </ListItem>
@@ -71,20 +72,19 @@ class Nav extends Component {
     return (
       <div className="nav">
         <Grid container >
-          <Grid item xs={4}>
+          <Grid item xs={1}>
             <IconButton onClick={this.toggleDrawer('left', true)}>
               <SvgIcon className="menu-button">
                 <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
               </SvgIcon>
             </IconButton>
           </Grid>
-          <Grid item xs={4} className="title-block">
+          <Grid item xs={10} className="title-block">
             <Link to="/home">
-              <h2 className="nav-title">Instant Offer</h2>
+                <h2 className="nav-title">Instant Offer</h2>
             </Link>
           </Grid>
-          <Grid item xs={4}>
-
+          <Grid item xs={1}>
           </Grid>
         </Grid>
         <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>

@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
+//Material UI
 import Grid from '@material-ui/core/Grid';
 import Checkbox from '@material-ui/core/Checkbox';
 import Container from '@material-ui/core/Container';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
-
-
 
 class ListingCategory7 extends Component {
 
@@ -35,20 +34,17 @@ class ListingCategory7 extends Component {
         })
     }
 
-
     handleClick = () => {
         this.props.history.push('/ListingContract')
     }
 
     handleClickToSave = () => {
         this.props.dispatch({ type: 'POST_FOREIGN_INVESTMENT', payload: this.state.foreignInvestment });
-        this.props.history.push('/ListingContract')
     }
 
     handleClickNext = () => {
         this.props.history.push('/ListingCategory8')
     }
-
 
     render() {
         return (
