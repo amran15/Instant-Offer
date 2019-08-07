@@ -5,10 +5,10 @@ import userSaga from './userSaga';
 
 import fetchListingAnswers from './fetchListingAnswers';
 
-import saveListingAnswers from './saveListingAnswers';saveListingAnswers
+import saveListingAnswers from './saveListingAnswers';
 
 //what does this Saga do?
-import listingCategorySaga from './listingCategorySaga';
+// import listingCategorySaga from './listingCategorySaga';
 
 
 import pdfListing from './pdfListing';
@@ -35,7 +35,6 @@ export default function* rootSaga() {
     saveListingAnswers(),
     pdfListing(),
     pdfOffer(),
-    listingCategorySaga(),
     deleteListingAnswer(),
     deletePurchaseAnswerSaga(),
   ]);
