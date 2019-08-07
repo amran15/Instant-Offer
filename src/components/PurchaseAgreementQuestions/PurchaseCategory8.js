@@ -84,11 +84,11 @@ class PurchaseCategory8 extends Component {
                                     />
                                 </Grid>
                                 <Grid item xs={11}>
-                                    <p><TextField
+                                    <TextField
                                         id="buyer_real_estate_tax"
                                     // value={this.state.song_title}
                                     // onChange={this.handleInputChangeFor('song_title')}               
-                                    />/12ths of real estate taxes due and payable in the year of closing.</p>
+                                    />/12ths of real estate taxes due and payable in the year of closing.
                                 </Grid>
                             </Grid>
                             <Grid item xs={12}>
@@ -141,11 +141,11 @@ class PurchaseCategory8 extends Component {
                                     />
                                 </Grid>
                                 <Grid item xs={11}>
-                                    <p><TextField
+                                    <TextField
                                         id="buyer_real_estate_tax"
                                     // value={this.state.song_title}
                                     // onChange={this.handleInputChangeFor('song_title')}               
-                                    />/12ths of real estate taxes due and payable in the year of closing.</p>
+                                    />/12ths of real estate taxes due and payable in the year of closing.
                                 </Grid>
                             </Grid>
                             <Grid item xs={12}>
