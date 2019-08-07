@@ -57,7 +57,7 @@ class PurchaseCategory6 extends Component {
 
 
     handleClickToSave = () => {
-        console.log('posting inspections to the saga');
+        console.log('posting inspections to the saga on the front of the stuff');
         this.props.dispatch({type:'POST_INSPECTIONS', payload:this.state.inspections})
 
     }
