@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './LoginPage.css';
 
 //Material UI
+import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -11,20 +14,15 @@ import { ThemeProvider } from '@material-ui/styles';
 const styles = {
   title: {
     textAlign: 'center',
-    fontSize: '25px',
-    marginTop: '150px',
     color: '#FFF',
   },
   button: {
     marginTop: '15px',
     color: 'white',
   },
-  TextField: {
-    borderColor: 'white',
+  Grid: {
+    margin: '200px 0px 0px 0px',
   },
-  link: {
-    margin: '20px',
-  }
 };
 
 const theme = createMuiTheme({
@@ -63,85 +61,92 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div>
+      <div class="body">
         <ThemeProvider theme={theme}>
           <Container component="main" maxWidth="xs">
-            {this.props.errors.loginMessage && (
-              <h2
-                className="alert"
-                role="alert"
+          </Container>
+          <Container component="main" maxWidth="xs">
+            <div align="center">
+              <Grid
+                item xs={11}
+                style={styles.Grid}
               >
-                {this.props.errors.loginMessage}
-              </h2>
-            )}
-            <form onSubmit={this.login}>
-              <center>
-                <h1>Instant Offer</h1>
-              </center>
-              <div>
-                <TextField
-                  variant="outlined"
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="username"
-                  label="Username"
-                  name="username"
-                  autoComplete="username"
-                  autoFocus
-                  value={this.state.username}
-                  onChange={this.handleInputChangeFor('username')}
-                  style={styles.TextField}
-                  style={{
-                    backgroundColor: "rgba(255, 255, 255, 0.8)"
-                  }}
-                  InputProps={{
-                    style: {
-                      color: "black"
-                    }
-                  }}
-                />
-              </div>
-              <div>
-                <TextField
-                  variant="outlined"
-                  margin="normal"
-                  required
-                  fullWidth
-                  type="password"
-                  id="password"
-                  label="Password"
-                  name="password"
-                  autoComplete="password"
-                  autoFocus
-                  value={this.state.password}
-                  onChange={this.handleInputChangeFor('password')}
-                  color="primary"
-                  style={styles.TextField}
-                  style={{
-                    backgroundColor: "rgba(255, 255, 255, 0.8)"
-                  }}
-                  InputProps={{
-                    style: {
-                      color: "black"
-                    }
-                  }}
-                />
-              </div>
-              <div>
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  style={styles.button}
-                  value="Log In"
-                  color="primary"
-                >
-                  Sign In
+                {this.props.errors.loginMessage && (
+                  <h2
+                    className="alert"
+                    role="alert"
+                  >
+                    {this.props.errors.loginMessage}
+                  </h2>
+                )}
+                <form onSubmit={this.login}>
+                  <center>
+                    <h1 class="header">Instant Offer</h1>
+                  </center>
+                  <div>
+                    <TextField
+                      variant="outlined"
+                      margin="normal"
+                      required
+                      fullWidth
+                      id="username"
+                      label="Username"
+                      name="username"
+                      autoComplete="username"
+                      autoFocus
+                      value={this.state.username}
+                      onChange={this.handleInputChangeFor('username')}
+                      style={styles.TextField}
+                      style={{
+                        backgroundColor: "rgba(255, 255, 255, 0.9)"
+                      }}
+                      InputProps={{
+                        style: {
+                          color: "black"
+                        }
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <TextField
+                      variant="outlined"
+                      margin="normal"
+                      required
+                      fullWidth
+                      type="password"
+                      id="password"
+                      label="Password"
+                      name="password"
+                      autoComplete="password"
+                      autoFocus
+                      value={this.state.password}
+                      onChange={this.handleInputChangeFor('password')}
+                      color="primary"
+                      style={styles.TextField}
+                      style={{
+                        backgroundColor: "rgba(255, 255, 255, 0.9)"
+                      }}
+                      InputProps={{
+                        style: {
+                          color: "black"
+                        }
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      style={styles.button}
+                      value="Log In"
+                      color="primary"
+                    >
+                      Sign In
                 </Button>
-              </div>
-            </form>
-            {/* <center>
+                  </div>
+                </form>
+                {/* <center>
           <button
             type="button"
             className="link-button"
@@ -150,6 +155,8 @@ class LoginPage extends Component {
             Register
           </button>
         </center> */}
+              </Grid>
+            </div>
           </Container>
         </ThemeProvider>
       </div>
