@@ -38,7 +38,7 @@ class ListingContract extends Component {
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
                 <Container component="main" maxWidth="lg">
                     <center>
-                        <p>Please answer the following questions pertaining to the Listing Offer.</p>
+                        <h4>Please answer the following questions pertaining to the Listing Offer.</h4>
                     </center>
                     <Card onClick={this.handleClick('/ListingCategory1')} value="/ListingCategory1">
                         <Grid item xs={12} container spacing={3}>
@@ -204,6 +204,7 @@ class ListingContract extends Component {
                             >Next</Button>
                         </div>
                     </Grid>
+                    <br />
                 </Container>
             </div>
         )
