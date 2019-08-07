@@ -9,13 +9,18 @@ import { ThemeProvider } from '@material-ui/styles';
 
 const theme = createMuiTheme({
     palette: {
-        primary: { main: '#173F5F' },
+        secondary: { main: '#3CAEA3' },
     },
 });
 
+const styles = {
+    button: {
+      color: 'white',
+    },
+  };
+
+
 class PurchaseAgreement extends Component {
-
-
     // on the Onclick of this, we will be routed to the Purchase Agreement page
     handleClickForPurchaseAgreementDocuments = () => {
         this.props.history.push('/PurchaseAgreement')
@@ -30,6 +35,7 @@ class PurchaseAgreement extends Component {
                     <Button
                         variant="contained"
                         color="secondary"
+                        style={styles.button}
                         onClick={this.handleClickForPurchaseAgreementDocuments}
                         id="PurchaseAgreementDocButton"
                     >

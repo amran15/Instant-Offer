@@ -9,7 +9,7 @@ import { ThemeProvider } from '@material-ui/styles';
 
 const theme = createMuiTheme({
     palette: {
-        primary: { main: '#3CAEA3' },
+        primary: { main: '#173F5F' },
     },
 });
 
@@ -17,9 +17,7 @@ class ListingContractButton extends Component {
     //this will push us to the ListingContract page
     handleClickForListingDocuments = () => {
         this.props.history.push('/ListingContract')
-        console.log('our listing documents go here in  a drop down')
     }
-
 
     render() {
         return (
@@ -32,7 +30,7 @@ class ListingContractButton extends Component {
                         id="listingDocButton"
                     >
                         Listing Contract
-                        </Button>
+                    </Button>
                 </center>
             </ThemeProvider>
         )
