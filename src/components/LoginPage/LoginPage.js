@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import './LoginPage.css';
 
 //Material UI
-import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -20,6 +20,9 @@ const styles = {
   button: {
     marginTop: '15px',
     color: 'white',
+  },
+  link: {
+    margin: '15px',
   },
   Grid: {
     margin: '175px 0px 0px 0px',
@@ -146,6 +149,17 @@ class LoginPage extends Component {
                       Sign In
                 </Button>
                   </div>
+                  <center style={styles.link}>
+                <Link
+                  component="button"
+                  variant="body2"
+                  fullWidth
+                  variant="outlined"
+                  onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
+                >
+                  {"Don't have an account? Sign Up!"}
+                </Link>
+              </center>
                 </form>
                 {/* <center>
           <button
