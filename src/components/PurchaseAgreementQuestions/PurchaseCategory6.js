@@ -10,8 +10,56 @@ import { Checkbox, FormControlLabel } from '@material-ui/core';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory6 extends Component {
+
+        state ={
+            inspections:{
+                propertyInspetion:'',
+                purchaseAgreementContigent:'',
+                intrusiveTesting:'',
+                inspectionDate:'',
+                otherInspectionItem:'',
+
+            }
+        }
+
+
+        handleChangeForInspections = (propertyName) => (event) => {
+            this.setState({
+                inspections:{
+                    ...this.state.inspections, [propertyName]:event.target.value,
+                }
+            })
+        }
+
+
+        handleChangeForCheckbox = (propertyName) => (event) => {  
+            this.setState({
+                inspections:{
+                    ...this.state.inspections,[propertyName]:true,
+                }
+            })
+        } 
+    
+        handleChangeForCheckboxNo = (propertyName) => (event) => {  
+            this.setState({
+                inspections:{
+                    ...this.state.inspections,[propertyName]:false,
+                }
+            })
+        } 
+
+
+
+
     handleClick = () => {
         this.props.history.push('/PurchaseAgreement')
+    }
+
+
+    handleClickToSave = () => {
+        console.log('posting inspections to the saga');
+        this.props.dispatch({type:'POST_INSPECTIONS', payload:this.state.inspections})
+
     }
 
     handleClickNext = () => {
@@ -37,6 +85,9 @@ class PurchaseCategory6 extends Component {
                                         color="primary"
                                     />}
                                 label="Yes"
+                                value={this.state.propertyInspetion}
+                                onChange={this.handleChangeForCheckbox('propertyInspetion')}
+
                             />
                             <FormControlLabel
                                 control={
@@ -47,6 +98,8 @@ class PurchaseCategory6 extends Component {
                                         color="primary"
                                     />}
                                 label="No"
+                                value={this.state.propertyInspetion}
+                                onChange={this.handleChangeForCheckboxNo('propertyInspetion')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -60,6 +113,8 @@ class PurchaseCategory6 extends Component {
                                         color="primary"
                                     />}
                                 label="Yes"
+                                value={this.state.purchaseAgreementContigent}
+                                onChange={this.handleChangeForCheckbox('purchaseAgreementContigent')}
                             />
                             <FormControlLabel
                                 control={
@@ -70,6 +125,8 @@ class PurchaseCategory6 extends Component {
                                         color="primary"
                                     />}
                                 label="No"
+                                value={this.state.purchaseAgreementContigent}
+                                onChange={this.handleChangeForCheckboxNo('purchaseAgreementContigent')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -82,6 +139,8 @@ class PurchaseCategory6 extends Component {
                                         color="primary"
                                     />}
                                 label="Yes"
+                                value={this.state.intrusiveTesting}
+                                onChange={this.handleChangeForCheckbox('intrusiveTesting')}
                             />
                             <FormControlLabel
                                 control={
@@ -92,6 +151,8 @@ class PurchaseCategory6 extends Component {
                                         color="primary"
                                     />}
                                 label="No"
+                                value={this.state.intrusiveTesting}
+                                onChange={this.handleChangeForCheckboxNo('intrusiveTesting')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -100,6 +161,8 @@ class PurchaseCategory6 extends Component {
                                 id="date"
                                 variant="outlined"
                                 type="date"
+                                value={this.state.inspectionDate}
+                                onChange={this.handleChangeForInspections('inspectionDate')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -110,6 +173,8 @@ class PurchaseCategory6 extends Component {
                                 // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
+                                value={this.state.otherInspectionItem}
+                                onChange={this.handleChangeForInspections('otherInspectionItem')}
                             />
                         </Grid>
                     </Grid>
@@ -133,7 +198,7 @@ class PurchaseCategory6 extends Component {
                                         <Button
                                             variant="contained"
                                             color="primary"
-                                            onClick={this.handleClick}
+                                            onClick={this.handleClickToSave}
                                         >
                                             Save
                                         </Button>
@@ -151,7 +216,10 @@ class PurchaseCategory6 extends Component {
                                     </div>
                                 </Grid>
                             </Grid>
-                        </Container>           
+                        </Container>  
+                        <pre>
+                            {JSON.stringify(this.state, null, 2)}
+                            </pre>         
             </div>
         )
     }
