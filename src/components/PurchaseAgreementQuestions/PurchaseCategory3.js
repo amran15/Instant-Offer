@@ -18,15 +18,16 @@ class PurchaseCategory3 extends Component {
     }
 
 
-    handleClickDate = (propertyName) => (event)=> {
+    handleChangeDate = (propertyName) => (event)=> {
         this.setState({ 
             closingDate:{
-            ...this.setState.closingDate,[propertyName]:event.target.value
+            [propertyName]:event.target.value
         }})
     }
 
-    handleClick = () => {
-        this.props.history.push('/PurchaseAgreement')
+    handleClickToSave = () => {
+
+        // this.props.history.push('/PurchaseCategory4')
     }
 
     handleClickNext = () => {
@@ -48,7 +49,7 @@ class PurchaseCategory3 extends Component {
                                 variant="outlined"
                                 type="date"
                                 value={this.state.closingDate.date}
-                                onChange={this.handClickDate}
+                                onChange={this.handleChangeDate('date')}
                             />
                         </Grid>
                     </Grid>

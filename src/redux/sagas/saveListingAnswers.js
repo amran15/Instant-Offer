@@ -4,8 +4,8 @@ import axios from 'axios';
 
 function* saveListingContractAnswers(action) {
     try {
-        yield axios.post('/api/trail/save', action.payload);
-        // yield put ({ type: '1' });
+        yield axios.post('/api/listing/save', action.payload);
+        // yield put ({ type: 'SAVE_LISTING_ANSEW' });
         // yield put ({ type: '2' });
         // yield put ({ type: '3' });
         // yield put ({ type: '4' });
@@ -19,7 +19,7 @@ function* saveListingContractAnswers(action) {
 }
 
 function* saveListingAnswers() {
-    yield takeLatest('SAVE_LISTING_ANSWER', saveListingContractAnswers);
+    yield takeLatest('LISTING_CATEGORY_1', saveListingContractAnswers);
 
 }
 

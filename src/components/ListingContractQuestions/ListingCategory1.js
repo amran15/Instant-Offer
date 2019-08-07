@@ -39,7 +39,7 @@ class ListingCategory1 extends Component {
     }
 
     handleClickToSave = () => {
-        this.props.dispatch({type:'POST_GENERAL_INFO', payload:this.state.generalInfo})
+        this.props.dispatch({type:'LISTING_CATEGORY_1', payload:this.state.generalInfo})
         this.props.history.push('/ListingCategory2')
     }
 
