@@ -40,7 +40,6 @@ class ListingCategory1 extends Component {
 
     handleClickToSave = () => {
         this.props.dispatch({type:'SAVE_LISTING_ANSWER', payload:this.state.generalInfo})
-        this.props.history.push('/ListingCategory2')
     }
 
 

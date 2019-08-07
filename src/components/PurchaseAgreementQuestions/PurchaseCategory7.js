@@ -30,6 +30,7 @@ class PurchaseCategory7 extends Component {
                                 <h2>Seller's Contributions to Buyer's Costs</h2>
                             </center>
                             <h4>Please check one.</h4>
+                            <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox
@@ -40,6 +41,9 @@ class PurchaseCategory7 extends Component {
                                     />}
                                 label="This Purchase Agreement is subject to an Addendum to Purchase Agreement: Sale of Buyer's Property Contingency for the sale of Buyer's property. (If checked, see attached Addendum."
                             />
+                            </Grid>
+                            <br/>
+                            <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox
@@ -50,6 +54,9 @@ class PurchaseCategory7 extends Component {
                                     />}
                                 label="This Purchase Agreement is contingent upon the succesful closing on the Buyer's property."
                             />
+                            </Grid>
+                            <br/>
+                            <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox
@@ -60,6 +67,7 @@ class PurchaseCategory7 extends Component {
                                     />}
                                 label="Buyer represents that Buyer has the financial ability to perform on this Purchase Agreement without the sale and closing on any other property."
                             />
+                        </Grid>
                         </Grid>
                     </Grid>
                 </Container>

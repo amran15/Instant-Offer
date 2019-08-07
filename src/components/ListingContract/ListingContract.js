@@ -21,15 +21,13 @@ const styles = {
 };
 
 class ListingContract extends Component {
-
-
     handleClick = (propertyName) => (event) => {
         this.props.history.push(`${[propertyName]}`);
         console.log('we are inside Listing Categories pages')
     }
 
-    handleClickNext = () => {
-        this.props.history.push('/ListingReview')
+    handleClickSign = () => {
+        this.props.history.push('/Signature')
     }
     
     render() {
@@ -38,6 +36,7 @@ class ListingContract extends Component {
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
                 <Container component="main" maxWidth="lg">
                     <center>
+                        <h2>Listing Contract</h2>
                         <h4>Please answer the following questions pertaining to the Listing Offer.</h4>
                     </center>
                     <Card onClick={this.handleClick('/ListingCategory1')} value="/ListingCategory1">
@@ -200,8 +199,8 @@ class ListingContract extends Component {
                             <Button
                               variant="contained"
                               color="primary"
-                              onClick={this.handleClickNext}
-                            >Next</Button>
+                              onClick={this.handleClickSign}
+                            >Sign</Button>
                         </div>
                     </Grid>
                     <br />

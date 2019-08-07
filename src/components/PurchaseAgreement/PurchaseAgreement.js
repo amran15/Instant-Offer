@@ -33,8 +33,8 @@ class PurchaseAgreement extends Component {
         this.props.history.push(`${[propertyName]}`);
     }
 
-    handleClickNext = () => {
-        this.props.history.push('/PurchaseAgreementReview');
+    handleClickSign = () => {
+        this.props.history.push('/Signature');
     }
 
     render() {
@@ -43,9 +43,9 @@ class PurchaseAgreement extends Component {
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
                 <Container component="main" maxWidth="lg">
                     <center>
+                        <h2>Purchase Agreement</h2>
                         <h4>Please answer the following questions pertaining to the Purchase Agreement.</h4>
                     </center>
-
                     <Card id="generalInfo" onClick={this.handleClick('/PurchaseCategory1')} value="/PurchaseCategory1" >
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={10}>
@@ -225,7 +225,7 @@ class PurchaseAgreement extends Component {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                onClick={this.handleClickNext}>
+                                onClick={this.handleClickSign}>
                                 Next
                             </Button>
                         </div>
