@@ -2,8 +2,6 @@ import { combineReducers } from 'redux';
 import errors from './errorsReducer';
 import loginMode from './loginModeReducer';
 import user from './userReducer';
-import listingCategory1 from './listingCategory1Reducer';
-
 
 import listingContract1 from './listingContract1Reducer';
 import listingContract2 from './listingContract2Reducer';
