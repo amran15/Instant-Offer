@@ -7,25 +7,36 @@ import PurchaseAgreementButton from '../PurchaseAgreementButton/PurchaseAgreemen
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
+const styles = {
+  Grid: {
+    margin: '100px 0px 0px 0px',
+  },
+};
+
 const UserPage = (props) => (
   <div>
-    <center>
-    <h1>Welcome, {props.user.username}!</h1>
-      <h4>Please select one of the forms below to begin.</h4>
-    </center>
-    <br />
-    <div align="center">
-    <Container component="main" maxWidth="xs">
-      <Grid item xs={12}>
-        <ListingContractButton />
-        <br />
-        <br />
-      </Grid>
-      <Grid item xs={12}>
-        <PurchaseAgreementButton />
-      </Grid>
-    </Container>
-    </div>
+    <Grid
+      item xs={12}
+      style={styles.Grid}
+    >
+      <center>
+        <h1>Welcome, {props.user.username}!</h1>
+        <h4>Please select one of the forms below to begin.</h4>
+      </center>
+      <br />
+      <div align="center">
+        <Container component="main" maxWidth="xs">
+          <Grid item xs={12}>
+            <ListingContractButton />
+            <br />
+            <br />
+          </Grid>
+          <Grid item xs={12}>
+            <PurchaseAgreementButton />
+          </Grid>
+        </Container>
+      </div>
+    </Grid>
   </div>
 );
 

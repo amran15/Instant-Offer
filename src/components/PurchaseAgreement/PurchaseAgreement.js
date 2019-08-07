@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
 
 
- 
+
 //Material UI
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -43,7 +43,7 @@ class PurchaseAgreement extends Component {
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
                 <Container component="main" maxWidth="lg">
                     <center>
-                        <p>Please answer the following questions pertaining to the Purchase Agreement.</p>
+                        <h4>Please answer the following questions pertaining to the Purchase Agreement.</h4>
                     </center>
 
                     <Card id="generalInfo" onClick={this.handleClick('/PurchaseCategory1')} value="/PurchaseCategory1" >
@@ -230,6 +230,7 @@ class PurchaseAgreement extends Component {
                             </Button>
                         </div>
                     </Grid>
+                    <br />
                 </Container>
             </div>
         )

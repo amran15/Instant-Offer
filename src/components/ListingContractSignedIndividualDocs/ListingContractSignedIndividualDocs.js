@@ -19,12 +19,11 @@ class PurchaseAgreementDraftsIndividualDocs extends Component {
         return (
             <div>
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
-             
                     <Card>
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={10}>
                                 <div style={styles.title}>
-                                    <h3>Joe's Purchase Agreement</h3>
+                                    <h3>Joe's Listing Contract</h3>
                                     <p>August 1, 2019</p>
                                 </div>
                             </Grid>
