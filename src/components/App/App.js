@@ -20,7 +20,6 @@ import Drafts from '../Drafts/Drafts';
 import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
 import './App.css';
 import Signature from '../Signature/Signature';
-import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
 import SignedDocs from '../SignedDocs/SignedDocs';
 
 // these are the listing question categories

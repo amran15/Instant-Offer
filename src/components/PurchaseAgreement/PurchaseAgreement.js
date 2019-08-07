@@ -11,11 +11,7 @@ import { connect } from 'react-redux';
 
  
 //Material UI
-<<<<<<< HEAD
- import Button from '@material-ui/core/Button';
-=======
 import Button from '@material-ui/core/Button';
->>>>>>> master
 import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
