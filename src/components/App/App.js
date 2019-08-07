@@ -31,7 +31,7 @@ import ListingCategory5 from '../ListingContractQuestions/ListingCategory5';
 import ListingCategory6 from '../ListingContractQuestions/ListingCategory6';
 import ListingCategory7 from '../ListingContractQuestions/ListingCategory7';
 import ListingCategory8 from '../ListingContractQuestions/ListingCategory8';
-import ListingReview from '../ListingReview/ListingReview';
+// import ListingReview from '../ListingReview/ListingReview';
 
 //this will hold purchase categories/questions
 import PurchaseCategory1 from '../PurchaseAgreementQuestions/PurchaseCategory1';
@@ -43,7 +43,7 @@ import PurchaseCategory6 from '../PurchaseAgreementQuestions/PurchaseCategory6';
 import PurchaseCategory7 from '../PurchaseAgreementQuestions/PurchaseCategory7';
 import PurchaseCategory8 from '../PurchaseAgreementQuestions/PurchaseCategory8';
 import PurchaseCategory9 from '../PurchaseAgreementQuestions/PurchaseCategory9';
-import PurchaseAgreementReview from '../PurchaseAgreementReview/PurchaseAgreementReview';
+// import PurchaseAgreementReview from '../PurchaseAgreementReview/PurchaseAgreementReview';
 
 
 class App extends Component {
@@ -123,11 +123,11 @@ class App extends Component {
               path="/ListingCategory8"
               component={ListingCategory8}
             />
-              <ProtectedRoute
+              {/* <ProtectedRoute
               exact
               path="/ListingReview"
               component={ListingReview}
-            />
+            /> */}
             <ProtectedRoute
               exact
               path="/PurchaseAgreement"
@@ -178,11 +178,11 @@ class App extends Component {
               path="/PurchaseCategory9"
               component={PurchaseCategory9}
             />
-             <ProtectedRoute
+             {/* <ProtectedRoute
               exact
               path="/PurchaseAgreementReview"
               component={PurchaseAgreementReview}
-            />
+            /> */}
             <ProtectedRoute
               exact
               path="/Signature"
