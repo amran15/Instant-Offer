@@ -64,14 +64,14 @@ router.get('/answers/:id', (req, res) => {
 // });
 
 
-// POST route listing_contract
+// POST route listing_contract (fix this!)
 router.post('/save', (req, res) => {
     console.log('LISTING POST SERVER', req.body)
     const querySave = `INSERT INTO "Listing_Contract"("BUYER_1", "BUYER_1_ADDRESS","BUYER_1_PHONE", "BUYER_1_EMAIL", "SIGNATURE_BUYER_1", "PRINTED_SIGNATURE_BUYER_1",
-//     "DATE", "PAGE_1", "PAGE_2", "PAGE_3", "PAGE_4", "PAGE_5", "PAGE_6", "PAGE_7", "PAGE_8", "L3", "L4", "L6", "L7", 
-//     "L8", "L9", "L12", "L13", "L41", "L54", "L63", "L71", "L72", "L73", "L115", "L118", "L119", "L121", "L131","L146", 
-//     "L148A", "L148B", "L148C", "L150A", "L150B", "L150C", "L152A", "L152B", "L163", "L164",  "L165A", "L165B",
-//     "L175", "L196", "L198", "L200", "L237")`
+    "DATE", "PAGE_1", "PAGE_2", "PAGE_3", "PAGE_4", "PAGE_5", "PAGE_6", "PAGE_7", "PAGE_8", "L3", "L4", "L6", "L7", 
+    "L8", "L9", "L12", "L13", "L41", "L54", "L63", "L71", "L72", "L73", "L115", "L118", "L119", "L121", "L131","L146", 
+    "L148A", "L148B", "L148C", "L150A", "L150B", "L150C", "L152A", "L152B", "L163", "L164",  "L165A", "L165B",
+    "L175", "L196", "L198", "L200", "L237")`
 pool.query(querySave,)
         .then(() => {
             res.sendStatus(201);
