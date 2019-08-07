@@ -21,7 +21,7 @@ const styles = {
     color: 'white',
   },
   Grid: {
-    margin: '200px 0px 0px 0px',
+    margin: '175px 0px 0px 0px',
   },
 };
 

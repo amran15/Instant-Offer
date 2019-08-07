@@ -39,7 +39,6 @@ class ListingCategory4 extends Component {
     handleClickToSave = () => {
         console.log('we are posting listing cat 4 - Brokers Comp')
         this.props.dispatch({ type: 'POST_BROKERCOMPENSATION', payload: this.state.brokerCompensation })
-        this.props.history.push('/ListingContract')
     }
 
 

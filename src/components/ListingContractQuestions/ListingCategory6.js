@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
+//Material UI
 import Grid from '@material-ui/core/Grid';
 import Checkbox from '@material-ui/core/Checkbox';
 import Container from '@material-ui/core/Container';
 import { TextField } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
-
 
 class ListingCategory6 extends Component {
     state = {
@@ -18,7 +18,6 @@ class ListingCategory6 extends Component {
             initials: '',
         }
     }
-
 
     handleClickForCheckBox = (propertyName) => (event) => {
         this.setState({
@@ -36,14 +35,12 @@ class ListingCategory6 extends Component {
         })
     }
 
-
     handleClick = () => {
         this.props.history.push('/ListingContract')
     }
 
     handleClickToSave = () => {
         this.props.dispatch({ type: 'CLOSING_SERVICES', payload: this.state.closingServices });
-        this.props.history.push('/ListingContract');
     }
 
     handleClickNext = () => {
