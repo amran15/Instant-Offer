@@ -39,11 +39,14 @@ class Nav extends Component {
             {/* Show this link if they are logged in or not,
             but call this link 'Home' if they are logged in,
             and call this link 'Login / Register' if they are not */}
-            {this.props.user.id ? 'Home' : 'Login'}
+            {this.props.user.id ? 
+              'Home' 
+              : 
+              'Login'}
           </Link>
         </ListItem>
         <ListItem>
-          <Link className="nav-link" to="/Documents">
+          <Link className="nav-link" to="/signed-documents">
             Signed Documents
           </Link>
         </ListItem>
