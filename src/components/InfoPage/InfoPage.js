@@ -7,10 +7,26 @@ import {connect} from 'react-redux'
 
 class InfoPage extends Component {
   componentDidMount(){
- this.props.dispatch({type: 'FETCH_LISTING', payload: 3})
+//  this.props.dispatch({type: 'FETCH_LISTING', payload: 3})
 //  this.props.dispatch({type: 'FETCH_OFFER', payload: 3})
+
+
+
+
+this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
+  }
+
+  state={
+    activeUser: 3,//this.props.mapStateToProps.activeUser
+    answers: 
+      [
+        {lineNumber: "L3", answer: 'It'}, 
+        {lineNumber:"L4", answer:'Are'},
+        {lineNumber:"L7", answer: 'Working!'}
+      ]
   }
     render() {
+      
         return (
             <p>
                 This is the InfoPage page
