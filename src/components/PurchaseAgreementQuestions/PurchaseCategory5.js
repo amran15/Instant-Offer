@@ -12,8 +12,48 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory5 extends Component {
+
+    state = {
+        sellerContribution: {
+            toBuyerCost:'',
+            closingCostAmoutCheck:'',
+            closingCostValue:'',
+            closingCostPercentCheck:'',
+            closingCostPercentValue:'',
+        }
+    }
+
+    handleChangeForSellerContribution = (propertyName) => (event) => {  
+        this.setState({
+            sellerContribution:{
+                ...this.state.sellerContribution,[propertyName]:event.target.value,
+            }
+        })
+    }   
+
+    handleChangeForCheckbox = (propertyName) => (event) => {  
+        this.setState({
+            sellerContribution:{
+                ...this.state.sellerContribution,[propertyName]:true,
+            }
+        })
+    } 
+
+    handleChangeForCheckboxNo = (propertyName) => (event) => {  
+        this.setState({
+            sellerContribution:{
+                ...this.state.sellerContribution,[propertyName]:false,
+            }
+        })
+    } 
+
     handleClick = () => {
         this.props.history.push('/PurchaseAgreement')
+    }
+
+    handleClickToSave = () => {
+        console.log('saving this noe');
+        this.props.dispatch({type:'POST_SELLER_CONTRIBUTION', payload:this.state.sellerContribution})
     }
 
     handleClickNext = () => {
@@ -39,6 +79,8 @@ class PurchaseCategory5 extends Component {
                                         color="primary"
                                     />}
                                 label="Yes"
+                                value={this.state.toBuyerCost}
+                                onChange={this.handleChangeForCheckbox('toBuyerCost')}
                             />
                             <FormControlLabel
                                 control={
@@ -49,10 +91,12 @@ class PurchaseCategory5 extends Component {
                                         color="primary"
                                     />}
                                 label="No"
+                                value={this.state.toBuyerCost}
+                                onChange={this.handleChangeForCheckboxNo('toBuyerCost')}
                             />
                         </Grid>
 
-                        <h4>If yes, Seller agrees to pay at closing, up toht eamount amount of the sale price: <i>(Check one)</i></h4>
+                        <h4>If yes, Seller agrees to pay at closing, up to the amount of the sale price: <i>(Check one)</i></h4>
                         <Grid container spacing={2}>
                             <Grid item xs={2}>
                                 <Checkbox
@@ -60,6 +104,8 @@ class PurchaseCategory5 extends Component {
                                     // onChange={handleChange('checkedB')}
                                     value="checkedB"
                                     color="primary"
+                                    value={this.state.closingCostAmoutCheck}
+                                    onChange={this.handleChangeForCheckbox('closingCostAmoutCheck')}
                                 />
                             </Grid>
                             <Grid item xs={10}>
@@ -72,6 +118,8 @@ class PurchaseCategory5 extends Component {
                                     InputProps={{
                                         startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                     }}
+                                    value={this.state.closingCostValue}
+                                    onChange={this.handleChangeForSellerContribution('closingCostValue')}
                                 />
                             </Grid>
                             <Grid item xs={2}>
@@ -80,6 +128,8 @@ class PurchaseCategory5 extends Component {
                                     // onChange={handleChange('checkedB')}
                                     value="checkedB"
                                     color="primary"
+                                    value={this.state.closingCostPercentCheck}
+                                    onChange={this.handleChangeForCheckbox('closingCostPercentCheck')}
                                 />
                             </Grid>
                             <Grid item xs={10}>
@@ -92,6 +142,8 @@ class PurchaseCategory5 extends Component {
                                     InputProps={{
                                         endAdornment: <InputAdornment position="start">%</InputAdornment>,
                                     }}
+                                    value={this.state.closingCostPercentValue}
+                                    onChange={this.handleChangeForSellerContribution('closingCostPercentValue')}
                                 />
                                 <br />
                                 <br />
@@ -117,7 +169,7 @@ class PurchaseCategory5 extends Component {
                                         <Button
                                             variant="contained"
                                             color="primary"
-                                            onClick={this.handleClick}
+                                            onClick={this.handleClickToSave}
                                         >
                                             Save
                                         </Button>
@@ -138,6 +190,9 @@ class PurchaseCategory5 extends Component {
                         </Container>
                     </Grid>
                 </Container>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
             </div>
         )
     }
