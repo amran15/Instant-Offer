@@ -12,8 +12,76 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory4 extends Component {
+    state = {
+        morgtageFinancing: {
+            financingProvisions: '',
+            firstMortgage: '',
+            subordinateFinancing: '',
+            loanAssistance: '',
+            loanAssistanceInput: '',
+            conventional: '',
+            dvaGuarantee: '',
+            FHA: '',
+            privatelyInsure: '',
+            USDA: '',
+            other: '',
+            otherInput: '',
+            mortgagePeriod: '',
+            initialInterestRate: '',
+            contingent: '',
+            refundedToBuyer: '',
+            forfeitedToSeller: '',
+            writtenStatement: '',
+            date: '',
+            lockWithinFive: '',
+            lockAnytime: '',
+            repairCost: '',
+            seller: '',
+            buyer: '',
+            appraisedPropertyValue: '',
+            lenderProcessingFee: '',
+            dvaFundingFee: '',
+            paidByBuyer: '',
+            atClosing: '',
+            addedMortgage: '',
+            paidBySeller: '',
+            otherMortgageItems: '',
+        }
+    }
+
+
+
+    handleChangeForMortgageFinancing = (propertyName) => (event) => {
+        this.setState({
+            morgtageFinancing: {
+                ...this.state.morgtageFinancing, [propertyName]: event.target.value
+            }
+        })
+    }
+
+    handleChangeForCheckbox = (propertyName) => (event) => {
+        this.setState({
+            morgtageFinancing: {
+                ...this.state.morgtageFinancing, [propertyName]: true,
+            }
+        })
+    }
+
+    handleChangeForCheckboxNo = (propertyName) => (event) => {
+        this.setState({
+            morgtageFinancing: {
+                ...this.setState.morgtageFinancing, [propertyName]: false,
+            }
+        })
+    }
+
     handleClick = () => {
         this.props.history.push('/PurchaseAgreement')
+    }
+
+    handleClickToSave = () => {
+        console.log('we are saving/posting category 4');
+        this.props.dispatch({ type: 'POST_MORTGAGE_FINANCING', payload: this.state.morgtageFinancing })
     }
 
     handleClickNext = () => {
@@ -39,6 +107,8 @@ class PurchaseCategory4 extends Component {
                                         color="primary"
                                     />}
                                 label="Yes"
+                                value={this.state.financingProvisions}
+                                onChange={this.handleChangeForCheckbox('financingProvisions')}
                             />
                             <FormControlLabel
                                 control={
@@ -49,6 +119,8 @@ class PurchaseCategory4 extends Component {
                                         color="primary"
                                     />}
                                 label="No"
+                                value={this.state.financingProvisions}
+                                onChange={this.handleChangeForCheckboxNo('financingProvisions')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -63,6 +135,8 @@ class PurchaseCategory4 extends Component {
                                             color="primary"
                                         />}
                                     label="First Mortgage only"
+                                    value={this.state.firstMortgage}
+                                    onChange={this.handleChangeForCheckbox('firstMortgage')}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -75,6 +149,8 @@ class PurchaseCategory4 extends Component {
                                             color="primary"
                                         />}
                                     label="First morgtage and subordinate financing"
+                                    value={this.state.subordinateFinancing}
+                                    onChange={this.handleChangeForCheckbox('subordinateFinancing')}
                                 />
                             </Grid>
                         </Grid>
@@ -89,6 +165,8 @@ class PurchaseCategory4 extends Component {
                                         color="primary"
                                     />}
                                 label="Yes"
+                                value={this.state.loanAssistance}
+                                onChange={this.handleChangeForCheckbox('loanAssistance')}
                             />
                             <FormControlLabel
                                 control={
@@ -99,6 +177,8 @@ class PurchaseCategory4 extends Component {
                                         color="primary"
                                     />}
                                 label="No"
+                                value={this.state.loanAssistance}
+                                onChange={this.handleChangeForCheckboxNo('loanAssistance')}
                             />
                             <Grid item xs={12}>
                                 <h4>If yes, please specify:</h4>
@@ -108,6 +188,8 @@ class PurchaseCategory4 extends Component {
                                     // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
+                                    value={this.state.loanAssistanceInput}
+                                    onChange={this.handleChangeForMortgageFinancing('loanAssistanceInput')}
                                 />
                             </Grid>
                         </Grid>
@@ -123,6 +205,8 @@ class PurchaseCategory4 extends Component {
                                             color="primary"
                                         />}
                                     label="Conventional"
+                                    value={this.state.conventional}
+                                    onChange={this.handleChangeForCheckbox('conventional')}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -135,6 +219,8 @@ class PurchaseCategory4 extends Component {
                                             color="primary"
                                         />}
                                     label="Department of Veteran's Affairs (DVA) Guaranteed"
+                                    value={this.state.dvaGuarantee}
+                                    onChange={this.handleChangeForCheckbox('dvaGuarantee')}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -147,6 +233,8 @@ class PurchaseCategory4 extends Component {
                                             color="primary"
                                         />}
                                     label="Federal Housing Administration (FHA) Insured"
+                                    value={this.state.FHA}
+                                    onChange={this.handleChangeForCheckbox('FHA')}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -159,6 +247,8 @@ class PurchaseCategory4 extends Component {
                                             color="primary"
                                         />}
                                     label="Privately Insured Conventional"
+                                    value={this.state.privatelyInsure}
+                                    onChange={this.handleChangeForCheckbox('privatelyInsure')}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -171,6 +261,8 @@ class PurchaseCategory4 extends Component {
                                             color="primary"
                                         />}
                                     label="United States Department of Agricultural (USDA) Rural Development"
+                                    value={this.state.USDA}
+                                    onChange={this.handleChangeForCheckbox('USDA')}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -183,6 +275,8 @@ class PurchaseCategory4 extends Component {
                                             color="primary"
                                         />}
                                     label="Other"
+                                    value={this.state.other}
+                                    onChange={this.handleChangeForCheckbox('other')}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -192,6 +286,8 @@ class PurchaseCategory4 extends Component {
                                     // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
+                                    value={this.state.otherInput}
+                                    onChange={this.handleChangeForMortgageFinancing('otherInput')}
                                 />
                             </Grid>
                             <h4>mortgage in the amount stated in this Purchase Agreement, amortized over a period of not more than</h4>
@@ -202,6 +298,8 @@ class PurchaseCategory4 extends Component {
                                     // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
+                                    value={this.state.mortgagePeriod}
+                                    onChange={this.handleChangeForMortgageFinancing('mortgagePeriod')}
                                 />
                             </Grid>
                             <h4>years, with an initial interest rate at no more than</h4>
@@ -215,6 +313,8 @@ class PurchaseCategory4 extends Component {
                                     InputProps={{
                                         endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                     }}
+                                    value={this.state.initialInterestRate}
+                                    onChange={this.handleChangeForMortgageFinancing('initialInterestRate')}
                                 />
                             </Grid>
                             <h4>per annum.</h4>
@@ -235,6 +335,8 @@ class PurchaseCategory4 extends Component {
                                         color="primary"
                                     />}
                                 label="If Buyer cannot secure the financing specified in this Purchase Agreement, and this Purchase Agreement does not close on the closing date specified, this Purchase Agreement is canceled. Buyer and Seller shall immediately sign a Cancellation of Purchase Agreement confirming said cancellation and directing all earnest moeny paid here to be"
+                                value={this.state.contingent}
+                                onChange={this.handleChangeForCheckbox('contingent')}
                             />
                         </Grid>
                         <FormControlLabel
@@ -246,6 +348,8 @@ class PurchaseCategory4 extends Component {
                                     color="primary"
                                 />}
                             label="Refunded to Buyer"
+                            value={this.state.refundedToBuyer}
+                            onChange={this.handleChangeForCheckbox('refundedToBuyer')}
                         />
                         <FormControlLabel
                             control={
@@ -256,6 +360,8 @@ class PurchaseCategory4 extends Component {
                                     color="primary"
                                 />}
                             label="Forfeited to seller"
+                            value={this.state.forfeitedToSeller}
+                                onChange={this.handleChangeForCheckbox('forfeitedToSeller')}
                         />
                         <Grid item xs={12}>
                             <FormControlLabel
@@ -267,6 +373,8 @@ class PurchaseCategory4 extends Component {
                                         color="primary"
                                     />}
                                 label="Buyer shall provide Seller, or licensee representing or assisting Seller, with the Written Statement, on or before"
+                                value={this.state.writtenStatement}
+                                onChange={this.handleChangeForCheckbox('writtenStatement')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -274,6 +382,8 @@ class PurchaseCategory4 extends Component {
                                 id="date"
                                 variant="outlined"
                                 type="date"
+                                value={this.state.date}
+                                onChange={this.handleChangeForMortgageFinancing('date')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -281,7 +391,7 @@ class PurchaseCategory4 extends Component {
                                 <h3>Locking of Mortgage Interest Rate</h3>
                             </center>
                         </Grid>
-                        <h4>The Rate shall be loced with the lenders(s) by Buyer:<i>(Chck one)</i></h4>
+                        <h4>The Rate shall be locked with the lenders(s) by Buyer:<i>(Chck one)</i></h4>
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={
@@ -291,7 +401,10 @@ class PurchaseCategory4 extends Component {
                                         value="checkedB"
                                         color="primary"
                                     />}
-                                label="Within five (5) business days of final acceptance date of this purchase agreement" />
+                                label="Within five (5) business days of final acceptance date of this purchase agreement" 
+                                value={this.state.lockWithinFive}
+                                onChange={this.handleChangeForCheckbox('lockWithinFive')}
+                                />
                         </Grid>
                         <Grid item xs={12}>
                             <FormControlLabel
@@ -302,7 +415,10 @@ class PurchaseCategory4 extends Component {
                                         value="checkedB"
                                         color="primary"
                                     />}
-                                label="At any time prior to closing or as required by lenders(s)" />
+                                label="At any time prior to closing or as required by lenders(s)" 
+                                value={this.state.lockAnytime}
+                                onChange={this.handleChangeForCheckbox('lockAnytime')}
+                                />
                         </Grid>
                         <Grid item xs={12}>
                             <center>
@@ -320,6 +436,8 @@ class PurchaseCategory4 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
+                                value={this.state.repairCost}
+                                onChange={this.handleChangeForMortgageFinancing('repairCost')}
                             />
                         </Grid>
                         <h4>The following party agrees to pay any reinspection fee required by Buyer's lenders(s).</h4>
@@ -332,7 +450,10 @@ class PurchaseCategory4 extends Component {
                                         value="checkedB"
                                         color="primary"
                                     />}
-                                label="Seller" />
+                                label="Seller" 
+                                value={this.state.seller}
+                                onChange={this.handleChangeForCheckbox('seller')}
+                                />
                             <FormControlLabel
                                 control={
                                     <Checkbox
@@ -341,7 +462,10 @@ class PurchaseCategory4 extends Component {
                                         value="checkedB"
                                         color="primary"
                                     />}
-                                label="Buyer" />
+                                label="Buyer" 
+                                value={this.state.buyer}
+                                onChange={this.handleChangeForCheckbox('buyer')}
+                                />
                         </Grid>
                         <Grid item xs={12}>
                             <center>
@@ -349,7 +473,7 @@ class PurchaseCategory4 extends Component {
                             </center>
                         </Grid>
                         <Grid item xs={12}>
-                        <h4>Appraised value of the Property</h4>
+                            <h4>Appraised value of the Property</h4>
                             <TextField
                                 id="buyers_earnest_money"
                                 // value={this.state.song_title}
@@ -359,6 +483,8 @@ class PurchaseCategory4 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
+                                value={this.state.appraisedPropertyValue}
+                                onChange={this.handleChangeForMortgageFinancing('appraisedPropertyValue')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -377,6 +503,8 @@ class PurchaseCategory4 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
+                                value={this.state.lenderProcessingFee}
+                                onChange={this.handleChangeForMortgageFinancing('lenderProcessingFee')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -396,6 +524,8 @@ class PurchaseCategory4 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
+                                value={this.state.paidByBuyer}
+                                onChange={this.handleChangeForMortgageFinancing('paidByBuyer')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -408,6 +538,8 @@ class PurchaseCategory4 extends Component {
                                         color="primary"
                                     />}
                                 label="At closing"
+                                value={this.state.atClosing}
+                                onChange={this.handleChangeForCheckbox('atClosing')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -420,10 +552,12 @@ class PurchaseCategory4 extends Component {
                                         color="primary"
                                     />}
                                 label="Added to mortgage amount"
+                                value={this.state.addedMortgage}
+                                onChange={this.handleChangeForCheckbox('addedMortgage')}
                             />
                         </Grid>
                         <Grid item xs={12}>
-                        <h4>Paid by the Seller</h4>
+                            <h4>Paid by the Seller</h4>
                             <TextField
                                 id="buyers_earnest_money"
                                 // value={this.state.song_title}
@@ -433,6 +567,8 @@ class PurchaseCategory4 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
+                                value={this.state.paidBySeller}
+                                onChange={this.handleChangeForMortgageFinancing('paidBySeller')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -450,6 +586,8 @@ class PurchaseCategory4 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
+                                value={this.state.otherMortgageItems}
+                                onChange={this.handleChangeForMortgageFinancing('otherMortgageItems')}
                             />
                         </Grid>
                     </Grid>
@@ -474,7 +612,7 @@ class PurchaseCategory4 extends Component {
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={this.handleClick}
+                                    onClick={this.handleClickToSave}
                                 >
                                     Save
                 </Button>
@@ -495,6 +633,9 @@ class PurchaseCategory4 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
             </div>
         )
     }
