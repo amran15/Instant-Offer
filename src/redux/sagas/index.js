@@ -16,6 +16,7 @@ import pdfOffer from './pdfOffer';
 
 import deleteListingAnswer from './deleteListingAnswer';
 import deletePurchaseAnswerSaga from './deletePurchaseAnswer';
+import putAnswers from './putAnswers';
 
 
 
@@ -37,5 +38,6 @@ export default function* rootSaga() {
     pdfOffer(),
     deleteListingAnswer(),
     deletePurchaseAnswerSaga(),
+    putAnswers(),
   ]);
 }

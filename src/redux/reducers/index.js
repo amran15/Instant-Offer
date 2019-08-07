@@ -19,6 +19,7 @@ import purchaseAgreementCategory1 from './purchaseAgreementReducer1';
 import purchaseAgreementCategory2 from './purchaseAgreementReducer2';
 
 import signReducer from './signReducer';
+import activeUserReducer from './activeUserReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -47,6 +48,7 @@ const rootReducer = combineReducers({
   purchaseAgreementCategory1,
   purchaseAgreementCategory2,
 
+  activeUserReducer,
   signReducer,
 });
 
