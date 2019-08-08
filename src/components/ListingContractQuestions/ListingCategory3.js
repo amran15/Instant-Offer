@@ -21,6 +21,9 @@ class ListingCategory3 extends Component {
         }
     }
 
+
+    //this should toggle between yes or no 
+    
     //this will handle the checkbox event -  if the answer is yes
     hanldeClickForCheckBox = (propertyName) => (event) => {
         this.setState({
@@ -48,9 +51,6 @@ class ListingCategory3 extends Component {
         })
     }
 
-    // this.setState ({
-    //     ...this.state, [event.target.id]:event.target.value,
-    //  });
 
     handleSaveButton = () => {
         console.log('we are saving category 3');

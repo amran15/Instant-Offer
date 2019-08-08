@@ -33,6 +33,7 @@ class ListingContract extends Component {
     render() {
         return (
             <div>
+                <pre> {JSON.stringify(this.props, null, 2)} </pre>
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
                 <Container component="main" maxWidth="lg">
                     <center>
