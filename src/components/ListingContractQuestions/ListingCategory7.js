@@ -13,8 +13,9 @@ class ListingCategory7 extends Component {
 
     state = {
         id: this.props.reduxState.activeUserReducer.id,
-        answers: {L175: null}
-        
+        answers: {
+            L175: null
+        }  
     }
 
     handleClickForCheckBox = (propertyName) => (event) => {
