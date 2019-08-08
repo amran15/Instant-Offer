@@ -19,8 +19,9 @@ body {
 }
 
 .alert {
-    background-color: #ff4545;
-    margin: 50px;
+    margin: 20px;
+    color: white;
+    font-size: 20px;
 }
 
 /* form {
