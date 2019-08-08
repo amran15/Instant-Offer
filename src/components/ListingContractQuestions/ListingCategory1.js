@@ -13,8 +13,8 @@ class ListingCategory1 extends Component {
     state = {
         generalInformation: {
             L3: '',
-            city: '',
-            county: '',
+            city: '', //are we going to save this in the db ? 
+            county: '', //are we going to save this in the db ? 
             L4: '',
             L6: '',
             L7: '',
