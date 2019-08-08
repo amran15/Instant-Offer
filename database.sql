@@ -28,7 +28,6 @@ CREATE TABLE "Listing_Contract" (
     "PAGE_8" VARCHAR,
     "L3" VARCHAR,
     "L4" VARCHAR,
-    "L6" VARCHAR,
     "L7" VARCHAR,
     "L8" DATE,
     "L9" DATE,

@@ -13,10 +13,10 @@ import { Checkbox, FormControlLabel } from '@material-ui/core';
 class ListingCategory2 extends Component {
     state = {
         dataFeedOptions: {
-            displayListing:'',
-            listingAddress:'',
-            automatedValuation:'',
-            comments:'',
+            L41:'',
+            L54:'',
+            L63:'',
+            L71:'',
         }
     }
 
@@ -71,8 +71,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="Yes"
-                                value={this.state.displayListing}
-                                onChange={this.handleChangeForDataFeedOptions('displayListing')}
+                                value={this.state.dataFeedOptions.L41}
+                                onChange={this.handleChangeForDataFeedOptions('L41')}
                             />
                             <FormControlLabel
                                 control={
@@ -81,8 +81,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="No"
-                                value={this.state.displayListing}
-                                onChange={this.handleChangeForDataNo('displayListing')}
+                                value={this.state.dataFeedOptions.L41}
+                                onChange={this.handleChangeForDataFeedOptions('L41')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -94,8 +94,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="Yes"
-                                value={this.state.listingAddress}
-                                onChange={this.handleChangeForDataFeedOptions('listingAddress')}
+                                value={this.state.dataFeedOptions.L54}
+                                onChange={this.handleChangeForDataFeedOptions('L54')}
 
                             />
                             <FormControlLabel
@@ -105,8 +105,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="No"
-                                value={this.state.listingAddress}
-                                onChange={this.handleChangeForDataNo('listingAddress')}
+                                value={this.state.dataFeedOptions.L54}
+                                onChange={this.handleChangeForDataNo('L54')}
 
                             />
                         </Grid>
@@ -119,8 +119,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="Yes"
-                                value={this.state.automatedValuation}
-                                onChange={this.handleChangeForDataFeedOptions('automatedValuation')}
+                                value={this.state.dataFeedOptions.L63}
+                                onChange={this.handleChangeForDataFeedOptions('L63')}
 
                             />
                             <FormControlLabel
@@ -130,8 +130,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="No"
-                                value={this.state.automatedValuation}
-                                onChange={this.handleChangeForDataNo('automatedValuation')}
+                                value={this.state.dataFeedOptions.L63}
+                                onChange={this.handleChangeForDataFeedOptions('L63')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -143,8 +143,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="Yes"
-                                value={this.state.comments}
-                                onChange={this.handleChangeForDataFeedOptions('comments')}
+                                value={this.state.dataFeedOptions.L63}
+                                onChange={this.handleChangeForDataFeedOptions('L71')}
 
                             />
                             <FormControlLabel
@@ -154,8 +154,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="No"
-                                value={this.state.comments}
-                                onChange={this.handleChangeForDataNo('comments')}
+                                value={this.state.dataFeedOptions.L63}
+                                onChange={this.handleChangeForDataFeedOptions('L71')}
                             />
                         </Grid>
                     </Grid>

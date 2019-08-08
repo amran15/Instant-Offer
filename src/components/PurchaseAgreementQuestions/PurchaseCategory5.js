@@ -102,7 +102,7 @@ class PurchaseCategory5 extends Component {
                                 <Checkbox
                                     // checked={state.checkedB}
                                     // onChange={handleChange('checkedB')}
-                                    value="checkedB"
+                                    id="checkedB"
                                     color="primary"
                                     value={this.state.closingCostAmoutCheck}
                                     onChange={this.handleChangeForCheckbox('closingCostAmoutCheck')}
@@ -126,7 +126,7 @@ class PurchaseCategory5 extends Component {
                                 <Checkbox
                                     // checked={state.checkedB}
                                     // onChange={handleChange('checkedB')}
-                                    value="checkedB"
+                                    id="checkedB"
                                     color="primary"
                                     value={this.state.closingCostPercentCheck}
                                     onChange={this.handleChangeForCheckbox('closingCostPercentCheck')}

@@ -5,10 +5,8 @@ import userSaga from './userSaga';
 
 import fetchListingAnswers from './fetchListingAnswers';
 
-import saveListingAnswers from './saveListingAnswers';
+import newListingContractForm from './newListingContractForm';
 
-//what does this Saga do?
-// import listingCategorySaga from './listingCategorySaga';
 
 
 import pdfListing from './pdfListing';
@@ -33,7 +31,7 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     fetchListingAnswers(),
-    saveListingAnswers(),
+    newListingContractForm(),
     pdfListing(),
     pdfOffer(),
     deleteListingAnswer(),
