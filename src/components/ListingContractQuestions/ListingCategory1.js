@@ -50,8 +50,7 @@ class ListingCategory1 extends Component {
     }
 
     handleClickToSave = () => {
-        // this.props.dispatch({type:'PUT', payload:this.state.generalInformation})
-        //PUT request to update general info 
+        this.props.dispatch({type:'SAVE_LISTING_ANSWER', payload:this.state.generalInfo})
     }
 
 

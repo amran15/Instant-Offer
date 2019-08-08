@@ -10,8 +10,6 @@ import { TextField } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 
-
-
 class ListingCategory8 extends Component {
     state = {
         agencyRep: {
@@ -21,9 +19,7 @@ class ListingCategory8 extends Component {
             consent: '',
         }
     }
-
     
-
     //this will handle the yes checkbox for seller will not agree
     handleClickCheckbox = (propertyName) => (event) => {
         this.setState({
@@ -42,8 +38,6 @@ class ListingCategory8 extends Component {
             })
         }
 
-        
-
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
             agencyRep: {
@@ -52,14 +46,12 @@ class ListingCategory8 extends Component {
         })
     }
 
-
     handleClickBack = () => {
         this.props.history.push('/ListingContract')
     }
 
     handleSaveButton = () => {
         this.props.dispatch({ type: 'POST_AGENCY_REPRESENTATION', payload: this.state.agencyRep })
-        this.props.history.push('/ListingContract')
     }
 
     render() {

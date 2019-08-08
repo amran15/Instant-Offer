@@ -11,6 +11,7 @@ import Container from '@material-ui/core/Container';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
+
 const styles = {
   title: {
     textAlign: 'center',
@@ -21,7 +22,7 @@ const styles = {
     color: 'white',
   },
   Grid: {
-    margin: '200px 0px 0px 0px',
+    margin: '175px 0px 0px 0px',
   },
 };
 
@@ -61,7 +62,7 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div class="body">
+      <div className="body">
         <ThemeProvider theme={theme}>
           <Container component="main" maxWidth="xs">
           </Container>
@@ -81,7 +82,7 @@ class LoginPage extends Component {
                 )}
                 <form onSubmit={this.login}>
                   <center>
-                    <h1 class="header">Instant Offer</h1>
+                    <h1 className="header">Instant Offer</h1>
                   </center>
                   <div>
                     <TextField

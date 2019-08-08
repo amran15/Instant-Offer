@@ -133,22 +133,23 @@ function* fetchListing(action) {
     doc.text(`${answer.L3}`,55,33)
     doc.text(`${answer.L237}`,35,63)
     //243 a,b
-    doc.text(`${answer.COMPANY}`,50,110)
+    // doc.text(`${answer.COMPANY}`,50,110)
     doc.text(`${answer.BUYER_1}`,140,112)
     //244 a,b
-    doc.text(`Nate Labbatt`,35,126)
+    // doc.text(`Nate Labbatt`,35,126)
     doc.text(`${answer.DATE}`,120,126)
     //245 a,b
-    doc.text(`${answer.DATE}`,35,140)
+    // doc.text(`${answer.DATE}`,35,140)
     doc.text(`${answer.L3}`,120,140)
     //246
-    doc.text(`${answer.COMPANY_ADDRESS}`,35,155)
+    // doc.text(`221 N 1st ST STE 100`,35,155)
+    // doc.text(`Minneapolis, MN 55401`,35,160)
     doc.text(`${answer.BUYER_1_PHONE}`,120,155)
     //247
-    doc.text(`${answer.COMPANY_PHONE}`,35,170)
+    // doc.text(`651-373-4787`,35,170)
     doc.text(`${answer.BUYER_1_EMAIL}`,120,170)
     //248
-    doc.text(`EMAIL ADDRESS`,35,185)
+    // doc.text(`eric.hermanson@lakesmn.com`,35,185)
 
   
     // -----------------------------------------------------------------------------------------

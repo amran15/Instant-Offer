@@ -47,7 +47,6 @@ class ListingCategory2 extends Component {
 
     handleClickToSave = () => {
         this.props.dispatch({type:'POST_DATA_FEED_OPTIONS', payload:this.state.dataFeedOptions})
-        // this.props.history.push('/ListingCategory3')
     }
 
 

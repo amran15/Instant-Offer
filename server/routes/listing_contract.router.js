@@ -1,7 +1,7 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-//const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 //rejectUnauthenticated
 
 
@@ -49,19 +49,56 @@ router.get('/answers', (req, res) => {
 /**
  * EDIT route for listing_contract
  */
-// router.put('/update/:id', (req, res) => {
-//     console.log('UPDATE listing_contract SERVER HIT');
-//     const queryUpdate= `UPDATE "listing_contract" SET "L3"=$1 WHERE "review"."id"= $2`;
-//     pool.query(queryUpdate, [req.body, req.params.id])
-//         .then(result => {
-//             console.log(result);
-//             res.sendStatus(200);
-//         })
-//         .catch(error => {
-//             console.log('error making UPDATE for listing_contract answers:', error);
-//             res.sendStatus(500);
-//         })
-// });
+router.put('/update',rejectUnauthenticated, (req, res) => {
+    // console.log('UPDATE listing_contract SERVER HIT',req.body)
+    const user = req.body.activeUser;
+
+    pool.connect((err, client, done) => {
+
+        
+        const shouldAbort = err => {
+          if (err) {
+            console.error('Error in transaction', err.stack)
+            client.query('ROLLBACK', err => {
+              if (err) {
+                console.error('Error rolling back client', err.stack)
+              }
+              // release the client back to the pool
+              done()
+            })
+          }
+          return !!err
+        }
+        if(err){
+            done()
+            return res.sendStatus(500)
+        }
+
+
+        client.query('BEGIN').then(()=>{
+            req.body.answers.forEach((filledInformation)=>{
+            const column = filledInformation.lineNumber
+            pool.query(`
+                update "Listing_Contract"
+                set "${column}" = $1
+                where id = $2;
+            `,[filledInformation.answer, user]).catch( err => {
+                shouldAbort(err); 
+                return res.sendStatus(500);
+                })
+            })
+        
+        
+            client.query('COMMIT', err=>{
+                if(err){
+                    console.log('error commiting action',err.stack)
+                }
+                done()
+            })
+        })
+    })
+})
+
 
 
 // POST route listing_contract

@@ -55,7 +55,6 @@ class ListingCategory3 extends Component {
     handleSaveButton = () => {
         console.log('we are saving category 3');
         this.props.dispatch({ type: 'POST_LISTEDFOR_LEASE', payload: this.state.listedForLease })
-        this.props.history.push('ListingContract')
     }
 
 

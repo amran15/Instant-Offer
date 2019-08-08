@@ -7,8 +7,6 @@ import fetchListingAnswers from './fetchListingAnswers';
 
 import newListingContractForm from './newListingContractForm';
 
-//what does this Saga do?
-// import listingCategorySaga from './listingCategorySaga';
 
 
 import pdfListing from './pdfListing';
@@ -16,6 +14,7 @@ import pdfOffer from './pdfOffer';
 
 import deleteListingAnswer from './deleteListingAnswer';
 import deletePurchaseAnswerSaga from './deletePurchaseAnswer';
+import putAnswers from './putAnswers';
 
 
 
@@ -37,5 +36,6 @@ export default function* rootSaga() {
     pdfOffer(),
     deleteListingAnswer(),
     deletePurchaseAnswerSaga(),
+    putAnswers(),
   ]);
 }
