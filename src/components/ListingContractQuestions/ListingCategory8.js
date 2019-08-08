@@ -12,19 +12,20 @@ import Button from '@material-ui/core/Button';
 
 class ListingCategory8 extends Component {
     state = {
-        agencyRep: {
-            sellerAgree: '',
-            sellerDoesNotAgree: '',
-            companyName: '',
-            consent: '',
+        id: this.props.reduxState.activeUserReducer.id,
+        answers: {
+            L196: '',
+            L198: '',
+            COMPANY: '',
+            L237: '',
         }
     }
     
     //this will handle the yes checkbox for seller will not agree
     handleClickCheckbox = (propertyName) => (event) => {
         this.setState({
-            agencyRep: {
-                ...this.state.agencyRep, [propertyName]: true,
+            answers: {
+                ...this.state.answers, [propertyName]: true,
             }
         })
     }
@@ -32,16 +33,16 @@ class ListingCategory8 extends Component {
     //this will handle the No checkbox for seller will agree
     handleClickCheckNo = (propertyName) => (event) => {
             this.setState ({
-                agencyRep: {
-                    ...this.state.agencyRep, [propertyName]: false,
+                answers: {
+                    ...this.state.answers, [propertyName]: false,
                 }
             })
         }
 
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
-            agencyRep: {
-                ...this.state.agencyRep, [propertyName]: event.target.value
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value
             }
         })
     }
@@ -51,7 +52,7 @@ class ListingCategory8 extends Component {
     }
 
     handleSaveButton = () => {
-        this.props.dispatch({ type: 'POST_AGENCY_REPRESENTATION', payload: this.state.agencyRep })
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push('/ListingContract')
     }
 
@@ -69,9 +70,9 @@ class ListingCategory8 extends Component {
                                 control={
                                     <Checkbox
                                         id="checkedB"
-                                        value={this.state.agencyRep.sellerAgree}
+                                        value={this.state.answers.L196}
                                         color="primary"
-                                        onClick={this.handleClickCheckbox('sellerAgree')} />
+                                        onClick={this.handleClickCheckbox('L196')} />
                                 }
                                 label="Yes"
                             />
@@ -79,7 +80,7 @@ class ListingCategory8 extends Component {
                                 control={
                                     <Checkbox
                                         id="checkedB"
-                                        onClick={this.handleClickCheckNo('sellerAgree')}
+                                        onClick={this.handleClickCheckNo('L196')}
                                         color="primary" />
                                 }
                                 label="No"
@@ -91,7 +92,7 @@ class ListingCategory8 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        onClick={this.handleClickCheckbox('sellerDoesNotAgree')} />
+                                        onClick={this.handleClickCheckbox('L198')} />
                                 }
                                 label="Yes"
                             />
@@ -100,7 +101,7 @@ class ListingCategory8 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        onClick={this.handleClickCheckNo('sellerDoesNotAgree')} />
+                                        onClick={this.handleClickCheckNo('L198')} />
                                 }
                                 label="No"
                             />

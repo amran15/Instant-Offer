@@ -12,10 +12,11 @@ import Button from '@material-ui/core/Button';
 
 class ListingCategory6 extends Component {
     state = {
+        id: this.props.reduxState.activeUserReducer.id,
         answers: {
             L163: '',
             L164: '',
-            L165: '',
+            L165A: '',
         }
     }
 
@@ -84,8 +85,8 @@ class ListingCategory6 extends Component {
                                 label="Seller's Initials"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.answers.L165}
-                                onChange={this.handleChangeForInitials('L165')}
+                                value={this.state.answers.L165A}
+                                onChange={this.handleChangeForInitials('L165A')}
                             />
                         </Grid>
                     </Grid>
@@ -131,6 +132,9 @@ class ListingCategory6 extends Component {
                 </Container>
                 <pre>
                     {JSON.stringify(this.state, null, 2)}
+                </pre>
+                <pre>
+                    {JSON.stringify(this.props.reduxState, null, 2)}
                 </pre>
             </div>
         )
