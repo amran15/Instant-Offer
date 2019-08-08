@@ -12,7 +12,7 @@ import Button from '@material-ui/core/Button';
 
 class ListingCategory8 extends Component {
     state = {
-        id: this.props.reduxState.activeUserReducer,
+        id: this.props.reduxState.activeUserReducer.id,
         answers: {
             L196: '',
             L198: '',
