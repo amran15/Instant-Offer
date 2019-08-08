@@ -27,6 +27,7 @@ class ListingContractButton extends Component {
                     <Button
                         variant="contained"
                         color="primary"
+                        size="large"
                         onClick={this.handleClickForListingDocuments}
                         id="listingDocButton"
                     >

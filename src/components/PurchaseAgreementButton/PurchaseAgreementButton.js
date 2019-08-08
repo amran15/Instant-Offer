@@ -35,6 +35,7 @@ class PurchaseAgreement extends Component {
                     <Button
                         variant="contained"
                         color="secondary"
+                        size="large"
                         style={styles.button}
                         onClick={this.handleClickForPurchaseAgreementDocuments}
                         id="PurchaseAgreementDocButton"

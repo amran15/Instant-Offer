@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 
 const styles = {
   Grid: {
-    margin: '100px 0px 0px 0px',
+    margin: '150px 0px 0px 0px',
   },
 };
 
@@ -28,7 +28,6 @@ const UserPage = (props) => (
         <Container component="main" maxWidth="xs">
           <Grid item xs={12}>
             <ListingContractButton />
-            <br />
             <br />
           </Grid>
           <Grid item xs={12}>

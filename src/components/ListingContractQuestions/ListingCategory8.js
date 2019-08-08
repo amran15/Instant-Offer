@@ -52,6 +52,7 @@ class ListingCategory8 extends Component {
 
     handleSaveButton = () => {
         this.props.dispatch({ type: 'POST_AGENCY_REPRESENTATION', payload: this.state.agencyRep })
+        this.props.history.push('/ListingContract')
     }
 
     render() {
