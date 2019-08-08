@@ -33,6 +33,7 @@ class ListingCategory4 extends Component {
 
 
     handleClickToSave = () => {
+        console.log('HELLO, I work :)! ')
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
     }
 
