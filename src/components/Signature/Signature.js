@@ -76,6 +76,7 @@ class Signature extends Component {
                 >
                     <Grid container spacing={1}>
                         <Grid item xs={3}>
+
                             <Button
                                 fullWidth
                                 variant="contained"
