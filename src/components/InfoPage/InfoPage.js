@@ -17,12 +17,12 @@ this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
   }
 
   state={
-    activeUser: 3,//this.props.reduxState.activeUser,
+    id: 3,//this.props.reduxState.activeUser,
     answers: 
       [
-        {lineNumber: "L3", answer: 'It'}, 
-        {lineNumber:"L4", answer:'Are'},
-        {lineNumber:"L7", answer: 'Working!'}
+        {lineNumber: "L3", answer: 'new'}, 
+        {lineNumber:"L4", answer:'updated'},
+        {lineNumber:"L7", answer: 'id!'}
       ]
   }
     render() {
