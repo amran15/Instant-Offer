@@ -77,7 +77,7 @@ class ListingCategory3 extends Component {
                                     <Checkbox
                                         id="checkedB"
                                         color="primary"
-                                        value={this.state.answers.L42}
+                                        value={this.state.answers.L72}
                                         onClick={this.handleClickForCheckBox('L72')}
                                     />
                                 }
