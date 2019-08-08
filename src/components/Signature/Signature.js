@@ -51,15 +51,14 @@ class Signature extends Component {
             <>
                 <div className="sig-canvas">
                     <SignatureCanvas penColor="black"
-                        canvasProps={{ width: 500, height: 150, className: 'sigCanvas' }}
-                        ref={(ref) => { this.sigPad = ref }} />
-
-    
+                        canvasProps={{ width: 410, height: 150, className: 'sigCanvas' }}
+                        ref={(ref) => { this.sigPad = ref }}
+                    />
                     {
                         trimmedDataURL ? <img src={trimmedDataURL} alt="" /> : null
                     }
+               
 
-                   
                 </div>
                 <Container component="main">
                     <Grid container spacing={4}>
@@ -69,7 +68,7 @@ class Signature extends Component {
                                     variant="contained"
                                     color="primary"
                                     onClick={this.returnToReview} >
-                                
+
                                     Back
                              </Button>
                             </div>
