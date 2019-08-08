@@ -25,14 +25,15 @@ class ListingCategory1 extends Component {
         }
     }
 
-    componentDidMount() {
-        axios.get(`/api/listing/answers?id=${this.props.reduxState.createNewListingForm.id}`)
-        .then(({data})=>{
-            this.setState({
-                generalInformation: { ...data[0]}
-            })
-        })
-    }
+    
+    // componentDidMount() {
+    //     axios.get(`/api/listing/answers?id=${this.props.reduxState.createNewListingForm.id}`)
+    //     .then(({data})=>{
+    //         this.setState({
+    //             generalInformation: { ...data[0]}
+    //         })
+    //     })
+    // }
 
     handleChangeForGeneralInfo = (propertyName) => (event) => {
         this.setState({
@@ -75,7 +76,7 @@ class ListingCategory1 extends Component {
                                 fullWidth
                                 variant="outlined"
                                 value={this.state.generalInformation.L3}
-                                onChange={this.handleChangeForGeneralInfo('streetAddress')}
+                                onChange={this.handleChangeForGeneralInfo('L3')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -105,7 +106,7 @@ class ListingCategory1 extends Component {
                                 fullWidth
                                 variant="outlined"
                                 value={this.state.generalInformation.L4}
-                                onChange={this.handleChangeForGeneralInfo('legalDescription')}
+                                onChange={this.handleChangeForGeneralInfo('L4')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -115,7 +116,7 @@ class ListingCategory1 extends Component {
                                 fullWidth
                                 variant="outlined"
                                 value={this.state.generalInformation.L6}
-                                onChange={this.handleChangeForGeneralInfo('seller')}
+                                onChange={this.handleChangeForGeneralInfo('L6')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -125,7 +126,7 @@ class ListingCategory1 extends Component {
                                 fullWidth
                                 variant="outlined"
                                 value={this.state.generalInformation.L7}
-                                onChange={this.handleChangeForGeneralInfo('broker')}
+                                onChange={this.handleChangeForGeneralInfo('L7')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -146,7 +147,7 @@ class ListingCategory1 extends Component {
                                 variant="outlined"
                                 type="date"
                                 value={this.state.generalInformation.L9}
-                                onChange={this.handleChangeForGeneralInfo('endDate')}
+                                onChange={this.handleChangeForGeneralInfo('L9')}
 
                             />
                         </Grid>
@@ -160,7 +161,7 @@ class ListingCategory1 extends Component {
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
                                 value={this.state.generalInformation.L12}
-                                onChange={this.handleChangeForGeneralInfo('propertyPrice')}
+                                onChange={this.handleChangeForGeneralInfo('L12')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -170,7 +171,7 @@ class ListingCategory1 extends Component {
                                 fullWidth
                                 variant="outlined"
                                 value={this.state.generalInformation.L13}
-                                onChange={this.handleChangeForGeneralInfo('additionalTerms')}
+                                onChange={this.handleChangeForGeneralInfo('L13')}
 
                             />
                         </Grid>
