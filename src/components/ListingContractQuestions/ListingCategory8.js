@@ -12,19 +12,20 @@ import Button from '@material-ui/core/Button';
 
 class ListingCategory8 extends Component {
     state = {
-        agencyRep: {
-            sellerAgree: '',
-            sellerDoesNotAgree: '',
-            companyName: '',
-            consent: '',
+        id: this.props.reduxState.activeUserReducer,
+        answers: {
+            L196: '',
+            L198: '',
+            L237: '',
+            COMPANY: '',
         }
     }
     
     //this will handle the yes checkbox for seller will not agree
     handleClickCheckbox = (propertyName) => (event) => {
         this.setState({
-            agencyRep: {
-                ...this.state.agencyRep, [propertyName]: true,
+            answers: {
+                ...this.state.answers, [propertyName]: true,
             }
         })
     }
@@ -32,16 +33,16 @@ class ListingCategory8 extends Component {
     //this will handle the No checkbox for seller will agree
     handleClickCheckNo = (propertyName) => (event) => {
             this.setState ({
-                agencyRep: {
-                    ...this.state.agencyRep, [propertyName]: false,
+                answers: {
+                    ...this.state.answers, [propertyName]: false,
                 }
             })
         }
 
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
-            agencyRep: {
-                ...this.state.agencyRep, [propertyName]: event.target.value
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value
             }
         })
     }
@@ -51,7 +52,7 @@ class ListingCategory8 extends Component {
     }
 
     handleSaveButton = () => {
-        this.props.dispatch({ type: 'POST_AGENCY_REPRESENTATION', payload: this.state.agencyRep })
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push('/ListingContract')
     }
 
@@ -69,9 +70,9 @@ class ListingCategory8 extends Component {
                                 control={
                                     <Checkbox
                                         id="checkedB"
-                                        value={this.state.agencyRep.sellerAgree}
+                                        value={this.state.answers.L196}
                                         color="primary"
-                                        onClick={this.handleClickCheckbox('sellerAgree')} />
+                                        onClick={this.handleClickCheckbox('L196')} />
                                 }
                                 label="Yes"
                             />
@@ -79,7 +80,7 @@ class ListingCategory8 extends Component {
                                 control={
                                     <Checkbox
                                         id="checkedB"
-                                        onClick={this.handleClickCheckNo('sellerAgree')}
+                                        onClick={this.handleClickCheckNo('L196')}
                                         color="primary" />
                                 }
                                 label="No"
@@ -91,7 +92,7 @@ class ListingCategory8 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        onClick={this.handleClickCheckbox('sellerDoesNotAgree')} />
+                                        onClick={this.handleClickCheckbox('L198')} />
                                 }
                                 label="Yes"
                             />
@@ -100,7 +101,7 @@ class ListingCategory8 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        onClick={this.handleClickCheckNo('sellerDoesNotAgree')} />
+                                        onClick={this.handleClickCheckNo('L198')} />
                                 }
                                 label="No"
                             />
@@ -110,18 +111,18 @@ class ListingCategory8 extends Component {
                             id="name_real_estate"
                             fullWidth
                             variant="outlined"
-                            onChange={this.handleChangeForInputs('companyName')}
+                            onChange={this.handleChangeForInputs('COMPANY')}
                         />
                         <Grid item xs={12}>
                             <h4>Electronic Signatures:</h4> <p>The parties agree the electronic signature of any party on any document related to this transaction constitute valid, binding signatures.</p>
 
-                            <h4>Consent for communication:</h4> <p>Seller authorizes Broker and its representatives to contract Seller by mail, phone, fax, email or other means of communication during the term of this Contract and anytime thereafter.</p>
+                            <h4>L237 for communication:</h4> <p>Seller authorizes Broker and its representatives to contract Seller by mail, phone, fax, email or other means of communication during the term of this Contract and anytime thereafter.</p>
                             <h4>Other:</h4>
                             <TextField
                                 id="other_communication_options"
                                 fullWidth
                                 variant="outlined"
-                                onChange={this.handleChangeForInputs('consent')}
+                                onChange={this.handleChangeForInputs('L237')}
                             />
                         </Grid>
                     </Grid>
