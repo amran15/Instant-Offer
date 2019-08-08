@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import axios from 'axios';
 
 //Material UI
 import Button from '@material-ui/core/Button';
@@ -10,24 +11,33 @@ import { TextField, InputAdornment } from '@material-ui/core';
 
 class ListingCategory1 extends Component {
     state = {
-        generalInfo : {
-            streetAddress :'',
-            city:'',
-            county:'',
-            legalDescription:'',
-            seller:'',
-            broker:'',
-            startDate:'',
-            endDate: '',
-            propertyPrice:'',
-            additionalTerms:'',
+        generalInformation: {
+            L3: '',
+            city: '',
+            county: '',
+            L4: '',
+            L6: '',
+            L7: '',
+            L8: '',
+            L9: '',
+            L12: '',
+            L13: '',
         }
+    }
+
+    componentDidMount() {
+        axios.get(`/api/listing/answers?id=${this.props.reduxState.createNewListingForm.id}`)
+        .then(({data})=>{
+            this.setState({
+                generalInformation: { ...data[0]}
+            })
+        })
     }
 
     handleChangeForGeneralInfo = (propertyName) => (event) => {
         this.setState({
-            generalInfo:{
-                ...this.state.generalInfo, [propertyName]:event.target.value,
+            generalInformation: {
+                ...this.state.generalInformation, [propertyName]: event.target.value,
             }
         })
     }
@@ -39,8 +49,8 @@ class ListingCategory1 extends Component {
     }
 
     handleClickToSave = () => {
-        this.props.dispatch({type:'SAVE_LISTING_ANSWER', payload:this.state.generalInfo})
-        this.props.history.push('/ListingCategory2')
+        // this.props.dispatch({type:'PUT', payload:this.state.generalInformation})
+        //PUT request to update general info 
     }
 
 
@@ -51,10 +61,11 @@ class ListingCategory1 extends Component {
     render() {
         return (
             <div>
+                <pre>{JSON.stringify(this.state, null, 2)}</pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
-                        <center>
+                            <center>
                                 <h2>General Information</h2>
                             </center>
                             <h4>Property Address</h4>
@@ -63,7 +74,7 @@ class ListingCategory1 extends Component {
                                 label="Street Address"
                                 fullWidth
                                 variant="outlined"
-                                value ={this.state.streetAddress}
+                                value={this.state.generalInformation.L3}
                                 onChange={this.handleChangeForGeneralInfo('streetAddress')}
                             />
                         </Grid>
@@ -73,7 +84,7 @@ class ListingCategory1 extends Component {
                                 id="city"
                                 fullWidth
                                 variant="outlined"
-                                value ={this.state.city}
+                                value={this.state.generalInformation.city}
                                 onChange={this.handleChangeForGeneralInfo('city')}
                             />
                         </Grid>
@@ -83,7 +94,7 @@ class ListingCategory1 extends Component {
                                 id="county"
                                 fullWidth
                                 variant="outlined"
-                                value ={this.state.county}
+                                value={this.state.generalInformation.county}
                                 onChange={this.handleChangeForGeneralInfo('county')}
                             />
                         </Grid>
@@ -93,7 +104,7 @@ class ListingCategory1 extends Component {
                                 id="legal_description"
                                 fullWidth
                                 variant="outlined"
-                                value ={this.state.legalDescription}
+                                value={this.state.generalInformation.L4}
                                 onChange={this.handleChangeForGeneralInfo('legalDescription')}
                             />
                         </Grid>
@@ -103,7 +114,7 @@ class ListingCategory1 extends Component {
                                 id="seller_name"
                                 fullWidth
                                 variant="outlined"
-                                value ={this.state.seller}
+                                value={this.state.generalInformation.L6}
                                 onChange={this.handleChangeForGeneralInfo('seller')}
                             />
                         </Grid>
@@ -113,7 +124,7 @@ class ListingCategory1 extends Component {
                                 id="broker_name"
                                 fullWidth
                                 variant="outlined"
-                                value ={this.state.broker}
+                                value={this.state.generalInformation.L7}
                                 onChange={this.handleChangeForGeneralInfo('broker')}
                             />
                         </Grid>
@@ -123,8 +134,8 @@ class ListingCategory1 extends Component {
                                 id="start_date"
                                 variant="outlined"
                                 type="date"
-                                value ={this.state.startDate}
-                                onChange={this.handleChangeForGeneralInfo('startDate')}
+                                value={this.state.generalInformation.L8}
+                                onChange={this.handleChangeForGeneralInfo('L8')}
 
                             />
                         </Grid>
@@ -134,7 +145,7 @@ class ListingCategory1 extends Component {
                                 id="end_date"
                                 variant="outlined"
                                 type="date"
-                                value ={this.state.endDate}
+                                value={this.state.generalInformation.L9}
                                 onChange={this.handleChangeForGeneralInfo('endDate')}
 
                             />
@@ -148,7 +159,7 @@ class ListingCategory1 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                value ={this.state.propertyPrice}
+                                value={this.state.generalInformation.L12}
                                 onChange={this.handleChangeForGeneralInfo('propertyPrice')}
                             />
                         </Grid>
@@ -158,7 +169,7 @@ class ListingCategory1 extends Component {
                                 id="following_terms"
                                 fullWidth
                                 variant="outlined"
-                                value ={this.state.additionalTerms}
+                                value={this.state.generalInformation.L13}
                                 onChange={this.handleChangeForGeneralInfo('additionalTerms')}
 
                             />
