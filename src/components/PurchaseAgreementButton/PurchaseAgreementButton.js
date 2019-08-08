@@ -15,9 +15,9 @@ const theme = createMuiTheme({
 
 const styles = {
     button: {
-      color: 'white',
+        color: 'white',
     },
-  };
+};
 
 
 class PurchaseAgreement extends Component {
@@ -33,6 +33,7 @@ class PurchaseAgreement extends Component {
             <ThemeProvider theme={theme}>
                 <center>
                     <Button
+                        fullWidth
                         variant="contained"
                         color="secondary"
                         size="large"
