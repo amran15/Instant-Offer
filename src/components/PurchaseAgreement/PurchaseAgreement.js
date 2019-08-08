@@ -1,28 +1,17 @@
 import React, { Component } from "react";
-// import {Link} from 'react-router-dom';
 import { withRouter } from 'react-router';
-// import {withRouter} from 'react-router';
-import '../PurchaseAgreement/PurchaseAgreement.css';
-// import {Link, Route} from 'react-router-dom';
 import { connect } from 'react-redux';
-
-
-
-
 
 //Material UI
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-// import ListingCategory1 from "../ListingQuestions/ListingCategory1";
+import CardActionArea from '@material-ui/core/CardActionArea';
 
 const styles = {
     title: {
-        // textAlign: 'center',
-        // fontSize: '20px',
         margin: '25px 0px 25px 40px',
-        // marginTop: '40px',
     },
 };
 
@@ -46,15 +35,16 @@ class PurchaseAgreement extends Component {
                         <h2>Purchase Agreement</h2>
                         <h4>Please answer the following questions pertaining to the Purchase Agreement.</h4>
                     </center>
+                    <CardActionArea>
                     <Card id="generalInfo" onClick={this.handleClick('/PurchaseCategory1')} value="/PurchaseCategory1" >
                         <Grid item xs={12} container spacing={3}>
-                            <Grid item xs={10}>
+                            <Grid item xs={11}>
                                 <div style={styles.title}>
-                                    <h5>General Information</h5>
+                                    <h2>General Information</h2>
                                 </div>
                             </Grid>
                             <Grid id="generalInfoCard"
-                                item xs={2}
+                                item xs={1}
                                 className="arrow"
                                 container
                                 direction="row"
@@ -64,17 +54,18 @@ class PurchaseAgreement extends Component {
                             </Grid>
                         </Grid>
                     </Card>
-
+                    </CardActionArea>
                     <br />
+                    <CardActionArea>
                     <Card onClick={this.handleClick('/PurchaseCategory2')} value="/PurchaseCategory2">
                         <Grid item xs={12} container spacing={3}>
-                            <Grid item xs={10}>
+                            <Grid item xs={11}>
                                 <div style={styles.title}>
-                                    <h5>Purchase Price</h5>
+                                    <h2>Purchase Price</h2>
                                 </div>
                             </Grid>
                             <Grid
-                                item xs={2}
+                                item xs={1}
                                 className="arrow"
                                 container
                                 direction="row"
@@ -84,16 +75,18 @@ class PurchaseAgreement extends Component {
                             </Grid>
                         </Grid>
                     </Card>
+                    </CardActionArea>
                     <br />
+                    <CardActionArea>
                     <Card onClick={this.handleClick('/PurchaseCategory3')} value="PurchaseCategory3">
                         <Grid item xs={12} container spacing={3}>
-                            <Grid item xs={10}>
+                            <Grid item xs={11}>
                                 <div style={styles.title}>
-                                    <h5>Closing Date</h5>
+                                    <h2>Closing Date</h2>
                                 </div>
                             </Grid>
                             <Grid
-                                item xs={2}
+                                item xs={1}
                                 className="arrow"
                                 container
                                 direction="row"
@@ -103,16 +96,18 @@ class PurchaseAgreement extends Component {
                             </Grid>
                         </Grid>
                     </Card>
+                    </CardActionArea>
                     <br />
+                    <CardActionArea>
                     <Card onClick={this.handleClick('/PurchaseCategory4')} value="PurchaseCategory4">
                         <Grid item xs={12} container spacing={3}>
-                            <Grid item xs={10}>
+                            <Grid item xs={11}>
                                 <div style={styles.title}>
-                                    <h5>Mortgage Financing</h5>
+                                    <h2>Mortgage Financing</h2>
                                 </div>
                             </Grid>
                             <Grid
-                                item xs={2}
+                                item xs={1}
                                 className="arrow"
                                 container
                                 direction="row"
@@ -122,16 +117,18 @@ class PurchaseAgreement extends Component {
                             </Grid>
                         </Grid>
                     </Card>
+                    </CardActionArea>
                     <br />
+                    <CardActionArea>
                     <Card onClick={this.handleClick('/PurchaseCategory5')} value="PurchaseCategory5">
                         <Grid item xs={12} container spacing={3}>
-                            <Grid item xs={10}>
+                            <Grid item xs={11}>
                                 <div style={styles.title}>
-                                    <h5>Seller's Contribution to Buyer's Cost</h5>
+                                    <h2>Seller's Contribution to Buyer's Cost</h2>
                                 </div>
                             </Grid>
                             <Grid
-                                item xs={2}
+                                item xs={1}
                                 className="arrow"
                                 container
                                 direction="row"
@@ -141,16 +138,18 @@ class PurchaseAgreement extends Component {
                             </Grid>
                         </Grid>
                     </Card>
+                    </CardActionArea>
                     <br />
+                    <CardActionArea>
                     <Card onClick={this.handleClick('/PurchaseCategory6')} value="PurchaseCategory6">
                         <Grid item xs={12} container spacing={3}>
-                            <Grid item xs={10}>
+                            <Grid item xs={11}>
                                 <div style={styles.title}>
-                                    <h5>Inspections</h5>
+                                    <h2>Inspections</h2>
                                 </div>
                             </Grid>
                             <Grid
-                                item xs={2}
+                                item xs={1}
                                 className="arrow"
                                 container
                                 direction="row"
@@ -160,16 +159,18 @@ class PurchaseAgreement extends Component {
                             </Grid>
                         </Grid>
                     </Card>
+                    </CardActionArea>
                     <br />
+                    <CardActionArea>
                     <Card onClick={this.handleClick('/PurchaseCategory7')} value="PurchaseCategory7">
                         <Grid item xs={12} container spacing={3}>
-                            <Grid item xs={10}>
+                            <Grid item xs={11}>
                                 <div style={styles.title}>
-                                    <h5>Sale of Buyer's Property</h5>
+                                    <h2>Sale of Buyer's Property</h2>
                                 </div>
                             </Grid>
                             <Grid
-                                item xs={2}
+                                item xs={1}
                                 className="arrow"
                                 container
                                 direction="row"
@@ -179,16 +180,18 @@ class PurchaseAgreement extends Component {
                             </Grid>
                         </Grid>
                     </Card>
+                    </CardActionArea>
                     <br />
+                    <CardActionArea>
                     <Card onClick={this.handleClick('/PurchaseCategory8')} value="PurchaseCategory8">
                         <Grid item xs={12} container spacing={3}>
-                            <Grid item xs={10}>
+                            <Grid item xs={11}>
                                 <div style={styles.title}>
-                                    <h5>Real Estate Taxes/Special Assessments</h5>
+                                    <h2>Real Estate Taxes/Special Assessments</h2>
                                 </div>
                             </Grid>
                             <Grid
-                                item xs={2}
+                                item xs={1}
                                 className="arrow"
                                 container
                                 direction="row"
@@ -198,16 +201,18 @@ class PurchaseAgreement extends Component {
                             </Grid>
                         </Grid>
                     </Card>
+                    </CardActionArea>
                     <br />
+                    <CardActionArea>
                     <Card onClick={this.handleClick('/PurchaseCategory9')} value="PurchaseCategory9">
                         <Grid item xs={12} container spacing={3}>
-                            <Grid item xs={10}>
+                            <Grid item xs={11}>
                                 <div style={styles.title}>
-                                    <h5>Additional Provisions</h5>
+                                    <h2>Additional Provisions</h2>
                                 </div>
                             </Grid>
                             <Grid
-                                item xs={2}
+                                item xs={1}
                                 className="arrow"
                                 container
                                 direction="row"
@@ -217,10 +222,11 @@ class PurchaseAgreement extends Component {
                             </Grid>
                         </Grid>
                     </Card>
+                    </CardActionArea>
                 </Container>
                 <br />
                 <Container>
-                    <Grid item xs={12} sm={2}>
+                    <Grid item xs={12}>
                         <div align="right">
                             <Button
                                 variant="contained"

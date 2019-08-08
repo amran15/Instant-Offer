@@ -13,6 +13,12 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 
+const styles = {
+  SvgIcon: {
+    width: 45,
+    height: 45,
+  },
+};
 
 class Nav extends Component {
 
@@ -74,7 +80,9 @@ class Nav extends Component {
         <Grid container >
           <Grid item xs={1}>
             <IconButton onClick={this.toggleDrawer('left', true)}>
-              <SvgIcon className="menu-button">
+              <SvgIcon 
+              className="menu-button"
+              style={styles.SvgIcon}>
                 <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
               </SvgIcon>
             </IconButton>
