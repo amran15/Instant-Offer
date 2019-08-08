@@ -13,8 +13,8 @@ class ListingCategory7 extends Component {
 
     state = {
         foreignInvestment: {
-            sellerRepYes: '',
-            sellerRepNo: '',
+            L175: '',
+            // sellerRepNo: '',
         }
     }
 
@@ -72,7 +72,7 @@ class ListingCategory7 extends Component {
                                         color="primary" />
                                 }
                                 label="No"
-                                onClick={this.handleClickForCheckBoxNo('sellerRepNo')}
+                                // onClick={this.handleClickForCheckBoxNo('sellerRepNo')}
                             />
                         <h4>Due to the complexity and potential risks of failing to comply with FIRPTA, Seller should <b>seek appropiate legal and tax advice regarding FIRPTA compliance, as Broker will be unable to confirm whether Seeker is a foreign person or whether the withholding requirements of FIRPTA apply.</b> </h4>
                         </Grid>
