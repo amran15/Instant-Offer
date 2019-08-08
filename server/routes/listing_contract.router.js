@@ -128,4 +128,16 @@ router.delete('/delete/:id', (req, res) => {
         })
 });
 
+
+//testing signature with our app
+
+router.post('/taco', (req, res) =>{
+    console.log('i just sent the image to database', req.body);
+    // pool.query (`INSERT INTO "Listing_Contract" (sign)
+    // VALUES ($1); `, [...req.body])
+    res.sendStatus(200);
+});
+
+
+
 module.exports = router;
