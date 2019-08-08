@@ -64,7 +64,7 @@ class Signature extends Component {
             <div>
                 <div className="sig-canvas">
                     <SignatureCanvas penColor="black"
-                        canvasProps={{ width: 1000, height: 300, className: 'sigCanvas' }}
+                        canvasProps={{ width: 1598, height: 300, className: 'sigCanvas' }}
                         ref={(ref) => { this.sigPad = ref }} />
                     {
                         trimmedDataURL ? <img src={trimmedDataURL} alt="" /> : null

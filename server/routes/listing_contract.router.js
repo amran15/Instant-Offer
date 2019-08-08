@@ -49,44 +49,44 @@ router.get('/answers', (req, res) => {
 /**
  * EDIT route for listing_contract
  */
-router.put('/update',rejectUnauthenticated, (req, res) => {
+router.put('/update', rejectUnauthenticated, (req, res) => {
     // console.log('UPDATE listing_contract SERVER HIT',req.body)
     console.log(req.body)
 
     pool.connect((err, client, done) => {
         const shouldAbort = err => {
-          if (err) {
-            console.error('Error in transaction', err.stack)
-            client.query('ROLLBACK', err => {
-              if (err) {
-                console.error('Error rolling back client', err.stack)
-              }
-              // release the client back to the pool
-              done()
-            })
-          }
-          return !!err
+            if (err) {
+                console.error('Error in transaction', err.stack)
+                client.query('ROLLBACK', err => {
+                    if (err) {
+                        console.error('Error rolling back client', err.stack)
+                    }
+                    // release the client back to the pool
+                    done()
+                })
+            }
+            return !!err
         }
-        if(err){
+        if (err) {
             done()
             return res.sendStatus(500)
         }
 
-        client.query('BEGIN').then(()=>{
-            Object.entries(req.body.answers).forEach(([lineNumber, answer])=>{
-            pool.query(`
+        client.query('BEGIN').then(() => {
+            Object.entries(req.body.answers).forEach(([lineNumber, answer]) => {
+                pool.query(`
                 update "Listing_Contract"
                 set "${lineNumber}" = $1
                 where id = $2;
-            `,[answer, req.body.id]).catch( err => {
-                shouldAbort(err); 
-                return res.sendStatus(500);
+            `, [answer, req.body.id]).catch(err => {
+                    shouldAbort(err);
+                    return res.sendStatus(500);
                 })
             })
-        
-            client.query('COMMIT', err=>{
-                if(err){
-                    console.log('error committing action',err.stack)
+
+            client.query('COMMIT', err => {
+                if (err) {
+                    console.log('error committing action', err.stack)
                 }
                 done()
             })
@@ -125,13 +125,22 @@ router.delete('/delete/:id', (req, res) => {
 
 
 //testing signature with our app
+// this will post the sigature to the database
 
-router.post('/taco', (req, res) =>{
+router.post('/signature', (req, res) => {
     console.log('i just sent the image to database', req.body);
-    // pool.query (`INSERT INTO "Listing_Contract" (sign)
-    // VALUES ($1); `, [...req.body])
-    res.sendStatus(200);
+    const poolSign = `INSERT INTO "Listing_Contract" ("SIGNATURE_BUYER_1")
+    VALUES ($1); `
+    pool.query(poolSign,[req.body])
+        .then(response => {
+            res.send( response.rows );
+        }).catch(error => {
+            console.log('error making INSERT for post listing_contract signature', error);
+            res.sendStatus(500);
+        })
 });
+
+
 
 
 
