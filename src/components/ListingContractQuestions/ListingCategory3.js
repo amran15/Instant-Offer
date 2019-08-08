@@ -14,21 +14,22 @@ import Grid from '@material-ui/core/Grid';
 class ListingCategory3 extends Component {
 
     state = {
-        listedForLease: {
-            listedProperty: '',
-            ifYes: '',
-            ifNo: '',
+        id: this.props.reduxState.activeUserReducer.id,
+        answers: {
+            L72: '',
+            L73A: '',
+            L73B: '',
         }
     }
 
 
     //this should toggle between yes or no 
-    
+    //(WE NEED TO FIGURE THIS OUT!!)
     //this will handle the checkbox event -  if the answer is yes
-    hanldeClickForCheckBox = (propertyName) => (event) => {
+    handleClickForCheckBox = (propertyName) => (event) => {
         this.setState({
-            listedForLease: {
-                ...this.state.listedForLease, [propertyName]: true,
+            answers: {
+                ...this.state.answers, [propertyName]: true,
             }
         })
     }
@@ -36,8 +37,8 @@ class ListingCategory3 extends Component {
     // this will handle the checkbox if no is the answer
     handleClickForCheckBoxNo = (propertyName) => (event) => {
         this.setState({
-            listedForLease: {
-                ...this.state.listedForLease, [propertyName]: false,
+            answers: {
+                ...this.state.answers, [propertyName]: false,
             }
         })
     }
@@ -45,23 +46,16 @@ class ListingCategory3 extends Component {
     handleChangeForInput = (propertyName) => (event) => {
         console.log(this.state.ifYes);
         this.setState({
-            listedForLease: {
-                ...this.state.listedForLease, [propertyName]: event.target.value,
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value,
             }
         })
     }
 
-
-    handleSaveButton = () => {
-        console.log('we are saving category 3');
-        this.props.dispatch({ type: 'POST_LISTEDFOR_LEASE', payload: this.state.listedForLease })
+    //fires of put request 
+    handleClickToSave = () => {
+        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
     }
-
-
-    handleClick = () => {
-        this.props.history.push('/ListingContract')
-    }
-
 
     handleClickNext = () => {
         this.props.history.push('/ListingCategory4')
@@ -82,8 +76,8 @@ class ListingCategory3 extends Component {
                                     <Checkbox
                                         id="checkedB"
                                         color="primary"
-                                        value={this.state.listedForLease.listedProperty}
-                                        onClick={this.hanldeClickForCheckBox('listedProperty')}
+                                        value={this.state.answers.L42}
+                                        onClick={this.handleClickForCheckBox('L42')}
                                     />
                                 }
                                 label="Yes"
@@ -93,7 +87,8 @@ class ListingCategory3 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        onClick={this.handleClickForCheckBoxNo('listedProperty')}
+                                        value={this.state.answers.L42}
+                                        onClick={this.handleClickForCheckBoxNo('L42')}
                                     />
                                 }
                                 label="No"
@@ -105,8 +100,8 @@ class ListingCategory3 extends Component {
                                 id="listing_broker"
                                 fullWidth
                                 variant="outlined"
-                                value={this.setState.ifYes}
-                                onChange={this.handleChangeForInput('ifYes')}
+                                value={this.state.answers.L43A}
+                                onChange={this.handleChangeForInput('L43A')}
                             />
                         </Grid>
                         <h4>If no, the property can be listed for lease during the terms of this contract with another broker.</h4>
@@ -116,7 +111,8 @@ class ListingCategory3 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        onClick={this.hanldeClickForCheckBox('ifNo')}
+                                        value={this.state.answers.L43B}
+                                        onClick={this.handleClickForCheckBoxNo('L43B')}
                                     />
                                 }
                                 label="Yes"
@@ -126,7 +122,8 @@ class ListingCategory3 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        onClick={this.handleClickForCheckBoxNo('ifNo')}
+                                        value={this.state.answers.L43B}
+                                        onClick={this.handleClickForCheckBoxNo('L43B')}
                                     />
                                 }
                                 label="No"

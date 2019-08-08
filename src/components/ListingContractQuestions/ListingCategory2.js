@@ -12,19 +12,20 @@ import { Checkbox, FormControlLabel } from '@material-ui/core';
 
 class ListingCategory2 extends Component {
     state = {
-        dataFeedOptions: {
-            L41:'',
-            L54:'',
-            L63:'',
-            L71:'',
+        id: this.props.reduxState.activeUserReducer.id,
+        answers: {
+            L41: null,
+            L54: null,
+            L63: null,
+            L71: null,
         }
     }
 
 
-    handleChangeForDataFeedOptions = (propertyName) => (event) => {
+    handleChangeForDataFeed = (propertyName) => (event) => {
         this.setState({
-            dataFeedOptions: {
-                ...this.state.dataFeedOptions, [propertyName]:true,
+            answers: {
+                ...this.state.answers, [propertyName]:true,
             }
         })
     }
@@ -32,24 +33,21 @@ class ListingCategory2 extends Component {
 
     handleChangeForDataNo = (propertyName) => (event) => {
         this.setState({
-            dataFeedOptions: {
-                ...this.state.dataFeedOptions, [propertyName]:false,
+            answers: {
+                ...this.state.answers, [propertyName]:false,
             }
         })
     }
 
 
-
-
     handleClick = () => {
         this.props.history.push('/ListingContract')
     }
-
+    
     handleClickToSave = () => {
-        this.props.dispatch({type:'POST_DATA_FEED_OPTIONS', payload:this.state.dataFeedOptions})
+        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
     }
-
-
+   
     handleClickNext = () => {
         this.props.history.push('/ListingCategory3')
     }
@@ -71,8 +69,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="Yes"
-                                value={this.state.dataFeedOptions.L41}
-                                onChange={this.handleChangeForDataFeedOptions('L41')}
+                                value={this.state.answers.L41}
+                                onChange={this.handleChangeForDataFeed('L41')}
                             />
                             <FormControlLabel
                                 control={
@@ -81,8 +79,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="No"
-                                value={this.state.dataFeedOptions.L41}
-                                onChange={this.handleChangeForDataFeedOptions('L41')}
+                                value={this.state.answers.L41}
+                                onChange={this.handleChangeForDataFeed('L41')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -94,8 +92,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="Yes"
-                                value={this.state.dataFeedOptions.L54}
-                                onChange={this.handleChangeForDataFeedOptions('L54')}
+                                value={this.state.answers.L54}
+                                onChange={this.handleChangeForDataFeed('L54')}
 
                             />
                             <FormControlLabel
@@ -105,7 +103,7 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="No"
-                                value={this.state.dataFeedOptions.L54}
+                                value={this.state.answers.L54}
                                 onChange={this.handleChangeForDataNo('L54')}
 
                             />
@@ -119,8 +117,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="Yes"
-                                value={this.state.dataFeedOptions.L63}
-                                onChange={this.handleChangeForDataFeedOptions('L63')}
+                                value={this.state.answers.L63}
+                                onChange={this.handleChangeForDataFeed('L63')}
 
                             />
                             <FormControlLabel
@@ -130,8 +128,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="No"
-                                value={this.state.dataFeedOptions.L63}
-                                onChange={this.handleChangeForDataFeedOptions('L63')}
+                                value={this.state.answers.L63}
+                                onChange={this.handleChangeForDataFeed('L63')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -143,8 +141,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="Yes"
-                                value={this.state.dataFeedOptions.L63}
-                                onChange={this.handleChangeForDataFeedOptions('L71')}
+                                value={this.state.answers.L63}
+                                onChange={this.handleChangeForDataFeed('L71')}
 
                             />
                             <FormControlLabel
@@ -154,8 +152,8 @@ class ListingCategory2 extends Component {
                                         color="primary" />
                                 }
                                 label="No"
-                                value={this.state.dataFeedOptions.L63}
-                                onChange={this.handleChangeForDataFeedOptions('L71')}
+                                value={this.state.answers.L63}
+                                onChange={this.handleChangeForDataFeed('L71')}
                             />
                         </Grid>
                     </Grid>
