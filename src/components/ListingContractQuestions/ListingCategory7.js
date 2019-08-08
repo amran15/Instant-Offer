@@ -12,24 +12,23 @@ import Button from '@material-ui/core/Button';
 class ListingCategory7 extends Component {
 
     state = {
-        foreignInvestment: {
-            L175: '',
-            // sellerRepNo: '',
-        }
+        id: this.props.reduxState.activeUserReducer.id,
+        answers: {L175: null}
+        
     }
 
     handleClickForCheckBox = (propertyName) => (event) => {
         this.setState({
-            foreignInvestment: {
-                ...this.state.foreignInvestment, [propertyName]: true
+            answers: {
+                ...this.state.answers, [propertyName]: true
             }
         })
     }
 
     handleClickForCheckBoxNo = (propertyName) => (event) => {
         this.setState({
-            foreignInvestment: {
-                ...this.state.foreignInvestment, [propertyName]: false
+            answers: {
+                ...this.state.answers, [propertyName]: false
             }
         })
     }
@@ -39,7 +38,7 @@ class ListingCategory7 extends Component {
     }
 
     handleClickToSave = () => {
-        this.props.dispatch({ type: 'POST_FOREIGN_INVESTMENT', payload: this.state.foreignInvestment });
+        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
     }
 
     handleClickNext = () => {
@@ -63,7 +62,7 @@ class ListingCategory7 extends Component {
                                         color="primary" />
                                 }
                                 label="Yes"
-                                onClick={this.handleClickForCheckBox('sellerRepYes')}
+                                onClick={this.handleClickForCheckBox('L175')}
                             />
                             <FormControlLabel
                                 control={
@@ -119,6 +118,9 @@ class ListingCategory7 extends Component {
                 </Container>
                 <pre>
                     {JSON.stringify(this.state, null, 2)}
+                </pre>
+                <pre>
+                    {JSON.stringify(this.props.reduxState.activeUserReducer, null, 2)}
                 </pre>
             </div >
         )
