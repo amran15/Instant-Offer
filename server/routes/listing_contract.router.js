@@ -51,7 +51,7 @@ router.get('/answers', (req, res) => {
  */
 router.put('/update',rejectUnauthenticated, (req, res) => {
     // console.log('UPDATE listing_contract SERVER HIT',req.body)
-    const user = req.body.activeUser;
+    const user = req.body.id;
 
     pool.connect((err, client, done) => {
 
