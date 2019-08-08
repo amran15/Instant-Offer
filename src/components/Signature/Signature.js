@@ -7,8 +7,14 @@ import SignatureCanvas, { canvas } from 'react-signature-canvas';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import swal from 'sweetalert';
 
 
+const styles = {
+    Container: {
+        marginTop: '465px',
+    },
+};
 
 class Signature extends Component {
 
@@ -21,7 +27,6 @@ class Signature extends Component {
     //this will clear the signature if a mistake was made when signing
     clearSig = () => {
         this.sigPad.clear();
-        // console.log('OnClick:', this.state.trimmedDataURL);
     }
 
     //exit out of the signature page. return to the review page without saving.
@@ -42,73 +47,78 @@ class Signature extends Component {
         console.log('we can save the signature now');
         //POST_SIGNATURE action goes to the sagas with a generator function sendSignatureToDatabase
         this.props.dispatch({ type: 'POST_SIGNATURE', payload: this.state.trimmedDataURL })
+        swal({
+            title: "Signature Saved!",
+            text: "",
+            icon: "success",
+            button: "Ok",
+        }).then(() => { 
+            this.props.history.push('/signed-documents')
+        })
     }
 
 
     render() {
         const { trimmedDataURL } = this.state;
         return (
-            <>
+            <div>
                 <div className="sig-canvas">
                     <SignatureCanvas penColor="black"
-                        canvasProps={{ width: 410, height: 150, className: 'sigCanvas' }}
-                        ref={(ref) => { this.sigPad = ref }}
-                    />
+                        canvasProps={{ width: 1000, height: 300, className: 'sigCanvas' }}
+                        ref={(ref) => { this.sigPad = ref }} />
                     {
                         trimmedDataURL ? <img src={trimmedDataURL} alt="" /> : null
                     }
-               
-
                 </div>
-                <Container component="main">
-                    <Grid container spacing={4}>
+                <Container
+                    component="main"
+                    style={styles.Container}
+                >
+                    <Grid container spacing={1}>
                         <Grid item xs={3}>
-                            <div align="left" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.returnToReview} >
 
-                                    Back
-                             </Button>
-                            </div>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <div align="center" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.clearSig}
-                                >
-                                    Clear
-                             </Button>
-                            </div>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <div align="right" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.trimSignature}
-                                >
-                                    Trim
+                            <Button
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                onClick={this.returnToReview}
+                            >
+                                Back
                             </Button>
-                            </div>
                         </Grid>
                         <Grid item xs={3}>
-                            <div align="right" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleClickToSaveSignature}
-                                >
-                                    Confirm
+                            <Button
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                onClick={this.clearSig}
+                            >
+                                Clear
+                                </Button>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <Button
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                onClick={this.trimSignature}
+                            >
+                                Trim
+                                </Button>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <Button
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                onClick={this.handleClickToSaveSignature}
+                            >
+                                Confirm
                             </Button>
-                            </div>
                         </Grid>
                     </Grid>
                 </Container>
-            </>
+            </div>
         )
     }
 

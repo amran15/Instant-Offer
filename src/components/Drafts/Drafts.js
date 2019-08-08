@@ -50,6 +50,7 @@ class Drafts extends Component {
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
                 <ThemeProvider theme={theme}>
                     <Container component="main" maxWidth="lg">
+                        <br/>
                         <center>
                             <h2>Drafts</h2>
                         </center>

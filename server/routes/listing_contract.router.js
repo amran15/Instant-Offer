@@ -51,11 +51,9 @@ router.get('/answers', (req, res) => {
  */
 router.put('/update',rejectUnauthenticated, (req, res) => {
     // console.log('UPDATE listing_contract SERVER HIT',req.body)
-    const user = req.body.id;
+    console.log(req.body)
 
     pool.connect((err, client, done) => {
-
-        
         const shouldAbort = err => {
           if (err) {
             console.error('Error in transaction', err.stack)
@@ -74,20 +72,17 @@ router.put('/update',rejectUnauthenticated, (req, res) => {
             return res.sendStatus(500)
         }
 
-
         client.query('BEGIN').then(()=>{
-            req.body.answers.forEach((filledInformation)=>{
-            const column = filledInformation.lineNumber
+            Object.entries(req.body.answers).forEach(([lineNumber, answer])=>{
             pool.query(`
                 update "Listing_Contract"
-                set "${column}" = $1
+                set "${lineNumber}" = $1
                 where id = $2;
-            `,[filledInformation.answer, user]).catch( err => {
+            `,[answer, req.body.id]).catch( err => {
                 shouldAbort(err); 
                 return res.sendStatus(500);
                 })
             })
-        
         
             client.query('COMMIT', err=>{
                 if(err){

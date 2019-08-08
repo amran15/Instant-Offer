@@ -16,7 +16,7 @@ const theme = createMuiTheme({
 class ListingContractButton extends Component {
     //this will push us to the ListingContract page
     handleClickForListingDocuments = () => {
-        this.props.dispatch({type: 'CREATE_NEW_LISTING_CONTRACT_FORM' })
+        this.props.dispatch({ type: 'CREATE_NEW_LISTING_CONTRACT_FORM' })
         this.props.history.push('/ListingContract')
     }
 
@@ -25,8 +25,10 @@ class ListingContractButton extends Component {
             <ThemeProvider theme={theme}>
                 <center>
                     <Button
+                        fullWidth
                         variant="contained"
                         color="primary"
+                        size="large"
                         onClick={this.handleClickForListingDocuments}
                         id="listingDocButton"
                     >

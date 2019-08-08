@@ -4,6 +4,7 @@ import React, { Component } from "react";
 //Material UI
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
+import CardActionArea from '@material-ui/core/CardActionArea';
 
 const styles = {
     title: {
@@ -19,13 +20,13 @@ class PurchaseAgreementDraftsIndividualDocs extends Component {
         return (
             <div>
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
-             
+                <CardActionArea>
                     <Card>
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={10}>
                                 <div style={styles.title}>
-                                    <h3>Joe's Purchase Agreement</h3>
-                                    <p>August 1, 2019</p>
+                                    <h2>Joe's Purchase Agreement</h2>
+                                    <h2>August 1, 2019</h2>
                                 </div>
                             </Grid>
                             <Grid
@@ -39,7 +40,8 @@ class PurchaseAgreementDraftsIndividualDocs extends Component {
                             </Grid>
                         </Grid>
                     </Card>
-                    <br />
+                </CardActionArea>
+                <br />
             </div>
         )
     }
