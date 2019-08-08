@@ -34,9 +34,9 @@ function* fetchListing(action) {
     doc.text(`${answer.BUYER_1}`,35,73)
     doc.text(`${answer.L7}`,35,80)
     doc.text(`${answer.L8A}`,60,90)
-    doc.text(`${answer.L8B}`,105,90)
+    // doc.text(`${answer.L8B}`,105,90)
     doc.text(`${answer.L8C}`,160,90)
-    doc.text(`${answer.L9}`,26,97)
+    // doc.text(`${answer.L9}`,26,97)
     doc.text(`${answer.L12}`,115,113)
     doc.text(`${answer.L13}`,35,120)
     //logic
