@@ -91,7 +91,7 @@ router.put('/update',rejectUnauthenticated, (req, res) => {
         
             client.query('COMMIT', err=>{
                 if(err){
-                    console.log('error commiting action',err.stack)
+                    console.log('error committing action',err.stack)
                 }
                 done()
             })

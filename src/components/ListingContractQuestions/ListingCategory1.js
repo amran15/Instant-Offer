@@ -14,7 +14,7 @@ class ListingCategory1 extends Component {
         generalInformation: {
             L3: '',
             city: '', //are we going to save this in the db ? 
-            county: '', //are we going to save this in the db ? 
+            state: '', 
             L4: '',
             L6: '',
             L7: '',
@@ -90,12 +90,12 @@ class ListingCategory1 extends Component {
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                label="County"
-                                id="county"
+                                label="State"
+                                id="State"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.generalInformation.county}
-                                onChange={this.handleChangeForGeneralInfo('county')}
+                                value={this.state.generalInformation.state}
+                                onChange={this.handleChangeForGeneralInfo('state')}
                             />
                         </Grid>
                         <Grid item xs={12}>
