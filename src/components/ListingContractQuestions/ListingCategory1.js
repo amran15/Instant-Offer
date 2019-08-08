@@ -11,17 +11,16 @@ import { TextField, InputAdornment } from '@material-ui/core';
 
 class ListingCategory1 extends Component {
     state = {
-        generalInformation: {
+        id: this.props.reduxState.activeUserReducer.id,
+        answers: {
             L3: '',
-            city: '', //are we going to save this in the db ? 
-            state: '', 
             L4: '',
-            L6: '',
+            BUYER_1: '',
             L7: '',
-            L8: '',
-            L9: '',
+            L8A: '',
+            L8C: '',
             L12: '',
-            L13: '',
+            L13: ''
         }
     }
 
@@ -30,15 +29,15 @@ class ListingCategory1 extends Component {
     //     axios.get(`/api/listing/answers?id=${this.props.reduxState.createNewListingForm.id}`)
     //     .then(({data})=>{
     //         this.setState({
-    //             generalInformation: { ...data[0]}
+    //             answers: { ...data[0]}
     //         })
     //     })
     // }
 
     handleChangeForGeneralInfo = (propertyName) => (event) => {
         this.setState({
-            generalInformation: {
-                ...this.state.generalInformation, [propertyName]: event.target.value,
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value,
             }
         })
     }
@@ -50,7 +49,7 @@ class ListingCategory1 extends Component {
     }
 
     handleClickToSave = () => {
-        this.props.dispatch({type:'SAVE_LISTING_ANSWER', payload:this.state.generalInfo})
+        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
     }
 
 
@@ -74,7 +73,7 @@ class ListingCategory1 extends Component {
                                 label="Street Address"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.generalInformation.L3}
+                                value={this.state.answers.L3}
                                 onChange={this.handleChangeForGeneralInfo('L3')}
                             />
                         </Grid>
@@ -84,8 +83,8 @@ class ListingCategory1 extends Component {
                                 id="city"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.generalInformation.city}
-                                onChange={this.handleChangeForGeneralInfo('city')}
+                                // value={this.state.answers.L3}
+                                // onChange={this.handleChangeForGeneralInfo('L3')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -94,8 +93,8 @@ class ListingCategory1 extends Component {
                                 id="State"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.generalInformation.state}
-                                onChange={this.handleChangeForGeneralInfo('state')}
+                                // value={this.state.answers.L3}
+                                // onChange={this.handleChangeForGeneralInfo('L3')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -104,7 +103,7 @@ class ListingCategory1 extends Component {
                                 id="legal_description"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.generalInformation.L4}
+                                value={this.state.answers.L4}
                                 onChange={this.handleChangeForGeneralInfo('L4')}
                             />
                         </Grid>
@@ -114,8 +113,8 @@ class ListingCategory1 extends Component {
                                 id="seller_name"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.generalInformation.L6}
-                                onChange={this.handleChangeForGeneralInfo('L6')}
+                                value={this.state.answers.BUYER_1}
+                                onChange={this.handleChangeForGeneralInfo('BUYER_1')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -124,7 +123,7 @@ class ListingCategory1 extends Component {
                                 id="broker_name"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.generalInformation.L7}
+                                value={this.state.answers.L7}
                                 onChange={this.handleChangeForGeneralInfo('L7')}
                             />
                         </Grid>
@@ -134,7 +133,7 @@ class ListingCategory1 extends Component {
                                 id="start_date"
                                 variant="outlined"
                                 type="date"
-                                value={this.state.generalInformation.L8}
+                                value={this.state.answers.L8}
                                 onChange={this.handleChangeForGeneralInfo('L8')}
 
                             />
@@ -145,7 +144,7 @@ class ListingCategory1 extends Component {
                                 id="end_date"
                                 variant="outlined"
                                 type="date"
-                                value={this.state.generalInformation.L9}
+                                value={this.state.answers.L9}
                                 onChange={this.handleChangeForGeneralInfo('L9')}
 
                             />
@@ -159,7 +158,7 @@ class ListingCategory1 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                value={this.state.generalInformation.L12}
+                                value={this.state.answers.L12}
                                 onChange={this.handleChangeForGeneralInfo('L12')}
                             />
                         </Grid>
@@ -169,7 +168,7 @@ class ListingCategory1 extends Component {
                                 id="following_terms"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.generalInformation.L13}
+                                value={this.state.answers.L13}
                                 onChange={this.handleChangeForGeneralInfo('L13')}
 
                             />
@@ -217,9 +216,7 @@ class ListingCategory1 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
+                <pre>{JSON.stringify(this.props.reduxState.activeUserReducer, null, 2)}</pre>
 
             </div>
         )
