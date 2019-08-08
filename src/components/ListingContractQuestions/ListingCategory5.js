@@ -14,55 +14,46 @@ import { TextField, InputAdornment } from '@material-ui/core';
 class ListingCategory5 extends Component {
 
     state = {
-        compensationDisclosure: {
-            cooperatingBrokers: '',
-            grossPercent: '',
-            grossCash: '',
+        id: this.props.reduxState.activeUserReducer.id,
+        answers: {
+            L146: '',
+            L148A: '',
+            L148B: '',
         }
     }
 
 
     handleClickForCheckbox = (propertyName) => (event) => {
         this.setState({
-            compensationDisclosure: {
-                ...this.state.compensationDisclosure, [propertyName]: true,
+            answers: {
+                ...this.state.answers, [propertyName]: true,
             }
         })
     }
 
     handleClickForCheckboxNo = (propertyName) => (event) => {
         this.setState({
-            compensationDisclosure: {
-                ...this.state.compensationDisclosure, [propertyName]: false,
+            answers: {
+                ...this.state.answers, [propertyName]: false,
             }
         })
     }
 
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
-            compensationDisclosure: {
-                ...this.state.compensationDisclosure, [propertyName]: event.target.value
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value
             }
         })
     }
 
-
-    handleClick = () => {
-        this.props.history.push('/ListingContract')
-    }
-
     handleClickToSave = () => {
-        console.log('we can save listingcat5 now!!!!!!!!');
-        this.props.dispatch({ type: 'POST_COMPENSATION_DISCLOSURE', payload: this.state.compensationDisclosure })
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
     }
-
 
     handleClickNext = () => {
         this.props.history.push('/ListingCategory6')
     }
-
-
-
 
     render() {
         return (
@@ -79,7 +70,7 @@ class ListingCategory5 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        onClick={this.handleClickForCheckbox('cooperatingBrokers')}
+                                        onClick={this.handleClickForCheckbox('L146')}
                                     />
                                 }
                                 label="Yes"
@@ -89,33 +80,33 @@ class ListingCategory5 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        onClick={this.handleClickForCheckboxNo('cooperatingBrokers')}
+                                        onClick={this.handleClickForCheckboxNo('L146')}
                                     />
                                 }
                                 label="No"
                             />
-                        <h4>If yes, the compensation to cooperating shall be as follows:</h4>
-                        <h4>Percent of gross sales price</h4>
-                        <TextField
-                            id="percent"
-                            fullWidth
-                            variant="outlined"
-                            InputProps={{
-                                endAdornment: <InputAdornment position="end">%</InputAdornment>,
-                            }}
-                            onChange={this.handleChangeForInputs('grossPercent')}
-                        />
-                        <h4>Gross sales price in CASH </h4>
-                        <TextField
-                            id="commission_price"
-                            fullWidth
-                            variant="outlined"
-                            InputProps={{
-                                startAdornment: <InputAdornment position="start">$</InputAdornment>,
-                            }}
-                            onChange={this.handleChangeForInputs('grossCash')}
-                        />
-                             </Grid>
+                            <h4>If yes, the compensation to cooperating shall be as follows:</h4>
+                            <h4>Percent of gross sales price</h4>
+                            <TextField
+                                id="percent"
+                                fullWidth
+                                variant="outlined"
+                                InputProps={{
+                                    endAdornment: <InputAdornment position="end">%</InputAdornment>,
+                                }}
+                                onChange={this.handleChangeForInputs('L148A')}
+                            />
+                            <h4>Gross sales price in CASH </h4>
+                            <TextField
+                                id="commission_price"
+                                fullWidth
+                                variant="outlined"
+                                InputProps={{
+                                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                }}
+                                onChange={this.handleChangeForInputs('L148B')}
+                            />
+                        </Grid>
                     </Grid>
                     <br />
                     <br />

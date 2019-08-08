@@ -12,35 +12,32 @@ import Button from '@material-ui/core/Button';
 
 class ListingCategory6 extends Component {
     state = {
-        closingServices: {
-            arrangeClosing: '',
-            conductClosing: '',
-            initials: '',
+        answers: {
+            L163: '',
+            L164: '',
+            L165: '',
         }
     }
 
+
     handleClickForCheckBox = (propertyName) => (event) => {
         this.setState({
-            closingServices: {
-                ...this.state.closingServices, [propertyName]: true,
+            answers: {
+                ...this.state.answers, [propertyName]: true,
             }
         })
     }
 
     handleChangeForInitials = (propertyName) => (event) => {
         this.setState({
-            closingServices: {
-                ...this.state.closingServices, [propertyName]: event.target.value,
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value,
             }
         })
     }
 
-    handleClick = () => {
-        this.props.history.push('/ListingContract')
-    }
-
     handleClickToSave = () => {
-        this.props.dispatch({ type: 'CLOSING_SERVICES', payload: this.state.closingServices });
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
     }
 
     handleClickNext = () => {
@@ -66,7 +63,7 @@ class ListingCategory6 extends Component {
                                         color="primary" />
                                 }
                                 label="Broker will arrange for the closing."
-                                onClick={this.handleClickForCheckBox('arrangeClosing')}
+                                onClick={this.handleClickForCheckBox('L163')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -77,7 +74,7 @@ class ListingCategory6 extends Component {
                                         color="primary" />
                                 }
                                 label="Qualified agent or Seller's attorney will conduct the closing."
-                                onClick={this.handleClickForCheckBox('conductClosing')}
+                                onClick={this.handleClickForCheckBox('L164')}
                             />
                         </Grid>
                         <br />
@@ -87,8 +84,8 @@ class ListingCategory6 extends Component {
                                 label="Seller's Initials"
                                 fullWidth
                                 variant="outlined"
-                                value={this.setState.initials}
-                                onChange={this.handleChangeForInitials('initials')}
+                                value={this.state.answers.L165}
+                                onChange={this.handleChangeForInitials('L165')}
                             />
                         </Grid>
                     </Grid>
