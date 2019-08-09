@@ -13,14 +13,15 @@ class ListingCategory1 extends Component {
     state = {
         id: this.props.reduxState.activeUserReducer.id,
         answers: {
-            L3: '',
-            L4: '',
-            BUYER_1: '',
-            L7: '',
-            L8A: '',
-            L8C: '',
-            L12: '',
-            L13: ''
+            DATE: null,
+            L3: null,
+            L4: null,
+            BUYER_1: null,
+            L7: null,
+            L8A: null,
+            L8C: null,
+            L12: null,
+            L13: null
         }
     }
 
@@ -38,12 +39,8 @@ class ListingCategory1 extends Component {
         this.props.history.push('/ListingContract')
     }
 
-    handleClickToSave = () => {
-        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
-    }
-
-
     handleClickNext = () => {
+        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
         this.props.history.push('/ListingCategory2')
     }
 
@@ -56,6 +53,16 @@ class ListingCategory1 extends Component {
                             <center>
                                 <h2>General Information</h2>
                             </center>
+                            <Grid item xs={12}>
+                            <h4>Today's Date</h4>
+                            <TextField
+                                id="start_date"
+                                variant="outlined"
+                                type="date"
+                                value={this.state.answers.DATE}
+                                onChange={this.handleChangeForGeneralInfo('DATE')}
+                            />
+                        </Grid>
                             <h4>Property Address <i>(street address, city, state, zip code)</i></h4>
                             <TextField
                                 id="street_address"
@@ -144,8 +151,8 @@ class ListingCategory1 extends Component {
                 <br />
                 <br />
                 <Container component="main">
-                    <Grid container spacing={3}>
-                        <Grid item xs={4}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
                             <div align="left" className="Button">
                                 <Button
                                     variant="contained"
@@ -156,18 +163,7 @@ class ListingCategory1 extends Component {
                                 </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={4}>
-                            <div align="center" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleClickToSave}
-                                >
-                                    Save
-                                </Button>
-                            </div>
-                        </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={6}>
                             <div align="right" className="Button">
                                 <Button
                                     variant="contained"

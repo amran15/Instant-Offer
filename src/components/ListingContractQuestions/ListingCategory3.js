@@ -17,8 +17,8 @@ class ListingCategory3 extends Component {
         id: this.props.reduxState.activeUserReducer.id,
         answers: {
             L72: null,
-            L73A: '',
-            L73B: null,
+            L7: null,
+            L73: null,
         }
     }
 
@@ -51,12 +51,9 @@ class ListingCategory3 extends Component {
     handleClick = () => {
         this.props.history.push('/ListingContract')
     }
-    
-    handleClickToSave = () => {
-        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
-    }
 
     handleClickNext = () => {
+        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
         this.props.history.push('/ListingCategory4')
     }
 
@@ -99,8 +96,8 @@ class ListingCategory3 extends Component {
                                 id="listing_broker"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.answers.L73A}
-                                onChange={this.handleChangeForInput('L73A')}
+                                value={this.state.answers.L7}
+                                onChange={this.handleChangeForInput('L7')}
                             />
                         </Grid>
                         <h4>If no, the property can be listed for lease during the terms of this contract with another broker.</h4>
@@ -110,8 +107,8 @@ class ListingCategory3 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        value={this.state.answers.L73B}
-                                        onClick={this.handleClickForCheckBox('L73B')}
+                                        value={this.state.answers.L73}
+                                        onClick={this.handleClickForCheckBox('L73')}
                                     />
                                 }
                                 label="Yes"
@@ -121,8 +118,8 @@ class ListingCategory3 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        value={this.state.answers.L73B}
-                                        onClick={this.handleClickForCheckBoxNo('L73B')}
+                                        value={this.state.answers.L73}
+                                        onClick={this.handleClickForCheckBoxNo('L73')}
                                     />
                                 }
                                 label="No"
@@ -133,8 +130,8 @@ class ListingCategory3 extends Component {
                 <br />
                 <br />
                 <Container component="main">
-                    <Grid container spacing={3}>
-                        <Grid item xs={4}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
                             <div align="left" className="Button">
                                 <Button
                                     variant="contained"
@@ -145,18 +142,7 @@ class ListingCategory3 extends Component {
                                 </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={4}>
-                            <div align="center" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleClickToSave}
-                                >
-                                    Save
-                                 </Button>
-                            </div>
-                        </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={6}>
                             <div align="right" className="Button">
                                 <Button
                                     variant="contained"

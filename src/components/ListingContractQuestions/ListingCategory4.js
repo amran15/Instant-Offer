@@ -14,11 +14,11 @@ class ListingCategory4 extends Component {
     state = {
         id: this.props.reduxState.activeUserReducer.id,
         answers: {
-            L115: '',
-            L118: '',
-            L119: '',
-            L121: '',
-            L131: ''
+            L115: null,
+            L118: null,
+            L119: null,
+            L121: null,
+            L131: null,
         }
     }
 
@@ -40,6 +40,7 @@ class ListingCategory4 extends Component {
     }
 
     handleClickNext = () => {
+        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
         this.props.history.push('/ListingCategory5')
     }
 
@@ -105,8 +106,8 @@ class ListingCategory4 extends Component {
                     <br />
                     <br />
                     <Container component="main">
-                        <Grid container spacing={3}>
-                            <Grid item xs={4}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={6}>
                                 <div align="left" className="Button">
                                     <Button
                                         variant="contained"
@@ -117,18 +118,7 @@ class ListingCategory4 extends Component {
                                     </Button>
                                 </div>
                             </Grid>
-                            <Grid item xs={4}>
-                                <div align="center" className="Button">
-                                    <Button
-                                        variant="contained"
-                                        color="primary"
-                                        onClick={this.handleClickToSave}
-                                    >
-                                        Save
-                                    </Button>
-                                </div>
-                            </Grid>
-                            <Grid item xs={4}>
+                            <Grid item xs={6}>
                                 <div align="right" className="Button">
                                     <Button
                                         variant="contained"

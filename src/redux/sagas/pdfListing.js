@@ -30,7 +30,7 @@ function* fetchListing(action) {
     doc.text(`${answer.DATE}`,136,45)
     doc.text(`${answer.L3}`,117,52)
     doc.text(`${answer.L4}`,52,59)
-    doc.text(`${answer.L5}`,35,66)
+    // doc.text(`${answer.L5}`,35,66)
     doc.text(`${answer.BUYER_1}`,35,73)
     doc.text(`${answer.L7}`,35,80)
     doc.text(`${answer.L8A}`,60,90)
