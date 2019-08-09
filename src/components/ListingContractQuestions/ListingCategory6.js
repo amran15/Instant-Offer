@@ -40,13 +40,9 @@ class ListingCategory6 extends Component {
     handleClick = () => {
         this.props.history.push('/ListingContract')
     }
-    
-    handleClickToSave = () => {
-        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
-    }
 
     handleClickNext = () => {
-        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push('/ListingCategory7')
     }
 
@@ -54,7 +50,6 @@ class ListingCategory6 extends Component {
     render() {
         return (
             <div>
-                               <pre>{JSON.stringify(this.state, null, 2)}</pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -65,7 +60,7 @@ class ListingCategory6 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                    checked={this.state.answers.L1632 === true}
+                                        checked={this.state.answers.L163 === true}
                                         value="checkedB"
                                         color="primary"
                                         onClick={() => { this.handleClickForCheckbox('L163', true) }}
@@ -76,11 +71,11 @@ class ListingCategory6 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                    checked={this.state.answers.L1632 === false}
-                                    value="checkedB"
-                                    color="primary"
-                                    onClick={() => { this.handleClickForCheckbox('L163', false) }}
-                                />
+                                        checked={this.state.answers.L163 === false}
+                                        value="checkedB"
+                                        color="primary"
+                                        onClick={() => { this.handleClickForCheckbox('L163', false) }}
+                                    />
                                 }
                                 label="No"
                             />
@@ -88,10 +83,10 @@ class ListingCategory6 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
+                                        checked={this.state.answers.L164 === true}
                                         value="checkedB"
                                         color="primary"
-                                        label="Qualified agent or Seller's attorney will conduct the closing."
-                                        onClick={this.handleClickForCheckBox('L164')}
+                                        onClick={() => { this.handleClickForCheckbox('L164', true) }}
                                     />
                                 }
                                 label="Yes"
@@ -99,10 +94,10 @@ class ListingCategory6 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
+                                        checked={this.state.answers.L164 === false}
                                         value="checkedB"
                                         color="primary"
-                                        label="Qualified agent or Seller's attorney will conduct the closing."
-                                        onClick={this.handleClickForCheckBox('L164')}
+                                        onClick={() => { this.handleClickForCheckbox('L164', false) }}
                                     />
                                 }
                                 label="No"
