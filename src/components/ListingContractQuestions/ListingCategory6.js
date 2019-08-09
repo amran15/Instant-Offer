@@ -37,6 +37,10 @@ class ListingCategory6 extends Component {
         })
     }
 
+    handleClick = () => {
+        this.props.history.push('/ListingContract')
+    }
+    
     handleClickToSave = () => {
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
     }
@@ -51,7 +55,6 @@ class ListingCategory6 extends Component {
             <div>
                 <Container component="main">
                     <Grid container spacing={2}>
-
                         <Grid item xs={12}>
                             <center>
                                 <h2>Closing Services</h2>
@@ -155,12 +158,6 @@ class ListingCategory6 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
-                <pre>
-                    {JSON.stringify(this.props.reduxState, null, 2)}
-                </pre>
             </div>
         )
     }

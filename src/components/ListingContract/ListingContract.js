@@ -13,17 +13,13 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 
 const styles = {
     title: {
-        // textAlign: 'center',
-        // fontSize: '20px',
         margin: '25px 0px 25px 40px',
-        // marginTop: '40px',
     },
 };
 
 class ListingContract extends Component {
     handleClick = (propertyName) => (event) => {
         this.props.history.push(`${[propertyName]}`);
-        console.log('we are inside Listing Categories pages')
     }
 
     handleClickSign = () => {
@@ -33,7 +29,6 @@ class ListingContract extends Component {
     render() {
         return (
             <div>
-                <pre> {JSON.stringify(this.props, null, 2)} </pre>
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
                 <Container component="main" maxWidth="lg">
                     <center>

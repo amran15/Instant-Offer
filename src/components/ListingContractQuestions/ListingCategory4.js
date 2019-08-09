@@ -31,9 +31,11 @@ class ListingCategory4 extends Component {
         })
     }
 
-
+    handleClick = () => {
+        this.props.history.push('/ListingContract')
+    }
+    
     handleClickToSave = () => {
-        console.log('HELLO, I work :)! ')
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
     }
 
@@ -140,9 +142,6 @@ class ListingCategory4 extends Component {
                         </Grid>
                     </Container>
                 </Container>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
             </div>
         )
     }

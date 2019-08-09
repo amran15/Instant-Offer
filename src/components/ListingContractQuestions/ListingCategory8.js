@@ -138,7 +138,6 @@ class ListingCategory8 extends Component {
                                     onClick={this.handleClickBack}
                                     variant="contained"
                                     color="primary"
-                                    onChange={this.handleChangeForInputs}
                                 >
                                     Back
                         </Button>
@@ -158,9 +157,6 @@ class ListingCategory8 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
             </div>
         )
     }

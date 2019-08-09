@@ -24,15 +24,6 @@ class ListingCategory1 extends Component {
         }
     }
 
-    
-    // componentDidMount() {
-    //     axios.get(`/api/listing/answers?id=${this.props.reduxState.createNewListingForm.id}`)
-    //     .then(({data})=>{
-    //         this.setState({
-    //             answers: { ...data[0]}
-    //         })
-    //     })
-    // }
 
     handleChangeForGeneralInfo = (propertyName) => (event) => {
         this.setState({
@@ -41,7 +32,6 @@ class ListingCategory1 extends Component {
             }
         })
     }
-
 
 
     handleClick = () => {
@@ -60,7 +50,6 @@ class ListingCategory1 extends Component {
     render() {
         return (
             <div>
-                <pre>{JSON.stringify(this.state, null, 2)}</pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -115,7 +104,6 @@ class ListingCategory1 extends Component {
                                 type="date"
                                 value={this.state.answers.L8A}
                                 onChange={this.handleChangeForGeneralInfo('L8A')}
-
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -126,7 +114,6 @@ class ListingCategory1 extends Component {
                                 type="date"
                                 value={this.state.answers.L8C}
                                 onChange={this.handleChangeForGeneralInfo('L8C')}
-
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -150,7 +137,6 @@ class ListingCategory1 extends Component {
                                 variant="outlined"
                                 value={this.state.answers.L13}
                                 onChange={this.handleChangeForGeneralInfo('L13')}
-
                             />
                         </Grid>
                     </Grid>
@@ -167,7 +153,7 @@ class ListingCategory1 extends Component {
                                     onClick={this.handleClick}
                                 >
                                     Back
-                </Button>
+                                </Button>
                             </div>
                         </Grid>
                         <Grid item xs={4}>
@@ -178,8 +164,7 @@ class ListingCategory1 extends Component {
                                     onClick={this.handleClickToSave}
                                 >
                                     Save
-                </Button>
-
+                                </Button>
                             </div>
                         </Grid>
                         <Grid item xs={4}>
@@ -190,14 +175,11 @@ class ListingCategory1 extends Component {
                                     onClick={this.handleClickNext}
                                 >
                                     Next
-                </Button>
-
+                                 </Button>
                             </div>
                         </Grid>
                     </Grid>
                 </Container>
-                <pre>{JSON.stringify(this.props.reduxState.activeUserReducer, null, 2)}</pre>
-
             </div>
         )
     }
