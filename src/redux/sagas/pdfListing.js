@@ -27,7 +27,7 @@ function* fetchListing(action) {
     doc.addImage(response.data[0].PAGE_1, 'JPEG',0,0,210,297)
     // doc.text(`${answer.id}`, 10,10)
     doc.text(`${answer.DATE}`,130,38)
-    doc.text(`${answer.DATE}`,136,45)
+    // doc.text(`${answer.DATE}`,136,45)
     doc.text(`${answer.L3}`,117,52)
     doc.text(`${answer.L4}`,52,59)
     // doc.text(`${answer.L5}`,35,66)
@@ -80,7 +80,7 @@ function* fetchListing(action) {
     doc.text(`${answer.L115}`,99,148)
     doc.text(`${answer.L118}`,115,164)
     doc.text(`${answer.L119}`,30,170)
-    doc.text(`${answer.L121}`,35,183)
+    if(answer.L121){doc.text(`${answer.L121}`,35,183)}
     doc.text(`${answer.L131}`,35,233)
     // -----------------------------------------------------------------------------------------
     //                              page # 4
@@ -122,7 +122,7 @@ function* fetchListing(action) {
     doc.text(`${answer.L3}`,55,33)
     if(answer.L196){doc.text(`X`,22,101)}
     if(answer.L198){doc.text(`X`,22,110)}
-    doc.text(`${answer.L200}`,67,120)
+    doc.text(`${answer.COMPANY}`,67,120)
     doc.addImage(`${answer.SIGNATURE_BUYER_1}`,127,130,18,18)
     doc.text(`${answer.DATE}`,125,140)
     // -----------------------------------------------------------------------------------------
