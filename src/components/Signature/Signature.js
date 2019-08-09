@@ -51,7 +51,6 @@ class Signature extends Component {
 
     //this will save the signature once it has been trimmed
     handleClickToSaveSignature = () => {
-        console.log('we can save the signature now');
         //POST_SIGNATURE action goes to the sagas with a generator function sendSignatureToDatabase
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         swal({
@@ -125,7 +124,6 @@ class Signature extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-                {JSON.stringify(this.state, null, 2)}
             </div>
         )
     }

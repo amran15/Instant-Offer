@@ -38,12 +38,8 @@ class ListingCategory1 extends Component {
         this.props.history.push('/ListingContract')
     }
 
-    handleClickToSave = () => {
-        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
-    }
-
-
     handleClickNext = () => {
+        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
         this.props.history.push('/ListingCategory2')
     }
 
@@ -144,8 +140,8 @@ class ListingCategory1 extends Component {
                 <br />
                 <br />
                 <Container component="main">
-                    <Grid container spacing={3}>
-                        <Grid item xs={4}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
                             <div align="left" className="Button">
                                 <Button
                                     variant="contained"
@@ -156,18 +152,7 @@ class ListingCategory1 extends Component {
                                 </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={4}>
-                            <div align="center" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleClickToSave}
-                                >
-                                    Save
-                                </Button>
-                            </div>
-                        </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={6}>
                             <div align="right" className="Button">
                                 <Button
                                     variant="contained"
