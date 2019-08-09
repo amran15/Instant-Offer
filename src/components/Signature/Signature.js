@@ -65,18 +65,18 @@ class Signature extends Component {
         const { SIGNATURE_BUYER_1 } = this.state;
         return (
             <div>
-                <div className="sig-canvas">
+                {/* <div className="sig-canvas"> */}
                     <SignatureCanvas penColor="black"
-                        canvasProps={{ width: 1598, height: 300, className: 'sigCanvas' }}
+                        canvasProps={{ width:"100%", height: '100%', className: 'sigCanvas' }}
                         ref={(ref) => { this.sigPad = ref }} />
                     {
                         SIGNATURE_BUYER_1 ? <img src={SIGNATURE_BUYER_1} alt="" /> : null
                     }
-                </div>
-                <Container
-                    component="main"
-                    style={styles.Container}
-                >
+                {/* </div> */}
+                {/* <Container
+                    // component="main"
+                    // style={styles.Container}
+                > */}
                     <Grid container spacing={1}>
                         <Grid item xs={3}>
 
@@ -120,7 +120,7 @@ class Signature extends Component {
                             </Button>
                         </Grid>
                     </Grid>
-                </Container>
+                {/* </Container> */}
             </div>
         )
     }
