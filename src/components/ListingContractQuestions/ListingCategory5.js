@@ -22,21 +22,14 @@ class ListingCategory5 extends Component {
         }
     }
 
-    handleClickForCheckbox = (propertyName) => (event) => {
+    handleClickForCheckbox = (propertyName, event) => {
         this.setState({
             answers: {
-                ...this.state.answers, [propertyName]: true,
+                ...this.state.answers, [propertyName]: event,
             }
         })
     }
 
-    handleClickForCheckboxNo = (propertyName) => (event) => {
-        this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: false,
-            }
-        })
-    }
 
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
@@ -61,6 +54,7 @@ class ListingCategory5 extends Component {
     render() {
         return (
             <div>
+                <pre>{JSON.stringify(this.state, null, 2)}</pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -71,9 +65,10 @@ class ListingCategory5 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
+                                    checked={this.state.answers.L146 === true}
                                         value="checkedB"
                                         color="primary"
-                                        onClick={this.handleClickForCheckbox('L146')}
+                                        onClick={()=>{this.handleClickForCheckbox('L146', true)}}
                                     />
                                 }
                                 label="Yes"
@@ -81,9 +76,10 @@ class ListingCategory5 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
+                                    checked={this.state.answers.L146 === false}
                                         value="checkedB"
                                         color="primary"
-                                        onClick={this.handleClickForCheckboxNo('L146')}
+                                        onClick={()=>{this.handleClickForCheckbox('L146', false)}}
                                     />
                                 }
                                 label="No"
