@@ -17,7 +17,7 @@ class ListingCategory3 extends Component {
         id: this.props.reduxState.activeUserReducer.id,
         answers: {
             L72: null,
-            L7: '',
+            L7: null,
             L73: null,
         }
     }
