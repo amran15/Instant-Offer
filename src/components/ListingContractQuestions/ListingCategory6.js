@@ -56,26 +56,51 @@ class ListingCategory6 extends Component {
                             <center>
                                 <h2>Closing Services</h2>
                             </center>
-                            <h4>Seller's choice for closing services (Check one):</h4>
+                            <h4>Seller wishes to have a Broker arrange for the closing?</h4>
                             <FormControlLabel
                                 control={
                                     <Checkbox
                                         value="checkedB"
-                                        color="primary" />
+                                        color="primary"
+                                        label="Broker will arrange for the closing."
+                                        onClick={this.handleClickForCheckBox('L163')}
+                                    />
                                 }
-                                label="Broker will arrange for the closing."
-                                onClick={this.handleClickForCheckBox('L163')}
+                                label="Yes"
                             />
-                        </Grid>
-                        <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox
                                         value="checkedB"
-                                        color="primary" />
+                                        color="primary"
+                                        label="Broker will arrange for the closing."
+                                        onClick={this.handleClickForCheckBox('L163')}
+                                    />
                                 }
-                                label="Qualified agent or Seller's attorney will conduct the closing."
-                                onClick={this.handleClickForCheckBox('L164')}
+                                label="No"
+                            />
+                            <h4>Seller shall arrange for a qualified closing agent or Seller's attorney to conduct the closing?</h4>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        value="checkedB"
+                                        color="primary"
+                                        label="Qualified agent or Seller's attorney will conduct the closing."
+                                        onClick={this.handleClickForCheckBox('L164')}
+                                    />
+                                }
+                                label="Yes"
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        value="checkedB"
+                                        color="primary"
+                                        label="Qualified agent or Seller's attorney will conduct the closing."
+                                        onClick={this.handleClickForCheckBox('L164')}
+                                    />
+                                }
+                                label="No"
                             />
                         </Grid>
                         <br />

@@ -23,16 +23,15 @@ class ListingCategory3 extends Component {
     }
 
 
-    //this should toggle between yes or no 
-    //(WE NEED TO FIGURE THIS OUT!!)
-    //this will handle the checkbox event -  if the answer is yes
     handleClickForCheckBox = (propertyName) => (event) => {
         this.setState({
             answers: {
                 ...this.state.answers, [propertyName]: true,
             }
         })
-    }
+    } 
+
+   
 
     // this will handle the checkbox if no is the answer
     handleClickForCheckBoxNo = (propertyName) => (event) => {
@@ -54,7 +53,6 @@ class ListingCategory3 extends Component {
 
    
     handleClickToSave = () => {
-        console.log('WHATTTTS YOU NAME??')
         this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
     }
 

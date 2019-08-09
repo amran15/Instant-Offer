@@ -53,7 +53,7 @@ class ListingCategory8 extends Component {
 
     handleSaveButton = () => {
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
-        this.props.history.push('/ListingContract')
+        // this.props.history.push('/ListingContract')
     }
 
     render() {
@@ -111,7 +111,7 @@ class ListingCategory8 extends Component {
                             id="name_real_estate"
                             fullWidth
                             variant="outlined"
-                            onChange={this.handleChangeForInputs('companyName')}
+                            onChange={this.handleChangeForInputs('COMPANY')}
                         />
                         <Grid item xs={12}>
                             <h4>Electronic Signatures:</h4> <p>The parties agree the electronic signature of any party on any document related to this transaction constitute valid, binding signatures.</p>
@@ -122,7 +122,7 @@ class ListingCategory8 extends Component {
                                 id="other_communication_options"
                                 fullWidth
                                 variant="outlined"
-                                onChange={this.handleChangeForInputs('consent')}
+                                onChange={this.handleChangeForInputs('L237')}
                             />
                         </Grid>
                     </Grid>

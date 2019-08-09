@@ -143,7 +143,7 @@ class ListingCategory2 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        value={this.state.answers.L71}
+                                        value={this.state.answers.L63}
                                         onChange={this.handleChangeForDataFeed('L71')}
                                     />
                                 }
@@ -154,7 +154,7 @@ class ListingCategory2 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        value={this.state.answers.L71}
+                                        value={this.state.answers.L63}
                                         onChange={this.handleChangeForDataNo('L71')}
                                     />
                                 }
