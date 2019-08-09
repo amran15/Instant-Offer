@@ -116,7 +116,7 @@ class ListingCategory8 extends Component {
                         <Grid item xs={12}>
                             <h4>Electronic Signatures:</h4> <p>The parties agree the electronic signature of any party on any document related to this transaction constitute valid, binding signatures.</p>
 
-                            <h4>L237 for communication:</h4> <p>Seller authorizes Broker and its representatives to contract Seller by mail, phone, fax, email or other means of communication during the term of this Contract and anytime thereafter.</p>
+                            <h4>Consent for communication:</h4> <p>Seller authorizes Broker and its representatives to contract Seller by mail, phone, fax, email or other means of communication during the term of this Contract and anytime thereafter.</p>
                             <h4>Other:</h4>
                             <TextField
                                 id="other_communication_options"

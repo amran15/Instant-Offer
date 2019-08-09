@@ -20,11 +20,7 @@ class ListingCategory1 extends Component {
             L8A: null,
             L8C: null,
             L12: null,
-<<<<<<< HEAD
-            L13: null,
-=======
             L13: null
->>>>>>> master
         }
     }
 

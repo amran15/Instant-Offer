@@ -16,18 +16,12 @@ class ListingCategory5 extends Component {
     state = {
         id: this.props.reduxState.activeUserReducer.id,
         answers: {
-<<<<<<< HEAD
             L146: null,
             L148B: null,
             L148C: null,
-=======
-            L146: '',
-            L148B: '',
-            L148C: '',
-            L150B: '',
-            L150C: '',
-            L152B: '',
->>>>>>> master
+            L150B: null,
+            L150C: null,
+            L152B: null,
         }
     }
 
