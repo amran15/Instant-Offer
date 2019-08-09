@@ -16,23 +16,22 @@ class ListingCategory3 extends Component {
     state = {
         id: this.props.reduxState.activeUserReducer.id,
         answers: {
-            L72: '',
+            L72: null,
             L73A: '',
-            L73B: '',
+            L73B: null,
         }
     }
 
 
-    //this should toggle between yes or no 
-    //(WE NEED TO FIGURE THIS OUT!!)
-    //this will handle the checkbox event -  if the answer is yes
     handleClickForCheckBox = (propertyName) => (event) => {
         this.setState({
             answers: {
                 ...this.state.answers, [propertyName]: true,
             }
         })
-    }
+    } 
+
+   
 
     // this will handle the checkbox if no is the answer
     handleClickForCheckBoxNo = (propertyName) => (event) => {
@@ -52,7 +51,7 @@ class ListingCategory3 extends Component {
         })
     }
 
-    //fires of put request 
+   
     handleClickToSave = () => {
         this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
     }
@@ -76,8 +75,8 @@ class ListingCategory3 extends Component {
                                     <Checkbox
                                         id="checkedB"
                                         color="primary"
-                                        value={this.state.answers.L42}
-                                        onClick={this.handleClickForCheckBox('L42')}
+                                        value={this.state.answers.L72}
+                                        onClick={this.handleClickForCheckBox('L72')}
                                     />
                                 }
                                 label="Yes"
@@ -87,8 +86,8 @@ class ListingCategory3 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        value={this.state.answers.L42}
-                                        onClick={this.handleClickForCheckBoxNo('L42')}
+                                        value={this.state.answers.L72}
+                                        onClick={this.handleClickForCheckBoxNo('L72')}
                                     />
                                 }
                                 label="No"
@@ -100,8 +99,8 @@ class ListingCategory3 extends Component {
                                 id="listing_broker"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.answers.L43A}
-                                onChange={this.handleChangeForInput('L43A')}
+                                value={this.state.answers.L73A}
+                                onChange={this.handleChangeForInput('L73A')}
                             />
                         </Grid>
                         <h4>If no, the property can be listed for lease during the terms of this contract with another broker.</h4>
@@ -111,8 +110,8 @@ class ListingCategory3 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        value={this.state.answers.L43B}
-                                        onClick={this.handleClickForCheckBoxNo('L43B')}
+                                        value={this.state.answers.L73B}
+                                        onClick={this.handleClickForCheckBox('L73B')}
                                     />
                                 }
                                 label="Yes"
@@ -122,8 +121,8 @@ class ListingCategory3 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        value={this.state.answers.L43B}
-                                        onClick={this.handleClickForCheckBoxNo('L43B')}
+                                        value={this.state.answers.L73B}
+                                        onClick={this.handleClickForCheckBoxNo('L73B')}
                                     />
                                 }
                                 label="No"
@@ -151,7 +150,7 @@ class ListingCategory3 extends Component {
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={this.handleSaveButton}
+                                    onClick={this.handleClickToSave}
                                 >
                                     Save
                                  </Button>

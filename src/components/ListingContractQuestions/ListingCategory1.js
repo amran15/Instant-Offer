@@ -113,8 +113,8 @@ class ListingCategory1 extends Component {
                                 id="start_date"
                                 variant="outlined"
                                 type="date"
-                                value={this.state.answers.L8}
-                                onChange={this.handleChangeForGeneralInfo('L8')}
+                                value={this.state.answers.L8A}
+                                onChange={this.handleChangeForGeneralInfo('L8A')}
 
                             />
                         </Grid>
@@ -124,8 +124,8 @@ class ListingCategory1 extends Component {
                                 id="end_date"
                                 variant="outlined"
                                 type="date"
-                                value={this.state.answers.L9}
-                                onChange={this.handleChangeForGeneralInfo('L9')}
+                                value={this.state.answers.L8C}
+                                onChange={this.handleChangeForGeneralInfo('L8C')}
 
                             />
                         </Grid>

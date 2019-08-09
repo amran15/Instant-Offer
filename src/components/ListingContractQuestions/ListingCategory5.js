@@ -17,8 +17,8 @@ class ListingCategory5 extends Component {
         id: this.props.reduxState.activeUserReducer.id,
         answers: {
             L146: '',
-            L148A: '',
             L148B: '',
+            L148C: '',
         }
     }
 
@@ -58,6 +58,9 @@ class ListingCategory5 extends Component {
     render() {
         return (
             <div>
+                <pre>
+                    {JSON.stringify(this.props.reduxState, null, 2)}
+                </pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -94,7 +97,7 @@ class ListingCategory5 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
-                                onChange={this.handleChangeForInputs('L148A')}
+                                onChange={this.handleChangeForInputs('L148C')}
                             />
                             <h4>Gross sales price in CASH </h4>
                             <TextField
@@ -148,6 +151,9 @@ class ListingCategory5 extends Component {
                         </Grid>
                     </Container>
                 </Container>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
             </div>
 
         )

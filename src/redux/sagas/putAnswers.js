@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function* saveAnswers(action) {
     try {
-        yield axios.put(`/api/listing/update`,action.payload);
+        yield axios.put(`/api/listing/update`, action.payload);
 
     } catch (error) {
         console.log('error in putAnswers saga', error);

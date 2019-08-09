@@ -16,8 +16,8 @@ class ListingCategory8 extends Component {
         answers: {
             L196: '',
             L198: '',
-            L237: '',
             COMPANY: '',
+            L237: '',
         }
     }
     
@@ -53,7 +53,8 @@ class ListingCategory8 extends Component {
 
     handleSaveButton = () => {
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
-        this.props.history.push('/ListingContract')
+        // this.props.history.push('/ListingContract')
+
     }
 
     render() {
