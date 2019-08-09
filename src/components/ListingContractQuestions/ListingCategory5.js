@@ -21,6 +21,7 @@ class ListingCategory5 extends Component {
             L148C: '',
             L150B: '',
             L150C: '',
+            L152B: '',
         }
     }
 
@@ -132,6 +133,13 @@ class ListingCategory5 extends Component {
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
                                 onChange={this.handleChangeForInputs('L150C')}
+                            />
+                            <h4>Other:</h4>
+                            <TextField
+                                id="additional_info"
+                                fullWidth
+                                variant="outlined"
+                                onChange={this.handleChangeForInputs('L152B')}
                             />
                         </Grid>
                     </Grid>
