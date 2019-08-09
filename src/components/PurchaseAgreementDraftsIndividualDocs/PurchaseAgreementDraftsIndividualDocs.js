@@ -23,14 +23,14 @@ class PurchaseAgreementDraftsIndividualDocs extends Component {
                 <CardActionArea>
                     <Card>
                         <Grid item xs={12} container spacing={3}>
-                            <Grid item xs={10}>
+                            <Grid item xs={11}>
                                 <div style={styles.title}>
                                     <h2>Bob's Purchase Agreement</h2>
                                     <h2>August 1, 2019</h2>
                                 </div>
                             </Grid>
                             <Grid
-                                item xs={2}
+                                item xs={1}
                                 className="arrow"
                                 container
                                 direction="row"
