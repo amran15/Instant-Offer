@@ -67,7 +67,7 @@ class ListingCategory1 extends Component {
                             <center>
                                 <h2>General Information</h2>
                             </center>
-                            <h4>Property Address</h4>
+                            <h4>Property Address <i>(street address, city, state, zip code)</i></h4>
                             <TextField
                                 id="street_address"
                                 label="Street Address"
@@ -75,26 +75,6 @@ class ListingCategory1 extends Component {
                                 variant="outlined"
                                 value={this.state.answers.L3}
                                 onChange={this.handleChangeForGeneralInfo('L3')}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                label="City"
-                                id="city"
-                                fullWidth
-                                variant="outlined"
-                                // value={this.state.answers.L3}
-                                // onChange={this.handleChangeForGeneralInfo('L3')}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                label="State"
-                                id="State"
-                                fullWidth
-                                variant="outlined"
-                                // value={this.state.answers.L3}
-                                // onChange={this.handleChangeForGeneralInfo('L3')}
                             />
                         </Grid>
                         <Grid item xs={12}>
