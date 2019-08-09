@@ -137,7 +137,6 @@ class ListingCategory8 extends Component {
                                 <h4>Seller's Address <i>(street address, city, state, zip code)</i></h4>
                                 <TextField
                                     id="sellers_address"
-                                    label="Seller's Address"
                                     fullWidth
                                     variant="outlined"
                                     value={this.state.answers.BUYER_1_ADDRESS}
@@ -146,7 +145,6 @@ class ListingCategory8 extends Component {
                                 <h4>Seller's Phone</h4>
                                 <TextField
                                     id="sellers_phone"
-                                    label="Seller's Phone"
                                     fullWidth
                                     variant="outlined"
                                     value={this.state.answers.BUYER_1_PHONE}
@@ -155,7 +153,6 @@ class ListingCategory8 extends Component {
                                 <h4>Seller's Email</h4>
                                 <TextField
                                     id="sellers_Email"
-                                    label="Seller's Email"
                                     fullWidth
                                     variant="outlined"
                                     value={this.state.answers.BUYER_1_EMAIL}
