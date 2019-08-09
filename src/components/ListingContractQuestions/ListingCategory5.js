@@ -19,6 +19,8 @@ class ListingCategory5 extends Component {
             L146: '',
             L148B: '',
             L148C: '',
+            L150B: '',
+            L150C: '',
         }
     }
 
@@ -45,7 +47,7 @@ class ListingCategory5 extends Component {
             }
         })
     }
-    
+
     handleClick = () => {
         this.props.history.push('/ListingContract')
     }
@@ -55,7 +57,7 @@ class ListingCategory5 extends Component {
     }
 
     handleClickNext = () => {
-        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push('/ListingCategory6')
     }
 
@@ -90,7 +92,7 @@ class ListingCategory5 extends Component {
                                 label="No"
                             />
                             <h4>If yes, the compensation to cooperating shall be as follows:</h4>
-                            <h4>Percent of gross sales price</h4>
+                            <h4>Percent of gross sales price for cooperating brokers representing buyer.</h4>
                             <TextField
                                 id="percent"
                                 fullWidth
@@ -98,9 +100,9 @@ class ListingCategory5 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
-                                onChange={this.handleChangeForInputs('L148C')}
+                                onChange={this.handleChangeForInputs('L148B')}
                             />
-                            <h4>Gross sales price in CASH </h4>
+                            <h4>Gross sales price in CASH for cooperating brokers representing buyer. </h4>
                             <TextField
                                 id="commission_price"
                                 fullWidth
@@ -108,7 +110,28 @@ class ListingCategory5 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                onChange={this.handleChangeForInputs('L148B')}
+                                onChange={this.handleChangeForInputs('L148C')}
+                            />
+                            <h4>If yes, the compensation to cooperating shall be as follows:</h4>
+                            <h4>Percent of gross sales price for cooperating brokers assisting buyer.</h4>
+                            <TextField
+                                id="percent"
+                                fullWidth
+                                variant="outlined"
+                                InputProps={{
+                                    endAdornment: <InputAdornment position="end">%</InputAdornment>,
+                                }}
+                                onChange={this.handleChangeForInputs('L150B')}
+                            />
+                            <h4>Gross sales price in CASH for cooperating brokers assisting buyer. </h4>
+                            <TextField
+                                id="commission_price"
+                                fullWidth
+                                variant="outlined"
+                                InputProps={{
+                                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                }}
+                                onChange={this.handleChangeForInputs('L150C')}
                             />
                         </Grid>
                     </Grid>
