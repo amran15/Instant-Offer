@@ -123,7 +123,7 @@ function* fetchListing(action) {
     if(answer.L196){doc.text(`X`,22,101)}
     if(answer.L198){doc.text(`X`,22,110)}
     doc.text(`${answer.L200}`,67,120)
-    doc.text(`${answer.SIGNATURE_BUYER_1}`,127,133)
+    doc.addImage(`${answer.SIGNATURE_BUYER_1}`,127,130,18,18)
     doc.text(`${answer.DATE}`,125,140)
     // -----------------------------------------------------------------------------------------
     //                              page # 6
@@ -157,7 +157,7 @@ function* fetchListing(action) {
     // ------------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_7, 'JPEG',0,0,210,297)
-    doc.text(`${answer.SIGNATURE_BUYER_1}`,15,245)
+    doc.addImage(`${answer.SIGNATURE_BUYER_1}`,15,233,18,18)
     doc.text(`${answer.DATE}`,85,245)
 
         doc.save('a4.pdf')
