@@ -14,11 +14,11 @@ class ListingCategory4 extends Component {
     state = {
         id: this.props.reduxState.activeUserReducer.id,
         answers: {
-            L115: '',
-            L118: '',
-            L119: '',
-            L121: '',
-            L131: ''
+            L115: null,
+            L118: null,
+            L119: null,
+            L121: null,
+            L131: null,
         }
     }
 
