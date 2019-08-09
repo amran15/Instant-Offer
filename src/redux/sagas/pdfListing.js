@@ -123,7 +123,7 @@ function* fetchListing(action) {
     if(answer.L196){doc.text(`X`,22,101)}
     if(answer.L198){doc.text(`X`,22,110)}
     doc.text(`${answer.L200}`,67,120)
-    doc.addImage(`${answer.SIGNATURE_BUYER_1}`,127,130,18,18)
+    doc.addImage(`${answer.SIGNATURE_BUYER_1}`,127,115,18,18)
     doc.text(`${answer.DATE}`,125,140)
     // -----------------------------------------------------------------------------------------
     //                              page # 6
