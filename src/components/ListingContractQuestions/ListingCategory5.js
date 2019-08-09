@@ -22,7 +22,6 @@ class ListingCategory5 extends Component {
         }
     }
 
-
     handleClickForCheckbox = (propertyName) => (event) => {
         this.setState({
             answers: {
@@ -46,6 +45,10 @@ class ListingCategory5 extends Component {
             }
         })
     }
+    
+    handleClick = () => {
+        this.props.history.push('/ListingContract')
+    }
 
     handleClickToSave = () => {
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
@@ -58,9 +61,6 @@ class ListingCategory5 extends Component {
     render() {
         return (
             <div>
-                <pre>
-                    {JSON.stringify(this.props.reduxState, null, 2)}
-                </pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -151,9 +151,6 @@ class ListingCategory5 extends Component {
                         </Grid>
                     </Container>
                 </Container>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
             </div>
 
         )

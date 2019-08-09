@@ -21,7 +21,6 @@ class ListingCategory2 extends Component {
         }
     }
 
-
     handleChangeForDataFeed = (propertyName) => (event) => {
         this.setState({
             answers: {
@@ -30,7 +29,6 @@ class ListingCategory2 extends Component {
         })
     }
 
-
     handleChangeForDataNo = (propertyName) => (event) => {
         this.setState({
             answers: {
@@ -38,7 +36,6 @@ class ListingCategory2 extends Component {
             }
         })
     }
-
 
     handleClick = () => {
         this.props.history.push('/ListingContract')
@@ -97,7 +94,6 @@ class ListingCategory2 extends Component {
                                     />
                                 }
                                 label="Yes"
-
                             />
                             <FormControlLabel
                                 control={
@@ -108,7 +104,6 @@ class ListingCategory2 extends Component {
                                 label="No"
                                 value={this.state.answers.L54}
                                 onChange={this.handleChangeForDataNo('L54')}
-
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -122,7 +117,6 @@ class ListingCategory2 extends Component {
                                         onChange={this.handleChangeForDataFeed('L63')} />
                                 }
                                 label="Yes"
-
                             />
                             <FormControlLabel
                                 control={
@@ -175,7 +169,7 @@ class ListingCategory2 extends Component {
                                     onClick={this.handleClick}
                                 >
                                     Back
-                </Button>
+                                </Button>
                             </div>
                         </Grid>
                         <Grid item xs={4}>
@@ -186,7 +180,7 @@ class ListingCategory2 extends Component {
                                     onClick={this.handleClickToSave}
                                 >
                                     Save
-                </Button>
+                                </Button>
                             </div>
                         </Grid>
                         <Grid item xs={4}>
@@ -197,15 +191,11 @@ class ListingCategory2 extends Component {
                                     onClick={this.handleClickNext}
                                 >
                                     Next
-                </Button>
+                            </Button>
                             </div>
                         </Grid>
                     </Grid>
                 </Container>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
-
             </div>
         )
     }

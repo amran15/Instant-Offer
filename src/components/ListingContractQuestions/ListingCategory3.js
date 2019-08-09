@@ -22,7 +22,6 @@ class ListingCategory3 extends Component {
         }
     }
 
-
     handleClickForCheckBox = (propertyName) => (event) => {
         this.setState({
             answers: {
@@ -31,7 +30,6 @@ class ListingCategory3 extends Component {
         })
     } 
 
-   
 
     // this will handle the checkbox if no is the answer
     handleClickForCheckBoxNo = (propertyName) => (event) => {
@@ -43,7 +41,6 @@ class ListingCategory3 extends Component {
     }
 
     handleChangeForInput = (propertyName) => (event) => {
-        console.log(this.state.ifYes);
         this.setState({
             answers: {
                 ...this.state.answers, [propertyName]: event.target.value,
@@ -51,7 +48,10 @@ class ListingCategory3 extends Component {
         })
     }
 
-   
+    handleClick = () => {
+        this.props.history.push('/ListingContract')
+    }
+    
     handleClickToSave = () => {
         this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
     }
@@ -169,9 +169,6 @@ class ListingCategory3 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
             </div>
         )
     }

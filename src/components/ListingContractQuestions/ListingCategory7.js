@@ -72,7 +72,6 @@ class ListingCategory7 extends Component {
                                         color="primary" />
                                 }
                                 label="No"
-                                // onClick={this.handleClickForCheckBoxNo('sellerRepNo')}
                             />
                         <h4>Due to the complexity and potential risks of failing to comply with FIRPTA, Seller should <b>seek appropiate legal and tax advice regarding FIRPTA compliance, as Broker will be unable to confirm whether Seeker is a foreign person or whether the withholding requirements of FIRPTA apply.</b> </h4>
                         </Grid>
@@ -117,12 +116,6 @@ class ListingCategory7 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
-                <pre>
-                    {JSON.stringify(this.props.reduxState.activeUserReducer, null, 2)}
-                </pre>
             </div >
         )
     }
