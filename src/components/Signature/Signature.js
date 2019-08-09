@@ -16,10 +16,15 @@ const styles = {
     },
 };
 
+
+
 class Signature extends Component {
 
     state = {
-        trimmedDataURL: null
+        id:this.props.reduxState.activeUserReducer.id,
+        answers:
+        {SIGNATURE_BUYER_1: null}
+
     }
 
     sigPad = {}
@@ -38,7 +43,9 @@ class Signature extends Component {
     //it will capture the signature and save it as image with a png extension
     trimSignature = () => {
         this.setState({
-            trimmedDataURL: this.sigPad.getTrimmedCanvas().toDataURL('image/PNG')
+            answers: {
+                SIGNATURE_BUYER_1: this.sigPad.getTrimmedCanvas().toDataURL('image/PNG')
+            }
         })
     }
 
@@ -46,7 +53,7 @@ class Signature extends Component {
     handleClickToSaveSignature = () => {
         console.log('we can save the signature now');
         //POST_SIGNATURE action goes to the sagas with a generator function sendSignatureToDatabase
-        this.props.dispatch({ type: 'POST_SIGNATURE', payload: this.state.trimmedDataURL })
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         swal({
             title: "Signature Saved!",
             text: "",
@@ -59,7 +66,7 @@ class Signature extends Component {
 
 
     render() {
-        const { trimmedDataURL } = this.state;
+        const { SIGNATURE_BUYER_1 } = this.state;
         return (
             <div>
                 <div className="sig-canvas">
@@ -67,7 +74,7 @@ class Signature extends Component {
                         canvasProps={{ width: 1598, height: 300, className: 'sigCanvas' }}
                         ref={(ref) => { this.sigPad = ref }} />
                     {
-                        trimmedDataURL ? <img src={trimmedDataURL} alt="" /> : null
+                        SIGNATURE_BUYER_1 ? <img src={SIGNATURE_BUYER_1} alt="" /> : null
                     }
                 </div>
                 <Container
@@ -118,6 +125,7 @@ class Signature extends Component {
                         </Grid>
                     </Grid>
                 </Container>
+                {JSON.stringify(this.state, null, 2)}
             </div>
         )
     }

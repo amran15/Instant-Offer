@@ -35,8 +35,8 @@ router.get('/PDF_pages', (req, res) => {
 });
 
 
-router.get('/answers', (req, res) => {
-    pool.query(` select * from "Listing_Contract" where "id" = $1;`, [req.query.id])
+router.get('/answers/:id', (req, res) => {
+    pool.query(` select * from "Listing_Contract" where "id" = $1;`, [req.params.id])
         .then((results) => {
             console.log(results.rows)
             res.send(results.rows)
@@ -52,9 +52,7 @@ router.get('/answers', (req, res) => {
 router.put('/update', rejectUnauthenticated, (req, res) => {
     // console.log('UPDATE listing_contract SERVER HIT',req.body)
     console.log(req.body)
-
     pool.connect((err, client, done) => {
-
         let alreadyErroredOut = false;
         // code to run if there is an error
         const shouldAbort = (err, res) => {
@@ -103,7 +101,7 @@ router.put('/update', rejectUnauthenticated, (req, res) => {
 // POST route listing_contract
 router.post('/save', (req, res) => {
     console.log('LISTING POST SERVER', req.body)
-    const querySave = `INSERT INTO "Listing_Contract" VALUES(DEFAULT) RETURNING "id"`
+    const querySave = `INSERT INTO "Listing_Contract" VALUES(DEFAULT) RETURNING "id";`
     pool.query(querySave)
         .then(({ rows }) => {
             res.send(rows);
@@ -131,19 +129,22 @@ router.delete('/delete/:id', (req, res) => {
 //testing signature with our app
 // this will post the sigature to the database
 
-router.post('/signature', (req, res) => {
-    console.log('i just sent the image to database', req.body);
-    const poolSign = `INSERT INTO "Listing_Contract" ("SIGNATURE_BUYER_1")
-    VALUES ($1); `
-    pool.query(poolSign,[req.body])
-        .then(response => {
-            res.send( response.rows );
-        }).catch(error => {
-            console.log('error making INSERT for post listing_contract signature', error);
-            res.sendStatus(500);
-        })
-});
+// router.post('/signature', (req, res) => {
+//     console.log('i just sent the image to database', req.body.params);
+//     const poolSign = `INSERT INTO "Listing_Contract" ("SIGNATURE_BUYER_1")
+//     VALUES ($1); `
+//     pool.query(poolSign,[req.body.params])
+//         .then(response => {
+//             res.send( response.rows );
+//         }).catch(error => {
+//             console.log('error making INSERT for post listing_contract signature', error);
+//             res.sendStatus(500);
+//         })
+// });
 
+
+
+//LOG THE URL AND MAKE SURE YOU'RE GETTIINT IT
 
 
 

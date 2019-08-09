@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import ListingContractSignedIndividualDocs from '../ListingContractSignedIndividualDocs/ListingContractSignedIndividualDocs';
 import PurchaseAgreementSignedIndividualDocs from '../PurchaseAgreementSignedIndividualDocs/PurchaseAgreementSignedIndividualDocs';
 
@@ -30,7 +32,7 @@ class SignedDocuments extends Component {
         this.setState({
             listing: true,
         });
-        this.props.dispatch({type:'FETCH_LISTING', payload:this.props.reduxState.activeUserReducer.id})
+        this.props.dispatch({ type: 'FETCH_LISTING', payload:this.props.reduxState.activeUserReducer.id})
     }
 
     handleClickPurchase = () => {
@@ -45,7 +47,7 @@ class SignedDocuments extends Component {
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
                 <ThemeProvider theme={theme}>
                     <Container component="main" maxWidth="lg">
-                        <br/>
+                        <br />
                         <center>
                             <h2>Signed Documents</h2>
                         </center>
@@ -80,4 +82,7 @@ class SignedDocuments extends Component {
         )
     }
 }
-export default SignedDocuments;
+
+
+const mapReduxStateToProps = reduxState => ({ reduxState })
+export default connect(mapReduxStateToProps)(withRouter(SignedDocuments));
