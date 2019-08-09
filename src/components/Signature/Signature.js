@@ -19,12 +19,10 @@ const styles = {
 
 
 class Signature extends Component {
-
     state = {
         id:this.props.reduxState.activeUserReducer.id,
         answers:
         {SIGNATURE_BUYER_1: null}
-
     }
 
     sigPad = {}
@@ -63,7 +61,6 @@ class Signature extends Component {
             this.props.history.push('/signed-documents')
         })
     }
-
 
     render() {
         const { SIGNATURE_BUYER_1 } = this.state;
@@ -125,13 +122,9 @@ class Signature extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-                {JSON.stringify(this.state, null, 2)}
             </div>
         )
     }
-
 }
-
-
 const mapReduxStateToProps = reduxState => ({ reduxState })
 export default connect(mapReduxStateToProps)(Signature); 
