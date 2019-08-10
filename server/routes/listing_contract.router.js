@@ -77,7 +77,7 @@ router.get('/answers/:id', (req, res) => {
 /**
  * EDIT route for listing_contract
  */
-router.put('/update', rejectUnauthenticated, (req, res) => {
+router.put('/update',rejectUnauthenticated, (req, res) => {
     // console.log('UPDATE listing_contract SERVER HIT',req.body)
     console.log(req.body)
     pool.connect((err, client, done) => {
