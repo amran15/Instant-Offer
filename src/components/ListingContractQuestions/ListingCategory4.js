@@ -32,7 +32,7 @@ class ListingCategory4 extends Component {
     }
 
     handleClick = () => {
-        this.props.history.push('/ListingCategory3')
+        this.props.history.push('/ListingContract')
     }
     
     handleClickToSave = () => {

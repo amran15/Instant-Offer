@@ -1,4 +1,4 @@
-/*
+psql -d Instant_Offer -f Instant_Offer.sql/*
 user table 
 */
 CREATE TABLE "user" (
