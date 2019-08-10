@@ -21,10 +21,9 @@ const styles = {
 
 
 class PurchaseAgreement extends Component {
-    // on the Onclick of this, we will be routed to the Purchase Agreement page
     handleClickForPurchaseAgreementDocuments = () => {
+        this.props.dispatch({ type: 'CREATE_NEW_PURCHASE_AGREEMENT_FORM' })
         this.props.history.push('/PurchaseAgreement')
-        console.log('our PurchaseAgreement documents go here in  a drop down')
     }
 
 
