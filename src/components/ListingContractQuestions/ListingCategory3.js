@@ -14,9 +14,6 @@ import Grid from '@material-ui/core/Grid';
 class ListingCategory3 extends Component {
 
     state = {
-            // L72: null,
-            // L7: null,
-            // L73: null,
             L72: (typeof this.props.listingAnswers.L72 === 'undefined') ? null : this.props.listingAnswers.L72,
             L7: (typeof this.props.listingAnswers.L7 === 'undefined') ? null : this.props.listingAnswers.L7,
             L73: (typeof this.props.listingAnswers.L73 === 'undefined') ? null : this.props.listingAnswers.L73,
@@ -35,7 +32,9 @@ class ListingCategory3 extends Component {
     }
 
     handleClick = () => {
+        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
         this.props.history.push('/ListingContract')
+
     }
 
     handleClickNext = () => {

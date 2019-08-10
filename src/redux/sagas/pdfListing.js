@@ -134,7 +134,9 @@ function* fetchListing(action) {
     if (answer.L237) doc.text(`${answer.L237}`, 35, 63)
     //243 a,b
     // doc.text(`${answer.COMPANY}`,50,110)
+    doc.text(`${answer.SIGNATURE_BUYER_1}`,140,112)
     if (answer.SIGNATURE_BUYER_1) doc.addImage(`${answer.SIGNATURE_BUYER_1}`, 130, 100, 19, 19) //x, y, box size
+
     //244 a,b
     // doc.text(`Nate Labbatt`,35,126)
     if (answer.DATE) doc.text(`${answer.DATE}`, 120, 126)

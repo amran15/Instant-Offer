@@ -72,7 +72,6 @@ class ListingCategory1 extends Component {
                             <h4>Property Address <i>(street address, city, state, zip code)</i></h4>
                             <TextField
                                 id="street_address"
-                                label="Street Address"
                                 fullWidth
                                 variant="outlined"
                                 value={this.props.listingAnswers.L3}
