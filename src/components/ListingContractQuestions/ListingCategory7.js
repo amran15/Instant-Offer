@@ -18,18 +18,10 @@ class ListingCategory7 extends Component {
         }  
     }
 
-    handleClickForCheckBox = (propertyName) => (event) => {
+    handleClickForCheckbox = (propertyName, event) => {
         this.setState({
             answers: {
-                ...this.state.answers, [propertyName]: true
-            }
-        })
-    }
-
-    handleClickForCheckBoxNo = (propertyName) => (event) => {
-        this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: false
+                ...this.state.answers, [propertyName]: event,
             }
         })
     }
@@ -60,20 +52,25 @@ class ListingCategory7 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        value="checkedB"
-                                        color="primary" />
-                                }
-                                label="Yes"
-                                onClick={this.handleClickForCheckBox('L175')}
-                            />
+                                    checked={this.state.answers.L175 === true}
+                                    value="checkedB"
+                                    color="primary"
+                                    onClick={() => { this.handleClickForCheckbox('L175', true) }}
+                                />
+                            }
+                            label="Yes"
+                        />
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        value="checkedB"
-                                        color="primary" />
-                                }
-                                label="No"
-                            />
+                                    checked={this.state.answers.L175 === false}
+                                    value="checkedB"
+                                    color="primary"
+                                    onClick={() => { this.handleClickForCheckbox('L175', false) }}
+                                />
+                            }
+                            label="No"
+                        />
                         <h4>Due to the complexity and potential risks of failing to comply with FIRPTA, Seller should <b>seek appropiate legal and tax advice regarding FIRPTA compliance, as Broker will be unable to confirm whether Seeker is a foreign person or whether the withholding requirements of FIRPTA apply.</b> </h4>
                         </Grid>
                     </Grid>
