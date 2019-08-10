@@ -33,6 +33,20 @@ router.get('/drafts', (req, res) => {
         })
 });
 
+//GET route for signed listing_contracts
+router.get('/signedDocs', (req, res) => {
+    const queryText = `SELECT * FROM "Listing_Contract" WHERE "SIGNATURE_BUYER_1" IS not NULL`;
+    pool.query(queryText)
+        .then(result => {
+            console.log(result.rows);
+            res.send(result.rows)
+        })
+        .catch(error => {
+            console.log('error making SELECT for listing contract:', error);
+            res.sendStatus(500);
+        })
+});
+
 // gets all pages for PDF pages for listing_contract
 router.get('/PDF_pages', (req, res) => {
     pool.query(` 
