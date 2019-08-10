@@ -6,6 +6,7 @@ import user from './userReducer';
 // import listingContract1 from './listingContract1Reducer';
 import createNewListingForm from './createNewListingFormReducer';
 import listingDrafts from './listingDraftsReducer';
+import listingSignedDocs from './listingSignedDocsReducer';
 import listingAnswers from './listingAnswersReducer';
 
 import deleteListingAnswerReducer from './deleteListingAnswerReducer';
@@ -32,6 +33,7 @@ const rootReducer = combineReducers({
  //creates new Listing form
   createNewListingForm, 
   listingDrafts,
+  listingSignedDocs,
   listingAnswers,
 
   deleteListingAnswerReducer, 
