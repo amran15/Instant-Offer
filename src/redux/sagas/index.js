@@ -18,6 +18,8 @@ import deleteListingAnswer from './deleteListingAnswer';
 import deletePurchaseAnswerSaga from './deletePurchaseAnswer';
 import putAnswers from './putAnswers';
 import thisRootSaga from './signSaga';
+import putAnswersOffer from './putAnswersOffer'
+
 
 
 
@@ -44,5 +46,6 @@ export default function* rootSaga() {
     deletePurchaseAnswerSaga(),
     putAnswers(),
     thisRootSaga(),
+    putAnswersOffer(),
   ]);
 }

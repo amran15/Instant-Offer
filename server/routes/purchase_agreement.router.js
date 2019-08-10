@@ -20,6 +20,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         })
 });
  
+
 // gets all pages for PDF contruction for purchase_agreement
 router.get('/PDF_pages', (req,res)=>{
     pool.query(`
@@ -48,6 +49,52 @@ router.get('/answers/:id', (req,res)=>{
     })
 });
 
+router.put('/update', rejectUnauthenticated, (req, res) => {
+    // console.log('UPDATE Purchase_Agreement SERVER HIT',req.body)
+    console.log(req.body)
+    pool.connect((err, client, done) => {
+        let alreadyErroredOut = false;
+        // code to run if there is an error
+        const shouldAbort = (err, res) => {
+          if (err && !alreadyErroredOut) {
+            alreadyErroredOut = true;
+            console.error('Error in transaction', err.stack)
+            client.query('ROLLBACK', err => {
+              if (err) {
+                console.error('Error rolling back client', err.stack)
+              }
+              // release the client back to the pool
+              done()
+              res.sendStatus(500);
+            })
+          }
+        }
+        if (err) {
+            done()
+            return res.sendStatus(500)
+        } else {
+            client.query('BEGIN').then(()=>{
+                const updatePromises = Object.entries(req.body.answers).map(([lineNumber, answer])=>{
+                    return pool.query(`
+                        update "Purchase_Agreement"
+                        set "${lineNumber}" = $1
+                        where id = $2;
+                    `,[answer, req.body.id]).catch(err => shouldAbort(err, res))
+                })
+                Promise.all(updatePromises).then(() => {
+                    if(!alreadyErroredOut) {
+                        client.query('COMMIT').then(() => {
+                            done();
+                            res.sendStatus(200);
+                        }).catch(err=>{
+                            console.log('error committing action',err)
+                        })
+                    }
+                })
+            }).catch(err => shouldAbort(err, res));
+        }
+    })
+})
 
 /**
  * POST route purchase_agreement
