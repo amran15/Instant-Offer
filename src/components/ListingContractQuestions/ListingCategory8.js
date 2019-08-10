@@ -24,20 +24,10 @@ class ListingCategory8 extends Component {
         }
     }
 
-    //this will handle the yes checkbox for seller will not agree
-    handleClickCheckbox = (propertyName) => (event) => {
+    handleClickForCheckbox = (propertyName, event) => {
         this.setState({
             answers: {
-                ...this.state.answers, [propertyName]: true,
-            }
-        })
-    }
-
-    //this will handle the No checkbox for seller will agree
-    handleClickCheckNo = (propertyName) => (event) => {
-        this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: false,
+                ...this.state.answers, [propertyName]: event,
             }
         })
     }
@@ -72,41 +62,48 @@ class ListingCategory8 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        id="checkedB"
-                                        value={this.state.answers.L196}
-                                        color="primary"
-                                        onClick={this.handleClickCheckbox('L196')} />
-                                }
-                                label="Yes"
-                            />
+                                    checked={this.state.answers.L196 === true}
+                                    value="checkedB"
+                                    color="primary"
+                                    onClick={() => { this.handleClickForCheckbox('L196', true) }}
+                                />
+                            }
+                            label="Yes"
+                        />
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        id="checkedB"
-                                        onClick={this.handleClickCheckNo('L196')}
-                                        color="primary" />
-                                }
-                                label="No"
-                            />
+                                    checked={this.state.answers.L196 === false}
+                                    value="checkedB"
+                                    color="primary"
+                                    onClick={() => { this.handleClickForCheckbox('L196', false) }}
+                                />
+                            }
+                            label="No"
+                        />
                             <h4>Seller will not agree to dual agency and not consider offers made by buyers represented by broker?</h4>
                             <Grid item xs={12}>
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value="checkedB"
-                                            color="primary"
-                                            onClick={this.handleClickCheckbox('L198')} />
-                                    }
-                                    label="Yes"
-                                />
+                                        checked={this.state.answers.L198 === true}
+                                        value="checkedB"
+                                        color="primary"
+                                        onClick={() => { this.handleClickForCheckbox('L198', true) }}
+                                    />
+                                }
+                                label="Yes"
+                            />
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value="checkedB"
-                                            color="primary"
-                                            onClick={this.handleClickCheckNo('L198')} />
-                                    }
-                                    label="No"
+                                        checked={this.state.answers.L198 === false}
+                                        value="checkedB"
+                                        color="primary"
+                                        onClick={() => { this.handleClickForCheckbox('L198', false) }}
+                                    />
+                                }
+                                label="No"
                                 />
                             </Grid>
                             <h4>Real Estate Company Name:</h4>
