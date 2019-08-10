@@ -14,14 +14,12 @@ import Grid from '@material-ui/core/Grid';
 class ListingCategory3 extends Component {
 
     state = {
-        answers: {
             // L72: null,
             // L7: null,
             // L73: null,
             L72: (typeof this.props.listingAnswers.L72 === 'undefined') ? null : this.props.listingAnswers.L72,
             L7: (typeof this.props.listingAnswers.L7 === 'undefined') ? null : this.props.listingAnswers.L7,
             L73: (typeof this.props.listingAnswers.L73 === 'undefined') ? null : this.props.listingAnswers.L73,
-        }
     }
 
     handleClickForCheckbox = (propertyName, event) => {
@@ -32,7 +30,7 @@ class ListingCategory3 extends Component {
 
     handleChangeForInput = (propertyName) => (event) => {
         this.setState({
-                ...this.state, [propertyName]: event.target.value,
+                ...this.state, [propertyName]: event,
         })
     }
 
