@@ -134,7 +134,7 @@ function* fetchListing(action) {
     doc.text(`${answer.L237}`,35,63)
     //243 a,b
     // doc.text(`${answer.COMPANY}`,50,110)
-    doc.text(`${answer.BUYER_1}`,140,112)
+    doc.text(`${answer.SIGNATURE_BUYER_1}`,140,112)
     //244 a,b
     // doc.text(`Nate Labbatt`,35,126)
     doc.text(`${answer.DATE}`,120,126)
