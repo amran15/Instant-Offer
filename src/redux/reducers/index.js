@@ -9,6 +9,8 @@ import listingDrafts from './listingDraftsReducer';
 import listingSignedDocs from './listingSignedDocsReducer';
 import listingAnswers from './listingAnswersReducer';
 
+import createNewPurchaseForm from './createNewPurchaseFormReducer';
+
 import deleteListingAnswerReducer from './deleteListingAnswerReducer';
 import deletePurchaseAnswerReducer from './deletePurchaseAnswerReducer';
 
@@ -35,6 +37,8 @@ const rootReducer = combineReducers({
   listingDrafts,
   listingSignedDocs,
   listingAnswers,
+
+  createNewPurchaseForm,
 
   deleteListingAnswerReducer, 
   deletePurchaseAnswerReducer,
