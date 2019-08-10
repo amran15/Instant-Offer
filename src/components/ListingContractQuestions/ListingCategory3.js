@@ -30,7 +30,7 @@ class ListingCategory3 extends Component {
 
     handleChangeForInput = (propertyName) => (event) => {
         this.setState({
-                ...this.state, [propertyName]: event,
+                ...this.state, [propertyName]: event.target.value,
         })
     }
 
