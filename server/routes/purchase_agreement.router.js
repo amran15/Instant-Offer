@@ -99,9 +99,17 @@ router.put('/update', rejectUnauthenticated, (req, res) => {
 /**
  * POST route purchase_agreement
  */
-router.post('/', (req, res) => {
-
-});
+router.post('/save', (req, res) => {
+    console.log('PURCHASE POST SERVER', req.body)
+    const querySave = `INSERT INTO "Purchase_Agreement" VALUES(DEFAULT) RETURNING "id";`
+    pool.query(querySave)
+        .then(({ rows }) => {
+            res.send(rows);
+        }).catch(error => {
+            console.log('error making INSERT for post Purchase_Agreement answers', error);
+            res.sendStatus(500);
+        })
+})
 
 /**
  * DELETE route purchase_agreement

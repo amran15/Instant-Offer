@@ -144,7 +144,12 @@ class PurchaseCategory9 extends Component {
                                 fullWidth
                                 variant="outlined"
                             />
-                            <p>Rights of tenants as follows (unless specified, not subject to tenancies):</p>
+                            <p>joined in by spouse, if any, conveying marketable title, subject to </p>
+                            <p>(a) building and zoning laws, ordinances, and state and federal regulations;</p>
+                            <p>(b) restrictions relating to use or improvement of the Property withouth effective forfeiture provisions;</p>
+                            <p>(c) reservation of any mineral rights by the State of Minnesota</p>
+                            <p>(d) utility and drianage easements which do not interfere with existing improvemens;</p>
+                            <p>(e) rights of tenants as follows (unless specified, not subject to tenancies):</p>
                             <TextField
                                 id="tenant_rights"
                                 // value={this.state.song_title}
@@ -152,9 +157,9 @@ class PurchaseCategory9 extends Component {
                                 fullWidth
                                 variant="outlined"
                             />
-                            <p>Others (must be specifed in writing):</p>
+                            <p>(f) others (must be specified in writing):</p>
                             <TextField
-                                id="tenant_rights"
+                                id="tenant_rights_other"
                                 // value={this.state.song_title}
                                 // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth

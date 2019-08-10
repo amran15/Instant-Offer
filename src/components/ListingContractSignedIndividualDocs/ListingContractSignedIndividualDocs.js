@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 //Material UI
 import Card from '@material-ui/core/Card';
@@ -14,18 +14,27 @@ const styles = {
     },
 };
 
-class PurchaseAgreementDraftsIndividualDocs extends Component {
+class ListingContractSignedIndividualDocs extends Component {
+
+    componentDidMount = () => {
+        this.props.dispatch({
+          type: 'GET_LISTING_SIGNED_DOCS'
+        });
+      }
+
     render() {
         return (
             <div>
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+                {this.props.listingSignedDocs.map(signed => (
+                    <div>
                 <CardActionArea>
                     <Card>
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={11}>
                                 <div style={styles.title}>
-                                    <h2>Joe's Listing Contract</h2>
-                                    <h2>August 1, 2019</h2>
+                                    <h2>{signed.BUYER_1}'s Listing Contract</h2>
+                                    <h2>{signed.date}</h2>
                                 </div>
                             </Grid>
                             <Grid
@@ -40,9 +49,12 @@ class PurchaseAgreementDraftsIndividualDocs extends Component {
                         </Grid>
                     </Card>
                 </CardActionArea>
-                <br />
+                <br /></div>
+                    ))}
             </div>
         )
     }
 }
-export default PurchaseAgreementDraftsIndividualDocs;
+
+const mapReduxStateToProps = reduxState => reduxState
+export default connect(mapReduxStateToProps) (ListingContractSignedIndividualDocs);

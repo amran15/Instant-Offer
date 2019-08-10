@@ -158,7 +158,11 @@ function* fetchListing(action) {
     doc.addPage()
     doc.addImage(response.data[0].PAGE_7, 'JPEG',0,0,210,297)
     doc.addImage(`${answer.SIGNATURE_BUYER_1}`,15,233,18,18)
+<<<<<<< HEAD
     if(answer.DATE)doc.text(`${answer.DATE}`,85,245)
+=======
+    doc.text(`${answer.DATE}`,70,247)
+>>>>>>> master
 
         doc.save('a4.pdf')
   } catch (error) {
