@@ -21,10 +21,10 @@ class ListingCategory6 extends Component {
     }
 
 
-    handleClickForCheckBox = (propertyName) => (event) => {
+    handleClickForCheckbox = (propertyName, event) => {
         this.setState({
             answers: {
-                ...this.state.answers, [propertyName]: true,
+                ...this.state.answers, [propertyName]: event,
             }
         })
     }
@@ -38,15 +38,11 @@ class ListingCategory6 extends Component {
     }
 
     handleClick = () => {
-        this.props.history.push('/ListingContract')
-    }
-    
-    handleClickToSave = () => {
-        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
+        this.props.history.push('/ListingCategory5')
     }
 
     handleClickNext = () => {
-        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push('/ListingCategory7')
     }
 
@@ -64,10 +60,10 @@ class ListingCategory6 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
+                                        checked={this.state.answers.L163 === true}
                                         value="checkedB"
                                         color="primary"
-                                        label="Broker will arrange for the closing."
-                                        onClick={this.handleClickForCheckBox('L163')}
+                                        onClick={() => { this.handleClickForCheckbox('L163', true) }}
                                     />
                                 }
                                 label="Yes"
@@ -75,10 +71,10 @@ class ListingCategory6 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
+                                        checked={this.state.answers.L163 === false}
                                         value="checkedB"
                                         color="primary"
-                                        label="Broker will arrange for the closing."
-                                        onClick={this.handleClickForCheckBox('L163')}
+                                        onClick={() => { this.handleClickForCheckbox('L163', false) }}
                                     />
                                 }
                                 label="No"
@@ -87,10 +83,10 @@ class ListingCategory6 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
+                                        checked={this.state.answers.L164 === true}
                                         value="checkedB"
                                         color="primary"
-                                        label="Qualified agent or Seller's attorney will conduct the closing."
-                                        onClick={this.handleClickForCheckBox('L164')}
+                                        onClick={() => { this.handleClickForCheckbox('L164', true) }}
                                     />
                                 }
                                 label="Yes"
@@ -98,10 +94,10 @@ class ListingCategory6 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
+                                        checked={this.state.answers.L164 === false}
                                         value="checkedB"
                                         color="primary"
-                                        label="Qualified agent or Seller's attorney will conduct the closing."
-                                        onClick={this.handleClickForCheckBox('L164')}
+                                        onClick={() => { this.handleClickForCheckbox('L164', false) }}
                                     />
                                 }
                                 label="No"

@@ -36,7 +36,7 @@ class PurchaseAgreementDraftsIndividualDocs extends Component {
                                 direction="row"
                                 justify="center"
                                 alignItems="center">
-                                <i class="material-icons">arrow_forward_ios</i>
+                                <i className="material-icons">arrow_forward_ios</i>
                             </Grid>
                         </Grid>
                     </Card>

@@ -43,7 +43,7 @@ class ListingCategory5 extends Component {
     }
 
     handleClick = () => {
-        this.props.history.push('/ListingContract')
+        this.props.history.push('/ListingCategory4')
     }
 
     handleClickToSave = () => {
@@ -58,7 +58,6 @@ class ListingCategory5 extends Component {
     render() {
         return (
             <div>
-                <pre>{JSON.stringify(this.state, null, 2)}</pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>

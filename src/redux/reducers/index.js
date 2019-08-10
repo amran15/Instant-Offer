@@ -5,7 +5,11 @@ import user from './userReducer';
 
 // import listingContract1 from './listingContract1Reducer';
 import createNewListingForm from './createNewListingFormReducer';
+import listingDrafts from './listingDraftsReducer';
+import listingSignedDocs from './listingSignedDocsReducer';
+import listingAnswers from './listingAnswersReducer';
 
+import createNewPurchaseForm from './createNewPurchaseFormReducer';
 
 import deleteListingAnswerReducer from './deleteListingAnswerReducer';
 import deletePurchaseAnswerReducer from './deletePurchaseAnswerReducer';
@@ -30,7 +34,11 @@ const rootReducer = combineReducers({
   
  //creates new Listing form
   createNewListingForm, 
+  listingDrafts,
+  listingSignedDocs,
+  listingAnswers,
 
+  createNewPurchaseForm,
 
   deleteListingAnswerReducer, 
   deletePurchaseAnswerReducer,
