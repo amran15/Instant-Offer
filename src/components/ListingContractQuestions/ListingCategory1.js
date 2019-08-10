@@ -13,6 +13,7 @@ class ListingCategory1 extends Component {
     state = {
         id: this.props.reduxState.activeUserReducer.id,
         answers: {
+            DATE: null,
             L3: null,
             L4: null,
             BUYER_1: null,
@@ -52,6 +53,16 @@ class ListingCategory1 extends Component {
                             <center>
                                 <h2>General Information</h2>
                             </center>
+                            <Grid item xs={12}>
+                            <h4>Today's Date</h4>
+                            <TextField
+                                id="start_date"
+                                variant="outlined"
+                                type="date"
+                                value={this.state.answers.DATE}
+                                onChange={this.handleChangeForGeneralInfo('DATE')}
+                            />
+                        </Grid>
                             <h4>Property Address <i>(street address, city, state, zip code)</i></h4>
                             <TextField
                                 id="street_address"
