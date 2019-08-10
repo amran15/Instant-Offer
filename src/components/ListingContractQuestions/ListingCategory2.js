@@ -21,18 +21,10 @@ class ListingCategory2 extends Component {
         }
     }
 
-    handleChangeForDataFeed = (propertyName) => (event) => {
+    handleClickForCheckbox = (propertyName, event) => {
         this.setState({
             answers: {
-                ...this.state.answers, [propertyName]: true,
-            }
-        })
-    }
-
-    handleChangeForDataNo = (propertyName) => (event) => {
-        this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: false,
+                ...this.state.answers, [propertyName]: event,
             }
         })
     }
@@ -59,10 +51,10 @@ class ListingCategory2 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        id="checkedB"
+                                    checked={this.state.answers.L41 === true}
+                                        value="checkedB"
                                         color="primary"
-                                        value={this.state.answers.L41}
-                                        onClick={this.handleChangeForDataFeed('L41')}
+                                        onClick={() => { this.handleClickForCheckbox('L41', true) }}
                                     />
                                 }
                                 label="Yes"
@@ -70,13 +62,13 @@ class ListingCategory2 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        value="checkedB"
-                                        color="primary"
-                                        value={this.state.answers.L41}
-                                        onClick={this.handleChangeForDataNo('L41')}
-                                    />
-                                }
-                                label="No"
+                                    checked={this.state.answers.L41 === false}
+                                    value="checkedB"
+                                    color="primary"
+                                    onClick={() => { this.handleClickForCheckbox('L41', false) }}
+                                />
+                            }
+                            label="No"
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -84,23 +76,24 @@ class ListingCategory2 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
+                                        checked={this.state.answers.L54 === true}
                                         value="checkedB"
                                         color="primary"
-                                        value={this.state.answers.L54}
-                                        onChange={this.handleChangeForDataFeed('L54')}
+                                        onClick={() => { this.handleClickForCheckbox('L54', true) }}
                                     />
                                 }
                                 label="Yes"
-                            />
+                                />
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        value="checkedB"
-                                        color="primary" />
-                                }
-                                label="No"
-                                value={this.state.answers.L54}
-                                onChange={this.handleChangeForDataNo('L54')}
+                                    checked={this.state.answers.L54 === false}
+                                    value="checkedB"
+                                    color="primary"
+                                    onClick={() => { this.handleClickForCheckbox('L54', false) }}
+                                />
+                            }
+                            label="No"
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -108,23 +101,24 @@ class ListingCategory2 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        value="checkedB"
-                                        color="primary"
-                                        value={this.state.answers.L63}
-                                        onChange={this.handleChangeForDataFeed('L63')} />
-                                }
-                                label="Yes"
+                                    checked={this.state.answers.L63 === true}
+                                    value="checkedB"
+                                    color="primary"
+                                    onClick={() => { this.handleClickForCheckbox('L63', true) }}
+                                />
+                            }
+                            label="Yes"
                             />
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        value="checkedB"
-                                        color="primary"
-                                        value={this.state.answers.L63}
-                                        onChange={this.handleChangeForDataNo('L63')}
-                                    />
-                                }
-                                label="No"
+                                    checked={this.state.answers.L63 === false}
+                                    value="checkedB"
+                                    color="primary"
+                                    onClick={() => { this.handleClickForCheckbox('L63', false) }}
+                                />
+                            }
+                            label="No"
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -132,24 +126,24 @@ class ListingCategory2 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        value="checkedB"
-                                        color="primary"
-                                        value={this.state.answers.L63}
-                                        onChange={this.handleChangeForDataFeed('L71')}
-                                    />
-                                }
-                                label="Yes"
+                                    checked={this.state.answers.L71 === true}
+                                    value="checkedB"
+                                    color="primary"
+                                    onClick={() => { this.handleClickForCheckbox('L71', true) }}
+                                />
+                            }
+                            label="Yes"
                             />
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        value="checkedB"
-                                        color="primary"
-                                        value={this.state.answers.L63}
-                                        onChange={this.handleChangeForDataNo('L71')}
-                                    />
-                                }
-                                label="No"
+                                    checked={this.state.answers.L71 === false}
+                                    value="checkedB"
+                                    color="primary"
+                                    onClick={() => { this.handleClickForCheckbox('L71', false) }}
+                                />
+                            }
+                            label="No"
                             />
                         </Grid>
                     </Grid>
