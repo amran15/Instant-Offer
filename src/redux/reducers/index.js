@@ -14,8 +14,8 @@ import createNewPurchaseForm from './createNewPurchaseFormReducer';
 import deleteListingAnswerReducer from './deleteListingAnswerReducer';
 import deletePurchaseAnswerReducer from './deletePurchaseAnswerReducer';
 
-import purchaseAgreementCategory1 from './purchaseAgreementReducer1';
-import purchaseAgreementCategory2 from './purchaseAgreementReducer2';
+
+
 
 import signReducer from './signReducer';
 import activeUserReducer from './activeUserReducer';
@@ -43,8 +43,7 @@ const rootReducer = combineReducers({
   deleteListingAnswerReducer, 
   deletePurchaseAnswerReducer,
 
-  purchaseAgreementCategory1,
-  purchaseAgreementCategory2,
+
 
   activeUserReducer,
   signReducer,

@@ -13,7 +13,8 @@ import { TextField } from '@material-ui/core';
 class PurchaseCategory1 extends Component {
 
     state = {
-        generalInformation: {
+        id:this.props.reduxState.activeUser.id,
+        answers: {
             date:'',
             buyerName:'',
             earnestMoney:'',

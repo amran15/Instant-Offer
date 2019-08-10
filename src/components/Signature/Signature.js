@@ -67,16 +67,16 @@ class Signature extends Component {
             <div>
                 <div className="sig-canvas">
                     <SignatureCanvas penColor="black"
-                        canvasProps={{ width: 1598, height: 300, className: 'sigCanvas' }}
+                        canvasProps={{ width:390, height: 750, className: 'sigCanvas' }}
                         ref={(ref) => { this.sigPad = ref }} />
                     {
                         SIGNATURE_BUYER_1 ? <img src={SIGNATURE_BUYER_1} alt="" /> : null
                     }
                 </div>
-                <Container
-                    component="main"
-                    style={styles.Container}
-                >
+                {/* <Container
+                    // component="main"
+                    // style={styles.Container}
+                > */}
                     <Grid container spacing={1}>
                         <Grid item xs={3}>
 
@@ -120,7 +120,7 @@ class Signature extends Component {
                             </Button>
                         </Grid>
                     </Grid>
-                </Container>
+                {/* </Container> */}
             </div>
         )
     }
