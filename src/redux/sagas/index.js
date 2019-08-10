@@ -6,7 +6,7 @@ import userSaga from './userSaga';
 import fetchListingAnswers from './fetchListingAnswers';
 
 import newListingContractForm from './newListingContractForm';
-
+import getListingDrafts from './fetchListingDrafts';
 
 
 import pdfListing from './pdfListing';
@@ -32,6 +32,7 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     fetchListingAnswers(),
+    getListingDrafts(),
     newListingContractForm(),
     pdfListing(),
     pdfOffer(),
