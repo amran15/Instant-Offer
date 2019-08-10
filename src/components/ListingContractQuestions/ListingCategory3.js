@@ -14,27 +14,23 @@ import Grid from '@material-ui/core/Grid';
 class ListingCategory3 extends Component {
 
     state = {
-        id: this.props.reduxState.activeUserReducer.id,
-        answers: {
-            L72: null,
-            L7: null,
-            L73: null,
-        }
+            // L72: null,
+            // L7: null,
+            // L73: null,
+            L72: (typeof this.props.listingAnswers.L72 === 'undefined') ? null : this.props.listingAnswers.L72,
+            L7: (typeof this.props.listingAnswers.L7 === 'undefined') ? null : this.props.listingAnswers.L7,
+            L73: (typeof this.props.listingAnswers.L73 === 'undefined') ? null : this.props.listingAnswers.L73,
     }
 
     handleClickForCheckbox = (propertyName, event) => {
         this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: event,
-            }
+                ...this.state, [propertyName]: event,
         })
     }
 
     handleChangeForInput = (propertyName) => (event) => {
         this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: event.target.value,
-            }
+                ...this.state, [propertyName]: event,
         })
     }
 
@@ -43,7 +39,13 @@ class ListingCategory3 extends Component {
     }
 
     handleClickNext = () => {
-        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
+        console.log('props', this.props.activeUserReducer)
+        const database_payload = {
+            id: this.props.activeUserReducer.id,
+            answers: this.state
+        }
+        console.log("payload", database_payload)
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: database_payload })
         this.props.history.push('/ListingCategory4')
     }
 
@@ -60,7 +62,7 @@ class ListingCategory3 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        checked={this.state.answers.L72 === true}
+                                        checked={this.props.listingAnswers.L72 === true}
                                         value="checkedB"
                                         color="primary"
                                         onClick={() => { this.handleClickForCheckbox('L72', true) }}
@@ -71,7 +73,7 @@ class ListingCategory3 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        checked={this.state.answers.L72 === false}
+                                        checked={this.props.listingAnswers.L72 === false}
                                         value="checkedB"
                                         color="primary"
                                         onClick={() => { this.handleClickForCheckbox('L72', false) }}
@@ -86,7 +88,7 @@ class ListingCategory3 extends Component {
                                 id="listing_broker"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.answers.L7}
+                                value={this.props.listingAnswers.L7}
                                 onChange={this.handleChangeForInput('L7')}
                             />
                         </Grid>
@@ -95,7 +97,7 @@ class ListingCategory3 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        checked={this.state.answers.L73 === true}
+                                        checked={this.props.listingAnswers.L73 === true}
                                         value="checkedB"
                                         color="primary"
                                         onClick={() => { this.handleClickForCheckbox('L73', true) }}
@@ -106,7 +108,7 @@ class ListingCategory3 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                    checked={this.state.answers.L73 === false}
+                                    checked={this.props.listingAnswers.L73 === false}
                                         value="checkedB"
                                         color="primary"
                                         onClick={() => { this.handleClickForCheckbox('L73', false) }}
@@ -150,5 +152,5 @@ class ListingCategory3 extends Component {
     }
 }
 
-const mapReduxStateToProps = reduxState => ({ reduxState })
+const mapReduxStateToProps = reduxState => reduxState 
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory3));
