@@ -92,7 +92,7 @@ class ListingCategory4 extends Component {
                             />
                             <h4>If within the indicated days below (not to exceed six (6) months) after the expiration of this Contract, Seller sells or agrees to sell the Property to anyone who:</h4>
                             <h4>1. during this Contract made inquiry of Seller about the Property and Seller did not tell Broker about the inquiry; or</h4>
-                            <h4>2. during this Contract made an affirmative showing of interest in the Property by responding to an advertisement, or by contacting Borker or the licensee involved</h4>
+                            <h4>2. during this Contract made an affirmative showing of interest in the Property by responding to an advertisement, or by contacting Broker or the licensee involved</h4>
                             <h4>then Seller shall still pay Broker the compensation noted here, even if Seller sells the Property without Broker's assistance.</h4>
                             <TextField
                                 label="Days"
