@@ -19,8 +19,8 @@ class ListingContractButton extends Component {
     handleClickForListingDocuments = () => {
         axios.post('api/listing/save')
         .then(response => {
-            console.log(response)
-            this.props.history.push(`/ListingContract/${response.id}`)
+            console.log(response.data[0].id)
+            this.props.history.push(`/ListingContract/${response.data[0].id}`)
         })
     }
 
