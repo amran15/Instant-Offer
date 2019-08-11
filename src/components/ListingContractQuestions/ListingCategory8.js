@@ -4,31 +4,25 @@ import { withRouter } from 'react-router';
 
 //Material UI 
 import Grid from '@material-ui/core/Grid';
-import Checkbox from '@material-ui/core/Checkbox';
 import Container from '@material-ui/core/Container';
-import { TextField } from '@material-ui/core';
+import { TextField, Radio, RadioGroup } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 
 class ListingCategory8 extends Component {
     state = {
-        id: this.props.reduxState.activeUserReducer.id,
-        answers: {
-            L196: null,
-            L198: null,
-            COMPANY: null,
-            L237: null,
-            BUYER_1_ADDRESS: null,
-            BUYER_1_PHONE: null,
-            BUYER_1_EMAIL: null,
-        }
+        L196: (typeof this.props.listingAnswers.L196 === 'undefined') ? "false" : this.props.listingAnswers.L196,
+        L198: (typeof this.props.listingAnswers.L198 === 'undefined') ? "false" : this.props.listingAnswers.L198,
+        COMPANY: (typeof this.props.listingAnswers.COMPANY === 'undefined') ? "" : this.props.listingAnswers.COMPANY,
+        L237: (typeof this.props.listingAnswers.L237 === 'undefined') ? null : this.props.listingAnswers.L237,
+        BUYER_1_ADDRESS: (typeof this.props.listingAnswers.BUYER_1_ADDRESS === 'undefined') ? null : this.props.listingAnswers.BUYER_1_ADDRESS,
+        BUYER_1_PHONE: (typeof this.props.listingAnswers.BUYER_1_PHONE === 'undefined') ? null : this.props.listingAnswers.BUYER_1_PHONE,
+        BUYER_1_EMAIL: (typeof this.props.listingAnswers.BUYER_1_EMAIL === 'undefined') ? null : this.props.listingAnswers.BUYER_1_EMAIL,
     }
 
-    handleClickForCheckbox = (propertyName, event) => {
+    handleChangeForRadioButtons = (propertyName) => (event) => {
         this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: event,
-            }
+            ...this.state, [propertyName]: event.target.value,
         })
     }
 
@@ -45,6 +39,14 @@ class ListingCategory8 extends Component {
     }
 
     handleSaveButton = () => {
+
+        console.log('props', this.props.activeUserReducer)
+        const database_payload = {
+            id: this.props.activeUserReducer.id,
+            answers: this.state
+        }
+        console.log("payload", database_payload)
+
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push('/ListingContract')
     }
@@ -59,52 +61,20 @@ class ListingCategory8 extends Component {
                                 <h2>Agency Representation</h2>
                             </center>
                             <h4>Seller will agree to dual agency and will consider offers made by buyers represented by broker?</h4>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    checked={this.state.answers.L196 === true}
-                                    value="checkedB"
-                                    color="primary"
-                                    onClick={() => { this.handleClickForCheckbox('L196', true) }}
-                                />
-                            }
-                            label="Yes"
-                        />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    checked={this.state.answers.L196 === false}
-                                    value="checkedB"
-                                    color="primary"
-                                    onClick={() => { this.handleClickForCheckbox('L196', false) }}
-                                />
-                            }
-                            label="No"
-                        />
+                            <RadioGroup
+                                value={this.props.listingAnswers.L72}
+                                onChange={this.handleChangeForRadioButtons('L196')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                             <h4>Seller will not agree to dual agency and not consider offers made by buyers represented by broker?</h4>
                             <Grid item xs={12}>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                        checked={this.state.answers.L198 === true}
-                                        value="checkedB"
-                                        color="primary"
-                                        onClick={() => { this.handleClickForCheckbox('L198', true) }}
-                                    />
-                                }
-                                label="Yes"
-                            />
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                        checked={this.state.answers.L198 === false}
-                                        value="checkedB"
-                                        color="primary"
-                                        onClick={() => { this.handleClickForCheckbox('L198', false) }}
-                                    />
-                                }
-                                label="No"
-                                />
+                            <RadioGroup
+                                value={this.props.listingAnswers.L72}
+                                onChange={this.handleChangeForRadioButtons('L198')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                             </Grid>
                             <h4>Real Estate Company Name:</h4>
                             <TextField
@@ -136,7 +106,7 @@ class ListingCategory8 extends Component {
                                     id="sellers_address"
                                     fullWidth
                                     variant="outlined"
-                                    value={this.state.answers.BUYER_1_ADDRESS}
+                                    value={this.props.listingAnswers.BUYER_1_ADDRESS}
                                     onChange={this.handleChangeForInputs('BUYER_1_ADDRESS')}
                                 />
                                 <h4>Seller's Phone</h4>
@@ -144,7 +114,7 @@ class ListingCategory8 extends Component {
                                     id="sellers_phone"
                                     fullWidth
                                     variant="outlined"
-                                    value={this.state.answers.BUYER_1_PHONE}
+                                    value={this.props.listingAnswers.BUYER_1_PHONE}
                                     onChange={this.handleChangeForInputs('BUYER_1_PHONE')}
                                 />
                                 <h4>Seller's Email</h4>
@@ -152,7 +122,7 @@ class ListingCategory8 extends Component {
                                     id="sellers_Email"
                                     fullWidth
                                     variant="outlined"
-                                    value={this.state.answers.BUYER_1_EMAIL}
+                                    value={this.props.listingAnswers.BUYER_1_EMAIL}
                                     onChange={this.handleChangeForInputs('BUYER_1_EMAIL')}
                                 />
                             </Grid>
@@ -193,5 +163,5 @@ class ListingCategory8 extends Component {
     }
 }
 
-const mapReduxStateToProps = reduxState => ({ reduxState })
+const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory8));

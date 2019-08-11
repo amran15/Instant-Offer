@@ -4,15 +4,15 @@ import { takeLatest } from 'redux-saga/effects';
 
 function* fetchListing(action) {
   try {
-      // gets the base64 img files
-      yield console.log('hit pdf listing')
-      const response = yield axios.get(`/api/listing/PDF_pages`)
-      .catch(error =>{
-    })
-    yield 
-      //gets all data from row ${see page info pages for params details}
-      const answers = yield axios({ method: 'get', url:`/api/listing/answers/${action.payload}`})
-      .catch(error =>{
+    // gets the base64 img files
+    yield console.log('hit pdf listing')
+    const response = yield axios.get(`/api/listing/PDF_pages`)
+      .catch(error => {
+      })
+    yield
+    //gets all data from row ${see page info pages for params details}
+    const answers = yield axios({ method: 'get', url: `/api/listing/answers/${action.payload}` })
+      .catch(error => {
         console.log('error in pdf listing getting answers?', error)
       })
     yield
@@ -25,7 +25,7 @@ function* fetchListing(action) {
     // ------------------------------------------------------------------------------------------
     doc.addImage(response.data[0].PAGE_1, 'JPEG', 0, 0, 210, 297)
     // doc.text(`${answer.id}`, 10,10)
-    if (answer.DATE) doc.text(`${answer.DATE}`, 130, 38)
+    if (answer.DATE) doc.text(`${answer.DATE}`, 130, 39)
     doc.text(`7`, 136, 45)
     if (answer.L3) { doc.text(`${answer.L3}`, 117, 52) }
     if (answer.L4) { doc.text(`${answer.L4}`, 52, 59) }
@@ -123,7 +123,7 @@ function* fetchListing(action) {
     if (answer.L198) { doc.text(`X`, 22, 110) }
     if (answer.L200) doc.text(`${answer.L200}`, 67, 120)
     doc.addImage(`${answer.SIGNATURE_BUYER_1}`, 127, 120, 18, 18) // 127, 120, 18,18
-    if (answer.DATE) doc.text(`${answer.DATE}`, 125, 140)
+    if (answer.DATE) doc.text(`${answer.DATE}`, 125, 142)
     // -----------------------------------------------------------------------------------------
     //                              page # 6
     // ------------------------------------------------------------------------------------------
@@ -138,7 +138,7 @@ function* fetchListing(action) {
 
     //244 a,b
     // doc.text(`Nate Labbatt`,35,126)
-    if (answer.DATE) doc.text(`${answer.DATE}`, 120, 126)
+    if (answer.DATE) doc.text(`${answer.DATE}`, 120, 127)
     //245 a,b
     // doc.text(`${answer.DATE}`,35,140)
     if (answer.L3) doc.text(`${answer.L3}`, 120, 140)

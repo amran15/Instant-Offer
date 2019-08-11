@@ -15,7 +15,6 @@ const theme = createMuiTheme({
 });
 
 class ListingContractButton extends Component {
-
     handleClickForListingDocuments = () => {
         axios.post('api/listing/save')
         .then(response => {

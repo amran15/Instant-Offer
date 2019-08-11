@@ -4,28 +4,22 @@ import { withRouter } from 'react-router';
 
 //Material UI
 import Grid from '@material-ui/core/Grid';
-import Checkbox from '@material-ui/core/Checkbox';
 import Container from '@material-ui/core/Container';
-import { TextField } from '@material-ui/core';
+import { TextField, Radio, RadioGroup } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 
 class ListingCategory6 extends Component {
     state = {
-        id: this.props.reduxState.activeUserReducer.id,
-        answers: {
-            L163: null,
-            L164: null,
-            L165A: null,
-        }
+            L163: (typeof this.props.listingAnswers.L163 === 'undefined') ? "false" : this.props.listingAnswers.L163,
+            L164: (typeof this.props.listingAnswers.L164 === 'undefined') ? "false" : this.props.listingAnswers.L164,
+            L165A: (typeof this.props.listingAnswers.L165A === 'undefined') ? null : this.props.listingAnswers.L165A,
     }
 
 
-    handleClickForCheckbox = (propertyName, event) => {
+    handleChangeForRadioButtons = (propertyName) => (event) => {
         this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: event,
-            }
+            ...this.state, [propertyName]: event.target.value,
         })
     }
 
@@ -42,7 +36,13 @@ class ListingCategory6 extends Component {
     }
 
     handleClickNext = () => {
-        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
+        console.log('props', this.props.activeUserReducer)
+        const database_payload = {
+            id: this.props.activeUserReducer.id,
+            answers: this.state
+        }
+        console.log("payload", database_payload)
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: database_payload })
         this.props.history.push('/ListingCategory7')
     }
 
@@ -57,51 +57,19 @@ class ListingCategory6 extends Component {
                                 <h2>Closing Services</h2>
                             </center>
                             <h4>Seller wishes to have a Broker arrange for the closing?</h4>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        checked={this.state.answers.L163 === true}
-                                        value="checkedB"
-                                        color="primary"
-                                        onClick={() => { this.handleClickForCheckbox('L163', true) }}
-                                    />
-                                }
-                                label="Yes"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        checked={this.state.answers.L163 === false}
-                                        value="checkedB"
-                                        color="primary"
-                                        onClick={() => { this.handleClickForCheckbox('L163', false) }}
-                                    />
-                                }
-                                label="No"
-                            />
+                            <RadioGroup
+                                value={this.props.listingAnswers.L72}
+                                onChange={this.handleChangeForRadioButtons('L163')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                             <h4>Seller shall arrange for a qualified closing agent or Seller's attorney to conduct the closing?</h4>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        checked={this.state.answers.L164 === true}
-                                        value="checkedB"
-                                        color="primary"
-                                        onClick={() => { this.handleClickForCheckbox('L164', true) }}
-                                    />
-                                }
-                                label="Yes"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        checked={this.state.answers.L164 === false}
-                                        value="checkedB"
-                                        color="primary"
-                                        onClick={() => { this.handleClickForCheckbox('L164', false) }}
-                                    />
-                                }
-                                label="No"
-                            />
+                            <RadioGroup
+                                value={this.props.listingAnswers.L72}
+                                onChange={this.handleChangeForRadioButtons('L164')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                         </Grid>
                         <br />
                         <br />
@@ -110,7 +78,7 @@ class ListingCategory6 extends Component {
                                 label="Seller's Initials"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.answers.L165A}
+                                value={this.props.listingAnswers.L165A}
                                 onChange={this.handleChangeForInitials('L165A')}
                             />
                         </Grid>
@@ -149,5 +117,5 @@ class ListingCategory6 extends Component {
     }
 }
 
-const mapReduxStateToProps = reduxState => ({ reduxState })
+const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory6));

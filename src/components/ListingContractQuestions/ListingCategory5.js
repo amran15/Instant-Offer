@@ -7,29 +7,23 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import { TextField, InputAdornment } from '@material-ui/core';
+import { TextField, InputAdornment, Radio, RadioGroup } from '@material-ui/core';
 
 
 class ListingCategory5 extends Component {
 
     state = {
-        id: this.props.reduxState.activeUserReducer.id,
-        answers: {
-            L146: null,
-            L148B: null,
-            L148C: null,
-            L150B: null,
-            L150C: null,
-            L152B: null,
-        }
+            L146: (typeof this.props.listingAnswers.L146 === 'undefined') ? "false" : this.props.listingAnswers.L146,
+            L148B: (typeof this.props.listingAnswers.L148B === 'undefined') ? null : this.props.listingAnswers.L148B,
+            L148C: (typeof this.props.listingAnswers.L148C === 'undefined') ? null : this.props.listingAnswers.L148C,
+            L150B: (typeof this.props.listingAnswers.L150B === 'undefined') ? null : this.props.listingAnswers.L150B,
+            L150C: (typeof this.props.listingAnswers.L150C === 'undefined') ? null : this.props.listingAnswers.L150C,
+            L152B: (typeof this.props.listingAnswers.L152B === 'undefined') ? null : this.props.listingAnswers.L152B,
     }
 
-    handleClickForCheckbox = (propertyName, event) => {
+    handleChangeForRadioButtons = (propertyName) => (event) => {
         this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: event,
-            }
+            ...this.state, [propertyName]: event.target.value,
         })
     }
 
@@ -47,7 +41,13 @@ class ListingCategory5 extends Component {
     }
 
     handleClickNext = () => {
-        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
+        console.log('props', this.props.activeUserReducer)
+        const database_payload = {
+            id: this.props.activeUserReducer.id,
+            answers: this.state
+        }
+        console.log("payload", database_payload)
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: database_payload })
         this.props.history.push('/ListingCategory6')
     }
 
@@ -61,28 +61,12 @@ class ListingCategory5 extends Component {
                                 <h2>Compensation Disclosure</h2>
                             </center>
                             <h4>Broker will offer compensation to cooperating brokers?</h4>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    checked={this.state.answers.L146 === true}
-                                        value="checkedB"
-                                        color="primary"
-                                        onClick={()=>{this.handleClickForCheckbox('L146', true)}}
-                                    />
-                                }
-                                label="Yes"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    checked={this.state.answers.L146 === false}
-                                        value="checkedB"
-                                        color="primary"
-                                        onClick={()=>{this.handleClickForCheckbox('L146', false)}}
-                                    />
-                                }
-                                label="No"
-                            />
+                            <RadioGroup
+                                value={this.props.listingAnswers.L72}
+                                onChange={this.handleChangeForRadioButtons('146')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                             <h4>If yes, the compensation to cooperating shall be as follows:</h4>
                             <h4>Percent of gross sales price for cooperating brokers representing buyer.</h4>
                             <TextField
@@ -169,5 +153,5 @@ class ListingCategory5 extends Component {
     }
 }
 
-const mapReduxStateToProps = reduxState => ({ reduxState })
+const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory5));
