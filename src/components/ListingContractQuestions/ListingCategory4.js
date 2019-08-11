@@ -12,11 +12,14 @@ import { TextField, InputAdornment } from '@material-ui/core';
 class ListingCategory4 extends Component {
 
     state = {
+        id: this.props.match.params.id,
+        answers: {
         L115: (typeof this.props.listingAnswers.L115 === 'undefined') ? null : this.props.listingAnswers.L115,
         L118: (typeof this.props.listingAnswers.L118 === 'undefined') ? null : this.props.listingAnswers.L118,
         L119: (typeof this.props.listingAnswers.L119 === 'undefined') ? null : this.props.listingAnswers.L119,
         L121: (typeof this.props.listingAnswers.L121 === 'undefined') ? null : this.props.listingAnswers.L121,
         L131: (typeof this.props.listingAnswers.L131 === 'undefined') ? null : this.props.listingAnswers.L131,
+        }
     }
 
 
@@ -29,9 +32,7 @@ class ListingCategory4 extends Component {
     }
 
     handleClick = () => {
-        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
-        this.props.history.push('/ListingContract')
-
+        this.props.history.push(`/ListingContract/${this.state.id}`)
     }
 
     handleClickToSave = () => {
@@ -39,14 +40,9 @@ class ListingCategory4 extends Component {
     }
 
     handleClickNext = () => {
-        console.log('props', this.props.activeUserReducer)
-        const database_payload = {
-            id: this.props.activeUserReducer.id,
-            answers: this.state
-        }
-        console.log("payload", database_payload)
-        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: database_payload })
-        this.props.history.push('/ListingCategory5')
+        console.log("payload", this.state)
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
+        this.props.history.push(`/ListingCategory5/${this.state.id}`)
     }
 
     render() {

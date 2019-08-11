@@ -8,10 +8,13 @@ import { FormControlLabel, RadioGroup, Radio, Button, Container, Grid } from '@m
 
 class ListingCategory2 extends Component {
     state = {
+        id: this.props.match.params.id,
+        answers: {
         L41: (typeof this.props.listingAnswers.L41 === 'undefined') ? "false" : this.props.listingAnswers.L41,
         L54: (typeof this.props.listingAnswers.L54 === 'undefined') ? "false" : this.props.listingAnswers.L54,
         L63: (typeof this.props.listingAnswers.L63 === 'undefined') ? "false" : this.props.listingAnswers.L63,
         L71: (typeof this.props.listingAnswers.L71 === 'undefined') ? "false" : this.props.listingAnswers.L71,
+        }
     }
 
     handleChangeForRadioButtons = (propertyName) => (event) => {
@@ -21,20 +24,13 @@ class ListingCategory2 extends Component {
     }
 
     handleClick = () => {
-        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
-        this.props.history.push('/ListingContract')
-
+        this.props.history.push(`/ListingContract/${this.state.id}`)
     }
 
     handleClickNext = () => {
-        console.log('props', this.props.activeUserReducer)
-        const database_payload = {
-            id: this.props.activeUserReducer.id,
-            answers: this.state
-        }
-        console.log("payload", database_payload)
-        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: database_payload })
-        this.props.history.push('/ListingCategory3')
+        console.log("payload", this.state)
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
+        this.props.history.push(`/ListingCategory3/${this.state.id}`)
     }
 
     render() {

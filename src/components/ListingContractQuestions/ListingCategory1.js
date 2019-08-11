@@ -19,6 +19,8 @@ class ListingCategory1 extends Component {
 
 
     state = {
+        id: this.props.match.params.id,
+        answers: {
         DATE: (typeof this.props.listingAnswers.DATE === 'undefined') ? null : this.props.listingAnswers.DATE,
         L3: (typeof this.props.listingAnswers.L3 === 'undefined') ? null : this.props.listingAnswers.L3,
         L4: (typeof this.props.listingAnswers.L4 === 'undefined') ? null : this.props.listingAnswers.L4,
@@ -28,6 +30,7 @@ class ListingCategory1 extends Component {
         L8C: (typeof this.props.listingAnswers.L8C === 'undefined') ? null : this.props.listingAnswers.L8C,
         L12: (typeof this.props.listingAnswers.L12 === 'undefined') ? null : this.props.listingAnswers.L12,
         L13: (typeof this.props.listingAnswers.L13 === 'undefined') ? null : this.props.listingAnswers.L13,    
+        }
     }
 
     handleChangeForGeneralInfo = (propertyName) => (event) => {
@@ -38,18 +41,13 @@ class ListingCategory1 extends Component {
 
 
     handleClick = () => {
-        this.props.history.push('/ListingContract')
+        this.props.history.push(`/ListingContract/${this.state.id}`)
     }
 
     handleClickNext = () => {
-        console.log('props', this.props.activeUserReducer)
-        const database_payload = {
-            id: this.props.activeUserReducer.id,
-            answers: this.state
-        }
-        console.log("payload", database_payload)
-        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: database_payload })
-        this.props.history.push('/ListingCategory2')
+        console.log("payload", this.state)
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
+        this.props.history.push(`/ListingCategory2/${this.state.id}`)
     }
 
     render() {

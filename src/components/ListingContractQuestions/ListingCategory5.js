@@ -13,12 +13,15 @@ import { TextField, InputAdornment, Radio, RadioGroup } from '@material-ui/core'
 class ListingCategory5 extends Component {
 
     state = {
+        id: this.props.match.params.id,
+        answers: {
             L146: (typeof this.props.listingAnswers.L146 === 'undefined') ? "false" : this.props.listingAnswers.L146,
             L148B: (typeof this.props.listingAnswers.L148B === 'undefined') ? null : this.props.listingAnswers.L148B,
             L148C: (typeof this.props.listingAnswers.L148C === 'undefined') ? null : this.props.listingAnswers.L148C,
             L150B: (typeof this.props.listingAnswers.L150B === 'undefined') ? null : this.props.listingAnswers.L150B,
             L150C: (typeof this.props.listingAnswers.L150C === 'undefined') ? null : this.props.listingAnswers.L150C,
             L152B: (typeof this.props.listingAnswers.L152B === 'undefined') ? null : this.props.listingAnswers.L152B,
+        }
     }
 
     handleChangeForRadioButtons = (propertyName) => (event) => {
@@ -37,18 +40,13 @@ class ListingCategory5 extends Component {
     }
 
     handleClick = () => {
-        this.props.history.push('/ListingContract')
+        this.props.history.push(`/ListingContract/${this.state.id}`)
     }
 
     handleClickNext = () => {
-        console.log('props', this.props.activeUserReducer)
-        const database_payload = {
-            id: this.props.activeUserReducer.id,
-            answers: this.state
-        }
-        console.log("payload", database_payload)
-        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: database_payload })
-        this.props.history.push('/ListingCategory6')
+        console.log("payload", this.state)
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
+        this.props.history.push(`/ListingCategory6/${this.state.id}`)
     }
 
     render() {

@@ -20,7 +20,7 @@ const styles = {
 
 class Signature extends Component {
     state = {
-        id:this.props.reduxState.activeUserReducer.id,
+        id:this.props.match.params.id,
         answers:
         {SIGNATURE_BUYER_1: null}
     }
@@ -34,7 +34,7 @@ class Signature extends Component {
 
     //exit out of the signature page. return to the review page without saving.
     returnToReview = () => {
-        this.props.history.push('/ListingContract')
+        this.props.history.push(`/ListingContract/${this.state.id}`)
     }
 
     //this will trim down the signature and get rid of the white space
