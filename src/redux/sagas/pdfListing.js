@@ -4,16 +4,15 @@ import { takeLatest } from 'redux-saga/effects';
 
 function* fetchListing(action) {
   try {
-    // gets the base64 img files
-    yield console.log('hit pdf listing')
-    const response = yield axios.get(`/api/listing/PDF_pages`)
-      .catch(error => {
-        console.log('WHY ARENT YOU WORKING listing contract?', error)
-      })
-    yield
-    //gets all data from row ${see page info pages for params details}
-    const answers = yield axios({ method: 'get', url: `/api/listing/answers/${action.payload}` })
-      .catch(error => {
+      // gets the base64 img files
+      yield console.log('hit pdf listing')
+      const response = yield axios.get(`/api/listing/PDF_pages`)
+      .catch(error =>{
+    })
+    yield 
+      //gets all data from row ${see page info pages for params details}
+      const answers = yield axios({ method: 'get', url:`/api/listing/answers/${action.payload}`})
+      .catch(error =>{
         console.log('error in pdf listing getting answers?', error)
       })
     yield

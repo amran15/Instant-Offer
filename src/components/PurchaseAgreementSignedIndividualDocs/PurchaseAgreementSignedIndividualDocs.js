@@ -8,10 +8,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 
 const styles = {
     title: {
-        // textAlign: 'center',
-        // fontSize: '20px',
         margin: '25px 0px 25px 40px',
-        // marginTop: '40px',
     },
 };
 
