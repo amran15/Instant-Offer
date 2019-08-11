@@ -4,7 +4,8 @@ import { withRouter } from 'react-router';
 
 //Material UI
 import Grid from '@material-ui/core/Grid';
-import Checkbox from '@material-ui/core/Checkbox';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
 import Container from '@material-ui/core/Container';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
@@ -12,17 +13,12 @@ import Button from '@material-ui/core/Button';
 class ListingCategory7 extends Component {
 
     state = {
-        id: this.props.reduxState.activeUserReducer.id,
-        answers: {
-            L175: null
-        }  
+            L175: (typeof this.props.listingAnswers.L175 === 'undefined') ? "false" : this.props.listingAnswers.L175
     }
 
-    handleClickForCheckbox = (propertyName, event) => {
+    handleChangeForRadioButtons = (propertyName) => (event) => {
         this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: event,
-            }
+            ...this.state, [propertyName]: event.target.value,
         })
     }
 
@@ -35,7 +31,13 @@ class ListingCategory7 extends Component {
     }
 
     handleClickNext = () => {
-        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
+        console.log('props', this.props.activeUserReducer)
+        const database_payload = {
+            id: this.props.activeUserReducer.id,
+            answers: this.state
+        }
+        console.log("payload", database_payload)
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: database_payload })
         this.props.history.push('/ListingCategory8')
     }
 
@@ -49,28 +51,12 @@ class ListingCategory7 extends Component {
                                 <h2>Foreign Investment</h2>
                             </center>
                             <h4>Seller represents and warrants that seller is a foreign person for purpose of income taxation</h4>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    checked={this.state.answers.L175 === true}
-                                    value="checkedB"
-                                    color="primary"
-                                    onClick={() => { this.handleClickForCheckbox('L175', true) }}
-                                />
-                            }
-                            label="Yes"
-                        />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    checked={this.state.answers.L175 === false}
-                                    value="checkedB"
-                                    color="primary"
-                                    onClick={() => { this.handleClickForCheckbox('L175', false) }}
-                                />
-                            }
-                            label="No"
-                        />
+                            <RadioGroup
+                                value={this.props.listingAnswers.L72}
+                                onChange={this.handleChangeForRadioButtons('L175')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                         <h4>Due to the complexity and potential risks of failing to comply with FIRPTA, Seller should <b>seek appropriate legal and tax advice regarding FIRPTA compliance, as Broker will be unable to confirm whether Seeker is a foreign person or whether the withholding requirements of FIRPTA apply.</b> </h4>
                         </Grid>
                     </Grid>
@@ -108,5 +94,5 @@ class ListingCategory7 extends Component {
     }
 }
 
-const mapReduxStateToProps = reduxState => ({ reduxState })
+const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory7));

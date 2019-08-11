@@ -5,34 +5,35 @@ import { withRouter } from 'react-router';
 
 // Material UI
 // import Button from '@material-ui/core/Button';
-import { TextField, Checkbox, FormControlLabel } from '@material-ui/core';
+import { TextField, Checkbox, FormControlLabel, RadioGroup } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
+import Radio from '@material-ui/core/Radio';
 import Grid from '@material-ui/core/Grid';
 
 
 class ListingCategory3 extends Component {
 
     state = {
-            L72: (typeof this.props.listingAnswers.L72 === 'undefined') ? null : this.props.listingAnswers.L72,
-            L7: (typeof this.props.listingAnswers.L7 === 'undefined') ? null : this.props.listingAnswers.L7,
-            L73: (typeof this.props.listingAnswers.L73 === 'undefined') ? null : this.props.listingAnswers.L73,
+        L72: (typeof this.props.listingAnswers.L72 === 'undefined') ? "false" : this.props.listingAnswers.L72,
+        L7: (typeof this.props.listingAnswers.L7 === 'undefined') ? "false" : this.props.listingAnswers.L7,
+        L73: (typeof this.props.listingAnswers.L73 === 'undefined') ? "false" : this.props.listingAnswers.L73,
     }
 
-    handleClickForCheckbox = (propertyName, event) => {
+    handleChangeForRadioButtons = (propertyName) => (event) => {
         this.setState({
-                ...this.state, [propertyName]: event,
+            ...this.state, [propertyName]: event.target.value,
         })
     }
 
     handleChangeForInput = (propertyName) => (event) => {
         this.setState({
-                ...this.state, [propertyName]: event.target.value,
+            ...this.state, [propertyName]: event.target.value,
         })
     }
 
     handleClick = () => {
-        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push('/ListingContract')
 
     }
@@ -58,28 +59,12 @@ class ListingCategory3 extends Component {
                                 <h2>Listed for Lease</h2>
                             </center>
                             <h4>The property is currently listed for lease?</h4>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        checked={this.props.listingAnswers.L72 === true}
-                                        value="checkedB"
-                                        color="primary"
-                                        onClick={() => { this.handleClickForCheckbox('L72', true) }}
-                                    />
-                                }
-                                label="Yes"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        checked={this.props.listingAnswers.L72 === false}
-                                        value="checkedB"
-                                        color="primary"
-                                        onClick={() => { this.handleClickForCheckbox('L72', false) }}
-                                    />
-                                }
-                                label="No"
-                            />
+                            <RadioGroup
+                                value={this.props.listingAnswers.L72}
+                                onChange={this.handleChangeForRadioButtons('L72')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                         </Grid>
                         <h4>If yes, who is the listing broker?</h4>
                         <Grid item xs={12}>
@@ -93,28 +78,12 @@ class ListingCategory3 extends Component {
                         </Grid>
                         <h4>If no, the property can be listed for lease during the terms of this contract with another broker.</h4>
                         <Grid item xs={12}>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        checked={this.props.listingAnswers.L73 === true}
-                                        value="checkedB"
-                                        color="primary"
-                                        onClick={() => { this.handleClickForCheckbox('L73', true) }}
-                                    />
-                                }
-                                label="Yes"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    checked={this.props.listingAnswers.L73 === false}
-                                        value="checkedB"
-                                        color="primary"
-                                        onClick={() => { this.handleClickForCheckbox('L73', false) }}
-                                    />
-                                }
-                                label="No"
-                            />
+                            <RadioGroup
+                                value={this.props.listingAnswers.L72}
+                                onChange={this.handleChangeForRadioButtons('L73')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                         </Grid>
                     </Grid>
                 </Container>
@@ -151,5 +120,5 @@ class ListingCategory3 extends Component {
     }
 }
 
-const mapReduxStateToProps = reduxState => reduxState 
+const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory3));
