@@ -18,12 +18,16 @@ const styles = {
 };
 
 class ListingContract extends Component {
+    state = {
+        id: this.props.match.params.id,
+    }
+
     handleClick = (propertyName) => (event) => {
         this.props.history.push(`${[propertyName]}`);
     }
 
     handleClickSign = () => {
-        this.props.history.push('/Signature')
+        this.props.history.push(`/Signature/${this.state.id}`)
     }
 
     render() {
@@ -36,7 +40,7 @@ class ListingContract extends Component {
                         <h4>Please answer the following questions pertaining to the Listing Offer.</h4>
                     </center>
                     <CardActionArea>
-                        <Card onClick={this.handleClick('/ListingCategory1')} value="/ListingCategory1">
+                        <Card onClick={this.handleClick(`/ListingCategory1/${this.state.id}`)} value="/ListingCategory1">
                             <Grid item xs={12} container spacing={3}>
                                 <Grid item xs={11}>
                                     <div style={styles.title}>
@@ -57,7 +61,7 @@ class ListingContract extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                        <Card onClick={this.handleClick('/ListingCategory2')} value="/ListingCategory2">
+                        <Card onClick={this.handleClick(`/ListingCategory2/${this.state.id}`)} value="/ListingCategory2">
                             <Grid item xs={12} container spacing={3}>
                                 <Grid item xs={11}>
                                     <div style={styles.title}>
@@ -78,7 +82,7 @@ class ListingContract extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                        <Card onClick={this.handleClick('/ListingCategory3')} value="/ListingCategory3">
+                        <Card onClick={this.handleClick(`/ListingCategory3/${this.state.id}`)} value="/ListingCategory3">
                             <Grid item xs={12} container spacing={3}>
                                 <Grid item xs={11}>
                                     <div style={styles.title}>
@@ -99,7 +103,7 @@ class ListingContract extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                        <Card onClick={this.handleClick('/ListingCategory4')} value="/ListingCategory4">
+                        <Card onClick={this.handleClick(`/ListingCategory4/${this.state.id}`)} value="/ListingCategory4">
                             <Grid item xs={12} container spacing={3}>
                                 <Grid item xs={11}>
                                     <div style={styles.title}>
@@ -120,7 +124,7 @@ class ListingContract extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                        <Card onClick={this.handleClick('/ListingCategory5')} value="/ListingCategory5">
+                        <Card onClick={this.handleClick(`/ListingCategory5/${this.state.id}`)} value="/ListingCategory5">
                             <Grid item xs={12} container spacing={3}>
                                 <Grid item xs={11}>
                                     <div style={styles.title}>
@@ -141,7 +145,7 @@ class ListingContract extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                        <Card onClick={this.handleClick('/ListingCategory6')} value="/ListingCategory6">
+                        <Card onClick={this.handleClick(`/ListingCategory6/${this.state.id}`)} value="/ListingCategory6">
                             <Grid item xs={12} container spacing={3}>
                                 <Grid item xs={11}>
                                     <div style={styles.title}>
@@ -162,7 +166,7 @@ class ListingContract extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                        <Card onClick={this.handleClick('/ListingCategory7')} value="/ListingCategory7">
+                        <Card onClick={this.handleClick(`/ListingCategory7/${this.state.id}`)} value="/ListingCategory7">
                             <Grid item xs={12} container spacing={3}>
                                 <Grid item xs={11}>
                                     <div style={styles.title}>
@@ -183,7 +187,7 @@ class ListingContract extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                        <Card onClick={this.handleClick('/ListingCategory8')} value="/ListingCategory8">
+                        <Card onClick={this.handleClick(`/ListingCategory8/${this.state.id}`)} value="/ListingCategory8">
                             <Grid item xs={12} container spacing={3}>
                                 <Grid item xs={11}>
                                     <div style={styles.title}>

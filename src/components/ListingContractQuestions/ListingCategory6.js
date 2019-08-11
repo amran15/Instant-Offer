@@ -11,9 +11,12 @@ import Button from '@material-ui/core/Button';
 
 class ListingCategory6 extends Component {
     state = {
+        id: this.props.match.params.id,
+        answers: {
             L163: (typeof this.props.listingAnswers.L163 === 'undefined') ? "false" : this.props.listingAnswers.L163,
             L164: (typeof this.props.listingAnswers.L164 === 'undefined') ? "false" : this.props.listingAnswers.L164,
             L165A: (typeof this.props.listingAnswers.L165A === 'undefined') ? null : this.props.listingAnswers.L165A,
+        }
     }
 
 
@@ -32,18 +35,13 @@ class ListingCategory6 extends Component {
     }
 
     handleClick = () => {
-        this.props.history.push('/ListingContract')
+        this.props.history.push(`/ListingContract/${this.state.id}`)
     }
 
     handleClickNext = () => {
-        console.log('props', this.props.activeUserReducer)
-        const database_payload = {
-            id: this.props.activeUserReducer.id,
-            answers: this.state
-        }
-        console.log("payload", database_payload)
-        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: database_payload })
-        this.props.history.push('/ListingCategory7')
+        console.log("payload", this.state)
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
+        this.props.history.push(`/ListingCategory7/${this.state.id}`)
     }
 
 

@@ -185,7 +185,7 @@ class App extends Component {
             /> */}
             <ProtectedRoute
               exact
-              path="/Signature"
+              path="/Signature/:id"
               component={Signature}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,

@@ -13,7 +13,10 @@ import Button from '@material-ui/core/Button';
 class ListingCategory7 extends Component {
 
     state = {
+        id: this.props.match.params.id,
+        answers: {
             L175: (typeof this.props.listingAnswers.L175 === 'undefined') ? "false" : this.props.listingAnswers.L175
+    }
     }
 
     handleChangeForRadioButtons = (propertyName) => (event) => {
@@ -23,7 +26,7 @@ class ListingCategory7 extends Component {
     }
 
     handleClick = () => {
-        this.props.history.push('/ListingContract')
+        this.props.history.push(`/ListingContract/${this.state.id}`)
     }
 
     handleClickToSave = () => {
@@ -31,14 +34,9 @@ class ListingCategory7 extends Component {
     }
 
     handleClickNext = () => {
-        console.log('props', this.props.activeUserReducer)
-        const database_payload = {
-            id: this.props.activeUserReducer.id,
-            answers: this.state
-        }
-        console.log("payload", database_payload)
-        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: database_payload })
-        this.props.history.push('/ListingCategory8')
+        console.log("payload", this.state)
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
+        this.props.history.push(`/ListingCategory8/${this.state.id}`)
     }
 
     render() {
