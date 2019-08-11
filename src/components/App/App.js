@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import Drafts from '../Drafts/Drafts';
 import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
 import Signature from '../Signature/Signature';
+import PurchaseSignature from '../Signature/PurchaseSignature';
 import SignedDocs from '../SignedDocs/SignedDocs';
 
 // these are the listing question categories
@@ -187,6 +188,11 @@ class App extends Component {
               exact
               path="/Signature"
               component={Signature}
+            />
+             <ProtectedRoute
+              exact
+              path="/PurchaseSignature"
+              component={PurchaseSignature}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}

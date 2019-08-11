@@ -18,7 +18,7 @@ const styles = {
 
 
 
-class Signature extends Component {
+class PurchaseSignature extends Component {
     state = {
         id:this.props.reduxState.activeUserReducer.id,
         answers:
@@ -127,4 +127,4 @@ class Signature extends Component {
     }
 }
 const mapReduxStateToProps = reduxState => ({ reduxState })
-export default connect(mapReduxStateToProps)(Signature); 
+export default connect(mapReduxStateToProps)(PurchaseSignature); 
