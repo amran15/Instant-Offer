@@ -23,7 +23,7 @@ class PurchaseAgreement extends Component {
     }
 
     handleClickSign = () => {
-        this.props.history.push('/Signature');
+        this.props.history.push('/PurchaseSignature');
     }
 
     render() {
@@ -232,7 +232,7 @@ class PurchaseAgreement extends Component {
                                 variant="contained"
                                 color="primary"
                                 onClick={this.handleClickSign}>
-                                Next
+                                SIGN
                             </Button>
                         </div>
                     </Grid>

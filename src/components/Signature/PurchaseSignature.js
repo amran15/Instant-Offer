@@ -18,9 +18,9 @@ const styles = {
 
 
 
-class Signature extends Component {
+class PurchaseSignature extends Component {
     state = {
-        id:this.props.match.params.id,
+        id:this.props.reduxState.activeUserReducer.id,
         answers:
         {SIGNATURE_BUYER_1: null}
     }
@@ -34,7 +34,7 @@ class Signature extends Component {
 
     //exit out of the signature page. return to the review page without saving.
     returnToReview = () => {
-        this.props.history.push(`/ListingContract/${this.state.id}`)
+        this.props.history.push('/ListingContract')
     }
 
     //this will trim down the signature and get rid of the white space
@@ -127,4 +127,4 @@ class Signature extends Component {
     }
 }
 const mapReduxStateToProps = reduxState => ({ reduxState })
-export default connect(mapReduxStateToProps)(Signature); 
+export default connect(mapReduxStateToProps)(PurchaseSignature); 
