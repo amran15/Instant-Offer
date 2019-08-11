@@ -172,10 +172,4 @@ router.delete('/delete/:id', (req, res) => {
 // });
 
 
-
-//LOG THE URL AND MAKE SURE YOU'RE GETTIINT IT
-
-
-
-
 module.exports = router;

@@ -17,17 +17,11 @@ class PurchaseCategory3 extends Component {
         }
     }
 
-
     handleChangeDate = (propertyName) => (event)=> {
         this.setState({ 
             closingDate:{
             [propertyName]:event.target.value
         }})
-    }
-
-    handleClickToSave = () => {
-
-        // this.props.history.push('/PurchaseCategory4')
     }
 
     handleClickNext = () => {
@@ -57,8 +51,8 @@ class PurchaseCategory3 extends Component {
                 <br />
                 <br />
                 <Container component="main">
-                    <Grid container spacing={3}>
-                        <Grid item xs={4}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
                             <div align="left" className="Button">
                                 <Button
                                     variant="contained"
@@ -69,19 +63,7 @@ class PurchaseCategory3 extends Component {
                 </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={4}>
-                            <div align="center" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleClickToSave}
-                                >
-                                    Save
-                </Button>
-
-                            </div>
-                        </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={6}>
                             <div align="right" className="Button">
                                 <Button
                                     variant="contained"

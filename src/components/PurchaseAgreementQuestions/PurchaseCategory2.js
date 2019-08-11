@@ -21,8 +21,7 @@ class PurchaseCategory2 extends Component {
         }
     }
 
-
-    hanldleChangeForPurchasePrice = (propertyName) => (event) => {
+    handleChangeForPurchasePrice = (propertyName) => (event) => {
         this.setState ({
             purchasePrice: {
                 ...this.state.purchasePrice, [propertyName]:event.target.value
@@ -30,15 +29,8 @@ class PurchaseCategory2 extends Component {
         })
     }
 
-
-
     handleClick = () => {
         this.props.history.push('/PurchaseAgreement')
-    }
-
-    handleClickToSave = () => {
-        this.props.dispatch({type:'POST_PURCHASE_PRICE', payload:this.state.purchasePrice})
-        this.props.history.push('/PurchaseCategory3')
     }
 
     handleClickNext = () => {
@@ -57,26 +49,22 @@ class PurchaseCategory2 extends Component {
                             <h4>Seller has agreed to sell the Property to Buyer for the sum of</h4>
                             <TextField
                                 id="sum"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
                                 value ={this.state.propertySumValue}
-                                onChange={this.hanldleChangeForPurchasePrice('propertySumValue')}
+                                onChange={this.handleChangeForPurchasePrice('propertySumValue')}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
                                 id="dollars"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 value ={this.state.propertySum}
-                                onChange={this.hanldleChangeForPurchasePrice('propertySum')}
+                                onChange={this.handleChangeForPurchasePrice('propertySum')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -84,54 +72,46 @@ class PurchaseCategory2 extends Component {
                             <h4>Sale price in CASH</h4>
                             <TextField
                                 id="percent"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
                                 value ={this.state.salePriceCash}
-                                onChange={this.hanldleChangeForPurchasePrice('salePriceCash')}
+                                onChange={this.handleChangeForPurchasePrice('salePriceCash')}
                             />
                             <h4>Sale price in MORTGAGE FINANCING</h4>
                             <TextField
                                 id="percent"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
                                 value ={this.state.mortgageFinancing}
-                                onChange={this.hanldleChangeForPurchasePrice('mortgageFinancing')}
+                                onChange={this.handleChangeForPurchasePrice('mortgageFinancing')}
                             />
                             <h4>Sale price by ASSUMING Seller's current mortgage</h4>
                             <TextField
                                 id="percent"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
                                 value ={this.state.assumedCurrentMortgage}
-                                onChange={this.hanldleChangeForPurchasePrice('assumedCurrentMortgage')}
+                                onChange={this.handleChangeForPurchasePrice('assumedCurrentMortgage')}
                             />
                             <h4>Sale price by CONTRACT FOR DEED</h4>
                             <TextField
                                 id="percent"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
                                 value ={this.state.contractForDeed}
-                                onChange={this.hanldleChangeForPurchasePrice('contractForDeed')}
+                                onChange={this.handleChangeForPurchasePrice('contractForDeed')}
                             />
                         </Grid>
                     </Grid>
@@ -149,18 +129,6 @@ class PurchaseCategory2 extends Component {
                                 >
                                     Back
                 </Button>
-                            </div>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <div align="center" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleClickToSave}
-                                >
-                                    Save
-                </Button>
-
                             </div>
                         </Grid>
                         <Grid item xs={4}>

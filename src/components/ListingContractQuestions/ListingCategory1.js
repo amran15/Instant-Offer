@@ -12,6 +12,7 @@ import { TextField, InputAdornment } from '@material-ui/core';
 class ListingCategory1 extends Component {
     componentDidMount() {
         const listing_answer_id = this.props.match.params.id
+        console.log(listing_answer_id);
         this.props.dispatch(
             { type: 'LISTING_ANSWERS', payload: listing_answer_id }
         )

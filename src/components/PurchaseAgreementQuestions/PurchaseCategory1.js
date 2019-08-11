@@ -13,22 +13,21 @@ import { TextField } from '@material-ui/core';
 class PurchaseCategory1 extends Component {
 
     state = {
-        id:this.props.reduxState.activeUser.id,
-        answers: {
-            date:'',
-            buyerName:'',
-            earnestMoney:'',
-            earnestMoneyValue:'',
-            earnestChecked:'',
-            businessName:'',
-            streetAddress:'',
-            city:'',
-            county:'',
-            legalDescription:'',
-            builtIns:'',
-            excludedItems:'',
-        }
+        DATE: (typeof this.props.listingAnswers.DATE === 'undefined') ? null : this.props.listingAnswers.DATE,
+        //     buyerName:'',
+        //     earnestMoney:'',
+        //     earnestMoneyValue:'',
+        //     earnestChecked:'',
+        //     businessName:'',
+        //     streetAddress:'',
+        //     city:'',
+        //     county:'',
+        //     legalDescription:'',
+        //     builtIns:'',
+        //     excludedItems:'',
+        // }
     }
+
 
 
 
@@ -40,18 +39,18 @@ class PurchaseCategory1 extends Component {
         })
     }
 
-
-
     handleClick = () => {
         this.props.history.push('/PurchaseAgreement')
     }
 
-    handleClickToSave = () => {
-        this.props.dispatch({type:'POST_GENERAL_INFORMATION', payload:this.state.generalInformation})
-        this.props.history.push('/PurchaseCategory2')
-    }
 
     handleClickNext = () => {
+        console.log('props', this.props.activeUserReducer)
+        const database_payload = {
+            id: this.props.activeUserReducer.id,
+            answers: this.state
+        }
+        console.log(database_payload)
         this.props.history.push('/PurchaseCategory2')
     }
 
@@ -69,8 +68,8 @@ class PurchaseCategory1 extends Component {
                                 id="date"
                                 variant="outlined"
                                 type="date"
-                                value={this.state.date}
-                                onChange={this.handleChangeForGeneralInformation('date')}
+                                value={this.props.listingAnswers.DATE}
+                                onChange={this.handleChangeForGeneralInfo('DATE')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -102,8 +101,6 @@ class PurchaseCategory1 extends Component {
                         <Grid item xs={12}>
                             <TextField
                                 id="buyers_earnest_money"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 InputProps={{
@@ -116,8 +113,6 @@ class PurchaseCategory1 extends Component {
                             <Grid container spacing={2}>
                                 <Grid item xs={2}>
                                     <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
                                         value="checkedB"
                                         color="primary"
                                         value={this.state.earnestChecked}
@@ -127,8 +122,6 @@ class PurchaseCategory1 extends Component {
                                 <Grid item xs={10}>
                                     <TextField
                                         id="brokers_name"
-                                        // value={this.state.song_title}
-                                        // onChange={this.handleInputChangeFor('song_title')}
                                         fullWidth
                                         variant="outlined"
                                         value={this.state.businessName}
@@ -143,8 +136,6 @@ class PurchaseCategory1 extends Component {
                             <TextField
                                 id="street_address"
                                 label="Street Address"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 value={this.state.streetAddress}
@@ -155,8 +146,6 @@ class PurchaseCategory1 extends Component {
                             <TextField
                                 label="City"
                                 id="city"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 value={this.state.city}
@@ -167,8 +156,6 @@ class PurchaseCategory1 extends Component {
                             <TextField
                                 label="County"
                                 id="county"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                             />
@@ -177,8 +164,6 @@ class PurchaseCategory1 extends Component {
                             <h4>Legal description of property</h4>
                             <TextField
                                 id="legal_description"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                             />
@@ -187,8 +172,6 @@ class PurchaseCategory1 extends Component {
                             <h4>Built-Ins and the following personal property shall be transferred with no additional monetary value, and free and clear of all liens and encumbrances:</h4>
                             <TextField
                                 id="built_ins"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                             />
@@ -197,8 +180,6 @@ class PurchaseCategory1 extends Component {
                             <h4>The following item(s) are excluded from the purchase:</h4>
                             <TextField
                                 id="excluded_items"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                             />
@@ -208,8 +189,8 @@ class PurchaseCategory1 extends Component {
                 <br />
                 <br />
                 <Container component="main">
-                    <Grid container spacing={3}>
-                        <Grid item xs={4}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
                             <div align="left" className="Button">
                                 <Button
                                     variant="contained"
@@ -220,19 +201,7 @@ class PurchaseCategory1 extends Component {
                 </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={4}>
-                            <div align="center" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleClickToSave}
-                                >
-                                    Save
-                </Button>
-
-                            </div>
-                        </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={6}>
                             <div align="right" className="Button">
                                 <Button
                                     variant="contained"

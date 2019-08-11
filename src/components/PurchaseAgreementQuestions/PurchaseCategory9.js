@@ -28,12 +28,10 @@ class PurchaseCategory9 extends Component {
                             <center>
                                 <h3>Previously Written Purchase Agreement</h3>
                             </center>
-                            <h4>Is this Purchase Agreement subjecto to cancellation of a previously written Purchase Agreement?</h4>
+                            <h4>Is this Purchase Agreement subject to cancellation of a previously written Purchase Agreement?</h4>
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
                                         value="checkedB"
                                         color="primary"
                                     />}
@@ -42,8 +40,6 @@ class PurchaseCategory9 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
                                         value="checkedB"
                                         color="primary"
                                     />}
@@ -69,8 +65,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -81,8 +75,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -93,8 +85,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -105,8 +95,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -117,8 +105,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -129,8 +115,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -139,8 +123,6 @@ class PurchaseCategory9 extends Component {
                             </Grid>
                             <TextField
                                 id="deed"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                             />
@@ -152,16 +134,12 @@ class PurchaseCategory9 extends Component {
                             <p>(e) rights of tenants as follows (unless specified, not subject to tenancies):</p>
                             <TextField
                                 id="tenant_rights"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                             />
                             <p>(f) others (must be specified in writing):</p>
                             <TextField
                                 id="tenant_rights_other"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                             />
@@ -173,8 +151,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -185,8 +161,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -195,8 +169,6 @@ class PurchaseCategory9 extends Component {
                             </Grid>
                             <TextField
                                 id="tenant_rights"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                             />
@@ -205,8 +177,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -217,8 +187,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -231,8 +199,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -241,8 +207,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -252,8 +216,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -262,8 +224,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -273,8 +233,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -283,8 +241,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -294,8 +250,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -304,8 +258,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -315,8 +267,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -325,8 +275,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -339,8 +287,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -349,8 +295,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -360,8 +304,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -370,8 +312,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -381,8 +321,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -391,8 +329,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -401,16 +337,12 @@ class PurchaseCategory9 extends Component {
                                 <h4>Issued by:</h4>
                                 <TextField
                                     id="home_protection_issuer"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                 />
-                                <h4>The home protectoin/warranty plan will not exceed:</h4>
+                                <h4>The home protection/warranty plan will not exceed:</h4>
                                 <TextField
                                     id="home_protection_max_cost"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                     InputProps={{
@@ -423,16 +355,12 @@ class PurchaseCategory9 extends Component {
                                 <h4>Licensee</h4>
                                 <TextField
                                     id="Licensee"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                 />
                                 <h4>Real Estate Company Name</h4>
                                 <TextField
                                     id="Licensee"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                 />
@@ -440,8 +368,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -450,8 +376,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="Buyer's Agent"
                                         />}
@@ -460,8 +384,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -470,8 +392,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -480,16 +400,12 @@ class PurchaseCategory9 extends Component {
                                 <h4>Licensee</h4>
                                 <TextField
                                     id="Licensee"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                 />
                                 <h4>Real Estate Company Name</h4>
                                 <TextField
                                     id="Licensee"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                 />
@@ -497,8 +413,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -507,8 +421,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="Buyer's Agent"
                                         />}
@@ -517,8 +429,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -527,8 +437,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -541,8 +449,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -551,8 +457,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -562,10 +466,7 @@ class PurchaseCategory9 extends Component {
                                     <h3>Other</h3>
                                 </center>
                                 <TextField
-                                    // label="Song Title"
                                     id="other"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                 />
@@ -576,8 +477,6 @@ class PurchaseCategory9 extends Component {
 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -586,8 +485,6 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
                                             value="checkedB"
                                             color="primary"
                                         />}
@@ -600,8 +497,6 @@ class PurchaseCategory9 extends Component {
                              <h4>Buyer's Printed Name</h4>
                              <TextField
                                 id="buyers_printed_name"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                             />
@@ -611,8 +506,8 @@ class PurchaseCategory9 extends Component {
                 </Container>
                 <br/>
                 <Container component="main">
-                            <Grid container spacing={3}>
-                                <Grid item xs={4}>
+                            <Grid container spacing={2}>
+                                <Grid item xs={6}>
                                     <div align="left" className="Button">
                                         <Button
                                             variant="contained"
@@ -623,18 +518,7 @@ class PurchaseCategory9 extends Component {
                                         </Button>
                                     </div>
                                 </Grid>
-                                <Grid item xs={4}>
-                                    <div align="center" className="Button">
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            onClick={this.handleClick}
-                                        >
-                                            Save
-                                        </Button>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={4}>
+                                <Grid item xs={6}>
                                     <div align="right" className="Button">
                                         <Button
                                             variant="contained"

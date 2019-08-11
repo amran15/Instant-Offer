@@ -48,18 +48,8 @@ class PurchaseCategory6 extends Component {
             })
         } 
 
-
-
-
     handleClick = () => {
         this.props.history.push('/PurchaseAgreement')
-    }
-
-
-    handleClickToSave = () => {
-        console.log('posting inspections to the saga on the front of the stuff');
-        this.props.dispatch({type:'POST_INSPECTIONS', payload:this.state.inspections})
-
     }
 
     handleClickNext = () => {
@@ -181,8 +171,8 @@ class PurchaseCategory6 extends Component {
                 </Container>
                 <br />
                 <Container component="main">
-                            <Grid container spacing={3}>
-                                <Grid item xs={4}>
+                            <Grid container spacing={2}>
+                                <Grid item xs={6}>
                                     <div align="left" className="Button">
                                         <Button
                                             variant="contained"
@@ -193,18 +183,7 @@ class PurchaseCategory6 extends Component {
                                         </Button>
                                     </div>
                                 </Grid>
-                                <Grid item xs={4}>
-                                    <div align="center" className="Button">
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            onClick={this.handleClickToSave}
-                                        >
-                                            Save
-                                        </Button>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={4}>
+                                <Grid item xs={6}>
                                     <div align="right" className="Button">
                                         <Button
                                             variant="contained"

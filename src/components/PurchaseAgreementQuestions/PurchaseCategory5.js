@@ -51,11 +51,6 @@ class PurchaseCategory5 extends Component {
         this.props.history.push('/PurchaseAgreement')
     }
 
-    handleClickToSave = () => {
-        console.log('saving this noe');
-        this.props.dispatch({type:'POST_SELLER_CONTRIBUTION', payload:this.state.sellerContribution})
-    }
-
     handleClickNext = () => {
         this.props.history.push('/PurchaseCategory6')
     }
@@ -152,8 +147,8 @@ class PurchaseCategory5 extends Component {
                         <br />
                         <br />
                         <Container component="main">
-                            <Grid container spacing={3}>
-                                <Grid item xs={4}>
+                            <Grid container spacing={2}>
+                                <Grid item xs={6}>
                                     <div align="left" className="Button">
                                         <Button
                                             variant="contained"
@@ -164,18 +159,7 @@ class PurchaseCategory5 extends Component {
                                         </Button>
                                     </div>
                                 </Grid>
-                                <Grid item xs={4}>
-                                    <div align="center" className="Button">
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            onClick={this.handleClickToSave}
-                                        >
-                                            Save
-                                        </Button>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={4}>
+                                <Grid item xs={6}>
                                     <div align="right" className="Button">
                                         <Button
                                             variant="contained"
