@@ -88,6 +88,26 @@ function* fetchOffer(action) {
     // ------------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_4, 'JPEG',0,0,210,297)
+    if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
+    if(answer.L12)doc.text(`${answers.L12}`, 10,10)
+    if(answer.L141)doc.text(`${answers.L141}`, 10,10)
+    if(answer.L145A)doc.text(`${answers.L145A}`, 10,10)
+    // L145 B
+    answer.L145B  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    if(answer.L146)doc.text(`${answers.L146}`, 10,10)
+    if(answer.L156)doc.text(`${answers.L156}`, 10,10)
+    // L159
+    answer.L159  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    if(answer.L160A)doc.text(`${answers.L160A}`, 10,10)
+    if(answer.L160B)doc.text(`${answers.L160B}`, 10,10)
+    if(answer.L161A)doc.text(`${answers.L161A}`, 10,10)
+    if(answer.L161B)doc.text(`${answers.L161B}`, 10,10)
+    // L170
+    answer.L170  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    // L172
+    answer.L172  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    // L178
+    answer.L178  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
     // -----------------------------------------------------------------------------------------
     //                              page # 5
     // ------------------------------------------------------------------------------------------
