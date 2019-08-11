@@ -8,6 +8,8 @@ import createNewListingForm from './createNewListingFormReducer';
 import listingDrafts from './listingDraftsReducer';
 import listingSignedDocs from './listingSignedDocsReducer';
 import listingAnswers from './listingAnswersReducer';
+import setListingAnswers from './setListingAnswersReducer';
+
 
 import createNewPurchaseForm from './createNewPurchaseFormReducer';
 
@@ -37,6 +39,7 @@ const rootReducer = combineReducers({
   listingDrafts,
   listingSignedDocs,
   listingAnswers,
+  setListingAnswers,
 
   createNewPurchaseForm,
 

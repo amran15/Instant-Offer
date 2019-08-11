@@ -10,11 +10,13 @@ import Grid from '@material-ui/core/Grid';
 import { TextField, InputAdornment } from '@material-ui/core';
 
 class ListingCategory1 extends Component {
-    // componentDidMount() {
-    //     this.props.dispatch(
-    //         { type: 'LISTING_ANSWERS' }
-    //     )
-    // }
+    componentDidMount() {
+        const listing_answer_id = this.props.match.params.id
+        this.props.dispatch(
+            { type: 'LISTING_ANSWERS', payload: listing_answer_id }
+        )
+    }
+
 
     state = {
         DATE: (typeof this.props.listingAnswers.DATE === 'undefined') ? null : this.props.listingAnswers.DATE,

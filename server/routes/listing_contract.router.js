@@ -2,7 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
-//rejectUnauthenticated
+
 
 
 //GET route listing_contract 
@@ -18,6 +18,7 @@ router.get('/', (req, res) => {
             res.sendStatus(500);
         })
 });
+
 
 //GET route for draft listing_contracts
 router.get('/drafts', (req, res) => {
