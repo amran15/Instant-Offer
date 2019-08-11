@@ -4,45 +4,43 @@ import { withRouter } from 'react-router';
 
 
 //Material UI       
-import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import { Checkbox, FormControlLabel } from '@material-ui/core';
-
+import { FormControlLabel, RadioGroup, Radio, Button, Container, Grid } from '@material-ui/core';
 
 class ListingCategory2 extends Component {
     state = {
-        id: this.props.reduxState.activeUserReducer.id,
-        answers: {
-            L41: null,
-            L54: null,
-            L63: null,
-            L71: null,
-        }
+        L41: (typeof this.props.listingAnswers.L41 === 'undefined') ? "false" : this.props.listingAnswers.L41,
+        L54: (typeof this.props.listingAnswers.L54 === 'undefined') ? "false" : this.props.listingAnswers.L54,
+        L63: (typeof this.props.listingAnswers.L63 === 'undefined') ? "false" : this.props.listingAnswers.L63,
+        L71: (typeof this.props.listingAnswers.L71 === 'undefined') ? "false" : this.props.listingAnswers.L71,
     }
 
-    handleClickForCheckbox = (propertyName, event) => {
+    handleChangeForRadioButtons = (propertyName) => (event) => {
         this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: event,
-            }
+            ...this.state, [propertyName]: event.target.value,
         })
     }
 
     handleClick = () => {
-        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push('/ListingContract')
 
     }
 
     handleClickNext = () => {
-        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
+        console.log('props', this.props.activeUserReducer)
+        const database_payload = {
+            id: this.props.activeUserReducer.id,
+            answers: this.state
+        }
+        console.log("payload", database_payload)
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: database_payload })
         this.props.history.push('/ListingCategory3')
     }
 
     render() {
         return (
             <div>
+                {JSON.stringify(this.props.listingAnswers.L41, null, 2)}
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -50,103 +48,39 @@ class ListingCategory2 extends Component {
                                 <h2>MLS Data Feed Options</h2>
                             </center>
                             <h4>Display listing on the internet?</h4>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    checked={this.state.answers.L41 === true}
-                                        value="checkedB"
-                                        color="primary"
-                                        onClick={() => { this.handleClickForCheckbox('L41', true) }}
-                                    />
-                                }
-                                label="Yes"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    checked={this.state.answers.L41 === false}
-                                    value="checkedB"
-                                    color="primary"
-                                    onClick={() => { this.handleClickForCheckbox('L41', false) }}
-                                />
-                            }
-                            label="No"
-                            />
+                            <RadioGroup
+                                value={this.props.listingAnswers.L41}
+                                onChange={this.handleChangeForRadioButtons('L41')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Display listing address on the internet?</h4>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        checked={this.state.answers.L54 === true}
-                                        value="checkedB"
-                                        color="primary"
-                                        onClick={() => { this.handleClickForCheckbox('L54', true) }}
-                                    />
-                                }
-                                label="Yes"
-                                />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    checked={this.state.answers.L54 === false}
-                                    value="checkedB"
-                                    color="primary"
-                                    onClick={() => { this.handleClickForCheckbox('L54', false) }}
-                                />
-                            }
-                            label="No"
-                            />
+                            <RadioGroup
+                                value={this.props.listingAnswers.L54}
+                                onChange={this.handleChangeForRadioButtons('L54')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Display link of automated valuation of the property on the internet?</h4>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    checked={this.state.answers.L63 === true}
-                                    value="checkedB"
-                                    color="primary"
-                                    onClick={() => { this.handleClickForCheckbox('L63', true) }}
-                                />
-                            }
-                            label="Yes"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    checked={this.state.answers.L63 === false}
-                                    value="checkedB"
-                                    color="primary"
-                                    onClick={() => { this.handleClickForCheckbox('L63', false) }}
-                                />
-                            }
-                            label="No"
-                            />
+                            <RadioGroup
+                                value={this.props.listingAnswers.L63}
+                                onChange={this.handleChangeForRadioButtons('L63')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Display comments or reviews about property by persons other than Broker on the internet?</h4>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    checked={this.state.answers.L71 === true}
-                                    value="checkedB"
-                                    color="primary"
-                                    onClick={() => { this.handleClickForCheckbox('L71', true) }}
-                                />
-                            }
-                            label="Yes"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    checked={this.state.answers.L71 === false}
-                                    value="checkedB"
-                                    color="primary"
-                                    onClick={() => { this.handleClickForCheckbox('L71', false) }}
-                                />
-                            }
-                            label="No"
-                            />
+                            <RadioGroup
+                                value={this.props.listingAnswers.L71}
+                                onChange={this.handleChangeForRadioButtons('L71')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                         </Grid>
                     </Grid>
                 </Container>
@@ -183,5 +117,5 @@ class ListingCategory2 extends Component {
     }
 }
 
-const mapReduxStateToProps = reduxState => ({ reduxState })
+const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory2));
