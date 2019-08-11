@@ -1,10 +1,11 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* fetchListingDetails() {
+function* fetchListingDetails(action) {
     try {
-        const answers = yield axios.get(`/api/listing/${action.payload.id}`);
+        const answers = yield axios.get(`/api/listing/answers/${action.payload.id}`);
         console.log('listing_answers:', answers);
+        yield put({ type: 'SET_LISTING_ANSWERS', payload: answers.data })
         yield put({ type: 'SET_LISTING_INDIVIDUAL_ANSWERS', payload: answers.data })
     } catch (error) {
         console.log('error getting listing answers to render on DOM', error);

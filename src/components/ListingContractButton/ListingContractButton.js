@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import axios from 'axios';
 
 //Material UI
 import Button from '@material-ui/core/Button';
@@ -14,9 +15,13 @@ const theme = createMuiTheme({
 });
 
 class ListingContractButton extends Component {
+
     handleClickForListingDocuments = () => {
-        this.props.dispatch({ type: 'CREATE_NEW_LISTING_CONTRACT_FORM' })
-        this.props.history.push('/ListingContract')
+        axios.post('api/listing/save')
+        .then(response => {
+            console.log(response)
+            this.props.history.push(`/ListingContract/${response.id}`)
+        })
     }
 
     render() {

@@ -80,47 +80,47 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/ListingContract"
+              path="/ListingContract/:id"
               component={ListingContract}
             />
              <ProtectedRoute
               exact
-              path="/ListingCategory1"
+              path="/ListingCategory1/:id"
               component={ListingCategory1}
             />
             <ProtectedRoute
               exact
-              path="/ListingCategory2"
+              path="/ListingCategory2/:id"
               component={ListingCategory2}
             />
             <ProtectedRoute
               exact
-              path="/ListingCategory3"
+              path="/ListingCategory3/:id"
               component={ListingCategory3}
             />
             <ProtectedRoute
               exact
-              path="/ListingCategory4"
+              path="/ListingCategory4/:id"
               component={ListingCategory4}
             />
             <ProtectedRoute
               exact
-              path="/ListingCategory5"
+              path="/ListingCategory5/:id"
               component={ListingCategory5}
             />
             <ProtectedRoute
               exact
-              path="/ListingCategory6"
+              path="/ListingCategory6/:id"
               component={ListingCategory6}
             />
             <ProtectedRoute
               exact
-              path="/ListingCategory7"
+              path="/ListingCategory7/:id"
               component={ListingCategory7}
             />
             <ProtectedRoute
               exact
-              path="/ListingCategory8"
+              path="/ListingCategory8/:id"
               component={ListingCategory8}
             />
               {/* <ProtectedRoute
