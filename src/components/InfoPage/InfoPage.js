@@ -8,15 +8,15 @@ import {connect} from 'react-redux'
 class InfoPage extends Component {
   componentDidMount(){
 //  this.props.dispatch({type: 'FETCH_LISTING', payload: 3})
-// this.props.dispatch({type: 'FETCH_OFFER', payload: 1})
-this.props.dispatch({type:'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state})
+this.props.dispatch({type: 'FETCH_OFFER', payload: 3})
+// this.props.dispatch({type:'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state})
   }
 
 
 
 
   state={
-    id: 1,//this.props.reduxState.activeUser,
+    id: 3,//this.props.reduxState.activeUser,
     answers: {
       
         L7A: true
