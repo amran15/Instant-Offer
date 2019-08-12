@@ -51,7 +51,6 @@ class Signature extends Component {
     handleClickToSaveSignature = () => {
         //POST_SIGNATURE action goes to the sagas with a generator function sendSignatureToDatabase
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
-        this.trimSignature();
         swal({
             title: "Signature Saved!",
             text: "",
