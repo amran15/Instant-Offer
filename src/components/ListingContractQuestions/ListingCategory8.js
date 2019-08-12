@@ -33,7 +33,7 @@ class ListingCategory8 extends Component {
   }
 
     handleClickBack = () => {
-        this.props.history.push(`/ListingContract/${this.state.id}`)
+        this.props.history.push(`/ListingCategory7/${this.state.id}`)
     }
 
     handleSaveButton = () => {
