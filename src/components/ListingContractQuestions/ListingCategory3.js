@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-​
-​
+
+
 // Material UI
 // import Button from '@material-ui/core/Button';
 import { TextField, Checkbox, FormControlLabel, RadioGroup } from '@material-ui/core';
@@ -10,10 +10,10 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Radio from '@material-ui/core/Radio';
 import Grid from '@material-ui/core/Grid';
-​
-​
+
+
 class ListingCategory3 extends Component {
-​
+
   state = {
     id: this.props.match.params.id,
     answers: {
@@ -22,7 +22,7 @@ class ListingCategory3 extends Component {
       L73: (typeof this.props.listingAnswers.L73 === 'undefined') ? null : this.props.listingAnswers.L73,
     }
   }
-​
+
   handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state, 
@@ -31,17 +31,17 @@ class ListingCategory3 extends Component {
       }
     })
   }
-​
+
   handleClick = () => {
     this.props.history.push(`/ListingContract/${this.state.id}`)
   }
-​
+
   handleClickNext = () => {
     console.log("payload", this.state)
     this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
     this.props.history.push(`/ListingCategory4/${this.state.id}`)
   }
-​
+
   render() {
     return (
       <div>
@@ -112,6 +112,6 @@ class ListingCategory3 extends Component {
     )
   }
 }
-​
+
 const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory3));

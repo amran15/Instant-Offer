@@ -1,39 +1,51 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
-import createSagaMiddleware from 'redux-saga';
-import logger from 'redux-logger';
+import { all } from 'redux-saga/effects';
+import loginSaga from './loginSaga';
+import registrationSaga from './registrationSaga';
+import userSaga from './userSaga';
 
-import rootReducer from './redux/reducers'; // imports ./redux/reducers/index.js
-import rootSaga from './redux/sagas'; // imports ./redux/sagas/index.js
+import fetchListingAnswers from './fetchListingAnswers';
 
-import App from './components/App/App';
+import newListingContractForm from './newListingContractForm';
+import getListingDrafts from './fetchListingDrafts';
+import getListingSignedDocs from './fetchListingSignedDocs';
 
-const sagaMiddleware = createSagaMiddleware();
+import newPurchaseAgreementForm from './newPurchaseAgreementForm';
 
-// this line creates an array of all of redux middleware you want to use
-// we don't want a whole ton of console logs in our production code
-// logger will only be added to your project if your in development mode
-const middlewareList = process.env.NODE_ENV === 'development' ?
-  [sagaMiddleware, logger] :
-  [sagaMiddleware];
+import pdfListing from './pdfListing';
+import pdfOffer from './pdfOffer';
 
-const store = createStore(
-  // tells the saga middleware to use the rootReducer
-  // rootSaga contains all of our other reducers
-  rootReducer,
-  // adds all middleware to our project including saga and logger
-  applyMiddleware(...middlewareList),
-);
+import deleteListingAnswer from './deleteListingAnswer';
+import deletePurchaseAnswerSaga from './deletePurchaseAnswer';
+import putAnswers from './putAnswers';
+import thisRootSaga from './signSaga';
+import putAnswersOffer from './putAnswersOffer'
 
-// tells the saga middleware to use the rootSaga
-// rootSaga contains all of our other sagas
-sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('react-root'),
-);
+
+
+// rootSaga is the primary saga.
+// It bundles up all of the other sagas so our project can use them.
+// This is imported in index.js as rootSaga
+
+// some sagas trigger other sagas, as an example
+// the registration triggers a login
+// and login triggers setting the user
+export default function* rootSaga() {
+  yield all([
+    loginSaga(),
+    registrationSaga(),
+    userSaga(),
+    fetchListingAnswers(),
+    getListingDrafts(),
+    getListingSignedDocs(),
+    newListingContractForm(),
+    newPurchaseAgreementForm(),
+    pdfListing(),
+    pdfOffer(),
+    deleteListingAnswer(),
+    deletePurchaseAnswerSaga(),
+    putAnswers(),
+    thisRootSaga(),
+    putAnswersOffer(),
+  ]);
+}

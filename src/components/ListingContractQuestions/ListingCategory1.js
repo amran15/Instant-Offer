@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import axios from 'axios';
-​
+
 //Material UI
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { TextField, InputAdornment } from '@material-ui/core';
-​
+
 class ListingCategory1 extends Component {
   componentDidMount() {
     const listing_answer_id = this.props.match.params.id
@@ -16,7 +16,7 @@ class ListingCategory1 extends Component {
       { type: 'LISTING_ANSWERS', payload: listing_answer_id }
     )
   }
-​
+
   state = {
     id: this.props.match.params.id,
     answers: {
@@ -31,7 +31,7 @@ class ListingCategory1 extends Component {
       L13: (typeof this.props.listingAnswers.L13 === 'undefined') ? "" : this.props.listingAnswers.L13,    
     }
   }
-​
+
   handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state, 
@@ -40,17 +40,17 @@ class ListingCategory1 extends Component {
       }
     })
   }
-​
+
   handleClick = () => {
     this.props.history.push(`/ListingContract/${this.state.id}`)
   }
-​
+
   handleClickNext = () => {
     console.log("payload", this.state)
     this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
     this.props.history.push(`/ListingCategory2/${this.state.id}`)
   }
-​
+
   render() {
     return (
       <div>
@@ -186,7 +186,7 @@ class ListingCategory1 extends Component {
     )
   }
 }
-​
+
 const mapReduxStateToProps = reduxState => reduxState
-​
+
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory1));
