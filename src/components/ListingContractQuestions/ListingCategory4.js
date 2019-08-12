@@ -23,6 +23,19 @@ class ListingCategory4 extends Component {
         }
     }
 
+    autoFill = () => {
+        this.setState({
+            ...this.state,
+            answers: {
+                L115:  1000,
+                L118: 10,
+                L119: 500,
+                L121: 'Other things',
+                L131: 300,
+            }
+        })
+    }
+
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
             answers: {
@@ -48,7 +61,7 @@ class ListingCategory4 extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h2>Broker's Compensation</h2>
+                                <h2 onClick={this.autoFill}>Broker's Compensation</h2>
                             </center>
                             <h4>Broker's retainer fee</h4>
                             <TextField

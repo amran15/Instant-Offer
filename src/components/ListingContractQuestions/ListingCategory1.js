@@ -25,9 +25,28 @@ class ListingCategory1 extends Component {
     }
   }
 
+
+  autoFill = () => {
+    console.log('can we test this and make sure it works please')
+    this.setState ({
+      ...this.state,
+      answers: {
+        DATE: checkString(this.props.listingAnswers.DATE = '2019-08-12'),
+        L3: checkString(this.props.listingAnswers.L3 = '9200 olympia street Minneapolis, MN 55434'),
+        L4: checkString(this.props.listingAnswers.L4 = 'Lot 011 Block 011 lakeview terrace Heights'),
+        BUYER_1: checkString(this.props.listingAnswers.BUYER_1 = 'Nate Labatt'),
+        L7: checkString(this.props.listingAnswers.L7 = 'Lake sotheby interantional Reallty'),
+        L8A: checkString(this.props.listingAnswers.L8A = '2019-08-12'),
+        L8C: checkString(this.props.listingAnswers.L8C = '2020-08-12'),
+        L12: checkString(this.props.listingAnswers.L12 = 264900.00),
+        L13: checkString(this.props.listingAnswers.L13 = 'no additional terms'),
+      }
+    })
+  }
+
   handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
-      ...this.state, 
+      ...this.state,
       answers: {
         ...this.state.answers, [propertyName]: event.target.value,
       }
@@ -47,134 +66,134 @@ class ListingCategory1 extends Component {
   render() {
     return (
       <div>
-      <Container component="main">
-      <Grid container spacing={2}>
-      <Grid item xs={12}>
-      <center>
-      <h2>General Information</h2>
-      </center>
-      <Grid item xs={12}>
-      <h4>Today's Date</h4>
-      <TextField
-      id="start_date"
-      variant="outlined"
-      type="date"
-      value={this.state.answers.DATE}
-      onChange={this.handleChangeForInputs('DATE')}
-      />
-      </Grid>
-      <h4>Property Address <i>(street address, city, state, zip code)</i></h4>
-      <TextField
-      id="street_address"
-      fullWidth
-      variant="outlined"
-      value={this.state.answers.L3}
-      onChange={this.handleChangeForInputs('L3')}
-      />
-      </Grid>
-      <Grid item xs={12}>
-      <h4>Legal description of property</h4>
-      <TextField
-      id="legal_description"
-      fullWidth
-      variant="outlined"
-      value={this.state.answers.L4}
-      onChange={this.handleChangeForInputs('L4')}
-      />
-      </Grid>
-      <Grid item xs={12}>
-      <h4>Who is the Seller?</h4>
-      <TextField
-      id="seller_name"
-      fullWidth
-      variant="outlined"
-      value={this.state.answers.BUYER_1}
-      onChange={this.handleChangeForInputs('BUYER_1')}
-      />
-      </Grid>
-      <Grid item xs={12}>
-      <h4>Who is the Broker?</h4>
-      <TextField
-      id="broker_name"
-      fullWidth
-      variant="outlined"
-      value={this.state.answers.L7}
-      onChange={this.handleChangeForInputs('L7')}
-      />
-      </Grid>
-      <Grid item xs={12}>
-      <h4>Contract Start Date</h4>
-      <TextField
-      id="start_date"
-      variant="outlined"
-      type="date"
-      value={this.state.answers.L8A}
-      onChange={this.handleChangeForInputs('L8A')}
-      />
-      </Grid>
-      <Grid item xs={12}>
-      <h4>Contract End Date</h4>
-      <TextField
-      id="end_date"
-      variant="outlined"
-      type="date"
-      value={this.state.answers.L8C}
-      onChange={this.handleChangeForInputs('L8C')}
-      />
-      </Grid>
-      <Grid item xs={12}>
-      <h4>What is the property price?</h4>
-      <TextField
-      id="property_price"
-      fullWidth
-      variant="outlined"
-      InputProps={{
-        startAdornment: <InputAdornment position="start">$</InputAdornment>,
-      }}
-      value={this.state.answers.L12}
-      onChange={this.handleChangeForInputs('L12')}
-      />
-      </Grid>
-      <Grid item xs={12}>
-      <h4>Additional Terms</h4>
-      <TextField
-      id="following_terms"
-      fullWidth
-      variant="outlined"
-      value={this.state.answers.L13}
-      onChange={this.handleChangeForInputs('L13')}
-      />
-      </Grid>
-      </Grid>
-      </Container>
-      <br />
-      <br />
-      <Container component="main">
-      <Grid container spacing={2}>
-      <Grid item xs={6}>
-      <div align="left" className="Button">
-      <Button
-      variant="contained"
-      color="primary"
-      onClick={this.handleClick}
-      >
-      Back
+        <Container component="main">
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <center>
+                <h2 onClick={this.autoFill}>General Information</h2>
+              </center>
+              <Grid item xs={12}>
+                <h4>Today's Date</h4>
+                <TextField
+                  id="start_date"
+                  variant="outlined"
+                  type="date"
+                  value={this.state.answers.DATE}
+                  onChange={this.handleChangeForInputs('DATE')}
+                />
+              </Grid>
+              <h4>Property Address <i>(street address, city, state, zip code)</i></h4>
+              <TextField
+                id="street_address"
+                fullWidth
+                variant="outlined"
+                value={this.state.answers.L3}
+                onChange={this.handleChangeForInputs('L3')}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <h4>Legal description of property</h4>
+              <TextField
+                id="legal_description"
+                fullWidth
+                variant="outlined"
+                value={this.state.answers.L4}
+                onChange={this.handleChangeForInputs('L4')}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <h4>Who is the Seller?</h4>
+              <TextField
+                id="seller_name"
+                fullWidth
+                variant="outlined"
+                value={this.state.answers.BUYER_1}
+                onChange={this.handleChangeForInputs('BUYER_1')}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <h4>Who is the Broker?</h4>
+              <TextField
+                id="broker_name"
+                fullWidth
+                variant="outlined"
+                value={this.state.answers.L7}
+                onChange={this.handleChangeForInputs('L7')}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <h4>Contract Start Date</h4>
+              <TextField
+                id="start_date"
+                variant="outlined"
+                type="date"
+                value={this.state.answers.L8A}
+                onChange={this.handleChangeForInputs('L8A')}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <h4>Contract End Date</h4>
+              <TextField
+                id="end_date"
+                variant="outlined"
+                type="date"
+                value={this.state.answers.L8C}
+                onChange={this.handleChangeForInputs('L8C')}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <h4>What is the property price?</h4>
+              <TextField
+                id="property_price"
+                fullWidth
+                variant="outlined"
+                InputProps={{
+                  startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                }}
+                value={this.state.answers.L12}
+                onChange={this.handleChangeForInputs('L12')}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <h4>Additional Terms</h4>
+              <TextField
+                id="following_terms"
+                fullWidth
+                variant="outlined"
+                value={this.state.answers.L13}
+                onChange={this.handleChangeForInputs('L13')}
+              />
+            </Grid>
+          </Grid>
+        </Container>
+        <br />
+        <br />
+        <Container component="main">
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <div align="left" className="Button">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={this.handleClick}
+                >
+                  Back
       </Button>
-      </div>
-      </Grid>
-      <Grid item xs={6}>
-      <div align="right" className="Button">
-      <Button
-      variant="contained"
-      color="primary"
-      onClick={this.handleClickNext}
-      >
-      Next
+              </div>
+            </Grid>
+            <Grid item xs={6}>
+              <div align="right" className="Button">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={this.handleClickNext}
+                >
+                  Next
       </Button>
-      </div>
-      </Grid>
-      </Grid>
-      </Container>
+              </div>
+            </Grid>
+          </Grid>
+        </Container>
       </div>
     )
   }
