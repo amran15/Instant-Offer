@@ -53,8 +53,8 @@ class ListingCategory3 extends Component {
               <RadioGroup
                 value={this.state.answers.L72}
                 onChange={this.handleChangeForInputs('L72')}>
-                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                <FormControlLabel value='false' control={<Radio />} label="No" />
+                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
               </RadioGroup>
             </Grid>
             <h4>If yes, who is the listing broker?</h4>
@@ -72,8 +72,8 @@ class ListingCategory3 extends Component {
               <RadioGroup
                 value={this.state.answers.L73}
                 onChange={this.handleChangeForInputs('L73')}>
-                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                <FormControlLabel value='false' control={<Radio />} label="No" />
+                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
               </RadioGroup>
             </Grid>
           </Grid>

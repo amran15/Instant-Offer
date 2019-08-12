@@ -50,15 +50,15 @@ class ListingCategory6 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L163}
                                 onChange={this.handleChangeForInputs('L163')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                             <h4>Seller shall arrange for a qualified closing agent or Seller's attorney to conduct the closing?</h4>
                             <RadioGroup
                                 value={this.state.answers.L164}
                                 onChange={this.handleChangeForInputs('L164')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                         <br />
