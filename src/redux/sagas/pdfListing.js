@@ -19,13 +19,18 @@ function* fetchListing(action) {
     console.log(answers.data[0].id)//
     const answer = answers.data[0]
     let doc = new jsPDF()
+    doc.setFontSize(11); 
+    
+    // pdf.setFont("helvetica");
+    // pdf.setFontType("");
+    // pdf.setFontSize(9);
 
     // --------------------------------------------------------------------------------------
     //                              page # 1
     // ------------------------------------------------------------------------------------------
     doc.addImage(response.data[0].PAGE_1, 'JPEG', 0, 0, 210, 297)
     // doc.text(`${answer.id}`, 10,10)
-    if (answer.DATE) doc.text(`${answer.DATE}`, 130, 39)
+    if (answer.DATE) doc.text(`${answer.DATE}`, 125, 39)
     doc.text(`7`, 136, 45)
     if (answer.L3) { doc.text(`${answer.L3}`, 117, 52) }
     if (answer.L4) { doc.text(`${answer.L4}`, 52, 59) }
@@ -161,6 +166,7 @@ function* fetchListing(action) {
     doc.addImage(`${answer.SIGNATURE_BUYER_1}`, 15, 233, 19, 19) // 15,233,18,18
     if (answer.DATE) doc.text(`${answer.DATE}`, 70, 247)  //proper coordinant is 70, 247
     doc.save('a4.pdf')
+    // .setFontSize(10);
   } catch (error) {
     console.log('pdfListing listing failed', error);
   }
