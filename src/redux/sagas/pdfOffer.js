@@ -25,16 +25,20 @@ function* fetchOffer(action) {
     // ------------------------------------------------------------------------------------------
     
     doc.addImage(response.data[0].PAGE_1, 'JPEG',0,0,210,297)
-    if(answer.id)doc.text(`${answers.id}`, 10,10)
-    if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
-    if(answer.BUYER_1)doc.text(`${answers.BUYER_1}`, 10,10)
-    if(answer.L6A)doc.text(`${answers.L6A}`, 10,10)
-    if(answer.L6B)doc.text(`${answers.L6B}`, 10,10)
-    if(answer.L7A)doc.text(`X`, 10,10)
-    if(answer.L7B)doc.text(`${answers.L7B}`, 10,10)
-    if(answer.L12)doc.text(`${answers.L12}`, 10,10)
-    if(answer.L14)doc.text(`${answers.L14}`, 10,10)
-    if(answer.L29)doc.text(`${answers.L29}`, 10,10)
+    if(answer.id)doc.text(`${answers.id}`, 10,10,)
+    if(answer.DATE)doc.text(`${answers.DATE}`, 132,33)//132, 33
+    if(answer.BUYER_1)doc.text(`${answers.BUYER_1}`, 40,46)//40, 46
+    if(answer.L6A)doc.text(`${answers.L6A}`, 30,66)//40, 53 number 6 on the pdf page
+    if(answer.L6B)doc.text(`${answers.L6B}`, 145,66) //dollar amount on number 6
+    if(answer.L7A)doc.text('X', 105,32) // if(answer.L7A)doc.text(`X`, 135,42) /// does this line exist? i don't see it on the DOM/PDF 
+    if(answer.L7B)doc.text(`${answers.L7B}`, 110,72) //110, 72
+    if(answer.L12)doc.text(`${answers.L12}`, 45,102) //
+    if(answer.L13A)doc.text(`${answers.L13A}`, 42,108)
+    if(answer.L13B)doc.text(`${answers.L13B}`, 127,108)
+    if(answer.L14)doc.text(`${answers.L14}`, 35,118)
+    // if(answer.L29)doc.text(`${answers.L29}`, 127,108)
+
+
     if(answer.L32)doc.text(`${answers.L32}`, 10,10)
     if(answer.L34)doc.text(`${answers.L34}`, 10,10)
     if(answer.L35)doc.text(`${answers.L35}`, 10,10)
@@ -240,7 +244,7 @@ function* fetchOffer(action) {
     if(answer.L12)doc.text(`${answers.L12}`, 10,10)
     if(answer.L403)doc.text(`X`, 10,10)
     if(answer.L404)doc.text(`X`, 10,10)
-    if(answer.SIGNATURE_BUYER_1)doc.text(`${SIGNATURE_BUYER_1}`, 10,10)
+    if(answer.SIGNATURE_BUYER_1)doc.text(`${answer.SIGNATURE_BUYER_1}`, 10,10)
     if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
 
     // -----------------------------------------------------------------------------------------
