@@ -12,13 +12,17 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory7 extends Component {
+
+
+
     handleClick = () => {
-        this.props.history.push('/PurchaseAgreement')
+        this.props.history.push(`/PurchaseCategory6/${this.state.id}`)
     }
 
     handleClickNext = () => {
-        this.props.history.push('/PurchaseCategory8')
+        this.props.history.push(`/PurchaseCategory8/${this.state.id}`)
     }
+
 
     render() {
         return (
@@ -31,84 +35,67 @@ class PurchaseCategory7 extends Component {
                             </center>
                             <h4>Please check one.</h4>
                             <Grid item xs={12}>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="This Purchase Agreement is subject to an Addendum to Purchase Agreement: Sale of Buyer's Property Contingency for the sale of Buyer's property. (If checked, see attached Addendum."
-                            />
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            value="checkedB"
+                                            color="primary"
+                                        />}
+                                    label="This Purchase Agreement is subject to an Addendum to Purchase Agreement: Sale of Buyer's Property Contingency for the sale of Buyer's property. (If checked, see attached Addendum."
+                                />
                             </Grid>
-                            <br/>
+                            <br />
                             <Grid item xs={12}>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="This Purchase Agreement is contingent upon the succesful closing on the Buyer's property."
-                            />
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            value="checkedB"
+                                            color="primary"
+                                        />}
+                                    label="This Purchase Agreement is contingent upon the succesful closing on the Buyer's property."
+                                />
                             </Grid>
-                            <br/>
+                            <br />
                             <Grid item xs={12}>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="Buyer represents that Buyer has the financial ability to perform on this Purchase Agreement without the sale and closing on any other property."
-                            />
-                        </Grid>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            value="checkedB"
+                                            color="primary"
+                                        />}
+                                    label="Buyer represents that Buyer has the financial ability to perform on this Purchase Agreement without the sale and closing on any other property."
+                                />
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Container>
                 <br />
                 <Container component="main">
-                            <Grid container spacing={3}>
-                                <Grid item xs={4}>
-                                    <div align="left" className="Button">
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            onClick={this.handleClick}
-                                        >
-                                            Back
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
+                            <div align="left" className="Button">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleClick}
+                                >
+                                    Back
                                         </Button>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <div align="center" className="Button">
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            onClick={this.handleClick}
-                                        >
-                                            Save
+                            </div>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <div align="right" className="Button">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleClickNext}
+                                >
+                                    Next
                                         </Button>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <div align="right" className="Button">
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            onClick={this.handleClickNext}
-                                        >
-                                            Next
-                                        </Button>
-                                    </div>
-                                </Grid>
-                            </Grid>
-                        </Container>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </Container>
             </div>
         )
     }

@@ -35,6 +35,7 @@ class PurchaseCategory5 extends Component {
 
     handleChangeForCheckbox = (propertyName) => (event) => {
         this.setState({
+            ...this.state,
             answers: {
                 ...this.state.answers, [propertyName]: true,
             }
@@ -50,7 +51,7 @@ class PurchaseCategory5 extends Component {
     }
 
     handleClick = () => {
-        this.props.history.push(`/PurchaseAgreement/${this.state.id}`)
+        this.props.history.push(`/PurchaseCategory4/${this.state.id}`)
     }
 
     handleClickNext = () => {
@@ -123,8 +124,8 @@ class PurchaseCategory5 extends Component {
                     <br />
                     <br />
                     <Container component="main">
-                        <Grid container spacing={3}>
-                            <Grid item xs={4}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={6}>
                                 <div align="left" className="Button">
                                     <Button
                                         variant="contained"
@@ -135,7 +136,7 @@ class PurchaseCategory5 extends Component {
                                         </Button>
                                 </div>
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid item xs={6}>
                                 <div align="right" className="Button">
                                     <Button
                                         variant="contained"
