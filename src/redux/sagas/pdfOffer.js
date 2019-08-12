@@ -31,21 +31,22 @@ function* fetchOffer(action) {
     if(answer.L6A)doc.text(`${answer.L6A}`, 30,66)//40, 53 number 6 on the pdf page
     if(answer.L6B)doc.text(`${answer.L6B}`, 145,66) //dollar amount on number 6
     if(answer.L7A)doc.text('X', 105,32) // if(answer.L7A)doc.text(`X`, 135,42) /// does this line exist? i don't see it on the DOM/PDF 
-    if(answer.L7B)doc.text(`${answer.L7B}`, 110,72) //110, 72
-    if(answer.L12)doc.text(`${answer.L12}`, 45,102) //
-    if(answer.L13A)doc.text(`${answer.L13A}`, 42,108)
-    if(answer.L13B)doc.text(`${answer.L13B}`, 127,108)
-    if(answer.L14)doc.text(`${answer.L14}`, 35,118)
-    // if(answer.L29)doc.text(`${answers.L29}`, 127,108)
 
-
-    if(answer.L32)doc.text(`${answer.L32}`, 10,10)
-    if(answer.L34)doc.text(`${answer.L34}`, 10,10)
-    if(answer.L35)doc.text(`${answer.L35}`, 10,10)
-    if(answer.L39)doc.text(`${answer.L39}`, 10,10)
-    if(answer.L40)doc.text(`${answer.L40}`, 10,10)
-    if(answer.L41)doc.text(`${answer.L41}`, 10,10)
-    if(answer.L45)doc.text(`${answer.L45}`, 10,10)
+    if(answer.L7B)doc.text(`${answers.L7B}`, 110,72) //110, 72
+    if(answer.L12)doc.text(`${answers.L12}`, 45,102) //
+    if(answer.L13A)doc.text(`${answers.L13A}`, 42,118) // can't locate A and B on the PDF even after making sure they're in the database
+    if(answer.L13B)doc.text(`${answers.L13B}`, 127,118)
+    if(answer.L14)doc.text(`${answers.L14}`, 90,115.5)
+    if(answer.L29)doc.text(`${answers.L29}`, 70,108)
+    if(answer.L32)doc.text(`${answers.L32}`, 40,200.5)
+    if(answer.L34)doc.text(`${answers.L34}`, 119,212.5)
+    if(answer.L35)doc.text(`${answers.L35}`, 22.5,219.5)
+    if(answer.L37)doc.text(`${answers.L37}`, 26,230)
+    if(answer.L39)doc.text(`${answers.L39}`, 26,240.5)
+    if(answer.L40)doc.text(`${answers.L40}`, 26,247)
+    if(answer.L41)doc.text(`${answers.L41}`, 26,258)///this should have been named differently-L42 
+    if(answer.L45)doc.text(`${answers.L45}`, 67,277)
+    // if(answer.L45)doc.text(`${answers.L45}`, 10,10) shouldn't there be a 45B as well for the date?
     // -----------------------------------------------------------------------------------------
     //                              page # 2
     // -----------------------------------------------------------------------------------------
