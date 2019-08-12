@@ -99,6 +99,7 @@ class ListingCategory4 extends Component {
                                 id="days"
                                 fullWidth
                                 variant="outlined"
+                                value={this.state.answers.L131}
                                 onChange={this.handleChangeForInputs('L131')}
                             />
                         </Grid>
