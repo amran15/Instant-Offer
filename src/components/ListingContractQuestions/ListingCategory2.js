@@ -48,8 +48,8 @@ class ListingCategory2 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L41}
                                 onChange={this.handleChangeForInputs('L41')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
@@ -57,8 +57,8 @@ class ListingCategory2 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L54}
                                 onChange={this.handleChangeForInputs('L54')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
@@ -66,8 +66,8 @@ class ListingCategory2 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L63}
                                 onChange={this.handleChangeForInputs('L63')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
@@ -75,8 +75,8 @@ class ListingCategory2 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L71}
                                 onChange={this.handleChangeForInputs('L71')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                     </Grid>

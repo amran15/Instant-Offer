@@ -56,8 +56,8 @@ class ListingCategory5 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L146}
                                 onChange={this.handleChangeForInputs('146')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                             <h4>If yes, the compensation to cooperating shall be as follows:</h4>
                             <h4>Percent of gross sales price for cooperating brokers representing buyer.</h4>
