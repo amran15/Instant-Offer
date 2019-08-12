@@ -32,7 +32,6 @@ class SignedDocuments extends Component {
         this.setState({
             listing: true,
         });
-        this.props.dispatch({ type: 'FETCH_LISTING', payload:this.props.reduxState.activeUserReducer.id})
     }
 
     handleClickPurchase = () => {

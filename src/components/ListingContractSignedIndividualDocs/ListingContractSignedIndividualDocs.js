@@ -22,6 +22,10 @@ class ListingContractSignedIndividualDocs extends Component {
         });
       }
 
+      handleClick = (id) => {
+        this.props.dispatch({ type: 'FETCH_LISTING', payload: id})
+      }
+
     render() {
         return (
             <div>
@@ -29,7 +33,7 @@ class ListingContractSignedIndividualDocs extends Component {
                 {this.props.listingSignedDocs.map(signed => (
                     <div>
                 <CardActionArea>
-                    <Card>
+                    <Card onClick={() => { this.handleClick(signed.id) }}>
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={11}>
                                 <div style={styles.title}>
