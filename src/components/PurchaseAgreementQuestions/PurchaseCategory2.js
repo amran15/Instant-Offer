@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { checkString } from '../helpers/valueCheckerHelpers';
 
 //Material UI
 import Button from '@material-ui/core/Button';
@@ -13,12 +14,12 @@ class PurchaseCategory2 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L34: (typeof this.props.purchaseAnswers.L34 === 'undefined') ? null : this.props.purchaseAnswers.L34,
-            L35: (typeof this.props.purchaseAnswers.L35 === 'undefined') ? null : this.props.purchaseAnswers.L35,
-            L37: (typeof this.props.purchaseAnswers.L37 === 'undefined') ? null : this.props.purchaseAnswers.L37,
-            L39: (typeof this.props.purchaseAnswers.L39 === 'undefined') ? null : this.props.purchaseAnswers.L39,
-            L40: (typeof this.props.purchaseAnswers.L40 === 'undefined') ? null : this.props.purchaseAnswers.L40,
-            L42: (typeof this.props.purchaseAnswers.L42 === 'undefined') ? null : this.props.purchaseAnswers.L42,
+            L34: checkString(this.props.purchaseAnswers.L34),
+            L35: checkString(this.props.purchaseAnswers.L35),
+            L37: checkString(this.props.purchaseAnswers.L37),
+            L39: checkString(this.props.purchaseAnswers.L39),
+            L40: checkString(this.props.purchaseAnswers.L40),
+            L42: checkString(this.props.purchaseAnswers.L42),
         }
     }
 
@@ -39,6 +40,7 @@ class PurchaseCategory2 extends Component {
 
 
     handleClickNext = () => {
+        this.props.dispatch({ type: 'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state })
         this.props.history.push(`/PurchaseCategory3/${this.state.id}`)
     }
 
@@ -59,7 +61,7 @@ class PurchaseCategory2 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                value={this.props.purchaseAnswers.L34}
+                                value={this.state.answers.L34}
                                 onChange={this.hanldleChangeForPurchasePrice('L34')}
                             />
                         </Grid>
@@ -68,7 +70,7 @@ class PurchaseCategory2 extends Component {
                                 id="dollars"
                                 fullWidth
                                 variant="outlined"
-                                value={this.props.purchaseAnswers.L35}
+                                value={this.state.answers.L35}
                                 onChange={this.hanldleChangeForPurchasePrice('L35')}
                             />
                         </Grid>
@@ -82,7 +84,7 @@ class PurchaseCategory2 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
-                                value={this.props.purchaseAnswers.L37}
+                                value={this.state.answers.L37}
                                 onChange={this.hanldleChangeForPurchasePrice('L37')}
                             />
                             <h4>Sale price in MORTGAGE FINANCING</h4>
@@ -93,7 +95,7 @@ class PurchaseCategory2 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
-                                value={this.props.purchaseAnswers.L39}
+                                value={this.state.answers.L39}
                                 onChange={this.hanldleChangeForPurchasePrice('L39')}
                             />
                             <h4>Sale price by ASSUMING Seller's current mortgage</h4>
@@ -104,7 +106,7 @@ class PurchaseCategory2 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
-                                value={this.props.purchaseAnswers.L40}
+                                value={this.state.answers.L40}
                                 onChange={this.hanldleChangeForPurchasePrice('L40')}
                             />
                             <h4>Sale price by CONTRACT FOR DEED</h4>
@@ -115,7 +117,7 @@ class PurchaseCategory2 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
-                                value={this.props.purchaseAnswers.L42}
+                                value={this.state.answers.L42}
                                 onChange={this.hanldleChangeForPurchasePrice('L42')}
                             />
                         </Grid>
