@@ -113,46 +113,168 @@ function* fetchOffer(action) {
     // ------------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_5, 'JPEG',0,0,210,297)
+    if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
+    if(answer.L12)doc.text(`${answers.L12}`, 10,10)
+    if(answer.L192)doc.text(`${answers.L192}`, 10,10)
+    if(answer.L198)doc.text(`X`, 10,10)
+    if(answer.L201)doc.text(`X`, 10,10)
+    if(answer.L12)doc.text(`${answers.L12}`, 10,10)
+    if(answer.L210)doc.text(`X`, 10,10)
+
+    // NEED TO LOOK INTO L215 AND L217
+    // L215
+    if(answer.L215A)doc.text(`X`, 10,10)
+    if(answer.L215B)doc.text(`X`, 10,10)
+    if(answer.L215C)doc.text(`X`, 10,10)
+    if(answer.L215D)doc.text(`X`, 10,10)
+    if(answer.L215E)doc.text(`${answers.L215E}`, 10,10)
+    // L217
+    if(answer.L217A)doc.text(`X`, 10,10)
+    if(answer.L217B)doc.text(`X`, 10,10)
+    if(answer.L217C)doc.text(`X`, 10,10)
+    if(answer.L217D)doc.text(`X`, 10,10)
+    if(answer.L217E)doc.text(`${answers.L217E}`, 10,10)
+
+    // L219
+    answer.L219  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
     // -----------------------------------------------------------------------------------------
     //                              page # 6
     // ------------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_6, 'JPEG',0,0,210,297)
+    if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
+    if(answer.L12)doc.text(`${answers.L12}`, 10,10)
+    // l226
+    answer.l226  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    // L228
+    answer.L228  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    // L231
+    answer.L231  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    // L233
+    answer.L233  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    // L239
+    answer.L239  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    // L250
+    answer.L250  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+
+    if(answer.L251)doc.text(`${answers.L251}`, 10,10)
+    if(answer.L252)doc.text(`${answers.L252}`, 10,10)
+
+    if(answer.L257A)doc.text(`X`, 10,10)
+    if(answer.L257B)doc.text(`X`, 10,10)
+    if(answer.L257C)doc.text(`X`, 10,10)
+    if(answer.L257D)doc.text(`X`, 10,10)
+
+    if(answer.L258A)doc.text(`X`, 10,10)
+    if(answer.L258B)doc.text(`${answers.L258B}`, 10,10)
+
+    if(answer.L264)doc.text(`${answers.L264}`, 10,10)
+
+    if(answer.L266)doc.text(`${answers.L266}`, 10,10)
+
     // -----------------------------------------------------------------------------------------
     //                              page # 7
     // ------------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_7, 'JPEG',0,0,210,297)
+    if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
+    if(answer.L12)doc.text(`${answers.L12}`, 10,10)
+    if(answer.L270)doc.text(`X`, 10,10)
+    if(answer.L271)doc.text(`X`, 10,10)
+
     // -----------------------------------------------------------------------------------------
     //                              page # 8
     // ------------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_8, 'JPEG',0,0,210,297)
+    if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
+    if(answer.L12)doc.text(`${answers.L12}`, 10,10)
+    if(answer.L359)doc.text(`X`, 10,10)
+    if(answer.L360)doc.text(`X`, 10,10)
     // -----------------------------------------------------------------------------------------
     //                              page # 9
     // ------------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_9, 'JPEG',0,0,210,297)
+    if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
+    if(answer.L12)doc.text(`${answers.L12}`, 10,10)
+
+    // L371 A
+    answer.L371A  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    // L371 B
+    answer.L371B  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    // L373 
+    answer.L373  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    // L377
+    answer.L377  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    // L379
+    answer.L379  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    
+    if(answer.L388A)doc.text(`X`, 10,10)
+    // L388 B
+    answer.L388B  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    // L389 
+    answer.L389  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+
+    if(answer.L391)doc.text(`X`, 10,10)
+
+    if(answer.L394)doc.text(`${answer.L394}`, 10,10)
+    if(answer.L394)doc.text(`X`, 10,10)
+    if(answer.L394)doc.text(`X`, 10,10)
+    if(answer.L394)doc.text(`X`, 10,10)
+    if(answer.L394)doc.text(`X`, 10,10)
+    if(answer.COMPANY_1)doc.text(`${answer.COMPANY_1}`, 10,10)
+
+    if(answer.L396)doc.text(`${answer.L396}`, 10,10)
+    if(answer.L396)doc.text(`X`, 10,10)
+    if(answer.L396)doc.text(`X`, 10,10)
+    if(answer.L396)doc.text(`X`, 10,10)
+    if(answer.L396)doc.text(`X`, 10,10)
+    if(answer.COMPANY_2)doc.text(`${answer.COMPANY_2}`, 10,10)
     // -----------------------------------------------------------------------------------------
     //                              page # 10
     // ------------------------------------------------------------------------------------------    
     doc.addPage()
     doc.addImage(response.data[0].PAGE_10, 'JPEG',0,0,210,297)
+    if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
+    if(answer.L12)doc.text(`${answers.L12}`, 10,10)
+    if(answer.L403)doc.text(`X`, 10,10)
+    if(answer.L404)doc.text(`X`, 10,10)
+    if(answer.SIGNATURE_BUYER_1)doc.text(`${SIGNATURE_BUYER_1}`, 10,10)
+    if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
+
     // -----------------------------------------------------------------------------------------
     //                              page # 11
     // ------------------------------------------------------------------------------------------ 
     doc.addPage()
     doc.addImage(response.data[0].PAGE_11, 'JPEG',0,0,210,297)
+    if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
+    if(answer.L12)doc.text(`${answers.L12}`, 10,10)
+    if(answer.L454)doc.text(`${answers.L454}`, 10,10)
+
     // -----------------------------------------------------------------------------------------
     //                              page # 12
     // ------------------------------------------------------------------------------------------ 
     doc.addPage()
     doc.addImage(response.data[0].PAGE_12, 'JPEG',0,0,210,297)
+    if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
+    if(answer.L12)doc.text(`${answers.L12}`, 10,10)
+    if(answer.L490)doc.text(`${answers.L490}`, 10,10)
+    if(answer.L494)doc.text(`${answers.L494}`, 10,10)
+    if(answer.SIGNATURE_BUYER_1)doc.text(`${answers.SIGNATURE_BUYER_1}`, 10,10)
+    if(answer.BUYER_1)doc.text(`${answers.BUYER_1}`, 10,10)
+    if(answer.SIGNATURE_BUYER_1)doc.text(`${answers.SIGNATURE_BUYER_1}`, 10,10)
+
+
+
     // -----------------------------------------------------------------------------------------
     //                              page # 13
     // ------------------------------------------------------------------------------------------ 
     doc.addPage()
     doc.addImage(response.data[0].PAGE_13, 'JPEG',0,0,210,297)
+    if(answer.SIGNATURE_BUYER_1)doc.text(`${answers.SIGNATURE_BUYER_1}`, 10,10)
+    if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
+
 
     doc.save('a4.pdf')
 
