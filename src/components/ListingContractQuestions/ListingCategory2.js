@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-​
-​
+
 //Material UI       
 import { FormControlLabel, RadioGroup, Radio, Button, Container, Grid } from '@material-ui/core';
-​
+
 class ListingCategory2 extends Component {
     state = {
         id: this.props.match.params.id,
@@ -16,7 +15,7 @@ class ListingCategory2 extends Component {
         L71: (typeof this.props.listingAnswers.L71 === 'undefined') ? null : this.props.listingAnswers.L71,
         }
     }
-​
+
   handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state, 
@@ -25,17 +24,17 @@ class ListingCategory2 extends Component {
       }
     })
   }
-​
+
     handleClick = () => {
         this.props.history.push(`/ListingContract/${this.state.id}`)
     }
-​
+
     handleClickNext = () => {
         console.log("payload", this.state)
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push(`/ListingCategory3/${this.state.id}`)
     }
-​
+
     render() {
         return (
             <div>
@@ -114,6 +113,6 @@ class ListingCategory2 extends Component {
         )
     }
 }
-​
+
 const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory2));

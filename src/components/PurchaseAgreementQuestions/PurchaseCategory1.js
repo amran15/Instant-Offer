@@ -11,22 +11,29 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory1 extends Component {
+    
+    componentDidMount() {
+    const purchase_answer_id = this.props.match.params.id
+    this.props.dispatch(
+        { type: 'PURCHASE_ANSWERS', payload: purchase_answer_id }
+    )
+}
 
     state = {
-        // id:this.props.reduxState.activeUser.id,
+        id: this.props.match.params.id,
         answers: {
-            date:'',
-            buyerName:'',
-            earnestMoney:'',
-            earnestMoneyValue:'',
-            earnestChecked:'',
-            businessName:'',
-            streetAddress:'',
-            city:'',
-            county:'',
-            legalDescription:'',
-            builtIns:'',
-            excludedItems:'',
+            DATE: (typeof this.props.purchaseAnswers.DATE === 'undefined') ? null : this.props.purchaseAnswers.DATE,
+            L3: (typeof this.props.purchaseAnswers.L3 === 'undefined') ? null : this.props.purchaseAnswers.L3,
+            L6A: (typeof this.props.purchaseAnswers.L6A === 'undefined') ? null : this.props.purchaseAnswers.L6A,
+            L6B: (typeof this.props.purchaseAnswers.L6B === 'undefined') ? null : this.props.purchaseAnswers.L6B,
+            L7A: (typeof this.props.purchaseAnswers.L7A === 'undefined') ? null : this.props.purchaseAnswers.L7A,
+            L7B: (typeof this.props.purchaseAnswers.L7B === 'undefined') ? null : this.props.purchaseAnswers.L7B,
+            L12: (typeof this.props.purchaseAnswers.L12 === 'undefined') ? null : this.props.purchaseAnswers.L12,
+            L13A: (typeof this.props.purchaseAnswers.L13A === 'undefined') ? null : this.props.purchaseAnswers.L13A,
+            L13B: (typeof this.props.purchaseAnswers.L13B === 'undefined') ? null : this.props.purchaseAnswers.L13B,
+            L14: (typeof this.props.purchaseAnswers.L14 === 'undefined') ? null : this.props.purchaseAnswers.L14,
+            L29: (typeof this.props.purchaseAnswers.L29 === 'undefined') ? null : this.props.purchaseAnswers.L29,
+            L32: (typeof this.props.purchaseAnswers.L32 === 'undefined') ? null : this.props.purchaseAnswers.L32,
         }
     }
 
@@ -46,11 +53,6 @@ class PurchaseCategory1 extends Component {
         this.props.history.push('/PurchaseAgreement')
     }
 
-    handleClickToSave = () => {
-        this.props.dispatch({type:'POST_GENERAL_INFORMATION', payload:this.state.generalInformation})
-        this.props.history.push('/PurchaseCategory2')
-    }
-
     handleClickNext = () => {
         this.props.history.push('/PurchaseCategory2')
     }
@@ -58,6 +60,7 @@ class PurchaseCategory1 extends Component {
     render() {
         return (
             <div>
+                <pre>{JSON.stringify(this.state, null, 2)}</pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -69,70 +72,58 @@ class PurchaseCategory1 extends Component {
                                 id="date"
                                 variant="outlined"
                                 type="date"
-                                value={this.state.date}
-                                onChange={this.handleChangeForGeneralInformation('date')}
+                                value={this.props.purchaseAnswers.DATE}
+                                onChange={this.handleChangeForGeneralInformation('DATE')}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Buyer's Name</h4>
                             <TextField
-                                // label="Song Title"
                                 id="buyers_name"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.buyerName}
-                                onChange={this.handleChangeForGeneralInformation('buyerName')}
+                                value={this.props.purchaseAnswers.L3}
+                                onChange={this.handleChangeForGeneralInformation('L3')}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Buyer's earnest money in the amount of</h4>
                             <TextField
-                                // label="Song Title"
                                 id="buyers_earnest_money"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.earnestMoney}
-                                onChange={this.handleChangeForGeneralInformation('earnestMoney')}
+                                value={this.props.purchaseAnswers.L6A}
+                                onChange={this.handleChangeForGeneralInformation('L6A')}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
                                 id="buyers_earnest_money"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                value={this.state.earnestMoneyValue}
-                                onChange={this.handleChangeForGeneralInformation('earnestMoneyValue')}
+                                value={this.props.purchaseAnswers.L6B}
+                                onChange={this.handleChangeForGeneralInformation('L6B')}
                             />
                             <h4>shall be delivered to listing broker, or if checked, to</h4>
                             <Grid container spacing={2}>
                                 <Grid item xs={2}>
                                     <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
                                         value="checkedB"
                                         color="primary"
-                                        value={this.state.earnestChecked}
-                                        onChange={this.handleChangeForGeneralInformation('earnestChecked')}
+                                        value={this.props.purchaseAnswers.L7A}
+                                        onChange={this.handleChangeForGeneralInformation('L7A')}
                                     />
                                 </Grid>
                                 <Grid item xs={10}>
                                     <TextField
                                         id="brokers_name"
-                                        // value={this.state.song_title}
-                                        // onChange={this.handleInputChangeFor('song_title')}
                                         fullWidth
                                         variant="outlined"
-                                        value={this.state.businessName}
-                                        onChange={this.handleChangeForGeneralInformation('businessName')}
+                                        value={this.props.purchaseAnswers.L7B}
+                                        onChange={this.handleChangeForGeneralInformation('L7B')}
                                     />
                                 </Grid>
                             </Grid>
@@ -143,64 +134,60 @@ class PurchaseCategory1 extends Component {
                             <TextField
                                 id="street_address"
                                 label="Street Address"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.streetAddress}
-                                onChange={this.handleChangeForGeneralInformation('streetAddress')}
+                                value={this.props.purchaseAnswers.L12}
+                                onChange={this.handleChangeForGeneralInformation('L12')}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
                                 label="City"
                                 id="city"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.city}
-                                onChange={this.handleChangeForGeneralInformation('city')}
+                                value={this.props.purchaseAnswers.L13A}
+                                onChange={this.handleChangeForGeneralInformation('L13A')}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
                                 label="County"
                                 id="county"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
+                                value={this.props.purchaseAnswers.L13B}
+                                onChange={this.handleChangeForGeneralInformation('L13B')}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Legal description of property</h4>
                             <TextField
                                 id="legal_description"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
+                                value={this.props.purchaseAnswers.L14}
+                                onChange={this.handleChangeForGeneralInformation('L14')}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Built-Ins and the following personal property shall be transferred with no additional monetary value, and free and clear of all liens and encumbrances:</h4>
                             <TextField
                                 id="built_ins"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
+                                value={this.props.purchaseAnswers.L29}
+                                onChange={this.handleChangeForGeneralInformation('L29')}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <h4>The following item(s) are excluded from the purchase:</h4>
                             <TextField
                                 id="excluded_items"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
+                                value={this.props.purchaseAnswers.L32}
+                                onChange={this.handleChangeForGeneralInformation('L32')}
                             />
                         </Grid>
                     </Grid>
@@ -208,8 +195,8 @@ class PurchaseCategory1 extends Component {
                 <br />
                 <br />
                 <Container component="main">
-                    <Grid container spacing={3}>
-                        <Grid item xs={4}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
                             <div align="left" className="Button">
                                 <Button
                                     variant="contained"
@@ -220,19 +207,7 @@ class PurchaseCategory1 extends Component {
                 </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={4}>
-                            <div align="center" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleClickToSave}
-                                >
-                                    Save
-                </Button>
-
-                            </div>
-                        </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={6}>
                             <div align="right" className="Button">
                                 <Button
                                     variant="contained"

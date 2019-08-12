@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-​
+
 //Material UI
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { TextField, Radio, RadioGroup } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
-​
+
 class ListingCategory6 extends Component {
     state = {
         id: this.props.match.params.id,
@@ -18,28 +18,25 @@ class ListingCategory6 extends Component {
             L165A: (typeof this.props.listingAnswers.L165A === 'undefined') ? "" : this.props.listingAnswers.L165A,
         }
     }
-​
-​
-  handleChangeForInputs = (propertyName) => (event) => {
-    this.setState({
-      ...this.state, 
-      answers: {
-        ...this.state.answers, [propertyName]: event.target.value,
-      }
-    })
-  }
-​
+    handleChangeForInputs = (propertyName) => (event) => {
+        this.setState({
+            ...this.state,
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value,
+            }
+        })
+    }
     handleClick = () => {
         this.props.history.push(`/ListingContract/${this.state.id}`)
     }
-​
+
     handleClickNext = () => {
         console.log("payload", this.state)
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push(`/ListingCategory7/${this.state.id}`)
     }
-​
-​
+
+
     render() {
         return (
             <div>
@@ -109,6 +106,6 @@ class ListingCategory6 extends Component {
         )
     }
 }
-​
+
 const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory6));
