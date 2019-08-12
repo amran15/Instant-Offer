@@ -32,12 +32,14 @@ class ListingCategory1 extends Component {
     }
   }
 ​
-  handleChangeForGeneralInfo = (propertyName) => (event) => {
+  handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
-      ...this.state, [propertyName]: event.target.value,
+      ...this.state, 
+      answers: {
+        ...this.state.answers, [propertyName]: event.target.value,
+      }
     })
   }
-​
 ​
   handleClick = () => {
     this.props.history.push(`/ListingContract/${this.state.id}`)
@@ -64,8 +66,8 @@ class ListingCategory1 extends Component {
       id="start_date"
       variant="outlined"
       type="date"
-      value={this.props.listingAnswers.DATE}
-      onChange={this.handleChangeForGeneralInfo('DATE')}
+      value={this.state.answers.DATE}
+      onChange={this.handleChangeForInputs('DATE')}
       />
       </Grid>
       <h4>Property Address <i>(street address, city, state, zip code)</i></h4>
@@ -73,8 +75,8 @@ class ListingCategory1 extends Component {
       id="street_address"
       fullWidth
       variant="outlined"
-      value={this.props.listingAnswers.L3}
-      onChange={this.handleChangeForGeneralInfo('L3')}
+      value={this.state.answers.L3}
+      onChange={this.handleChangeForInputs('L3')}
       />
       </Grid>
       <Grid item xs={12}>
@@ -83,8 +85,8 @@ class ListingCategory1 extends Component {
       id="legal_description"
       fullWidth
       variant="outlined"
-      value={this.props.listingAnswers.L4}
-      onChange={this.handleChangeForGeneralInfo('L4')}
+      value={this.state.answers.L4}
+      onChange={this.handleChangeForInputs('L4')}
       />
       </Grid>
       <Grid item xs={12}>
@@ -93,8 +95,8 @@ class ListingCategory1 extends Component {
       id="seller_name"
       fullWidth
       variant="outlined"
-      value={this.props.listingAnswers.BUYER_1}
-      onChange={this.handleChangeForGeneralInfo('BUYER_1')}
+      value={this.state.answers.BUYER_1}
+      onChange={this.handleChangeForInputs('BUYER_1')}
       />
       </Grid>
       <Grid item xs={12}>
@@ -103,8 +105,8 @@ class ListingCategory1 extends Component {
       id="broker_name"
       fullWidth
       variant="outlined"
-      value={this.props.listingAnswers.L7}
-      onChange={this.handleChangeForGeneralInfo('L7')}
+      value={this.state.answers.L7}
+      onChange={this.handleChangeForInputs('L7')}
       />
       </Grid>
       <Grid item xs={12}>
@@ -113,8 +115,8 @@ class ListingCategory1 extends Component {
       id="start_date"
       variant="outlined"
       type="date"
-      value={this.props.listingAnswers.L8A}
-      onChange={this.handleChangeForGeneralInfo('L8A')}
+      value={this.state.answers.L8A}
+      onChange={this.handleChangeForInputs('L8A')}
       />
       </Grid>
       <Grid item xs={12}>
@@ -123,8 +125,8 @@ class ListingCategory1 extends Component {
       id="end_date"
       variant="outlined"
       type="date"
-      value={this.props.listingAnswers.L8C}
-      onChange={this.handleChangeForGeneralInfo('L8C')}
+      value={this.state.answers.L8C}
+      onChange={this.handleChangeForInputs('L8C')}
       />
       </Grid>
       <Grid item xs={12}>
@@ -136,8 +138,8 @@ class ListingCategory1 extends Component {
       InputProps={{
         startAdornment: <InputAdornment position="start">$</InputAdornment>,
       }}
-      value={this.props.listingAnswers.L12}
-      onChange={this.handleChangeForGeneralInfo('L12')}
+      value={this.state.answers.L12}
+      onChange={this.handleChangeForInputs('L12')}
       />
       </Grid>
       <Grid item xs={12}>
@@ -146,8 +148,8 @@ class ListingCategory1 extends Component {
       id="following_terms"
       fullWidth
       variant="outlined"
-      value={this.props.listingAnswers.L13}
-      onChange={this.handleChangeForGeneralInfo('L13')}
+      value={this.state.answers.L13}
+      onChange={this.handleChangeForInputs('L13')}
       />
       </Grid>
       </Grid>

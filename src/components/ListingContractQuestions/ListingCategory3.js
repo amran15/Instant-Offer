@@ -23,18 +23,12 @@ class ListingCategory3 extends Component {
     }
   }
 ​
-  handleChangeForRadioButtons = (propertyName) => (event) => {
+  handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state, 
       answers: {
         ...this.state.answers, [propertyName]: event.target.value,
       }
-    })
-  }
-​
-  handleChangeForInput = (propertyName) => (event) => {
-    this.setState({
-      ...this.state, [propertyName]: event.target.value,
     })
   }
 ​
@@ -59,8 +53,8 @@ class ListingCategory3 extends Component {
       </center>
       <h4>The property is currently listed for lease?</h4>
       <RadioGroup
-      value={this.props.listingAnswers.L72}
-      onChange={this.handleChangeForRadioButtons('L72')}>
+      value={this.state.answers.L72}
+      onChange={this.handleChangeForInputs('L72')}>
       <FormControlLabel value='true' control={<Radio />} label="Yes" />
       <FormControlLabel value='false' control={<Radio />} label="No" />
       </RadioGroup>
@@ -71,15 +65,15 @@ class ListingCategory3 extends Component {
       id="listing_broker"
       fullWidth
       variant="outlined"
-      value={this.props.listingAnswers.L7}
-      onChange={this.handleChangeForInput('L7')}
+      value={this.state.answers.L7}
+      onChange={this.handleChangeForInputs('L7')}
       />
       </Grid>
       <h4>If no, the property can be listed for lease during the terms of this contract with another broker.</h4>
       <Grid item xs={12}>
       <RadioGroup
-      value={this.props.listingAnswers.L73}
-      onChange={this.handleChangeForRadioButtons('L73')}>
+      value={this.state.answers.L73}
+      onChange={this.handleChangeForInputs('L73')}>
       <FormControlLabel value='true' control={<Radio />} label="Yes" />
       <FormControlLabel value='false' control={<Radio />} label="No" />
       </RadioGroup>

@@ -19,7 +19,7 @@ class ListingCategory7 extends Component {
     }
     }
 ​
-  handleChangeForRadioButtons = (propertyName) => (event) => {
+  handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state, 
       answers: {
@@ -53,8 +53,8 @@ class ListingCategory7 extends Component {
                             </center>
                             <h4>Seller represents and warrants that seller is a foreign person for purpose of income taxation</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L72}
-                                onChange={this.handleChangeForRadioButtons('L175')}>
+                                value={this.state.answers.L175}
+                                onChange={this.handleChangeForInputs('L175')}>
                                 <FormControlLabel value='true' control={<Radio />} label="Yes" />
                                 <FormControlLabel value='false' control={<Radio />} label="No" />
                             </RadioGroup>

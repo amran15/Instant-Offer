@@ -23,7 +23,7 @@ class ListingCategory4 extends Component {
     }
 ​
 ​
-    handleChange = (propertyName) => (event) => {
+    handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
             answers: {
                 ...this.state.answers, [propertyName]: event.target.value
@@ -62,7 +62,8 @@ class ListingCategory4 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                onChange={this.handleChange('L115')}
+                                value={this.state.answers.L115}
+                                onChange={this.handleChangeForInputs('L115')}
                             />
                             <h4>Percent of selling price</h4>
                             <TextField
@@ -72,7 +73,8 @@ class ListingCategory4 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
-                                onChange={this.handleChange('L118')}
+                                value={this.state.answers.L118}
+                                onChange={this.handleChangeForInputs('L118')}
                             />
                             <h4>Broker's commission price in CASH </h4>
                             <TextField
@@ -82,14 +84,16 @@ class ListingCategory4 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                onChange={this.handleChange('L119')}
+                                value={this.state.answers.L119}
+                                onChange={this.handleChangeForInputs('L119')}
                             />
                             <h4>Other</h4>
                             <TextField
                                 id="additional_info"
                                 fullWidth
                                 variant="outlined"
-                                onChange={this.handleChange('L121')}
+                                value={this.state.answers.L121}
+                                onChange={this.handleChangeForInputs('L121')}
                             />
                             <h4>If within the indicated days below (not to exceed six (6) months) after the expiration of this Contract, Seller sells or agrees to sell the Property to anyone who:</h4>
                             <h4>1. during this Contract made inquiry of Seller about the Property and Seller did not tell Broker about the inquiry; or</h4>
@@ -100,7 +104,7 @@ class ListingCategory4 extends Component {
                                 id="days"
                                 fullWidth
                                 variant="outlined"
-                                onChange={this.handleChange('L131')}
+                                onChange={this.handleChangeForInputs('L131')}
                             />
                         </Grid>
                     </Grid>

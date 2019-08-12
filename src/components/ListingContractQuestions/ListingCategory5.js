@@ -24,7 +24,7 @@ class ListingCategory5 extends Component {
         }
     }
 ​
-  handleChangeForRadioButtons = (propertyName) => (event) => {
+  handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state, 
       answers: {
@@ -32,15 +32,6 @@ class ListingCategory5 extends Component {
       }
     })
   }
-​
-​
-    handleChangeForInputs = (propertyName) => (event) => {
-        this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: event.target.value
-            }
-        })
-    }
 ​
     handleClick = () => {
         this.props.history.push(`/ListingContract/${this.state.id}`)
@@ -63,8 +54,8 @@ class ListingCategory5 extends Component {
                             </center>
                             <h4>Broker will offer compensation to cooperating brokers?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L72}
-                                onChange={this.handleChangeForRadioButtons('146')}>
+                                value={this.state.answers.L146}
+                                onChange={this.handleChangeForInputs('146')}>
                                 <FormControlLabel value='true' control={<Radio />} label="Yes" />
                                 <FormControlLabel value='false' control={<Radio />} label="No" />
                             </RadioGroup>
@@ -77,6 +68,7 @@ class ListingCategory5 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
+                                value={this.state.answers.L148B}
                                 onChange={this.handleChangeForInputs('L148B')}
                             />
                             <h4>Gross sales price in CASH for cooperating brokers representing buyer. </h4>
@@ -87,6 +79,7 @@ class ListingCategory5 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
+                                value={this.state.answers.L148C}
                                 onChange={this.handleChangeForInputs('L148C')}
                             />
                             <h4>If yes, the compensation to cooperating shall be as follows:</h4>
@@ -98,6 +91,7 @@ class ListingCategory5 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
+                                value={this.state.answers.L150B}
                                 onChange={this.handleChangeForInputs('L150B')}
                             />
                             <h4>Gross sales price in CASH for cooperating brokers assisting buyer. </h4>
@@ -108,6 +102,7 @@ class ListingCategory5 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
+                                value={this.state.answers.L150C}
                                 onChange={this.handleChangeForInputs('L150C')}
                             />
                             <h4>Other:</h4>
@@ -115,6 +110,7 @@ class ListingCategory5 extends Component {
                                 id="additional_info"
                                 fullWidth
                                 variant="outlined"
+                                value={this.state.answers.L152B}
                                 onChange={this.handleChangeForInputs('L152B')}
                             />
                         </Grid>

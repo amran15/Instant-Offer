@@ -23,7 +23,7 @@ class ListingCategory8 extends Component {
         }
     }
 ​
-  handleChangeForRadioButtons = (propertyName) => (event) => {
+  handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state, 
       answers: {
@@ -31,14 +31,6 @@ class ListingCategory8 extends Component {
       }
     })
   }
-​
-    handleChangeForInputs = (propertyName) => (event) => {
-        this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: event.target.value
-            }
-        })
-    }
 ​
     handleClickBack = () => {
         this.props.history.push(`/ListingContract/${this.state.id}`)
@@ -61,16 +53,16 @@ class ListingCategory8 extends Component {
                             </center>
                             <h4>Seller will agree to dual agency and will consider offers made by buyers represented by broker?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L72}
-                                onChange={this.handleChangeForRadioButtons('L196')}>
+                                value={this.state.answers.L196}
+                                onChange={this.handleChangeForInputs('L196')}>
                                 <FormControlLabel value='true' control={<Radio />} label="Yes" />
                                 <FormControlLabel value='false' control={<Radio />} label="No" />
                             </RadioGroup>
                             <h4>Seller will not agree to dual agency and not consider offers made by buyers represented by broker?</h4>
                             <Grid item xs={12}>
                                 <RadioGroup
-                                    value={this.props.listingAnswers.L72}
-                                    onChange={this.handleChangeForRadioButtons('L198')}>
+                                    value={this.state.answers.L198}
+                                    onChange={this.handleChangeForInputs('L198')}>
                                     <FormControlLabel value='true' control={<Radio />} label="Yes" />
                                     <FormControlLabel value='false' control={<Radio />} label="No" />
                                 </RadioGroup>
@@ -80,6 +72,7 @@ class ListingCategory8 extends Component {
                                 id="name_real_estate"
                                 fullWidth
                                 variant="outlined"
+                                value={this.state.answers.COMPANY}
                                 onChange={this.handleChangeForInputs('COMPANY')}
                             />
                             <Grid item xs={12}>

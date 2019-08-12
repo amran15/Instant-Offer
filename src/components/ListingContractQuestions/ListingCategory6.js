@@ -20,7 +20,7 @@ class ListingCategory6 extends Component {
     }
 ​
 ​
-  handleChangeForRadioButtons = (propertyName) => (event) => {
+  handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state, 
       answers: {
@@ -28,14 +28,6 @@ class ListingCategory6 extends Component {
       }
     })
   }
-​
-    handleChangeForInitials = (propertyName) => (event) => {
-        this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: event.target.value,
-            }
-        })
-    }
 ​
     handleClick = () => {
         this.props.history.push(`/ListingContract/${this.state.id}`)
@@ -59,15 +51,15 @@ class ListingCategory6 extends Component {
                             </center>
                             <h4>Seller wishes to have a Broker arrange for the closing?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L72}
-                                onChange={this.handleChangeForRadioButtons('L163')}>
+                                value={this.state.answers.L163}
+                                onChange={this.handleChangeForInputs('L163')}>
                                 <FormControlLabel value='true' control={<Radio />} label="Yes" />
                                 <FormControlLabel value='false' control={<Radio />} label="No" />
                             </RadioGroup>
                             <h4>Seller shall arrange for a qualified closing agent or Seller's attorney to conduct the closing?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L72}
-                                onChange={this.handleChangeForRadioButtons('L164')}>
+                                value={this.state.answers.L164}
+                                onChange={this.handleChangeForInputs('L164')}>
                                 <FormControlLabel value='true' control={<Radio />} label="Yes" />
                                 <FormControlLabel value='false' control={<Radio />} label="No" />
                             </RadioGroup>
@@ -79,8 +71,8 @@ class ListingCategory6 extends Component {
                                 label="Seller's Initials"
                                 fullWidth
                                 variant="outlined"
-                                value={this.props.listingAnswers.L165A}
-                                onChange={this.handleChangeForInitials('L165A')}
+                                value={this.state.answers.L165A}
+                                onChange={this.handleChangeForInputs('L165A')}
                             />
                         </Grid>
                     </Grid>

@@ -17,7 +17,7 @@ class ListingCategory2 extends Component {
         }
     }
 ​
-  handleChangeForRadioButtons = (propertyName) => (event) => {
+  handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state, 
       answers: {
@@ -47,8 +47,8 @@ class ListingCategory2 extends Component {
                             </center>
                             <h4>Display listing on the internet?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L41}
-                                onChange={this.handleChangeForRadioButtons('L41')}>
+                                value={this.state.answers.L41}
+                                onChange={this.handleChangeForInputs('L41')}>
                                 <FormControlLabel value='true' control={<Radio />} label="Yes" />
                                 <FormControlLabel value='false' control={<Radio />} label="No" />
                             </RadioGroup>
@@ -56,8 +56,8 @@ class ListingCategory2 extends Component {
                         <Grid item xs={12}>
                             <h4>Display listing address on the internet?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L54}
-                                onChange={this.handleChangeForRadioButtons('L54')}>
+                                value={this.state.answers.L54}
+                                onChange={this.handleChangeForInputs('L54')}>
                                 <FormControlLabel value='true' control={<Radio />} label="Yes" />
                                 <FormControlLabel value='false' control={<Radio />} label="No" />
                             </RadioGroup>
@@ -65,8 +65,8 @@ class ListingCategory2 extends Component {
                         <Grid item xs={12}>
                             <h4>Display link of automated valuation of the property on the internet?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L63}
-                                onChange={this.handleChangeForRadioButtons('L63')}>
+                                value={this.state.answers.L63}
+                                onChange={this.handleChangeForInputs('L63')}>
                                 <FormControlLabel value='true' control={<Radio />} label="Yes" />
                                 <FormControlLabel value='false' control={<Radio />} label="No" />
                             </RadioGroup>
@@ -74,8 +74,8 @@ class ListingCategory2 extends Component {
                         <Grid item xs={12}>
                             <h4>Display comments or reviews about property by persons other than Broker on the internet?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L71}
-                                onChange={this.handleChangeForRadioButtons('L71')}>
+                                value={this.state.answers.L71}
+                                onChange={this.handleChangeForInputs('L71')}>
                                 <FormControlLabel value='true' control={<Radio />} label="Yes" />
                                 <FormControlLabel value='false' control={<Radio />} label="No" />
                             </RadioGroup>
