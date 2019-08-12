@@ -34,7 +34,7 @@ class ListingCategory5 extends Component {
     }
 
     handleClick = () => {
-        this.props.history.push(`/ListingContract/${this.state.id}`)
+        this.props.history.push(`/ListingCategory4/${this.state.id}`)
     }
 
     handleClickNext = () => {
