@@ -14,46 +14,43 @@ import { TextField } from '@material-ui/core';
 class PurchaseCategory5 extends Component {
 
     state = {
-        sellerContribution: {
-            toBuyerCost:'',
-            closingCostAmoutCheck:'',
-            closingCostValue:'',
-            closingCostPercentCheck:'',
-            closingCostPercentValue:'',
+        id: this.props.match.params.id,
+        answers: {
+            L59: (typeof this.props.listingAnswers.L59 === 'undefined') ? null : this.props.listingAnswers.L59,
+            L160A: (typeof this.props.listingAnswers.l160A === 'undefined') ? null : this.props.listingAnswers.l160A,
+            L160B: (typeof this.props.listingAnswers.L160B === 'undefined') ? null : this.props.listingAnswers.L160B,
+            L61A: (typeof this.props.listingAnswers.L61A === 'undefined') ? null : this.props.listingAnswers.L61A,
+            L61B: (typeof this.props.listingAnswers.L61B === 'undefined') ? null : this.props.listingAnswers.L61B,
         }
     }
 
-    handleChangeForSellerContribution = (propertyName) => (event) => {  
+    handleChangeForSellerContribution = (propertyName) => (event) => {
         this.setState({
-            sellerContribution:{
-                ...this.state.sellerContribution,[propertyName]:event.target.value,
+            ...this.state,
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value,
             }
         })
-    }   
+    }
 
-    handleChangeForCheckbox = (propertyName) => (event) => {  
+    handleChangeForCheckbox = (propertyName) => (event) => {
         this.setState({
-            sellerContribution:{
-                ...this.state.sellerContribution,[propertyName]:true,
+            sellerContribution: {
+                ...this.state.sellerContribution, [propertyName]: true,
             }
         })
-    } 
+    }
 
-    handleChangeForCheckboxNo = (propertyName) => (event) => {  
+    handleChangeForCheckboxNo = (propertyName) => (event) => {
         this.setState({
-            sellerContribution:{
-                ...this.state.sellerContribution,[propertyName]:false,
+            sellerContribution: {
+                ...this.state.sellerContribution, [propertyName]: false,
             }
         })
-    } 
+    }
 
     handleClick = () => {
         this.props.history.push('/PurchaseAgreement')
-    }
-
-    handleClickToSave = () => {
-        console.log('saving this noe');
-        this.props.dispatch({type:'POST_SELLER_CONTRIBUTION', payload:this.state.sellerContribution})
     }
 
     handleClickNext = () => {
@@ -70,133 +67,112 @@ class PurchaseCategory5 extends Component {
                                 <h2>Seller's Contributions to Buyer's Costs</h2>
                             </center>
                             <h4>Will Seller be contributing to Buyer's costs?</h4>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="Yes"
-                                value={this.state.toBuyerCost}
-                                onChange={this.handleChangeForCheckbox('toBuyerCost')}
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="No"
-                                value={this.state.toBuyerCost}
-                                onChange={this.handleChangeForCheckboxNo('toBuyerCost')}
-                            />
+                            <RadioGroup
+                                value={this.state.answers.L59}
+                                onChange={this.handleChangeForSellerContribution('L59')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                         </Grid>
-
-                        <h4>If yes, Seller agrees to pay at closing, up to the amount of the sale price: <i>(Check one)</i></h4>
-                        <Grid container spacing={2}>
-                            <Grid item xs={2}>
-                                <Checkbox
-                                    // checked={state.checkedB}
-                                    // onChange={handleChange('checkedB')}
-                                    id="checkedB"
-                                    color="primary"
-                                    value={this.state.closingCostAmoutCheck}
-                                    onChange={this.handleChangeForCheckbox('closingCostAmoutCheck')}
-                                />
-                            </Grid>
-                            <Grid item xs={10}>
-                                <TextField
-                                    id="sellers_contribution"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
-                                    fullWidth
-                                    variant="outlined"
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position="start">$</InputAdornment>,
-                                    }}
-                                    value={this.state.closingCostValue}
-                                    onChange={this.handleChangeForSellerContribution('closingCostValue')}
-                                />
-                            </Grid>
-                            <Grid item xs={2}>
-                                <Checkbox
-                                    // checked={state.checkedB}
-                                    // onChange={handleChange('checkedB')}
-                                    id="checkedB"
-                                    color="primary"
-                                    value={this.state.closingCostPercentCheck}
-                                    onChange={this.handleChangeForCheckbox('closingCostPercentCheck')}
-                                />
-                            </Grid>
-                            <Grid item xs={10}>
-                                <TextField
-                                    id="sellers_contribution"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
-                                    fullWidth
-                                    variant="outlined"
-                                    InputProps={{
-                                        endAdornment: <InputAdornment position="start">%</InputAdornment>,
-                                    }}
-                                    value={this.state.closingCostPercentValue}
-                                    onChange={this.handleChangeForSellerContribution('closingCostPercentValue')}
-                                />
-                                <br />
-                                <br />
-                            </Grid>
-                        </Grid>
-                        <br />
-                        <br />
-                        <Container component="main">
-                            <Grid container spacing={3}>
-                                <Grid item xs={4}>
-                                    <div align="left" className="Button">
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            onClick={this.handleClick}
-                                        >
-                                            Back
-                                        </Button>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <div align="center" className="Button">
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            onClick={this.handleClickToSave}
-                                        >
-                                            Save
-                                        </Button>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <div align="right" className="Button">
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            onClick={this.handleClickNext}
-                                        >
-                                            Next
-                                        </Button>
-                                    </div>
-                                </Grid>
-                            </Grid>
-                        </Container>
                     </Grid>
+                    <h4>If yes, Seller agrees to pay at closing, up to the amount of the sale price: <i>(Check one)</i></h4>
+                    <Grid container spacing={2}>
+                        <Grid item xs={2}>
+                            <Checkbox
+                                id="checkedB"
+                                color="primary"
+                                value={this.state.answers.L60A}
+                                onChange={this.handleChangeForSellerContribution('L60A')}>
+                                />
+                            <Grid item xs={10}>
+                                    <TextField
+                                        id="sellers_contribution"
+                                        // value={this.state.song_title}
+                                        // onChange={this.handleInputChangeFor('song_title')}
+                                        fullWidth
+                                        variant="outlined"
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                        }}
+                                        value={this.state.closingCostValue}
+                                        onChange={this.handleChangeForSellerContribution('closingCostValue')}
+                                    />
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <Checkbox
+                                        // checked={state.checkedB}
+                                        // onChange={handleChange('checkedB')}
+                                        id="checkedB"
+                                        color="primary"
+                                        value={this.state.closingCostPercentCheck}
+                                        onChange={this.handleChangeForCheckbox('closingCostPercentCheck')}
+                                    />
+                                </Grid>
+                                <Grid item xs={10}>
+                                    <TextField
+                                        id="sellers_contribution"
+                                        // value={this.state.song_title}
+                                        // onChange={this.handleInputChangeFor('song_title')}
+                                        fullWidth
+                                        variant="outlined"
+                                        InputProps={{
+                                            endAdornment: <InputAdornment position="start">%</InputAdornment>,
+                                        }}
+                                        value={this.state.closingCostPercentValue}
+                                        onChange={this.handleChangeForSellerContribution('closingCostPercentValue')}
+                                    />
+                                    <br />
+                                    <br />
+                                </Grid>
+                        </Grid>
+                            <br />
+                            <br />
+                            <Container component="main">
+                                <Grid container spacing={3}>
+                                    <Grid item xs={4}>
+                                        <div align="left" className="Button">
+                                            <Button
+                                                variant="contained"
+                                                color="primary"
+                                                onClick={this.handleClick}
+                                            >
+                                                Back
+                                        </Button>
+                                        </div>
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <div align="center" className="Button">
+                                            <Button
+                                                variant="contained"
+                                                color="primary"
+                                                onClick={this.handleClickToSave}
+                                            >
+                                                Save
+                                        </Button>
+                                        </div>
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <div align="right" className="Button">
+                                            <Button
+                                                variant="contained"
+                                                color="primary"
+                                                onClick={this.handleClickNext}
+                                            >
+                                                Next
+                                        </Button>
+                                        </div>
+                                    </Grid>
+                                </Grid>
+                            </Container>
+                        </Grid>
                 </Container>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
+                    <pre>
+                        {JSON.stringify(this.state, null, 2)}
+                    </pre>
             </div>
-        )
-    }
-}
-
-const mapReduxStateToProps = reduxState => ({ reduxState })
+                )
+            }
+        }
+        
+const mapReduxStateToProps = reduxState => ({reduxState})
 export default connect(mapReduxStateToProps)(withRouter(PurchaseCategory5));
