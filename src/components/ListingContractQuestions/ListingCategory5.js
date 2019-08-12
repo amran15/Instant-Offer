@@ -15,32 +15,26 @@ class ListingCategory5 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L146: (typeof this.props.listingAnswers.L146 === 'undefined') ? "false" : this.props.listingAnswers.L146,
+            L146: (typeof this.props.listingAnswers.L146 === 'undefined') ? null : this.props.listingAnswers.L146,
             L148B: (typeof this.props.listingAnswers.L148B === 'undefined') ? null : this.props.listingAnswers.L148B,
             L148C: (typeof this.props.listingAnswers.L148C === 'undefined') ? null : this.props.listingAnswers.L148C,
             L150B: (typeof this.props.listingAnswers.L150B === 'undefined') ? null : this.props.listingAnswers.L150B,
             L150C: (typeof this.props.listingAnswers.L150C === 'undefined') ? null : this.props.listingAnswers.L150C,
-            L152B: (typeof this.props.listingAnswers.L152B === 'undefined') ? null : this.props.listingAnswers.L152B,
+            L152B: (typeof this.props.listingAnswers.L152B === 'undefined') ? "" : this.props.listingAnswers.L152B,
         }
     }
 
-    handleChangeForRadioButtons = (propertyName) => (event) => {
-        this.setState({
-            ...this.state, [propertyName]: event.target.value,
-        })
-    }
-
-
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
+            ...this.state,
             answers: {
-                ...this.state.answers, [propertyName]: event.target.value
+                ...this.state.answers, [propertyName]: event.target.value,
             }
         })
     }
 
     handleClick = () => {
-        this.props.history.push(`/ListingContract/${this.state.id}`)
+        this.props.history.push(`/ListingCategory4/${this.state.id}`)
     }
 
     handleClickNext = () => {
@@ -60,10 +54,10 @@ class ListingCategory5 extends Component {
                             </center>
                             <h4>Broker will offer compensation to cooperating brokers?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L72}
-                                onChange={this.handleChangeForRadioButtons('146')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                value={this.state.answers.L146}
+                                onChange={this.handleChangeForInputs('146')}>
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                             <h4>If yes, the compensation to cooperating shall be as follows:</h4>
                             <h4>Percent of gross sales price for cooperating brokers representing buyer.</h4>
@@ -74,6 +68,7 @@ class ListingCategory5 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
+                                value={this.state.answers.L148B}
                                 onChange={this.handleChangeForInputs('L148B')}
                             />
                             <h4>Gross sales price in CASH for cooperating brokers representing buyer. </h4>
@@ -84,6 +79,7 @@ class ListingCategory5 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
+                                value={this.state.answers.L148C}
                                 onChange={this.handleChangeForInputs('L148C')}
                             />
                             <h4>If yes, the compensation to cooperating shall be as follows:</h4>
@@ -95,6 +91,7 @@ class ListingCategory5 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                 }}
+                                value={this.state.answers.L150B}
                                 onChange={this.handleChangeForInputs('L150B')}
                             />
                             <h4>Gross sales price in CASH for cooperating brokers assisting buyer. </h4>
@@ -105,6 +102,7 @@ class ListingCategory5 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
+                                value={this.state.answers.L150C}
                                 onChange={this.handleChangeForInputs('L150C')}
                             />
                             <h4>Other:</h4>
@@ -112,6 +110,7 @@ class ListingCategory5 extends Component {
                                 id="additional_info"
                                 fullWidth
                                 variant="outlined"
+                                value={this.state.answers.L152B}
                                 onChange={this.handleChangeForInputs('L152B')}
                             />
                         </Grid>

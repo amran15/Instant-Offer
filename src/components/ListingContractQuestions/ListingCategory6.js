@@ -13,29 +13,21 @@ class ListingCategory6 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L163: (typeof this.props.listingAnswers.L163 === 'undefined') ? "false" : this.props.listingAnswers.L163,
-            L164: (typeof this.props.listingAnswers.L164 === 'undefined') ? "false" : this.props.listingAnswers.L164,
-            L165A: (typeof this.props.listingAnswers.L165A === 'undefined') ? null : this.props.listingAnswers.L165A,
+            L163: (typeof this.props.listingAnswers.L163 === 'undefined') ? null : this.props.listingAnswers.L163,
+            L164: (typeof this.props.listingAnswers.L164 === 'undefined') ? null : this.props.listingAnswers.L164,
+            L165A: (typeof this.props.listingAnswers.L165A === 'undefined') ? "" : this.props.listingAnswers.L165A,
         }
     }
-
-
-    handleChangeForRadioButtons = (propertyName) => (event) => {
+    handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
-            ...this.state, [propertyName]: event.target.value,
-        })
-    }
-
-    handleChangeForInitials = (propertyName) => (event) => {
-        this.setState({
+            ...this.state,
             answers: {
                 ...this.state.answers, [propertyName]: event.target.value,
             }
         })
     }
-
     handleClick = () => {
-        this.props.history.push(`/ListingContract/${this.state.id}`)
+        this.props.history.push(`/ListingCategory5/${this.state.id}`)
     }
 
     handleClickNext = () => {
@@ -56,17 +48,17 @@ class ListingCategory6 extends Component {
                             </center>
                             <h4>Seller wishes to have a Broker arrange for the closing?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L72}
-                                onChange={this.handleChangeForRadioButtons('L163')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                value={this.state.answers.L163}
+                                onChange={this.handleChangeForInputs('L163')}>
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                             <h4>Seller shall arrange for a qualified closing agent or Seller's attorney to conduct the closing?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L72}
-                                onChange={this.handleChangeForRadioButtons('L164')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                value={this.state.answers.L164}
+                                onChange={this.handleChangeForInputs('L164')}>
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                         <br />
@@ -76,8 +68,8 @@ class ListingCategory6 extends Component {
                                 label="Seller's Initials"
                                 fullWidth
                                 variant="outlined"
-                                value={this.props.listingAnswers.L165A}
-                                onChange={this.handleChangeForInitials('L165A')}
+                                value={this.state.answers.L165A}
+                                onChange={this.handleChangeForInputs('L165A')}
                             />
                         </Grid>
                     </Grid>

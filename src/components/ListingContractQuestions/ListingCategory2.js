@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
-
 //Material UI       
 import { FormControlLabel, RadioGroup, Radio, Button, Container, Grid } from '@material-ui/core';
 
@@ -10,21 +9,24 @@ class ListingCategory2 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-        L41: (typeof this.props.listingAnswers.L41 === 'undefined') ? "false" : this.props.listingAnswers.L41,
-        L54: (typeof this.props.listingAnswers.L54 === 'undefined') ? "false" : this.props.listingAnswers.L54,
-        L63: (typeof this.props.listingAnswers.L63 === 'undefined') ? "false" : this.props.listingAnswers.L63,
-        L71: (typeof this.props.listingAnswers.L71 === 'undefined') ? "false" : this.props.listingAnswers.L71,
+        L41: (typeof this.props.listingAnswers.L41 === 'undefined') ? null : this.props.listingAnswers.L41,
+        L54: (typeof this.props.listingAnswers.L54 === 'undefined') ? null : this.props.listingAnswers.L54,
+        L63: (typeof this.props.listingAnswers.L63 === 'undefined') ? null : this.props.listingAnswers.L63,
+        L71: (typeof this.props.listingAnswers.L71 === 'undefined') ? null : this.props.listingAnswers.L71,
         }
     }
 
-    handleChangeForRadioButtons = (propertyName) => (event) => {
-        this.setState({
-            ...this.state, [propertyName]: event.target.value,
-        })
-    }
+  handleChangeForInputs = (propertyName) => (event) => {
+    this.setState({
+      ...this.state, 
+      answers: {
+        ...this.state.answers, [propertyName]: event.target.value,
+      }
+    })
+  }
 
     handleClick = () => {
-        this.props.history.push(`/ListingContract/${this.state.id}`)
+        this.props.history.push(`/ListingCategory1/${this.state.id}`)
     }
 
     handleClickNext = () => {
@@ -36,7 +38,6 @@ class ListingCategory2 extends Component {
     render() {
         return (
             <div>
-                {JSON.stringify(this.props.listingAnswers.L41, null, 2)}
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -45,37 +46,37 @@ class ListingCategory2 extends Component {
                             </center>
                             <h4>Display listing on the internet?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L41}
-                                onChange={this.handleChangeForRadioButtons('L41')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                value={this.state.answers.L41}
+                                onChange={this.handleChangeForInputs('L41')}>
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Display listing address on the internet?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L54}
-                                onChange={this.handleChangeForRadioButtons('L54')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                value={this.state.answers.L54}
+                                onChange={this.handleChangeForInputs('L54')}>
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Display link of automated valuation of the property on the internet?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L63}
-                                onChange={this.handleChangeForRadioButtons('L63')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                value={this.state.answers.L63}
+                                onChange={this.handleChangeForInputs('L63')}>
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Display comments or reviews about property by persons other than Broker on the internet?</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L71}
-                                onChange={this.handleChangeForRadioButtons('L71')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                value={this.state.answers.L71}
+                                onChange={this.handleChangeForInputs('L71')}>
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                     </Grid>

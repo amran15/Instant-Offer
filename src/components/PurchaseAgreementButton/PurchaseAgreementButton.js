@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import axios from 'axios';
 
 //Material UI
 import Button from '@material-ui/core/Button';
@@ -22,8 +23,11 @@ const styles = {
 
 class PurchaseAgreement extends Component {
     handleClickForPurchaseAgreementDocuments = () => {
-        this.props.dispatch({ type: 'CREATE_NEW_PURCHASE_AGREEMENT_FORM' })
-        this.props.history.push('/PurchaseAgreement')
+        axios.post('api/purchase/save')
+        .then(response => {
+            console.log(response.data[0].id)
+            this.props.history.push(`/PurchaseAgreement/${response.data[0].id}`)
+        })
     }
 
 

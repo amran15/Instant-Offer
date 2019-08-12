@@ -15,22 +15,21 @@ class ListingCategory7 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L175: (typeof this.props.listingAnswers.L175 === 'undefined') ? "false" : this.props.listingAnswers.L175
-    }
+            L175: (typeof this.props.listingAnswers.L175 === 'undefined') ? null : this.props.listingAnswers.L175
+        }
     }
 
-    handleChangeForRadioButtons = (propertyName) => (event) => {
+    handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
-            ...this.state, [propertyName]: event.target.value,
+            ...this.state,
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value,
+            }
         })
     }
 
     handleClick = () => {
-        this.props.history.push(`/ListingContract/${this.state.id}`)
-    }
-
-    handleClickToSave = () => {
-        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
+        this.props.history.push(`/ListingCategory6/${this.state.id}`)
     }
 
     handleClickNext = () => {
@@ -50,12 +49,12 @@ class ListingCategory7 extends Component {
                             </center>
                             <h4>Seller represents and warrants that seller is a foreign person for purpose of income taxation</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L72}
-                                onChange={this.handleChangeForRadioButtons('L175')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                value={this.state.answers.L175}
+                                onChange={this.handleChangeForInputs('L175')}>
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
-                        <h4>Due to the complexity and potential risks of failing to comply with FIRPTA, Seller should <b>seek appropriate legal and tax advice regarding FIRPTA compliance, as Broker will be unable to confirm whether Seeker is a foreign person or whether the withholding requirements of FIRPTA apply.</b> </h4>
+                            <h4>Due to the complexity and potential risks of failing to comply with FIRPTA, Seller should <b>seek appropriate legal and tax advice regarding FIRPTA compliance, as Broker will be unable to confirm whether Seeker is a foreign person or whether the withholding requirements of FIRPTA apply.</b> </h4>
                         </Grid>
                     </Grid>
                 </Container>

@@ -4,6 +4,8 @@ import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 
 import fetchListingAnswers from './fetchListingAnswers';
+import fetchPurchaseAnswers from './fetchPurchaseAnswers';
+
 
 import newListingContractForm from './newListingContractForm';
 import getListingDrafts from './fetchListingDrafts';
@@ -18,9 +20,7 @@ import deleteListingAnswer from './deleteListingAnswer';
 import deletePurchaseAnswerSaga from './deletePurchaseAnswer';
 import putAnswers from './putAnswers';
 import thisRootSaga from './signSaga';
-import putAnswersOffer from './putAnswersOffer'
-
-
+import putAnswersOffer from './putAnswersOffer';
 
 
 // rootSaga is the primary saga.
@@ -36,6 +36,7 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     fetchListingAnswers(),
+    fetchPurchaseAnswers(),
     getListingDrafts(),
     getListingSignedDocs(),
     newListingContractForm(),

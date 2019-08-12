@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 //Material UI
-import Button from '@material-ui/core/Button';
+import { Button, RadioGroup, Radio, } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Checkbox from '@material-ui/core/Checkbox';
 import Container from '@material-ui/core/Container';
@@ -11,41 +11,42 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
+
 class PurchaseCategory4 extends Component {
     state = {
-        morgtageFinancing: {
-            financingProvisions: '',
-            firstMortgage: '',
-            subordinateFinancing: '',
-            loanAssistance: '',
-            loanAssistanceInput: '',
-            conventional: '',
-            dvaGuarantee: '',
-            FHA: '',
-            privatelyInsure: '',
-            USDA: '',
-            other: '',
-            otherInput: '',
-            mortgagePeriod: '',
-            initialInterestRate: '',
-            contingent: '',
-            refundedToBuyer: '',
-            forfeitedToSeller: '',
-            writtenStatement: '',
-            date: '',
-            lockWithinFive: '',
-            lockAnytime: '',
-            repairCost: '',
-            seller: '',
-            buyer: '',
-            appraisedPropertyValue: '',
-            lenderProcessingFee: '',
-            dvaFundingFee: '',
-            paidByBuyer: '',
-            atClosing: '',
-            addedMortgage: '',
-            paidBySeller: '',
-            otherMortgageItems: '',
+        id: this.props.match.params.id,
+        answers: {
+            L49: (typeof this.props.listingAnswers.L49 === 'undefined') ? null : this.props.listingAnswers.L49,
+            L53A: (typeof this.props.listingAnswers.L53A === 'undefined') ? null : this.props.listingAnswers.L53A,
+            L53B: (typeof this.props.listingAnswers.L53B === 'undefined') ? null : this.props.listingAnswers.L53B,
+            L145B: (typeof this.props.listingAnswers.L54 === 'undefined') ? null : this.props.listingAnswers.L54,
+            L55: (typeof this.props.listingAnswers.L55 === 'undefined') ? null : this.props.listingAnswers.L55,
+            L57: (typeof this.props.listingAnswers.L57 === 'undefined') ? null : this.props.listingAnswers.L57,
+            L58: (typeof this.props.listingAnswers.L58 === 'undefined') ? null : this.props.listingAnswers.L58,
+            L59: (typeof this.props.listingAnswers.L59 === 'undefined') ? null : this.props.listingAnswers.L59,
+            L60: (typeof this.props.listingAnswers.L60 === 'undefined') ? null : this.props.listingAnswers.L60,
+            L61: (typeof this.props.listingAnswers.L61 === 'undefined') ? null : this.props.listingAnswers.L61,
+            L62A: (typeof this.props.listingAnswers.L62A === 'undefined') ? null : this.props.listingAnswers.L62A,
+            L62B: (typeof this.props.listingAnswers.L62B === 'undefined') ? null : this.props.listingAnswers.L62B,
+            L63: (typeof this.props.listingAnswers.L63 === 'undefined') ? null : this.props.listingAnswers.L63,
+            L64: (typeof this.props.listingAnswers.L64 === 'undefined') ? null : this.props.listingAnswers.L64,
+            L70: (typeof this.props.listingAnswers.L70 === 'undefined') ? null : this.props.listingAnswers.L70,
+            L73A: (typeof this.props.listingAnswers.L73A === 'undefined') ? null : this.props.listingAnswers.L73A,
+            L73B: (typeof this.props.listingAnswers.L73B === 'undefined') ? null : this.props.listingAnswers.L73B,
+            L76: (typeof this.props.listingAnswers.L76 === 'undefined') ? null : this.props.listingAnswers.L76,
+            L77: (typeof this.props.listingAnswers.L77 === 'undefined') ? null : this.props.listingAnswers.L77,
+            L114: (typeof this.props.listingAnswers.L114 === 'undefined') ? null : this.props.listingAnswers.L114,
+            L115: (typeof this.props.listingAnswers.L115 === 'undefined') ? null : this.props.listingAnswers.L115,
+            L118: (typeof this.props.listingAnswers.L118 === 'undefined') ? null : this.props.listingAnswers.L118,
+            L127A: (typeof this.props.listingAnswers.L127A === 'undefined') ? null : this.props.listingAnswers.L127A,
+            L127B: (typeof this.props.listingAnswers.L127B === 'undefined') ? null : this.props.listingAnswers.L127B,
+            L133: (typeof this.props.listingAnswers.L133 === 'undefined') ? null : this.props.listingAnswers.L133,
+            L141: (typeof this.props.listingAnswers.L141 === 'undefined') ? null : this.props.listingAnswers.L141,
+            L145A: (typeof this.props.listingAnswers.L145A === 'undefined') ? null : this.props.listingAnswers.L145A,
+            L145B: (typeof this.props.listingAnswers.L145B === 'undefined') ? null : this.props.listingAnswers.L145B,
+            L145C: (typeof this.props.listingAnswers.L145C === 'undefined') ? null : this.props.listingAnswers.L145C,
+            L146: (typeof this.props.listingAnswers.L146 === 'undefined') ? null : this.props.listingAnswers.L146,
+            L156: (typeof this.props.listingAnswers.L156 === 'undefined') ? null : this.props.listingAnswers.L156,
         }
     }
 
@@ -53,39 +54,19 @@ class PurchaseCategory4 extends Component {
 
     handleChangeForMortgageFinancing = (propertyName) => (event) => {
         this.setState({
-            morgtageFinancing: {
-                ...this.state.morgtageFinancing, [propertyName]: event.target.value
-            }
-        })
-    }
-
-    handleChangeForCheckbox = (propertyName) => (event) => {
-        this.setState({
-            morgtageFinancing: {
-                ...this.state.morgtageFinancing, [propertyName]: true,
-            }
-        })
-    }
-
-    handleChangeForCheckboxNo = (propertyName) => (event) => {
-        this.setState({
-            morgtageFinancing: {
-                ...this.setState.morgtageFinancing, [propertyName]: false,
+            ...this.state,
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value,
             }
         })
     }
 
     handleClick = () => {
-        this.props.history.push('/PurchaseAgreement')
-    }
-
-    handleClickToSave = () => {
-        console.log('we are saving/posting category 4');
-        this.props.dispatch({ type: 'POST_MORTGAGE_FINANCING', payload: this.state.morgtageFinancing })
+        this.props.history.push(`/PurchaseAgreement/${this.state.id}`)
     }
 
     handleClickNext = () => {
-        this.props.history.push('/PurchaseCategory5')
+        this.props.history.push(`/PurchaseCategory5/${this.state.id}`)
     }
 
     render() {
@@ -98,30 +79,12 @@ class PurchaseCategory4 extends Component {
                                 <h2>Mortgage Financing</h2>
                             </center>
                             <h4>Is this Purchase Agreement subject to the mortgage financing provisions below? If yes, complete the mortgage financing section below. If not, proceed to the Seller's Contributions to Buyer's Cost.</h4>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="Yes"
-                                value={this.state.financingProvisions}
-                                onChange={this.handleChangeForCheckbox('financingProvisions')}
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="No"
-                                value={this.state.financingProvisions}
-                                onChange={this.handleChangeForCheckboxNo('financingProvisions')}
-                            />
+                            <RadioGroup
+                                value={this.state.answers.L49}
+                                onChange={this.handleChangeForMortgageFinancing('L49')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Such mortgage financing shall be: <i>(Check one)</i></h4>
@@ -129,67 +92,41 @@ class PurchaseCategory4 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
                                             color="primary"
+                                            label="First Mortgage only"
+                                            value={this.state.answers.L53A}
+                                            onChange={this.handleChangeForMortgageFinancing('L53A')}
                                         />}
-                                    label="First Mortgage only"
-                                    value={this.state.firstMortgage}
-                                    onChange={this.handleChangeForCheckbox('firstMortgage')}
                                 />
                             </Grid>
                             <Grid item xs={12}>
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
                                             color="primary"
+                                            label="First morgtage and subordinate financing"
+                                            value={this.state.answers.L53B}
+                                            onChange={this.handleChangeForMortgageFinancing('L53B')}
                                         />}
-                                    label="First morgtage and subordinate financing"
-                                    value={this.state.subordinateFinancing}
-                                    onChange={this.handleChangeForCheckbox('subordinateFinancing')}
                                 />
                             </Grid>
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Does financing include a grant, bond program, or other loan assistance program?</h4>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="Yes"
-                                value={this.state.loanAssistance}
-                                onChange={this.handleChangeForCheckbox('loanAssistance')}
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="No"
-                                value={this.state.loanAssistance}
-                                onChange={this.handleChangeForCheckboxNo('loanAssistance')}
-                            />
+                            <RadioGroup
+                                value={this.state.answers.L54}
+                                onChange={this.handleChangeForMortgageFinancing('L54')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                             <Grid item xs={12}>
                                 <h4>If yes, please specify:</h4>
                                 <TextField
                                     id="morgtage_loan_assistance"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
-                                    value={this.state.loanAssistanceInput}
-                                    onChange={this.handleChangeForMortgageFinancing('loanAssistanceInput')}
+                                    value={this.state.answers.L55}
+                                    onChange={this.handleChangeForMortgageFinancing('L55')}
                                 />
                             </Grid>
                         </Grid>
@@ -199,122 +136,100 @@ class PurchaseCategory4 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
                                             color="primary"
+                                            label="Conventional"
+                                            value={this.state.answers.L57}
+                                            onChange={this.handleChangeForMortgageFinancing('L57')}
                                         />}
-                                    label="Conventional"
-                                    value={this.state.conventional}
-                                    onChange={this.handleChangeForCheckbox('conventional')}
                                 />
                             </Grid>
                             <Grid item xs={12}>
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
                                             color="primary"
+                                            label="Department of Veteran's Affairs (DVA) Guaranteed"
+                                            value={this.state.answers.L58}
+                                            onChange={this.handleChangeForMortgageFinancing('L58')}
                                         />}
-                                    label="Department of Veteran's Affairs (DVA) Guaranteed"
-                                    value={this.state.dvaGuarantee}
-                                    onChange={this.handleChangeForCheckbox('dvaGuarantee')}
                                 />
                             </Grid>
                             <Grid item xs={12}>
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
                                             color="primary"
+                                            label="Federal Housing Administration (FHA) Insured"
+                                            value={this.state.answers.L59}
+                                            onChange={this.handleChangeForMortgageFinancing('L59')}
                                         />}
-                                    label="Federal Housing Administration (FHA) Insured"
-                                    value={this.state.FHA}
-                                    onChange={this.handleChangeForCheckbox('FHA')}
                                 />
                             </Grid>
                             <Grid item xs={12}>
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
                                             color="primary"
+                                            label="Privately Insured Conventional"
+                                            value={this.state.answers.L60}
+                                            onChange={this.handleChangeForMortgageFinancing('L60')}
                                         />}
-                                    label="Privately Insured Conventional"
-                                    value={this.state.privatelyInsure}
-                                    onChange={this.handleChangeForCheckbox('privatelyInsure')}
                                 />
                             </Grid>
                             <Grid item xs={12}>
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
                                             color="primary"
+
+                                            label="United States Department of Agricultural (USDA) Rural Development"
+                                            value={this.state.answers.L61}
+                                            onChange={this.handleChangeForMortgageFinancing('L61')}
                                         />}
-                                    label="United States Department of Agricultural (USDA) Rural Development"
-                                    value={this.state.USDA}
-                                    onChange={this.handleChangeForCheckbox('USDA')}
                                 />
                             </Grid>
                             <Grid item xs={12}>
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
                                             color="primary"
+                                            label="Other"
+                                            value={this.state.answers.L62A}
+                                            onChange={this.handleChangeForMortgageFinancing('L62A')}
                                         />}
-                                    label="Other"
-                                    value={this.state.other}
-                                    onChange={this.handleChangeForCheckbox('other')}
+                                />
                                 />
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
                                     id="morgtage_loan_other"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
-                                    value={this.state.otherInput}
-                                    onChange={this.handleChangeForMortgageFinancing('otherInput')}
+                                    value={this.state.answers.L62B}
+                                    onChange={this.handleChangeForMortgageFinancing('L62B')}
                                 />
                             </Grid>
                             <h4>mortgage in the amount stated in this Purchase Agreement, amortized over a period of not more than</h4>
                             <Grid item xs={12}>
                                 <TextField
                                     id="amortized_period"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
-                                    value={this.state.mortgagePeriod}
-                                    onChange={this.handleChangeForMortgageFinancing('mortgagePeriod')}
+                                    value={this.state.answers.L63}
+                                    onChange={this.handleChangeForMortgageFinancing('L63')}
                                 />
                             </Grid>
                             <h4>years, with an initial interest rate at no more than</h4>
                             <Grid item xs={12}>
                                 <TextField
                                     id="interest_rate"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                     InputProps={{
                                         endAdornment: <InputAdornment position="end">%</InputAdornment>,
                                     }}
-                                    value={this.state.initialInterestRate}
-                                    onChange={this.handleChangeForMortgageFinancing('initialInterestRate')}
+                                    value={this.state.answers.L64}
+                                    onChange={this.handleChangeForMortgageFinancing('L64')}
                                 />
                             </Grid>
                             <h4>per annum.</h4>
@@ -329,52 +244,40 @@ class PurchaseCategory4 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
                                         color="primary"
+                                        label="If Buyer cannot secure the financing specified in this Purchase Agreement, and this Purchase Agreement does not close on the closing date specified, this Purchase Agreement is canceled. Buyer and Seller shall immediately sign a Cancellation of Purchase Agreement confirming said cancellation and directing all earnest moeny paid here to be"
+                                        value={this.state.answers.L70}
+                                        onChange={this.handleChangeForMortgageFinancing('L70')}
                                     />}
-                                label="If Buyer cannot secure the financing specified in this Purchase Agreement, and this Purchase Agreement does not close on the closing date specified, this Purchase Agreement is canceled. Buyer and Seller shall immediately sign a Cancellation of Purchase Agreement confirming said cancellation and directing all earnest moeny paid here to be"
-                                value={this.state.contingent}
-                                onChange={this.handleChangeForCheckbox('contingent')}
                             />
                         </Grid>
                         <FormControlLabel
                             control={
                                 <Checkbox
-                                    // checked={state.checkedB}
-                                    // onChange={handleChange('checkedB')}
-                                    value="checkedB"
                                     color="primary"
+                                    label="Refunded to Buyer"
+                                    value={this.state.answers.L73A}
+                                    onChange={this.handleChangeForMortgageFinancing('L73A')}
                                 />}
-                            label="Refunded to Buyer"
-                            value={this.state.refundedToBuyer}
-                            onChange={this.handleChangeForCheckbox('refundedToBuyer')}
                         />
                         <FormControlLabel
                             control={
                                 <Checkbox
-                                    // checked={state.checkedB}
-                                    // onChange={handleChange('checkedB')}
-                                    value="checkedB"
                                     color="primary"
+                                    label="Forfeited to seller"
+                                    value={this.state.answers.L73B}
+                                    onChange={this.handleChangeForMortgageFinancing('L73B')}
                                 />}
-                            label="Forfeited to seller"
-                            value={this.state.forfeitedToSeller}
-                                onChange={this.handleChangeForCheckbox('forfeitedToSeller')}
                         />
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
                                         color="primary"
+                                        label="Buyer shall provide Seller, or licensee representing or assisting Seller, with the Written Statement, on or before"
+                                        value={this.state.answers.L76}
+                                        onChange={this.handleChangeForMortgageFinancing('L76')}
                                     />}
-                                label="Buyer shall provide Seller, or licensee representing or assisting Seller, with the Written Statement, on or before"
-                                value={this.state.writtenStatement}
-                                onChange={this.handleChangeForCheckbox('writtenStatement')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -382,8 +285,8 @@ class PurchaseCategory4 extends Component {
                                 id="date"
                                 variant="outlined"
                                 type="date"
-                                value={this.state.date}
-                                onChange={this.handleChangeForMortgageFinancing('date')}
+                                value={this.state.answers.L77}
+                                onChange={this.handleChangeForMortgageFinancing('L77')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -396,29 +299,23 @@ class PurchaseCategory4 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
                                         color="primary"
+                                        label="Within five (5) business days of final acceptance date of this purchase agreement"
+                                        value={this.state.answers.L114}
+                                        onChange={this.handleChangeForMortgageFinancing('L114')}
                                     />}
-                                label="Within five (5) business days of final acceptance date of this purchase agreement" 
-                                value={this.state.lockWithinFive}
-                                onChange={this.handleChangeForCheckbox('lockWithinFive')}
-                                />
+                            />
                         </Grid>
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
                                         color="primary"
+                                        label="At any time prior to closing or as required by lenders(s)"
+                                        value={this.state.answers.L115}
+                                        onChange={this.handleChangeForMortgageFinancing('L115')}
                                     />}
-                                label="At any time prior to closing or as required by lenders(s)" 
-                                value={this.state.lockAnytime}
-                                onChange={this.handleChangeForCheckbox('lockAnytime')}
-                                />
+                            />
                         </Grid>
                         <Grid item xs={12}>
                             <center>
@@ -429,15 +326,13 @@ class PurchaseCategory4 extends Component {
                         <Grid item xs={12}>
                             <TextField
                                 id="buyers_earnest_money"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                value={this.state.repairCost}
-                                onChange={this.handleChangeForMortgageFinancing('repairCost')}
+                                value={this.state.answers.L118}
+                                onChange={this.handleChangeForMortgageFinancing('L118')}
                             />
                         </Grid>
                         <h4>The following party agrees to pay any reinspection fee required by Buyer's lenders(s).</h4>
@@ -445,27 +340,22 @@ class PurchaseCategory4 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
                                         color="primary"
+                                        label="Seller"
+                                        value={this.state.answers.L127A}
+                                        onChange={this.handleChangeForMortgageFinancing('L127A')}
                                     />}
-                                label="Seller" 
-                                value={this.state.seller}
-                                onChange={this.handleChangeForCheckbox('seller')}
-                                />
+                            />
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
                                         value="checkedB"
                                         color="primary"
                                     />}
-                                label="Buyer" 
-                                value={this.state.buyer}
-                                onChange={this.handleChangeForCheckbox('buyer')}
-                                />
+                                label="Buyer"
+                                value={this.state.answers.L127B}
+                                onChange={this.handleChangeForMortgageFinancing('L127B')}
+                            />
                         </Grid>
                         <Grid item xs={12}>
                             <center>
@@ -476,15 +366,13 @@ class PurchaseCategory4 extends Component {
                             <h4>Appraised value of the Property</h4>
                             <TextField
                                 id="buyers_earnest_money"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                value={this.state.appraisedPropertyValue}
-                                onChange={this.handleChangeForMortgageFinancing('appraisedPropertyValue')}
+                                value={this.state.answers.L133}
+                                onChange={this.handleChangeForMortgageFinancing('L133')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -496,15 +384,13 @@ class PurchaseCategory4 extends Component {
                         <Grid item xs={12}>
                             <TextField
                                 id="buyers_earnest_money"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                value={this.state.lenderProcessingFee}
-                                onChange={this.handleChangeForMortgageFinancing('lenderProcessingFee')}
+                                value={this.state.answers.L141}
+                                onChange={this.handleChangeForMortgageFinancing('L141')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -517,58 +403,50 @@ class PurchaseCategory4 extends Component {
                             <h4>Paid by Buyer</h4>
                             <TextField
                                 id="buyers_earnest_money"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                value={this.state.paidByBuyer}
-                                onChange={this.handleChangeForMortgageFinancing('paidByBuyer')}
+                                value={this.state.answers.L145A}
+                                onChange={this.handleChangeForMortgageFinancing('L145A')}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
                                         value="checkedB"
                                         color="primary"
                                     />}
                                 label="At closing"
-                                value={this.state.atClosing}
-                                onChange={this.handleChangeForCheckbox('atClosing')}
+                                value={this.state.answers.L145B}
+                                onChange={this.handleChangeForMortgageFinancing('L145B')}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
                                         value="checkedB"
                                         color="primary"
                                     />}
                                 label="Added to mortgage amount"
-                                value={this.state.addedMortgage}
-                                onChange={this.handleChangeForCheckbox('addedMortgage')}
+                                value={this.state.answers.L145B}
+                                onChange={this.handleChangeForMortgageFinancing('L145B')}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Paid by the Seller</h4>
                             <TextField
                                 id="buyers_earnest_money"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                value={this.state.paidBySeller}
-                                onChange={this.handleChangeForMortgageFinancing('paidBySeller')}
+                                value={this.state.answers.L146}
+                                onChange={this.handleChangeForMortgageFinancing('L146')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -579,15 +457,13 @@ class PurchaseCategory4 extends Component {
                         <Grid item xs={12}>
                             <TextField
                                 id="buyers_earnest_money"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                value={this.state.otherMortgageItems}
-                                onChange={this.handleChangeForMortgageFinancing('otherMortgageItems')}
+                                value={this.state.answers.L156}
+                                onChange={this.handleChangeForMortgageFinancing('L56')}
                             />
                         </Grid>
                     </Grid>
@@ -595,8 +471,8 @@ class PurchaseCategory4 extends Component {
                 <br />
                 <br />
                 <Container component="main">
-                    <Grid container spacing={3}>
-                        <Grid item xs={4}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
                             <div align="left" className="Button">
                                 <Button
                                     variant="contained"
@@ -607,19 +483,7 @@ class PurchaseCategory4 extends Component {
                 </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={4}>
-                            <div align="center" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleClickToSave}
-                                >
-                                    Save
-                </Button>
-
-                            </div>
-                        </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={6}>
                             <div align="right" className="Button">
                                 <Button
                                     variant="contained"
@@ -641,5 +505,5 @@ class PurchaseCategory4 extends Component {
     }
 }
 
-const mapReduxStateToProps = reduxState => ({ reduxState })
+const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(PurchaseCategory4));
