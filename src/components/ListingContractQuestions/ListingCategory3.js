@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-
+import { checkBoolean, checkString } from '../helpers/valueCheckerHelpers'
 
 // Material UI
 import { TextField, Checkbox, FormControlLabel, RadioGroup } from '@material-ui/core';
@@ -11,13 +11,15 @@ import Radio from '@material-ui/core/Radio';
 import Grid from '@material-ui/core/Grid';
 
 class ListingCategory3 extends Component {
-
+  componentDidMount() {
+    console.log(this.props.listingAnswers)
+  }
   state = {
     id: this.props.match.params.id,
     answers: {
-      L72: (typeof this.props.listingAnswers.L72 === 'undefined') ? null : this.props.listingAnswers.L72,
-      L7: (typeof this.props.listingAnswers.L7 === 'undefined') ? "" : this.props.listingAnswers.L7,
-      L73: (typeof this.props.listingAnswers.L73 === 'undefined') ? null : this.props.listingAnswers.L73,
+      L72: checkBoolean(this.props.listingAnswers.L72),
+      L7: checkString(this.props.listingAnswers.L7),
+      L73: checkBoolean(this.props.listingAnswers.L73),
     }
   }
 

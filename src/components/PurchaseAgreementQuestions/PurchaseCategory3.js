@@ -28,6 +28,9 @@ class PurchaseCategory3 extends Component {
         })
     }
 
+    handleClick = () => {
+        this.props.history.push(`/PurchaseCategory2/${this.state.id}`)
+    }
 
     handleClickNext = () => {
         this.props.history.push(`/PurchaseCategory4/${this.state.id}`)
@@ -56,8 +59,8 @@ class PurchaseCategory3 extends Component {
                 <br />
                 <br />
                 <Container component="main">
-                    <Grid container spacing={3}>
-                        <Grid item xs={4}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
                             <div align="left" className="Button">
                                 <Button
                                     variant="contained"
@@ -68,7 +71,7 @@ class PurchaseCategory3 extends Component {
                 </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={6}>
                             <div align="right" className="Button">
                                 <Button
                                     variant="contained"
@@ -82,9 +85,6 @@ class PurchaseCategory3 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
             </div>
         )
     }

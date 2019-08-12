@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { checkBoolean, checkString } from '../helpers/valueCheckerHelpers'
 
 //Material UI
 import Button from '@material-ui/core/Button';
@@ -15,12 +16,12 @@ class ListingCategory5 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L146: (typeof this.props.listingAnswers.L146 === 'undefined') ? null : this.props.listingAnswers.L146,
-            L148B: (typeof this.props.listingAnswers.L148B === 'undefined') ? null : this.props.listingAnswers.L148B,
-            L148C: (typeof this.props.listingAnswers.L148C === 'undefined') ? null : this.props.listingAnswers.L148C,
-            L150B: (typeof this.props.listingAnswers.L150B === 'undefined') ? null : this.props.listingAnswers.L150B,
-            L150C: (typeof this.props.listingAnswers.L150C === 'undefined') ? null : this.props.listingAnswers.L150C,
-            L152B: (typeof this.props.listingAnswers.L152B === 'undefined') ? "" : this.props.listingAnswers.L152B,
+            L146: checkBoolean(this.props.listingAnswers.L146),
+            L148B: checkString(this.props.listingAnswers.L148B),
+            L148C: checkString(this.props.listingAnswers.L148C),
+            L150B: checkString(this.props.listingAnswers.L150B),
+            L150C: checkString(this.props.listingAnswers.L150C),
+            L152B: checkString(this.props.listingAnswers.L152B),
         }
     }
 

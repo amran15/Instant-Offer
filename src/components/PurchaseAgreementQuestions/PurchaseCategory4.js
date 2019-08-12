@@ -17,9 +17,8 @@ class PurchaseCategory4 extends Component {
         id: this.props.match.params.id,
         answers: {
             L49: (typeof this.props.listingAnswers.L49 === 'undefined') ? null : this.props.listingAnswers.L49,
-            L53A: (typeof this.props.listingAnswers.L53A === 'undefined') ? null : this.props.listingAnswers.L53A,
-            L53B: (typeof this.props.listingAnswers.L53B === 'undefined') ? null : this.props.listingAnswers.L53B,
-            L145B: (typeof this.props.listingAnswers.L54 === 'undefined') ? null : this.props.listingAnswers.L54,
+            L53: (typeof this.props.listingAnswers.L53 === 'undefined') ? null : this.props.listingAnswers.L53,
+            L54: (typeof this.props.listingAnswers.L54 === 'undefined') ? null : this.props.listingAnswers.L54,
             L55: (typeof this.props.listingAnswers.L55 === 'undefined') ? null : this.props.listingAnswers.L55,
             L57: (typeof this.props.listingAnswers.L57 === 'undefined') ? null : this.props.listingAnswers.L57,
             L58: (typeof this.props.listingAnswers.L58 === 'undefined') ? null : this.props.listingAnswers.L58,
@@ -31,15 +30,12 @@ class PurchaseCategory4 extends Component {
             L63: (typeof this.props.listingAnswers.L63 === 'undefined') ? null : this.props.listingAnswers.L63,
             L64: (typeof this.props.listingAnswers.L64 === 'undefined') ? null : this.props.listingAnswers.L64,
             L70: (typeof this.props.listingAnswers.L70 === 'undefined') ? null : this.props.listingAnswers.L70,
-            L73A: (typeof this.props.listingAnswers.L73A === 'undefined') ? null : this.props.listingAnswers.L73A,
-            L73B: (typeof this.props.listingAnswers.L73B === 'undefined') ? null : this.props.listingAnswers.L73B,
+            L73: (typeof this.props.listingAnswers.L73 === 'undefined') ? null : this.props.listingAnswers.L73,
             L76: (typeof this.props.listingAnswers.L76 === 'undefined') ? null : this.props.listingAnswers.L76,
             L77: (typeof this.props.listingAnswers.L77 === 'undefined') ? null : this.props.listingAnswers.L77,
             L114: (typeof this.props.listingAnswers.L114 === 'undefined') ? null : this.props.listingAnswers.L114,
-            L115: (typeof this.props.listingAnswers.L115 === 'undefined') ? null : this.props.listingAnswers.L115,
             L118: (typeof this.props.listingAnswers.L118 === 'undefined') ? null : this.props.listingAnswers.L118,
-            L127A: (typeof this.props.listingAnswers.L127A === 'undefined') ? null : this.props.listingAnswers.L127A,
-            L127B: (typeof this.props.listingAnswers.L127B === 'undefined') ? null : this.props.listingAnswers.L127B,
+            L127: (typeof this.props.listingAnswers.L127 === 'undefined') ? null : this.props.listingAnswers.L127,
             L133: (typeof this.props.listingAnswers.L133 === 'undefined') ? null : this.props.listingAnswers.L133,
             L141: (typeof this.props.listingAnswers.L141 === 'undefined') ? null : this.props.listingAnswers.L141,
             L145A: (typeof this.props.listingAnswers.L145A === 'undefined') ? null : this.props.listingAnswers.L145A,
@@ -62,7 +58,7 @@ class PurchaseCategory4 extends Component {
     }
 
     handleClick = () => {
-        this.props.history.push(`/PurchaseAgreement/${this.state.id}`)
+        this.props.history.push(`/PurchaseCategory3/${this.state.id}`)
     }
 
     handleClickNext = () => {
@@ -88,28 +84,12 @@ class PurchaseCategory4 extends Component {
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Such mortgage financing shall be: <i>(Check one)</i></h4>
-                            <Grid item xs={12}>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            color="primary"
-                                            label="First Mortgage only"
-                                            value={this.state.answers.L53A}
-                                            onChange={this.handleChangeForMortgageFinancing('L53A')}
-                                        />}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            color="primary"
-                                            label="First morgtage and subordinate financing"
-                                            value={this.state.answers.L53B}
-                                            onChange={this.handleChangeForMortgageFinancing('L53B')}
-                                        />}
-                                />
-                            </Grid>
+                            <RadioGroup
+                                value={this.state.answers.L53}
+                                onChange={this.handleChangeForMortgageFinancing('L53')}>
+                                <FormControlLabel value='true' control={<Radio />} label="First Mortage Only" />
+                                <FormControlLabel value='false' control={<Radio />} label="First Mortage and Subordinate Financing" />
+                            </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Does financing include a grant, bond program, or other loan assistance program?</h4>
@@ -137,10 +117,10 @@ class PurchaseCategory4 extends Component {
                                     control={
                                         <Checkbox
                                             color="primary"
-                                            label="Conventional"
                                             value={this.state.answers.L57}
                                             onChange={this.handleChangeForMortgageFinancing('L57')}
                                         />}
+                                    label="Conventional"
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -148,10 +128,10 @@ class PurchaseCategory4 extends Component {
                                     control={
                                         <Checkbox
                                             color="primary"
-                                            label="Department of Veteran's Affairs (DVA) Guaranteed"
                                             value={this.state.answers.L58}
                                             onChange={this.handleChangeForMortgageFinancing('L58')}
                                         />}
+                                    label="Department of Veteran's Affairs (DVA) Guaranteed"
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -159,10 +139,10 @@ class PurchaseCategory4 extends Component {
                                     control={
                                         <Checkbox
                                             color="primary"
-                                            label="Federal Housing Administration (FHA) Insured"
                                             value={this.state.answers.L59}
                                             onChange={this.handleChangeForMortgageFinancing('L59')}
                                         />}
+                                    label="Federal Housing Administration (FHA) Insured"
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -170,10 +150,10 @@ class PurchaseCategory4 extends Component {
                                     control={
                                         <Checkbox
                                             color="primary"
-                                            label="Privately Insured Conventional"
                                             value={this.state.answers.L60}
                                             onChange={this.handleChangeForMortgageFinancing('L60')}
                                         />}
+                                    label="Privately Insured Conventional"
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -181,11 +161,10 @@ class PurchaseCategory4 extends Component {
                                     control={
                                         <Checkbox
                                             color="primary"
-
-                                            label="United States Department of Agricultural (USDA) Rural Development"
                                             value={this.state.answers.L61}
                                             onChange={this.handleChangeForMortgageFinancing('L61')}
                                         />}
+                                    label="United States Department of Agricultural (USDA) Rural Development"
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -193,11 +172,10 @@ class PurchaseCategory4 extends Component {
                                     control={
                                         <Checkbox
                                             color="primary"
-                                            label="Other"
                                             value={this.state.answers.L62A}
                                             onChange={this.handleChangeForMortgageFinancing('L62A')}
                                         />}
-                                />
+                                    label="Other:"
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -245,39 +223,27 @@ class PurchaseCategory4 extends Component {
                                 control={
                                     <Checkbox
                                         color="primary"
-                                        label="If Buyer cannot secure the financing specified in this Purchase Agreement, and this Purchase Agreement does not close on the closing date specified, this Purchase Agreement is canceled. Buyer and Seller shall immediately sign a Cancellation of Purchase Agreement confirming said cancellation and directing all earnest moeny paid here to be"
                                         value={this.state.answers.L70}
                                         onChange={this.handleChangeForMortgageFinancing('L70')}
                                     />}
+                                    label="If Buyer cannot secure the financing specified in this Purchase Agreement, and this Purchase Agreement does not close on the closing date specified, this Purchase Agreement is canceled. Buyer and Seller shall immediately sign a Cancellation of Purchase Agreement confirming said cancellation and directing all earnest moeny paid here to be"
                             />
                         </Grid>
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    color="primary"
-                                    label="Refunded to Buyer"
-                                    value={this.state.answers.L73A}
-                                    onChange={this.handleChangeForMortgageFinancing('L73A')}
-                                />}
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    color="primary"
-                                    label="Forfeited to seller"
-                                    value={this.state.answers.L73B}
-                                    onChange={this.handleChangeForMortgageFinancing('L73B')}
-                                />}
-                        />
+                        <RadioGroup
+                            value={this.state.answers.L73}
+                            onChange={this.handleChangeForMortgageFinancing('L173')}>
+                            <FormControlLabel value='true' control={<Radio />} label="Buyer" />
+                            <FormControlLabel value='false' control={<Radio />} label="Seller" />
+                        </RadioGroup>
                         <Grid item xs={12}>
                             <FormControlLabel
                                 control={
                                     <Checkbox
                                         color="primary"
-                                        label="Buyer shall provide Seller, or licensee representing or assisting Seller, with the Written Statement, on or before"
                                         value={this.state.answers.L76}
                                         onChange={this.handleChangeForMortgageFinancing('L76')}
                                     />}
+                                    label="Buyer shall provide Seller, or licensee representing or assisting Seller, with the Written Statement, on or before"
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -296,26 +262,12 @@ class PurchaseCategory4 extends Component {
                         </Grid>
                         <h4>The Rate shall be locked with the lenders(s) by Buyer:<i>(Chck one)</i></h4>
                         <Grid item xs={12}>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        color="primary"
-                                        label="Within five (5) business days of final acceptance date of this purchase agreement"
-                                        value={this.state.answers.L114}
-                                        onChange={this.handleChangeForMortgageFinancing('L114')}
-                                    />}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        color="primary"
-                                        label="At any time prior to closing or as required by lenders(s)"
-                                        value={this.state.answers.L115}
-                                        onChange={this.handleChangeForMortgageFinancing('L115')}
-                                    />}
-                            />
+                        <RadioGroup
+                               value={this.state.answers.L114}
+                               onChange={this.handleChangeForMortgageFinancing('L114')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Within five (5) business days of final acceptance date of this purchase agreement" />
+                                <FormControlLabel value='false' control={<Radio />} label="At any time prior to closing or as required by lenders(s)" />
+                            </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
                             <center>
@@ -337,25 +289,12 @@ class PurchaseCategory4 extends Component {
                         </Grid>
                         <h4>The following party agrees to pay any reinspection fee required by Buyer's lenders(s).</h4>
                         <Grid item xs={12}>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        color="primary"
-                                        label="Seller"
-                                        value={this.state.answers.L127A}
-                                        onChange={this.handleChangeForMortgageFinancing('L127A')}
-                                    />}
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="Buyer"
-                                value={this.state.answers.L127B}
-                                onChange={this.handleChangeForMortgageFinancing('L127B')}
-                            />
+                        <RadioGroup
+                                value={this.state.answers.L27}
+                                onChange={this.handleChangeForMortgageFinancing('L127')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Seller" />
+                                <FormControlLabel value='false' control={<Radio />} label="Buyer" />
+                            </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
                             <center>
@@ -497,9 +436,6 @@ class PurchaseCategory4 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
             </div>
         )
     }

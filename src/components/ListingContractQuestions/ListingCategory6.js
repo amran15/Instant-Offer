@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { checkBoolean, checkString } from '../helpers/valueCheckerHelpers'
 
 //Material UI
 import Grid from '@material-ui/core/Grid';
@@ -13,9 +14,9 @@ class ListingCategory6 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L163: (typeof this.props.listingAnswers.L163 === 'undefined') ? null : this.props.listingAnswers.L163,
-            L164: (typeof this.props.listingAnswers.L164 === 'undefined') ? null : this.props.listingAnswers.L164,
-            L165A: (typeof this.props.listingAnswers.L165A === 'undefined') ? "" : this.props.listingAnswers.L165A,
+            L163: checkBoolean(this.props.listingAnswers.L163),
+            L164: checkBoolean(this.props.listingAnswers.L164),
+            L165A: checkString(this.props.listingAnswers.L165A),
         }
     }
     handleChangeForInputs = (propertyName) => (event) => {

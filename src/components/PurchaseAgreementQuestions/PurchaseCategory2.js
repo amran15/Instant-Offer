@@ -33,10 +33,9 @@ class PurchaseCategory2 extends Component {
         }
 
 
-
     handleClick = () => {
-        this.props.history.push(`/PurchaseAgreement/${this.state.id}`)
-    }
+            this.props.history.push(`/PurchaseCategory1/${this.state.id}`)
+        }
 
 
     handleClickNext = () => {
@@ -125,8 +124,8 @@ class PurchaseCategory2 extends Component {
                 <br />
                 <br />
                 <Container component="main">
-                    <Grid container spacing={3}>
-                        <Grid item xs={4}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
                             <div align="left" className="Button">
                                 <Button
                                     variant="contained"
@@ -137,7 +136,7 @@ class PurchaseCategory2 extends Component {
                 </Button>
                             </div>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={6}>
                             <div align="right" className="Button">
                                 <Button
                                     variant="contained"
@@ -151,9 +150,6 @@ class PurchaseCategory2 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
             </div>
         )
     }

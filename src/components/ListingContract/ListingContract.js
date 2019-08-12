@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import axios from 'axios'
 
 //Material UI
 import Button from '@material-ui/core/Button';
@@ -18,6 +19,13 @@ const styles = {
 class ListingContract extends Component {
     state = {
         id: this.props.match.params.id,
+    }
+
+    componentDidMount() {
+        this.props.dispatch({
+            type: 'LISTING_ANSWERS', payload: this.props.match.params.id
+        })
+        
     }
 
     handleClick = (propertyName) => (event) => {
