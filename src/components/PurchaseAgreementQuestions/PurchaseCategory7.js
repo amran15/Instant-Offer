@@ -13,7 +13,22 @@ import { TextField } from '@material-ui/core';
 
 class PurchaseCategory7 extends Component {
 
-
+    state = {
+        id: this.props.match.params.id,
+        answers: {
+            L198: (typeof this.props.listingAnswers.L198 === 'undefined') ? null : this.props.listingAnswers.L198,
+            L201: (typeof this.props.listingAnswers.L201 === 'undefined') ? null : this.props.listingAnswers.L201,
+            L210: (typeof this.props.listingAnswers.L210 === 'undefined') ? null : this.props.listingAnswers.L210,
+        }
+    }
+    handleChangeForInspections = () =>{
+        this.setState({
+            ...this.state,
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value,
+            }
+        })
+    }
 
     handleClick = () => {
         this.props.history.push(`/PurchaseCategory6/${this.state.id}`)
@@ -38,7 +53,8 @@ class PurchaseCategory7 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value="checkedB"
+                                            value={this.state.answers.L198}
+                                            onChange={this.handleChangeForInspections('L198')}
                                             color="primary"
                                         />}
                                     label="This Purchase Agreement is subject to an Addendum to Purchase Agreement: Sale of Buyer's Property Contingency for the sale of Buyer's property. (If checked, see attached Addendum."
@@ -49,7 +65,8 @@ class PurchaseCategory7 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value="checkedB"
+                                        value={this.state.answers.L201}
+                                        onChange={this.handleChangeForInspections('L201')}
                                             color="primary"
                                         />}
                                     label="This Purchase Agreement is contingent upon the succesful closing on the Buyer's property."
@@ -60,7 +77,8 @@ class PurchaseCategory7 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value="checkedB"
+                                        value={this.state.answers.L210}
+                                        onChange={this.handleChangeForInspections('L210')}
                                             color="primary"
                                         />}
                                     label="Buyer represents that Buyer has the financial ability to perform on this Purchase Agreement without the sale and closing on any other property."
