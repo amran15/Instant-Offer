@@ -18,12 +18,16 @@ const styles = {
 
 class PurchaseAgreement extends Component {
 
+    state = {
+        id: this.props.match.params.id,
+    }
+
     handleClick = (propertyName) => (event) => {
         this.props.history.push(`${[propertyName]}`);
     }
 
     handleClickSign = () => {
-        this.props.history.push('/PurchaseSignature');
+        this.props.history.push(`/PurchaseSignature/${this.state.id}`);
     }
 
     render() {
@@ -36,7 +40,7 @@ class PurchaseAgreement extends Component {
                         <h4>Please answer the following questions pertaining to the Purchase Agreement.</h4>
                     </center>
                     <CardActionArea>
-                    <Card id="generalInfo" onClick={this.handleClick('/PurchaseCategory1')} value="/PurchaseCategory1" >
+                    <Card id="generalInfo" onClick={this.handleClick(`/PurchaseCategory1/${this.state.id}`)} value="/PurchaseCategory1" >
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={11}>
                                 <div style={styles.title}>
@@ -57,7 +61,7 @@ class PurchaseAgreement extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                    <Card onClick={this.handleClick('/PurchaseCategory2')} value="/PurchaseCategory2">
+                    <Card onClick={this.handleClick(`/PurchaseCategory2/${this.state.id}`)} value="/PurchaseCategory2">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={11}>
                                 <div style={styles.title}>
@@ -78,7 +82,7 @@ class PurchaseAgreement extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                    <Card onClick={this.handleClick('/PurchaseCategory3')} value="PurchaseCategory3">
+                    <Card onClick={this.handleClick(`/PurchaseCategory3/${this.state.id}`)} value="PurchaseCategory3">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={11}>
                                 <div style={styles.title}>
@@ -99,7 +103,7 @@ class PurchaseAgreement extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                    <Card onClick={this.handleClick('/PurchaseCategory4')} value="PurchaseCategory4">
+                    <Card onClick={this.handleClick(`/PurchaseCategory4/${this.state.id}`)} value="PurchaseCategory4">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={11}>
                                 <div style={styles.title}>
@@ -120,7 +124,7 @@ class PurchaseAgreement extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                    <Card onClick={this.handleClick('/PurchaseCategory5')} value="PurchaseCategory5">
+                    <Card onClick={this.handleClick(`/PurchaseCategory5/${this.state.id}`)} value="PurchaseCategory5">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={11}>
                                 <div style={styles.title}>
@@ -141,7 +145,7 @@ class PurchaseAgreement extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                    <Card onClick={this.handleClick('/PurchaseCategory6')} value="PurchaseCategory6">
+                    <Card onClick={this.handleClick(`/PurchaseCategory6/${this.state.id}`)} value="PurchaseCategory6">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={11}>
                                 <div style={styles.title}>
@@ -162,7 +166,7 @@ class PurchaseAgreement extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                    <Card onClick={this.handleClick('/PurchaseCategory7')} value="PurchaseCategory7">
+                    <Card onClick={this.handleClick(`/PurchaseCategory7/${this.state.id}`)} value="PurchaseCategory7">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={11}>
                                 <div style={styles.title}>
@@ -183,7 +187,7 @@ class PurchaseAgreement extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                    <Card onClick={this.handleClick('/PurchaseCategory8')} value="PurchaseCategory8">
+                    <Card onClick={this.handleClick(`/PurchaseCategory8/${this.state.id}`)} value="PurchaseCategory8">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={11}>
                                 <div style={styles.title}>
@@ -204,7 +208,7 @@ class PurchaseAgreement extends Component {
                     </CardActionArea>
                     <br />
                     <CardActionArea>
-                    <Card onClick={this.handleClick('/PurchaseCategory9')} value="PurchaseCategory9">
+                    <Card onClick={this.handleClick(`/PurchaseCategory9/${this.state.id}`)} value="PurchaseCategory9">
                         <Grid item xs={12} container spacing={3}>
                             <Grid item xs={11}>
                                 <div style={styles.title}>

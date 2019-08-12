@@ -12,26 +12,25 @@ import { classPrivateProperty } from "@babel/types";
 
 class PurchaseCategory3 extends Component {
     state = {
-        closingDate: {
-            date: '',
+        id: this.props.match.params.id,
+        answers: {
+            L45: (typeof this.props.purchaseAnswers.L45 === 'undefined') ? null : this.props.purchaseAnswers.L45
         }
     }
 
 
-    handleChangeDate = (propertyName) => (event)=> {
-        this.setState({ 
-            closingDate:{
-            [propertyName]:event.target.value
-        }})
+    handleChangeDate = (propertyName) => (event) => {
+        this.setState({
+            ...this.state,
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value,
+            }
+        })
     }
 
-    handleClickToSave = () => {
-
-        // this.props.history.push('/PurchaseCategory4')
-    }
 
     handleClickNext = () => {
-        this.props.history.push('/PurchaseCategory4')
+        this.props.history.push(`/PurchaseCategory4/${this.state.id}`)
     }
 
     render() {
@@ -48,8 +47,8 @@ class PurchaseCategory3 extends Component {
                                 id="date"
                                 variant="outlined"
                                 type="date"
-                                value={this.state.closingDate.date}
-                                onChange={this.handleChangeDate('date')}
+                                value={this.props.purchaseAnswers.L45}
+                                onChange={this.handleChangeDate('L45')}
                             />
                         </Grid>
                     </Grid>
@@ -67,18 +66,6 @@ class PurchaseCategory3 extends Component {
                                 >
                                     Back
                 </Button>
-                            </div>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <div align="center" className="Button">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleClickToSave}
-                                >
-                                    Save
-                </Button>
-
                             </div>
                         </Grid>
                         <Grid item xs={4}>
@@ -103,5 +90,5 @@ class PurchaseCategory3 extends Component {
     }
 }
 
-const mapReduxStateToProps = reduxState => ({ reduxState })
+const mapReduxStateToProps = reduxState => reduxState 
 export default connect(mapReduxStateToProps)(withRouter(PurchaseCategory3));

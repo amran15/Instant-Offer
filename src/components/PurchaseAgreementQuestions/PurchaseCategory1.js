@@ -13,9 +13,10 @@ import { TextField } from '@material-ui/core';
 class PurchaseCategory1 extends Component {
     
     componentDidMount() {
-    const purchase_answer_id = this.props.match.params.id
+    const answer_id = this.props.match.params.id
+    console.log(answer_id)
     this.props.dispatch(
-        { type: 'PURCHASE_ANSWERS', payload: purchase_answer_id }
+        { type: 'PURCHASE_ANSWERS', payload: answer_id }
     )
 }
 
@@ -23,7 +24,7 @@ class PurchaseCategory1 extends Component {
         id: this.props.match.params.id,
         answers: {
             DATE: (typeof this.props.purchaseAnswers.DATE === 'undefined') ? null : this.props.purchaseAnswers.DATE,
-            L3: (typeof this.props.purchaseAnswers.L3 === 'undefined') ? null : this.props.purchaseAnswers.L3,
+            BUYER_1: (typeof this.props.purchaseAnswers.BUYER_1 === 'undefined') ? null : this.props.purchaseAnswers.BUYER_1,
             L6A: (typeof this.props.purchaseAnswers.L6A === 'undefined') ? null : this.props.purchaseAnswers.L6A,
             L6B: (typeof this.props.purchaseAnswers.L6B === 'undefined') ? null : this.props.purchaseAnswers.L6B,
             L7A: (typeof this.props.purchaseAnswers.L7A === 'undefined') ? null : this.props.purchaseAnswers.L7A,
@@ -41,26 +42,26 @@ class PurchaseCategory1 extends Component {
 
     handleChangeForGeneralInformation = (propertyName) => (event) => {
         this.setState({
-            generalInformation:{
-                ...this.state.generalInformation, [propertyName]:event.target.value,
+            ...this.state, 
+            answers: {
+              ...this.state.answers, [propertyName]: event.target.value,
             }
-        })
-    }
+          })
+        }
 
 
 
     handleClick = () => {
-        this.props.history.push('/PurchaseAgreement')
+        this.props.history.push(`/PurchaseAgreement/${this.state.id}`)
     }
 
     handleClickNext = () => {
-        this.props.history.push('/PurchaseCategory2')
+        this.props.history.push(`/PurchaseCategory2/${this.state.id}`)
     }
 
     render() {
         return (
             <div>
-                <pre>{JSON.stringify(this.state, null, 2)}</pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -82,8 +83,8 @@ class PurchaseCategory1 extends Component {
                                 id="buyers_name"
                                 fullWidth
                                 variant="outlined"
-                                value={this.props.purchaseAnswers.L3}
-                                onChange={this.handleChangeForGeneralInformation('L3')}
+                                value={this.props.purchaseAnswers.BUYER_1}
+                                onChange={this.handleChangeForGeneralInformation('BUYER_1')}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -221,13 +222,11 @@ class PurchaseCategory1 extends Component {
                         </Grid>
                     </Grid>
                 </Container>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
             </div >
         )
     }
 }
 
-const mapReduxStateToProps = reduxState => ({ reduxState })
+const mapReduxStateToProps = reduxState => reduxState
+
 export default connect(mapReduxStateToProps)(withRouter(PurchaseCategory1));

@@ -131,52 +131,52 @@ class App extends Component {
             /> */}
             <ProtectedRoute
               exact
-              path="/PurchaseAgreement"
+              path="/PurchaseAgreement/:id"
               component={PurchaseAgreement}
             />
              <ProtectedRoute
               exact
-              path="/PurchaseCategory1"
+              path="/PurchaseCategory1/:id"
               component={PurchaseCategory1}
             />
              <ProtectedRoute
               exact
-              path="/PurchaseCategory2"
+              path="/PurchaseCategory2/:id"
               component={PurchaseCategory2}
             />
              <ProtectedRoute
               exact
-              path="/PurchaseCategory3"
+              path="/PurchaseCategory3/:id"
               component={PurchaseCategory3}
             />
              <ProtectedRoute
               exact
-              path="/PurchaseCategory4"
+              path="/PurchaseCategory4/:id"
               component={PurchaseCategory4}
             />
              <ProtectedRoute
               exact
-              path="/PurchaseCategory5"
+              path="/PurchaseCategory5/:id"
               component={PurchaseCategory5}
             />
              <ProtectedRoute
               exact
-              path="/PurchaseCategory6"
+              path="/PurchaseCategory6/:id"
               component={PurchaseCategory6}
             />
              <ProtectedRoute
               exact
-              path="/PurchaseCategory7"
+              path="/PurchaseCategory7/:id"
               component={PurchaseCategory7}
             />
              <ProtectedRoute
               exact
-              path="/PurchaseCategory8"
+              path="/PurchaseCategory8/:id"
               component={PurchaseCategory8}
             />
             <ProtectedRoute
               exact
-              path="/PurchaseCategory9"
+              path="/PurchaseCategory9/:id"
               component={PurchaseCategory9}
             />
              {/* <ProtectedRoute
