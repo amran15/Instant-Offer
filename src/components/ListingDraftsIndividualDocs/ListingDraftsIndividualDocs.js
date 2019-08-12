@@ -7,6 +7,7 @@ import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import { actionChannel } from "redux-saga/effects";
+import swal from 'sweetalert';
 
 const styles = {
     title: {
@@ -26,7 +27,23 @@ class ListingDraftsIndividualDocs extends Component {
     }
 
     handleDelete = (draft) => {
-        this.props.dispatch({ type: 'DELETE_LISTING_ANSWER', payload: draft })
+        swal({
+            title: "Confirm Delete",
+            text: "Once deleted, you will not be able to recover this file.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Your file has been deleted!", {
+                icon: "success",
+              });
+              this.props.dispatch({ type: 'DELETE_LISTING_ANSWER', payload: draft })
+            } else {
+              swal("Your file is safe!");
+            }
+          });
     }
 
     handleEdit = (draft) => {
