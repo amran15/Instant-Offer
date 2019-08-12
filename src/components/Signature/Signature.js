@@ -50,7 +50,15 @@ class Signature extends Component {
     //this will save the signature once it has been trimmed
     handleClickToSaveSignature = () => {
         //POST_SIGNATURE action goes to the sagas with a generator function sendSignatureToDatabase
+
+
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
+        // this.trimSignature();
+        this.setState({
+            answers: {
+                SIGNATURE_BUYER_1: this.sigPad.getTrimmedCanvas().toDataURL('image/PNG')
+            }
+        })
         swal({
             title: "Signature Saved!",
             text: "",
