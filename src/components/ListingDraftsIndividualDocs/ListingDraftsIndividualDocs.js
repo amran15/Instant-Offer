@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 //Material UI
 import Card from '@material-ui/core/Card';
@@ -20,13 +21,18 @@ class ListingDraftsIndividualDocs extends Component {
 
     componentDidMount = () => {
         this.props.dispatch({
-          type: 'GET_LISTING_DRAFTS'
+            type: 'GET_LISTING_DRAFTS'
         });
-      }
+    }
 
-      handleDelete = (draft) => {
- this.props.dispatch({type: 'DELETE_LISTING_ANSWER', payload: draft})
-      }
+    handleDelete = (draft) => {
+        this.props.dispatch({ type: 'DELETE_LISTING_ANSWER', payload: draft })
+    }
+
+    handleEdit = (draft) => {
+        console.log('draft_id', draft.id)
+        this.props.history.push(`/ListingContract/${draft.id}`)
+    }
 
     render() {
         return (
@@ -48,7 +54,8 @@ class ListingDraftsIndividualDocs extends Component {
                                     container
                                     direction="row"
                                     justify="center"
-                                    alignItems="center">
+                                    alignItems="center"
+                                    onClick={() => { this.handleEdit(draft) }}>
                                     <i class="material-icons">edit</i>
                                 </Grid>
                                 <Grid
@@ -58,19 +65,19 @@ class ListingDraftsIndividualDocs extends Component {
                                     direction="row"
                                     justify="center"
                                     alignItems="center"
-                                    onClick={() => {this.handleDelete(draft)}}>
+                                    onClick={() => { this.handleDelete(draft) }}>
                                     <i class="material-icons">delete</i>
                                 </Grid>
                             </Grid>
                         </Card>
                     </CardActionArea>
-                    <br/></div>
+                        <br /></div>
                 ))}
-                
+
             </div>
         )
     }
 }
 
 const mapReduxStateToProps = reduxState => reduxState
-export default connect(mapReduxStateToProps)(ListingDraftsIndividualDocs);
+export default connect(mapReduxStateToProps)(withRouter(ListingDraftsIndividualDocs));

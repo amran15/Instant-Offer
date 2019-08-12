@@ -13,8 +13,8 @@ class ListingCategory6 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L163: (typeof this.props.listingAnswers.L163 === 'undefined') ? null : this.props.listingAnswers.L163,
-            L164: (typeof this.props.listingAnswers.L164 === 'undefined') ? null : this.props.listingAnswers.L164,
+            L163: (typeof this.props.listingAnswers.L163 === 'undefined') ? null : String(this.props.listingAnswers.L163),
+            L164: (typeof this.props.listingAnswers.L164 === 'undefined') ? null : String(this.props.listingAnswers.L164),
             L165A: (typeof this.props.listingAnswers.L165A === 'undefined') ? "" : this.props.listingAnswers.L165A,
         }
     }
