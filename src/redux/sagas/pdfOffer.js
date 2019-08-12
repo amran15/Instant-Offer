@@ -240,7 +240,7 @@ function* fetchOffer(action) {
     if(answer.L12)doc.text(`${answers.L12}`, 10,10)
     if(answer.L403)doc.text(`X`, 10,10)
     if(answer.L404)doc.text(`X`, 10,10)
-    if(answer.SIGNATURE_BUYER_1)doc.text(`${SIGNATURE_BUYER_1}`, 10,10)
+    if(answer.SIGNATURE_BUYER_1)doc.text(`${answers.SIGNATURE_BUYER_1}`, 10,10)
     if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
 
     // -----------------------------------------------------------------------------------------
