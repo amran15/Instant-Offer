@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 //Material UI
-import Button from '@material-ui/core/Button';
+import { Button, RadioGroup, Radio, } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Checkbox from '@material-ui/core/Checkbox';
 import Container from '@material-ui/core/Container';
@@ -35,26 +35,26 @@ class PurchaseCategory5 extends Component {
 
     handleChangeForCheckbox = (propertyName) => (event) => {
         this.setState({
-            sellerContribution: {
-                ...this.state.sellerContribution, [propertyName]: true,
+            answers: {
+                ...this.state.answers, [propertyName]: true,
             }
         })
     }
 
     handleChangeForCheckboxNo = (propertyName) => (event) => {
         this.setState({
-            sellerContribution: {
-                ...this.state.sellerContribution, [propertyName]: false,
+            answers: {
+                ...this.state.answers, [propertyName]: false,
             }
         })
     }
 
     handleClick = () => {
-        this.props.history.push('/PurchaseAgreement')
+        this.props.history.push(`/PurchaseAgreement/${this.state.id}`)
     }
 
     handleClickNext = () => {
-        this.props.history.push('/PurchaseCategory6')
+        this.props.history.push(`/PurchaseCategory6/${this.state.id}`)
     }
 
     render() {
@@ -82,97 +82,77 @@ class PurchaseCategory5 extends Component {
                                 id="checkedB"
                                 color="primary"
                                 value={this.state.answers.L60A}
-                                onChange={this.handleChangeForSellerContribution('L60A')}>
-                                />
-                            <Grid item xs={10}>
-                                    <TextField
-                                        id="sellers_contribution"
-                                        // value={this.state.song_title}
-                                        // onChange={this.handleInputChangeFor('song_title')}
-                                        fullWidth
-                                        variant="outlined"
-                                        InputProps={{
-                                            startAdornment: <InputAdornment position="start">$</InputAdornment>,
-                                        }}
-                                        value={this.state.closingCostValue}
-                                        onChange={this.handleChangeForSellerContribution('closingCostValue')}
-                                    />
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        id="checkedB"
+                                onChange={this.handleChangeForSellerContribution('L60A')}
+                            />
+                        </Grid>
+                        <Grid item xs={10}>
+                            <TextField
+                                id="sellers_contribution"
+                                fullWidth
+                                variant="outlined"
+                                InputProps={{
+                                    startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                }}
+                                value={this.state.answers.L60B}
+                                onChange={this.handleChangeForSellerContribution('L60B')}
+                            />
+                        </Grid>
+                        <Grid item xs={2}>
+                            <Checkbox
+                                id="checkedB"
+                                color="primary"
+                                value={this.state.answers.L61A}
+                                onChange={this.handleChangeForSellerContribution('L61A')}
+                            />
+                        </Grid>
+                        <Grid item xs={10}>
+                            <TextField
+                                id="sellers_contribution"
+                                fullWidth
+                                variant="outlined"
+                                InputProps={{
+                                    endAdornment: <InputAdornment position="start">%</InputAdornment>,
+                                }}
+                                value={this.state.answers.L61B}
+                                onChange={this.handleChangeForSellerContribution('L61B')}
+                            />
+                            <br />
+                            <br />
+                        </Grid>
+                    </Grid>
+                    <br />
+                    <br />
+                    <Container component="main">
+                        <Grid container spacing={3}>
+                            <Grid item xs={4}>
+                                <div align="left" className="Button">
+                                    <Button
+                                        variant="contained"
                                         color="primary"
-                                        value={this.state.closingCostPercentCheck}
-                                        onChange={this.handleChangeForCheckbox('closingCostPercentCheck')}
-                                    />
-                                </Grid>
-                                <Grid item xs={10}>
-                                    <TextField
-                                        id="sellers_contribution"
-                                        // value={this.state.song_title}
-                                        // onChange={this.handleInputChangeFor('song_title')}
-                                        fullWidth
-                                        variant="outlined"
-                                        InputProps={{
-                                            endAdornment: <InputAdornment position="start">%</InputAdornment>,
-                                        }}
-                                        value={this.state.closingCostPercentValue}
-                                        onChange={this.handleChangeForSellerContribution('closingCostPercentValue')}
-                                    />
-                                    <br />
-                                    <br />
-                                </Grid>
+                                        onClick={this.handleClick}
+                                    >
+                                        Back
+                                        </Button>
+                                </div>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <div align="right" className="Button">
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={this.handleClickNext}
+                                    >
+                                        Next
+                                        </Button>
+                                </div>
+                            </Grid>
                         </Grid>
-                            <br />
-                            <br />
-                            <Container component="main">
-                                <Grid container spacing={3}>
-                                    <Grid item xs={4}>
-                                        <div align="left" className="Button">
-                                            <Button
-                                                variant="contained"
-                                                color="primary"
-                                                onClick={this.handleClick}
-                                            >
-                                                Back
-                                        </Button>
-                                        </div>
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <div align="center" className="Button">
-                                            <Button
-                                                variant="contained"
-                                                color="primary"
-                                                onClick={this.handleClickToSave}
-                                            >
-                                                Save
-                                        </Button>
-                                        </div>
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                        <div align="right" className="Button">
-                                            <Button
-                                                variant="contained"
-                                                color="primary"
-                                                onClick={this.handleClickNext}
-                                            >
-                                                Next
-                                        </Button>
-                                        </div>
-                                    </Grid>
-                                </Grid>
-                            </Container>
-                        </Grid>
+                    </Container>
                 </Container>
-                    <pre>
-                        {JSON.stringify(this.state, null, 2)}
-                    </pre>
             </div>
-                )
-            }
-        }
-        
-const mapReduxStateToProps = reduxState => ({reduxState})
+        )
+    }
+}
+
+const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(PurchaseCategory5));
