@@ -55,16 +55,16 @@ class ListingCategory8 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L196}
                                 onChange={this.handleChangeForInputs('L196')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                             <h4>Seller will not agree to dual agency and not consider offers made by buyers represented by broker?</h4>
                             <Grid item xs={12}>
                                 <RadioGroup
                                     value={this.state.answers.L198}
                                     onChange={this.handleChangeForInputs('L198')}>
-                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                    <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                                 </RadioGroup>
                             </Grid>
                             <h4>Real Estate Company Name:</h4>

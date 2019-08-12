@@ -51,8 +51,8 @@ class ListingCategory7 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L175}
                                 onChange={this.handleChangeForInputs('L175')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                             <h4>Due to the complexity and potential risks of failing to comply with FIRPTA, Seller should <b>seek appropriate legal and tax advice regarding FIRPTA compliance, as Broker will be unable to confirm whether Seeker is a foreign person or whether the withholding requirements of FIRPTA apply.</b> </h4>
                         </Grid>
