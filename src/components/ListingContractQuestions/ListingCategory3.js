@@ -23,6 +23,19 @@ class ListingCategory3 extends Component {
     }
   }
 
+  autoFill = () => {
+    console.log('this is our category 3 for listing');
+    this.setState({
+      ...this.state,
+      answers: {
+        L72: 'true',
+        L7: '',
+        L73: 'true',
+      }
+    })
+  }
+
+
   handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state,
@@ -49,7 +62,7 @@ class ListingCategory3 extends Component {
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <center>
-                <h2>Listed for Lease</h2>
+                <h2 onClick={this.autoFill}>Listed for Lease</h2>
               </center>
               <h4>The property is currently listed for lease?</h4>
               <RadioGroup
