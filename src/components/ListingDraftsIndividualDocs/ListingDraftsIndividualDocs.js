@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import { actionChannel } from "redux-saga/effects";
 
 const styles = {
     title: {
@@ -23,6 +24,10 @@ class ListingDraftsIndividualDocs extends Component {
         });
       }
 
+      handleDelete = (draft) => {
+ this.props.dispatch({type: 'DELETE_LISTING_ANSWER', payload: draft})
+      }
+
     render() {
         return (
             <div>
@@ -31,7 +36,7 @@ class ListingDraftsIndividualDocs extends Component {
                     <div><CardActionArea>
                         <Card>
                             <Grid item xs={12} container spacing={3}>
-                                <Grid item xs={11}>
+                                <Grid item xs={10}>
                                     <div style={styles.title}>
                                         <h2>{draft.BUYER_1}'s Listing Contract</h2>
                                         <h2>{draft.date}</h2>
@@ -44,7 +49,17 @@ class ListingDraftsIndividualDocs extends Component {
                                     direction="row"
                                     justify="center"
                                     alignItems="center">
-                                    <i className="material-icons">arrow_forward_ios</i>
+                                    <i class="material-icons">edit</i>
+                                </Grid>
+                                <Grid
+                                    item xs={1}
+                                    className="arrow"
+                                    container
+                                    direction="row"
+                                    justify="center"
+                                    alignItems="center"
+                                    onClick={() => {this.handleDelete(draft)}}>
+                                    <i class="material-icons">delete</i>
                                 </Grid>
                             </Grid>
                         </Card>

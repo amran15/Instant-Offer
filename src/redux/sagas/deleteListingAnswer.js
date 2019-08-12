@@ -5,7 +5,7 @@ import axios from 'axios';
 function* deleteListingAnswer(action) {
     try {
        yield axios.delete(`/api/listing/delete/${action.payload.id}`);
-       yield put ({ type: 'LISTING_ANSWER_HISTORY' });
+       yield put ({ type: 'DELETE_LISTING_DRAFT', payload: action.payload.id });
     } catch (error) {
         console.log('error deleting listing_contract answer for pdf', error);
     }
