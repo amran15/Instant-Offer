@@ -5,9 +5,9 @@ function* saveAnswers(action) {
     try {
         console.log('axiox call for api/purchase/update')
         yield axios.put(`/api/purchase/update`, action.payload);
-
+        yield put({ type: 'SET_PURCHASE_ANSWERS', payload: action.payload.answers })
     } catch (error) {
-        console.log('error in putAnswersOffer purchase saga', error);
+        console.log('error in putAnswers purchase saga', error);
     }
 }
 
