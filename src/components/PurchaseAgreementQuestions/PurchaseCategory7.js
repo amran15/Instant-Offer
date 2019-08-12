@@ -21,7 +21,7 @@ class PurchaseCategory7 extends Component {
             L210: (typeof this.props.listingAnswers.L210 === 'undefined') ? null : this.props.listingAnswers.L210,
         }
     }
-    handleChangeForInspections = () =>{
+    handleChangeForBuyerProperty = (propertyName) => (event) => {
         this.setState({
             ...this.state,
             answers: {
@@ -54,7 +54,7 @@ class PurchaseCategory7 extends Component {
                                     control={
                                         <Checkbox
                                             value={this.state.answers.L198}
-                                            onChange={this.handleChangeForInspections('L198')}
+                                            onChange={this.handleChangeForBuyerProperty('L198')}
                                             color="primary"
                                         />}
                                     label="This Purchase Agreement is subject to an Addendum to Purchase Agreement: Sale of Buyer's Property Contingency for the sale of Buyer's property. (If checked, see attached Addendum."
@@ -66,7 +66,7 @@ class PurchaseCategory7 extends Component {
                                     control={
                                         <Checkbox
                                         value={this.state.answers.L201}
-                                        onChange={this.handleChangeForInspections('L201')}
+                                        onChange={this.handleChangeForBuyerProperty('L201')}
                                             color="primary"
                                         />}
                                     label="This Purchase Agreement is contingent upon the succesful closing on the Buyer's property."
@@ -78,7 +78,7 @@ class PurchaseCategory7 extends Component {
                                     control={
                                         <Checkbox
                                         value={this.state.answers.L210}
-                                        onChange={this.handleChangeForInspections('L210')}
+                                        onChange={this.handleChangeForBuyerProperty('L210')}
                                             color="primary"
                                         />}
                                     label="Buyer represents that Buyer has the financial ability to perform on this Purchase Agreement without the sale and closing on any other property."
