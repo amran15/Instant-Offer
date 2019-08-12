@@ -8,6 +8,7 @@ function* fetchListing(action) {
     yield console.log('hit pdf listing')
     const response = yield axios.get(`/api/listing/PDF_pages`)
       .catch(error => {
+        console.log('WHY ARENT YOU WORKING listibf contract?', error)
       })
     yield
     //gets all data from row ${see page info pages for params details}

@@ -39,7 +39,6 @@ router.get('/PDF_pages', (req,res)=>{
 
 
 router.get('/answers/:id', (req,res)=>{
-    console.log(req.params.id)
     pool.query(` select * from "Purchase_Agreement" where "id" = $1;`,[req.params.id])//req.param.id
     .then((results)=>{
         console.log(results.rows)
