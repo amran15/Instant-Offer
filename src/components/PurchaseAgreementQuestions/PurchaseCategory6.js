@@ -33,22 +33,6 @@ class PurchaseCategory6 extends Component {
     }
 
 
-    handleChangeForCheckbox = (propertyName) => (event) => {
-        this.setState({
-            inspections: {
-                ...this.state.inspections, [propertyName]: true,
-            }
-        })
-    }
-
-    handleChangeForCheckboxNo = (propertyName) => (event) => {
-        this.setState({
-            inspections: {
-                ...this.state.inspections, [propertyName]: false,
-            }
-        })
-    }
-
     handleClick = () => {
         this.props.history.push(`/PurchaseCategory5/${this.state.id}`)
     }
