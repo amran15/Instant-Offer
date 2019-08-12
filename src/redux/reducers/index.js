@@ -10,15 +10,9 @@ import listingSignedDocs from './listingSignedDocsReducer';
 import listingAnswers from './listingAnswersReducer';
 import setListingAnswers from './setListingAnswersReducer';
 import purchaseAnswers from './purchaseAnswersReducer';
-
-
-
 import createNewPurchaseForm from './createNewPurchaseFormReducer';
 import deletePurchaseAnswerReducer from './deletePurchaseAnswerReducer';
-
-
-
-
+import purchaseDrafts from './purchaseDraftReducer';
 import signReducer from './signReducer';
 import activeUserReducer from './activeUserReducer';
 
@@ -41,6 +35,7 @@ const rootReducer = combineReducers({
   listingAnswers,
   setListingAnswers,
   purchaseAnswers,
+  purchaseDrafts,
   createNewPurchaseForm,
   deletePurchaseAnswerReducer,
   activeUserReducer,
