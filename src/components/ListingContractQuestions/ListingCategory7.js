@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-
+​
 //Material UI
 import Grid from '@material-ui/core/Grid';
 import Radio from '@material-ui/core/Radio';
@@ -9,36 +9,39 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import Container from '@material-ui/core/Container';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
-
+​
 class ListingCategory7 extends Component {
-
+​
     state = {
         id: this.props.match.params.id,
         answers: {
-            L175: (typeof this.props.listingAnswers.L175 === 'undefined') ? "false" : this.props.listingAnswers.L175
+            L175: (typeof this.props.listingAnswers.L175 === 'undefined') ? null : this.props.listingAnswers.L175
     }
     }
-
-    handleChangeForRadioButtons = (propertyName) => (event) => {
-        this.setState({
-            ...this.state, [propertyName]: event.target.value,
-        })
-    }
-
+​
+  handleChangeForInputs = (propertyName) => (event) => {
+    this.setState({
+      ...this.state, 
+      answers: {
+        ...this.state.answers, [propertyName]: event.target.value,
+      }
+    })
+  }
+​
     handleClick = () => {
         this.props.history.push(`/ListingContract/${this.state.id}`)
     }
-
+​
     handleClickToSave = () => {
         this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
     }
-
+​
     handleClickNext = () => {
         console.log("payload", this.state)
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push(`/ListingCategory8/${this.state.id}`)
     }
-
+​
     render() {
         return (
             <div>
@@ -50,8 +53,8 @@ class ListingCategory7 extends Component {
                             </center>
                             <h4>Seller represents and warrants that seller is a foreign person for purpose of income taxation</h4>
                             <RadioGroup
-                                value={this.props.listingAnswers.L72}
-                                onChange={this.handleChangeForRadioButtons('L175')}>
+                                value={this.state.answers.L175}
+                                onChange={this.handleChangeForInputs('L175')}>
                                 <FormControlLabel value='true' control={<Radio />} label="Yes" />
                                 <FormControlLabel value='false' control={<Radio />} label="No" />
                             </RadioGroup>
@@ -91,6 +94,6 @@ class ListingCategory7 extends Component {
         )
     }
 }
-
+​
 const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory7));
