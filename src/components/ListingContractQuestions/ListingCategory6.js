@@ -1,31 +1,34 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-
+​
 //Material UI
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { TextField, Radio, RadioGroup } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
-
+​
 class ListingCategory6 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L163: (typeof this.props.listingAnswers.L163 === 'undefined') ? "false" : this.props.listingAnswers.L163,
-            L164: (typeof this.props.listingAnswers.L164 === 'undefined') ? "false" : this.props.listingAnswers.L164,
-            L165A: (typeof this.props.listingAnswers.L165A === 'undefined') ? null : this.props.listingAnswers.L165A,
+            L163: (typeof this.props.listingAnswers.L163 === 'undefined') ? null : this.props.listingAnswers.L163,
+            L164: (typeof this.props.listingAnswers.L164 === 'undefined') ? null : this.props.listingAnswers.L164,
+            L165A: (typeof this.props.listingAnswers.L165A === 'undefined') ? "" : this.props.listingAnswers.L165A,
         }
     }
-
-
-    handleChangeForRadioButtons = (propertyName) => (event) => {
-        this.setState({
-            ...this.state, [propertyName]: event.target.value,
-        })
-    }
-
+​
+​
+  handleChangeForRadioButtons = (propertyName) => (event) => {
+    this.setState({
+      ...this.state, 
+      answers: {
+        ...this.state.answers, [propertyName]: event.target.value,
+      }
+    })
+  }
+​
     handleChangeForInitials = (propertyName) => (event) => {
         this.setState({
             answers: {
@@ -33,18 +36,18 @@ class ListingCategory6 extends Component {
             }
         })
     }
-
+​
     handleClick = () => {
         this.props.history.push(`/ListingContract/${this.state.id}`)
     }
-
+​
     handleClickNext = () => {
         console.log("payload", this.state)
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push(`/ListingCategory7/${this.state.id}`)
     }
-
-
+​
+​
     render() {
         return (
             <div>
@@ -114,6 +117,6 @@ class ListingCategory6 extends Component {
         )
     }
 }
-
+​
 const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory6));

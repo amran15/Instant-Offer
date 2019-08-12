@@ -1,42 +1,44 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-
-
+​
+​
 //Material UI       
 import { FormControlLabel, RadioGroup, Radio, Button, Container, Grid } from '@material-ui/core';
-
+​
 class ListingCategory2 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-        L41: (typeof this.props.listingAnswers.L41 === 'undefined') ? "false" : this.props.listingAnswers.L41,
-        L54: (typeof this.props.listingAnswers.L54 === 'undefined') ? "false" : this.props.listingAnswers.L54,
-        L63: (typeof this.props.listingAnswers.L63 === 'undefined') ? "false" : this.props.listingAnswers.L63,
-        L71: (typeof this.props.listingAnswers.L71 === 'undefined') ? "false" : this.props.listingAnswers.L71,
+        L41: (typeof this.props.listingAnswers.L41 === 'undefined') ? null : this.props.listingAnswers.L41,
+        L54: (typeof this.props.listingAnswers.L54 === 'undefined') ? null : this.props.listingAnswers.L54,
+        L63: (typeof this.props.listingAnswers.L63 === 'undefined') ? null : this.props.listingAnswers.L63,
+        L71: (typeof this.props.listingAnswers.L71 === 'undefined') ? null : this.props.listingAnswers.L71,
         }
     }
-
-    handleChangeForRadioButtons = (propertyName) => (event) => {
-        this.setState({
-            ...this.state, [propertyName]: event.target.value,
-        })
-    }
-
+​
+  handleChangeForRadioButtons = (propertyName) => (event) => {
+    this.setState({
+      ...this.state, 
+      answers: {
+        ...this.state.answers, [propertyName]: event.target.value,
+      }
+    })
+  }
+​
     handleClick = () => {
         this.props.history.push(`/ListingContract/${this.state.id}`)
     }
-
+​
     handleClickNext = () => {
         console.log("payload", this.state)
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push(`/ListingCategory3/${this.state.id}`)
     }
-
+​
     render() {
         return (
             <div>
-                {JSON.stringify(this.props.listingAnswers.L41, null, 2)}
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -112,6 +114,6 @@ class ListingCategory2 extends Component {
         )
     }
 }
-
+​
 const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory2));
