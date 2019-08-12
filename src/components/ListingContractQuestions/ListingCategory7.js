@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { checkBoolean } from './listingHelper'
+import { checkBoolean } from '../helpers/valueCheckerHelpers'
 
 //Material UI
 import Grid from '@material-ui/core/Grid';

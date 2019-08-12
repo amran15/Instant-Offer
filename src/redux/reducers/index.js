@@ -14,8 +14,6 @@ import purchaseAnswers from './purchaseAnswersReducer';
 
 
 import createNewPurchaseForm from './createNewPurchaseFormReducer';
-
-import deleteListingAnswerReducer from './deleteListingAnswerReducer';
 import deletePurchaseAnswerReducer from './deletePurchaseAnswerReducer';
 
 
@@ -43,14 +41,8 @@ const rootReducer = combineReducers({
   listingAnswers,
   setListingAnswers,
   purchaseAnswers,
-
   createNewPurchaseForm,
-
-  deleteListingAnswerReducer, 
   deletePurchaseAnswerReducer,
-
-
-
   activeUserReducer,
   signReducer,
 });
