@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-
+import { checkBoolean, checkString } from './listingHelper'
 
 // Material UI
 import { TextField, Checkbox, FormControlLabel, RadioGroup } from '@material-ui/core';
@@ -17,9 +17,9 @@ class ListingCategory3 extends Component {
   state = {
     id: this.props.match.params.id,
     answers: {
-      L72: (typeof this.props.listingAnswers.L72 === 'undefined') ? null : String(this.props.listingAnswers.L72),
-      L7: (typeof this.props.listingAnswers.L7 === 'undefined') ? "" : this.props.listingAnswers.L7,
-      L73: (typeof this.props.listingAnswers.L73 === 'undefined') ? null : String(this.props.listingAnswers.L73),
+      L72: checkBoolean(this.props.listingAnswers.L72),
+      L7: checkString(this.props.listingAnswers.L7),
+      L73: checkBoolean(this.props.listingAnswers.L73),
     }
   }
 
