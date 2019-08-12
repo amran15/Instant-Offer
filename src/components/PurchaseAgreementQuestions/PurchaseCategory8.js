@@ -30,7 +30,6 @@ class PurchaseCategory8 extends Component {
             L228: (typeof this.props.listingAnswers.L228 === 'undefined') ? null : this.props.listingAnswers.L228,
             L231: (typeof this.props.listingAnswers.L231 === 'undefined') ? null : this.props.listingAnswers.L231,
             L233: (typeof this.props.listingAnswers.L233 === 'undefined') ? null : this.props.listingAnswers.L233,
-            L239: (typeof this.props.listingAnswers.L239 === 'undefined') ? null : this.props.listingAnswers.L239,
         }
     }
 

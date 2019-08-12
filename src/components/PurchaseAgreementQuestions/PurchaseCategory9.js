@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 //Material UI
-import Button from '@material-ui/core/Button';
+import { Button, RadioGroup, Radio, } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Checkbox from '@material-ui/core/Checkbox';
 import Container from '@material-ui/core/Container';
@@ -12,8 +12,65 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory9 extends Component {
-    handleClick = () => {
-        this.props.history.push('/PurchaseAgreement')
+    state = {
+        id: this.props.match.params.id,
+        answers: {
+            L250: (typeof this.props.listingAnswers.L250 === 'undefined') ? null : this.props.listingAnswers.L250,
+            L257A: (typeof this.props.listingAnswers.L257A === 'undefined') ? null : this.props.listingAnswers.L257A,
+            L257B: (typeof this.props.listingAnswers.L257B === 'undefined') ? null : this.props.listingAnswers.L257B,
+            L257C: (typeof this.props.listingAnswers.L257C === 'undefined') ? null : this.props.listingAnswers.L257C,
+            L257D: (typeof this.props.listingAnswers.L257D === 'undefined') ? null : this.props.listingAnswers.L257D,
+            L258: (typeof this.props.listingAnswers.L258 === 'undefined') ? null : this.props.listingAnswers.L258,
+            L263: (typeof this.props.listingAnswers.L263 === 'undefined') ? null : this.props.listingAnswers.L263,
+            L265: (typeof this.props.listingAnswers.L265 === 'undefined') ? null : this.props.listingAnswers.L265,
+            L270: (typeof this.props.listingAnswers.L270 === 'undefined') ? null : this.props.listingAnswers.L270,
+            L271A: (typeof this.props.listingAnswers.L271A === 'undefined') ? null : this.props.listingAnswers.L271A,
+            L271B: (typeof this.props.listingAnswers.L271B === 'undefined') ? null : this.props.listingAnswers.L271B,
+            L359: (typeof this.props.listingAnswers.L359 === 'undefined') ? null : this.props.listingAnswers.L359,
+            L360: (typeof this.props.listingAnswers.L360 === 'undefined') ? null : this.props.listingAnswers.L360,
+            L371A: (typeof this.props.listingAnswers.L371A === 'undefined') ? null : this.props.listingAnswers.L371A,
+            L371B: (typeof this.props.listingAnswers.L371B === 'undefined') ? null : this.props.listingAnswers.L371B,
+            L373: (typeof this.props.listingAnswers.L373 === 'undefined') ? null : this.props.listingAnswers.L373,
+            L377: (typeof this.props.listingAnswers.L377 === 'undefined') ? null : this.props.listingAnswers.L377,
+            L379: (typeof this.props.listingAnswers.L379 === 'undefined') ? null : this.props.listingAnswers.L379,
+            L388A: (typeof this.props.listingAnswers.L388A === 'undefined') ? null : this.props.listingAnswers.L388A,
+            L388B: (typeof this.props.listingAnswers.L388B === 'undefined') ? null : this.props.listingAnswers.L388B,
+            L389A: (typeof this.props.listingAnswers.L389A === 'undefined') ? null : this.props.listingAnswers.L389A,
+            L389B: (typeof this.props.listingAnswers.L389B === 'undefined') ? null : this.props.listingAnswers.L389B,
+            L390: (typeof this.props.listingAnswers.L390 === 'undefined') ? null : this.props.listingAnswers.L390,
+            L394A: (typeof this.props.listingAnswers.L394A === 'undefined') ? null : this.props.listingAnswers.L394A,
+            L395: (typeof this.props.listingAnswers.L395 === 'undefined') ? null : this.props.listingAnswers.L395,
+            L394B: (typeof this.props.listingAnswers.L394B === 'undefined') ? null : this.props.listingAnswers.L394B,
+            L394C: (typeof this.props.listingAnswers.L394C === 'undefined') ? null : this.props.listingAnswers.L394C,
+            L394D: (typeof this.props.listingAnswers.L394D === 'undefined') ? null : this.props.listingAnswers.L394D,
+            L394E: (typeof this.props.listingAnswers.L394E === 'undefined') ? null : this.props.listingAnswers.L394E,
+            L396A: (typeof this.props.listingAnswers.L396A === 'undefined') ? null : this.props.listingAnswers.L396A,
+            L397: (typeof this.props.listingAnswers.L397 === 'undefined') ? null : this.props.listingAnswers.L397,
+            L396B: (typeof this.props.listingAnswers.L396B === 'undefined') ? null : this.props.listingAnswers.L396B,
+            L396C: (typeof this.props.listingAnswers.L396C === 'undefined') ? null : this.props.listingAnswers.L396C,
+            L396D: (typeof this.props.listingAnswers.L396D === 'undefined') ? null : this.props.listingAnswers.L396D,
+            L396E: (typeof this.props.listingAnswers.L396E === 'undefined') ? null : this.props.listingAnswers.L396E,
+            L403: (typeof this.props.listingAnswers.L403 === 'undefined') ? null : this.props.listingAnswers.L403, 
+            L404: (typeof this.props.listingAnswers.L404 === 'undefined') ? null : this.props.listingAnswers.L404, 
+            L454: (typeof this.props.listingAnswers.L454 === 'undefined') ? null : this.props.listingAnswers.L454, 
+            L494: (typeof this.props.listingAnswers.L494 === 'undefined') ? null : this.props.listingAnswers.L494, 
+        }
+    }
+    handleChangeForAdditionalProvision = (propertyName) => (event) => {
+        this.setState({
+            ...this.state,
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value,
+            }
+        })
+    }
+
+    handleClickBack = () => {
+        this.props.history.push(`/PurchaseCategory8/${this.state.id}`)
+    }
+
+    handleSaveButton = () => {
+        this.props.history.push(`/PurchaseAgreement/${this.state.id}`)
     }
 
     render() {
@@ -29,37 +86,27 @@ class PurchaseCategory9 extends Component {
                                 <h3>Previously Written Purchase Agreement</h3>
                             </center>
                             <h4>Is this Purchase Agreement subjecto to cancellation of a previously written Purchase Agreement?</h4>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="Yes"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange('checkedB')}
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="No"
-                            />
+                            <RadioGroup
+                                value={this.state.answers.L250}
+                                onChange={this.handleChangeForAdditionalProvision('L250')}>
+                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                            </RadioGroup>
                             <h4>Date of the previously written purchase agreement:</h4>
                             <TextField
                                 id="date"
                                 variant="outlined"
                                 type="date"
+                                value={this.props.purchaseAnswers.L251}
+                                onChange={this.handleChangeForAdditionalProvision('L251')}
                             />
                             <h4>If yes, said cancellation shall be obtained no later than:</h4>
                             <TextField
                                 id="date"
                                 variant="outlined"
                                 type="date"
+                                value={this.props.purchaseAnswers.L252}
+                                onChange={this.handleChangeForAdditionalProvision('L252')}
                             />
                             <center>
                                 <h3>Deed/Marketable Title</h3>
@@ -69,9 +116,8 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L257A}
+                                            onChange={this.handleChangeForAdditionalProvision('L257A')}
                                             color="primary"
                                         />}
                                     label="Warranty Deed"
@@ -81,9 +127,8 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L257B}
+                                            onChange={this.handleChangeForAdditionalProvision('L257B')}
                                             color="primary"
                                         />}
                                     label="Personal Representative's Deed"
@@ -93,9 +138,8 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L257C}
+                                            onChange={this.handleChangeForAdditionalProvision('L257C')}
                                             color="primary"
                                         />}
                                     label="Contract for Deed"
@@ -105,9 +149,8 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L257D}
+                                            onChange={this.handleChangeForAdditionalProvision('L257D')}
                                             color="primary"
                                         />}
                                     label="Trustee's Deed"
@@ -117,21 +160,8 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="Warranty Deed"
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L258}
+                                            onChange={this.handleChangeForAdditionalProvision('L258')}
                                             color="primary"
                                         />}
                                     label="Other Deed:"
@@ -139,8 +169,6 @@ class PurchaseCategory9 extends Component {
                             </Grid>
                             <TextField
                                 id="deed"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                             />
@@ -151,17 +179,17 @@ class PurchaseCategory9 extends Component {
                             <p>(d) utility and drianage easements which do not interfere with existing improvemens;</p>
                             <p>(e) rights of tenants as follows (unless specified, not subject to tenancies):</p>
                             <TextField
+                                value={this.state.answers.L263}
+                                onChange={this.handleChangeForAdditionalProvision('L263')}
                                 id="tenant_rights"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                             />
                             <p>(f) others (must be specified in writing):</p>
                             <TextField
+                                value={this.state.answers.L265}
+                                onChange={this.handleChangeForAdditionalProvision('L265')}
                                 id="tenant_rights_other"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                             />
@@ -173,9 +201,8 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L270}
+                                            onChange={this.handleChangeForAdditionalProvision('L270')}
                                             color="primary"
                                         />}
                                     label="Immediately after closing"
@@ -185,18 +212,17 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L271A}
+                                            onChange={this.handleChangeForAdditionalProvision('L271A')}
                                             color="primary"
                                         />}
                                     label="Other:"
                                 />
                             </Grid>
                             <TextField
+                                value={this.state.answers.L271B}
+                                onChange={this.handleChangeForAdditionalProvision('L271B')}
                                 id="tenant_rights"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
                                 fullWidth
                                 variant="outlined"
                             />
@@ -205,9 +231,8 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L359}
+                                            onChange={this.handleChangeForAdditionalProvision('L359')}
                                             color="primary"
                                         />}
                                     label="Disclosure statement: seller's property discloser statement form"
@@ -217,9 +242,8 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L360}
+                                            onChange={this.handleChangeForAdditionalProvision('L360')}
                                             color="primary"
                                         />}
                                     label="Disclosure statement: seller's disclosure alternatives form"
@@ -228,189 +252,77 @@ class PurchaseCategory9 extends Component {
                             <Grid item xs={12}>
                                 <h4>Seller warrants that the property is either directly or indirectly connected to:</h4>
                                 <h4>City Sewer</h4>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="Yes"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="No"
-                                />
+                                <RadioGroup
+                                    value={this.state.answers.L371A}
+                                    onChange={this.handleChangeForAdditionalProvision('L371A')}>
+                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                </RadioGroup>
                                 <h4>City Water</h4>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="Yes"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="No"
-                                />
+                                <RadioGroup
+                                    value={this.state.answers.L371B}
+                                    onChange={this.handleChangeForAdditionalProvision('L371B')}>
+                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                </RadioGroup>
                                 <h4>Does the seller know of a subsurface sewage treatment system on or serving the property?</h4>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="Yes"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="No"
-                                />
+                                <RadioGroup
+                                    value={this.state.answers.L373}
+                                    onChange={this.handleChangeForAdditionalProvision('L373')}>
+                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                </RadioGroup>
                                 <h4>Does the seller know of a well on or serving the property?</h4>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="Yes"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="No"
-                                />
+                                <RadioGroup
+                                    value={this.state.answers.L377}
+                                    onChange={this.handleChangeForAdditionalProvision('L377')}>
+                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                </RadioGroup>
                                 <h4>Is this Purchase Agreement subject to an Addendum to Purchase Agreement?</h4>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="Yes"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="No"
-                                />
+                                <RadioGroup
+                                    value={this.state.answers.L379}
+                                    onChange={this.handleChangeForAdditionalProvision('L379')}>
+                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                </RadioGroup>
                                 <center>
                                     <h3>Home Protection/Warranty Plan</h3>
                                 </center>
                                 <h4>Is there a home protection/warranty plan?</h4>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="Yes"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="No"
-                                />
+                                <RadioGroup
+                                    value={this.state.answers.L388A}
+                                    onChange={this.handleChangeForAdditionalProvision('L388A')}>
+                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                </RadioGroup>
                                 <h4>If yes, which party will obtain the home protection/warranty plan?</h4>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="Buyer"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="Seller"
-                                />
+                                <RadioGroup
+                                    value={this.state.answers.L388B}
+                                    onChange={this.handleChangeForAdditionalProvision('L388B')}>
+                                    <FormControlLabel value='true' control={<Radio />} label="Buyer" />
+                                    <FormControlLabel value='false' control={<Radio />} label="Seller" />
+                                </RadioGroup>
                                 <h4>If yes, which party will pay for the home protection/warranty plan and who will issue it?</h4>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="Buyer"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="Seller"
-                                />
+                                <RadioGroup
+                                    value={this.state.answers.L389A}
+                                    onChange={this.handleChangeForAdditionalProvision('L389A')}>
+                                    <FormControlLabel value='true' control={<Radio />} label="Buyer" />
+                                    <FormControlLabel value='false' control={<Radio />} label="Seller" />
+                                </RadioGroup>
                                 <h4>Issued by:</h4>
                                 <TextField
+                                    value={this.state.answers.L389B}
+                                    onChange={this.handleChangeForAdditionalProvision('L389B')}
                                     id="home_protection_issuer"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                 />
                                 <h4>The home protectoin/warranty plan will not exceed:</h4>
                                 <TextField
+                                    value={this.state.answers.L390}
+                                    onChange={this.handleChangeForAdditionalProvision('L390')}
                                     id="home_protection_max_cost"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                     InputProps={{
@@ -422,17 +334,17 @@ class PurchaseCategory9 extends Component {
                                 </center>
                                 <h4>Licensee</h4>
                                 <TextField
+                                    value={this.state.answers.L394A}
+                                    onChange={this.handleChangeForAdditionalProvision('L394A')}
                                     id="Licensee"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                 />
                                 <h4>Real Estate Company Name</h4>
                                 <TextField
+                                    value={this.state.answers.L395}
+                                    onChange={this.handleChangeForAdditionalProvision('L395')}
                                     id="Licensee"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                 />
@@ -440,9 +352,8 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L394B}
+                                            onChange={this.handleChangeForAdditionalProvision('L394B')}
                                             color="primary"
                                         />}
                                     label="Seller's Agent"
@@ -450,19 +361,17 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="Buyer's Agent"
+                                            value={this.state.answers.L394C}
+                                            onChange={this.handleChangeForAdditionalProvision('L394C')}
+                                            color="primary"
                                         />}
-                                    label="Seller"
+                                    label="Buyer's Agent"
                                 />
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L394D}
+                                            onChange={this.handleChangeForAdditionalProvision('L394D')}
                                             color="primary"
                                         />}
                                     label="Dual Agent"
@@ -470,26 +379,25 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L394E}
+                                            onChange={this.handleChangeForAdditionalProvision('L394E')}
                                             color="primary"
                                         />}
                                     label="Facilitator"
                                 />
                                 <h4>Licensee</h4>
                                 <TextField
+                                    value={this.state.answers.L396A}
+                                    onChange={this.handleChangeForAdditionalProvision('L396A')}
                                     id="Licensee"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                 />
                                 <h4>Real Estate Company Name</h4>
                                 <TextField
+                                    value={this.state.answers.L397}
+                                    onChange={this.handleChangeForAdditionalProvision('L397')}
                                     id="Licensee"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                 />
@@ -497,9 +405,8 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L396B}
+                                            onChange={this.handleChangeForAdditionalProvision('L396B')}
                                             color="primary"
                                         />}
                                     label="Seller's Agent"
@@ -507,19 +414,17 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="Buyer's Agent"
+                                            value={this.state.answers.L396C}
+                                            onChange={this.handleChangeForAdditionalProvision('L396C')}
+                                            color="primary"
                                         />}
-                                    label="Seller"
+                                    label="Buyer's Agent"
                                 />
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L396D}
+                                            onChange={this.handleChangeForAdditionalProvision('L396D')}
                                             color="primary"
                                         />}
                                     label="Dual Agent"
@@ -527,9 +432,8 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L396E}
+                                            onChange={this.handleChangeForAdditionalProvision('L396E')}
                                             color="primary"
                                         />}
                                     label="Facilitator"
@@ -541,9 +445,8 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L403}
+                                            onChange={this.handleChangeForAdditionalProvision('L403')}
                                             color="primary"
                                         />}
                                     label="Dual Agency representation DOES NOT apply in this transaction."
@@ -551,9 +454,8 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
+                                            value={this.state.answers.L404}
+                                            onChange={this.handleChangeForAdditionalProvision('L404')}
                                             color="primary"
                                         />}
                                     label="Dual Agency representation DOES apply in this transaction."
@@ -562,95 +464,57 @@ class PurchaseCategory9 extends Component {
                                     <h3>Other</h3>
                                 </center>
                                 <TextField
-                                    // label="Song Title"
+                                    value={this.state.answers.L454}
+                                    onChange={this.handleChangeForAdditionalProvision('L454')}
                                     id="other"
-                                    // value={this.state.song_title}
-                                    // onChange={this.handleInputChangeFor('song_title')}
                                     fullWidth
                                     variant="outlined"
                                 />
                                 <center>
                                     <h3>FIRPTA</h3>
                                 </center>
-                             <h4>Seller represents and warrants, under penalty of perjury, that Seller IS/IS NOT a foreign persion (i.e., a non-resident alien individual, foreign corporation, foreign partnership, foreign trust, or foreign estate for purposes of income taxation.</h4>
-<FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="Is"
-                                />
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange('checkedB')}
-                                            value="checkedB"
-                                            color="primary"
-                                        />}
-                                    label="Is not"
-                                />
-  <center>
-                                    <h3>Signatures</h3>
-                                </center>
-                             <h4>Buyer's Signature</h4>
-                             <h4>Buyer's Printed Name</h4>
-                             <TextField
-                                id="buyers_printed_name"
-                                // value={this.state.song_title}
-                                // onChange={this.handleInputChangeFor('song_title')}
-                                fullWidth
-                                variant="outlined"
-                            />
+                                <h4>Seller represents and warrants, under penalty of perjury, that Seller IS/IS NOT a foreign persion (i.e., a non-resident alien individual, foreign corporation, foreign partnership, foreign trust, or foreign estate for purposes of income taxation.</h4>
+                                <RadioGroup
+                                    value={this.state.answers.L494}
+                                    onChange={this.handleChangeForAdditionalProvision('L494')}>
+                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                </RadioGroup>
                             </Grid>
                         </Grid>
                     </Grid>
                 </Container>
-                <br/>
+                <br />
                 <Container component="main">
-                            <Grid container spacing={3}>
-                                <Grid item xs={4}>
-                                    <div align="left" className="Button">
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            onClick={this.handleClick}
-                                        >
-                                            Back
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
+                            <div align="left" className="Button">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleClickBack}
+                                >
+                                    Back
                                         </Button>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <div align="center" className="Button">
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            onClick={this.handleClick}
-                                        >
-                                            Save
+                            </div>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <div align="right" className="Button">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleSaveButton}
+                                >
+                                    Save
                                         </Button>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={4}>
-                                    <div align="right" className="Button">
-                                        <Button
-                                            variant="contained"
-                                            color="primary"
-                                            onClick={this.handleClick}
-                                        >
-                                            Next
-                                        </Button>
-                                    </div>
-                                </Grid>
-                            </Grid>
-                        </Container>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </Container>
             </div>
         )
     }
 }
 
-const mapReduxStateToProps = reduxState => ({ reduxState })
+const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(PurchaseCategory9));
