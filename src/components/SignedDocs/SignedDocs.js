@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+import Grid from '@material-ui/core/Grid';
 
 const theme = createMuiTheme({
     palette: {
@@ -26,17 +27,20 @@ const styles = {
 class SignedDocuments extends Component {
     state = {
         listing: true,
+        title: 'Signed Listing Contracts'
     }
 
     handleClickListing = () => {
         this.setState({
             listing: true,
+            title: 'Signed Listing Contracts'
         });
     }
 
     handleClickPurchase = () => {
         this.setState({
             listing: false,
+            title: 'Signed Purchase Agreements'
         });
     }
 
@@ -48,25 +52,33 @@ class SignedDocuments extends Component {
                     <Container component="main" maxWidth="lg">
                         <br />
                         <center>
-                            <h2>Signed Documents</h2>
+                            <h2>{this.state.title}</h2>
                         </center>
                         <br />
                         <center>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                onClick={this.handleClickListing}
-                            >
-                                Listing Contract
-                            </Button>
-
-                            <Button
-                                variant="contained"
-                                color="secondary"
-                                style={styles.button}
-                                onClick={this.handleClickPurchase}
-                            >Purchase Agreement
-                        </Button>
+                            <Grid container spacing={1}>
+                                <Grid item xs={6}>
+                                    <Button
+                                        fullWidth
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={this.handleClickListing}
+                                    >
+                                        Listing
+                                    </Button>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <Button
+                                        fullWidth
+                                        variant="contained"
+                                        color="secondary"
+                                        style={styles.button}
+                                        onClick={this.handleClickPurchase}
+                                    >
+                                        Purchase
+                                    </Button>
+                                </Grid>
+                            </Grid>
                         </center>
                         <br />
                         <br />
@@ -81,7 +93,6 @@ class SignedDocuments extends Component {
         )
     }
 }
-
 
 const mapReduxStateToProps = reduxState => ({ reduxState })
 export default connect(mapReduxStateToProps)(withRouter(SignedDocuments));
