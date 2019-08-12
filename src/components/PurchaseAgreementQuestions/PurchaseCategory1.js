@@ -13,9 +13,10 @@ import { TextField } from '@material-ui/core';
 class PurchaseCategory1 extends Component {
     
     componentDidMount() {
-    const purchase_answer_id = this.props.match.params.id
+    const answer_id = this.props.match.params.id
+    console.log(answer_id)
     this.props.dispatch(
-        { type: 'PURCHASE_ANSWERS', payload: purchase_answer_id }
+        { type: 'PURCHASE_ANSWERS', payload: answer_id }
     )
 }
 
