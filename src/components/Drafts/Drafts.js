@@ -40,7 +40,7 @@ class Drafts extends Component {
     handleClickPurchase = () => {
         this.setState({
             listing: false,
-            title: 'Purchase Contract Drafts'
+            title: 'Purchase Agreement Drafts'
         });
     }
 
