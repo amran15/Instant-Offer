@@ -24,6 +24,21 @@ class ListingCategory8 extends Component {
         }
     }
 
+    autoFill = () => {
+        this.setState({
+            ...this.state,
+            answers: {
+                L196: 'true',
+                L198: 'true',
+                COMPANY: 'PRIME REALTY',
+                L237: 'no other at this time',
+                BUYER_1_ADDRESS: '45 Prime Avenue Minneapolis MN 55454 ',
+                BUYER_1_PHONE: '612-354-3456',
+                BUYER_1_EMAIL: 'primerealty@gmail.com',
+            }
+        })
+    }
+
   handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state, 
@@ -50,7 +65,7 @@ class ListingCategory8 extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h2>Agency Representation</h2>
+                                <h2 onClick={this.autoFill}>Agency Representation</h2>
                             </center>
                             <h4>Seller will agree to a dual agency representation and will consider offers made by buyers represented by Broker.</h4>
                             <RadioGroup
@@ -85,6 +100,7 @@ class ListingCategory8 extends Component {
                                     id="other_communication_options"
                                     fullWidth
                                     variant="outlined"
+                                    value={this.state.answers.L237}
                                     onChange={this.handleChangeForInputs('L237')}
                                 />
                             </Grid>
@@ -99,7 +115,7 @@ class ListingCategory8 extends Component {
                                     id="sellers_address"
                                     fullWidth
                                     variant="outlined"
-                                    value={this.props.listingAnswers.BUYER_1_ADDRESS}
+                                    value={this.state.answers.BUYER_1_ADDRESS}
                                     onChange={this.handleChangeForInputs('BUYER_1_ADDRESS')}
                                 />
                                 <h4>Seller's Phone</h4>
@@ -107,7 +123,7 @@ class ListingCategory8 extends Component {
                                     id="sellers_phone"
                                     fullWidth
                                     variant="outlined"
-                                    value={this.props.listingAnswers.BUYER_1_PHONE}
+                                    value={this.state.answers.BUYER_1_PHONE}
                                     onChange={this.handleChangeForInputs('BUYER_1_PHONE')}
                                 />
                                 <h4>Seller's Email</h4>
@@ -115,7 +131,7 @@ class ListingCategory8 extends Component {
                                     id="sellers_Email"
                                     fullWidth
                                     variant="outlined"
-                                    value={this.props.listingAnswers.BUYER_1_EMAIL}
+                                    value={this.state.answers.BUYER_1_EMAIL}
                                     onChange={this.handleChangeForInputs('BUYER_1_EMAIL')}
                                 />
                             </Grid>
