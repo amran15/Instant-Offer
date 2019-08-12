@@ -27,7 +27,7 @@ class PurchaseAgreement extends Component {
     }
 
     handleClickSign = () => {
-        this.props.history.push(`/PurchaseSignature${this.state.id}`);
+        this.props.history.push(`/PurchaseSignature/${this.state.id}`);
     }
 
     render() {
