@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { checkBoolean } from '../helpers/valueCheckerHelpers'
 
 //Material UI
 import Grid from '@material-ui/core/Grid';
@@ -15,7 +16,7 @@ class ListingCategory7 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L175: (typeof this.props.listingAnswers.L175 === 'undefined') ? null : String(this.props.listingAnswers.L175)
+            L175: checkBoolean(this.props.listingAnswers.L175)
         }
     }
 

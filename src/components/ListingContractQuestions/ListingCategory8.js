@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { checkBoolean, checkString } from '../helpers/valueCheckerHelpers'
 
 //Material UI 
 import Grid from '@material-ui/core/Grid';
@@ -13,13 +14,13 @@ class ListingCategory8 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L196: (typeof this.props.listingAnswers.L196 === 'undefined') ? null : String(this.props.listingAnswers.L196),
-            L198: (typeof this.props.listingAnswers.L198 === 'undefined') ? null : String(this.props.listingAnswers.L198),
-            COMPANY: (typeof this.props.listingAnswers.COMPANY === 'undefined') ? "" : this.props.listingAnswers.COMPANY,
-            L237: (typeof this.props.listingAnswers.L237 === 'undefined') ? "" : this.props.listingAnswers.L237,
-            BUYER_1_ADDRESS: (typeof this.props.listingAnswers.BUYER_1_ADDRESS === 'undefined') ? "" : this.props.listingAnswers.BUYER_1_ADDRESS,
-            BUYER_1_PHONE: (typeof this.props.listingAnswers.BUYER_1_PHONE === 'undefined') ? "" : this.props.listingAnswers.BUYER_1_PHONE,
-            BUYER_1_EMAIL: (typeof this.props.listingAnswers.BUYER_1_EMAIL === 'undefined') ? "" : this.props.listingAnswers.BUYER_1_EMAIL,
+            L196: checkBoolean(this.props.listingAnswers.L196),
+            L198: checkBoolean(this.props.listingAnswers.L198),
+            COMPANY: checkString(this.props.listingAnswers.COMPANY),
+            L237: checkString(this.props.listingAnswers.L237),
+            BUYER_1_ADDRESS: checkString(this.props.listingAnswers.BUYER_1_ADDRESS),
+            BUYER_1_PHONE: checkString(this.props.listingAnswers.BUYER_1_PHONE),
+            BUYER_1_EMAIL: checkString(this.props.listingAnswers.BUYER_1_EMAIL),
         }
     }
 
