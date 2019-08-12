@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-​
+
 //Material UI
 import Grid from '@material-ui/core/Grid';
 import Radio from '@material-ui/core/Radio';
@@ -9,39 +9,39 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import Container from '@material-ui/core/Container';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
-​
+
 class ListingCategory7 extends Component {
-​
+
     state = {
         id: this.props.match.params.id,
         answers: {
             L175: (typeof this.props.listingAnswers.L175 === 'undefined') ? null : this.props.listingAnswers.L175
+        }
     }
+
+    handleChangeForInputs = (propertyName) => (event) => {
+        this.setState({
+            ...this.state,
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value,
+            }
+        })
     }
-​
-  handleChangeForInputs = (propertyName) => (event) => {
-    this.setState({
-      ...this.state, 
-      answers: {
-        ...this.state.answers, [propertyName]: event.target.value,
-      }
-    })
-  }
-​
+
     handleClick = () => {
         this.props.history.push(`/ListingContract/${this.state.id}`)
     }
-​
+
     handleClickToSave = () => {
-        this.props.dispatch({type:'SAVE_ANSWERS', payload: this.state})
+        this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
     }
-​
+
     handleClickNext = () => {
         console.log("payload", this.state)
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push(`/ListingCategory8/${this.state.id}`)
     }
-​
+
     render() {
         return (
             <div>
@@ -58,7 +58,7 @@ class ListingCategory7 extends Component {
                                 <FormControlLabel value='true' control={<Radio />} label="Yes" />
                                 <FormControlLabel value='false' control={<Radio />} label="No" />
                             </RadioGroup>
-                        <h4>Due to the complexity and potential risks of failing to comply with FIRPTA, Seller should <b>seek appropriate legal and tax advice regarding FIRPTA compliance, as Broker will be unable to confirm whether Seeker is a foreign person or whether the withholding requirements of FIRPTA apply.</b> </h4>
+                            <h4>Due to the complexity and potential risks of failing to comply with FIRPTA, Seller should <b>seek appropriate legal and tax advice regarding FIRPTA compliance, as Broker will be unable to confirm whether Seeker is a foreign person or whether the withholding requirements of FIRPTA apply.</b> </h4>
                         </Grid>
                     </Grid>
                 </Container>
@@ -94,6 +94,6 @@ class ListingCategory7 extends Component {
         )
     }
 }
-​
+
 const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory7));

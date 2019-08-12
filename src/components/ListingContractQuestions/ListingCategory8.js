@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-​
+
 //Material UI 
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { TextField, Radio, RadioGroup } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
-​
+
 class ListingCategory8 extends Component {
     state = {
         id: this.props.match.params.id,
@@ -22,7 +22,7 @@ class ListingCategory8 extends Component {
             BUYER_1_EMAIL: (typeof this.props.listingAnswers.BUYER_1_EMAIL === 'undefined') ? "" : this.props.listingAnswers.BUYER_1_EMAIL,
         }
     }
-​
+
   handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state, 
@@ -31,17 +31,17 @@ class ListingCategory8 extends Component {
       }
     })
   }
-​
+
     handleClickBack = () => {
         this.props.history.push(`/ListingContract/${this.state.id}`)
     }
-​
+
     handleSaveButton = () => {
         console.log("payload", this.state)
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push(`/ListingContract/${this.state.id}`)
     }
-​
+
     render() {
         return (
             <div>
@@ -154,6 +154,6 @@ class ListingCategory8 extends Component {
         )
     }
 }
-​
+
 const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory8));

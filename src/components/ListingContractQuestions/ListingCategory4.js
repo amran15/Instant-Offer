@@ -1,28 +1,27 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-​
+
 //Material UI
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { TextField, InputAdornment } from '@material-ui/core';
-​
-​
+
+
 class ListingCategory4 extends Component {
-​
+
     state = {
         id: this.props.match.params.id,
         answers: {
-        L115: (typeof this.props.listingAnswers.L115 === 'undefined') ? null : this.props.listingAnswers.L115,
-        L118: (typeof this.props.listingAnswers.L118 === 'undefined') ? null : this.props.listingAnswers.L118,
-        L119: (typeof this.props.listingAnswers.L119 === 'undefined') ? null : this.props.listingAnswers.L119,
-        L121: (typeof this.props.listingAnswers.L121 === 'undefined') ? "" : this.props.listingAnswers.L121,
-        L131: (typeof this.props.listingAnswers.L131 === 'undefined') ? null : this.props.listingAnswers.L131,
+            L115: (typeof this.props.listingAnswers.L115 === 'undefined') ? null : this.props.listingAnswers.L115,
+            L118: (typeof this.props.listingAnswers.L118 === 'undefined') ? null : this.props.listingAnswers.L118,
+            L119: (typeof this.props.listingAnswers.L119 === 'undefined') ? null : this.props.listingAnswers.L119,
+            L121: (typeof this.props.listingAnswers.L121 === 'undefined') ? "" : this.props.listingAnswers.L121,
+            L131: (typeof this.props.listingAnswers.L131 === 'undefined') ? null : this.props.listingAnswers.L131,
         }
     }
-​
-​
+
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
             answers: {
@@ -30,21 +29,21 @@ class ListingCategory4 extends Component {
             }
         })
     }
-​
+
     handleClick = () => {
         this.props.history.push(`/ListingContract/${this.state.id}`)
     }
-​
+
     handleClickToSave = () => {
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
     }
-​
+
     handleClickNext = () => {
         console.log("payload", this.state)
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push(`/ListingCategory5/${this.state.id}`)
     }
-​
+
     render() {
         return (
             <div>
@@ -141,6 +140,6 @@ class ListingCategory4 extends Component {
         )
     }
 }
-​
+
 const mapReduxStateToProps = reduxState => reduxState
 export default connect(mapReduxStateToProps)(withRouter(ListingCategory4));
