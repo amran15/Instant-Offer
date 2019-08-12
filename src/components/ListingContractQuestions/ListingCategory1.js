@@ -20,13 +20,13 @@ class ListingCategory1 extends Component {
   state = {
     id: this.props.match.params.id,
     answers: {
-      DATE: (typeof this.props.listingAnswers.DATE === 'undefined') ? null : this.props.listingAnswers.DATE,
+      DATE: (typeof this.props.listingAnswers.DATE === 'undefined') ? "" : this.props.listingAnswers.DATE,
       L3: (typeof this.props.listingAnswers.L3 === 'undefined') ? "" : this.props.listingAnswers.L3,
       L4: (typeof this.props.listingAnswers.L4 === 'undefined') ? "" : this.props.listingAnswers.L4,
       BUYER_1: (typeof this.props.listingAnswers.BUYER_1 === 'undefined') ? "" : this.props.listingAnswers.BUYER_1,
       L7: (typeof this.props.listingAnswers.L7 === 'undefined') ? "" : this.props.listingAnswers.L7,
-      L8A: (typeof this.props.listingAnswers.L8A === 'undefined') ? null : this.props.listingAnswers.L8A,
-      L8C: (typeof this.props.listingAnswers.L8C === 'undefined') ? null : this.props.listingAnswers.L8C,
+      L8A: (typeof this.props.listingAnswers.L8A === 'undefined') ? "" : this.props.listingAnswers.L8A,
+      L8C: (typeof this.props.listingAnswers.L8C === 'undefined') ? "" : this.props.listingAnswers.L8C,
       L12: (typeof this.props.listingAnswers.L12 === 'undefined') ? "" : this.props.listingAnswers.L12,
       L13: (typeof this.props.listingAnswers.L13 === 'undefined') ? "" : this.props.listingAnswers.L13,    
     }

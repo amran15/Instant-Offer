@@ -15,7 +15,7 @@ class ListingCategory7 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L175: (typeof this.props.listingAnswers.L175 === 'undefined') ? null : this.props.listingAnswers.L175
+            L175: (typeof this.props.listingAnswers.L175 === 'undefined') ? "" : this.props.listingAnswers.L175
         }
     }
 
