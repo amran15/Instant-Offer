@@ -33,26 +33,26 @@ function* fetchOffer(action) {
     if(answer.L7A)doc.text('X', 105,32) // if(answer.L7A)doc.text(`X`, 135,42) /// does this line exist? i don't see it on the DOM/PDF 
     if(answer.L7B)doc.text(`${answers.L7B}`, 110,72) //110, 72
     if(answer.L12)doc.text(`${answers.L12}`, 45,102) //
-    if(answer.L13A)doc.text(`${answers.L13A}`, 42,108)
-    if(answer.L13B)doc.text(`${answers.L13B}`, 127,108)
-    if(answer.L14)doc.text(`${answers.L14}`, 35,118)
-    // if(answer.L29)doc.text(`${answers.L29}`, 127,108)
-
-
-    if(answer.L32)doc.text(`${answers.L32}`, 10,10)
-    if(answer.L34)doc.text(`${answers.L34}`, 10,10)
-    if(answer.L35)doc.text(`${answers.L35}`, 10,10)
-    if(answer.L39)doc.text(`${answers.L39}`, 10,10)
-    if(answer.L40)doc.text(`${answers.L40}`, 10,10)
-    if(answer.L41)doc.text(`${answers.L41}`, 10,10)
-    if(answer.L45)doc.text(`${answers.L45}`, 10,10)
+    if(answer.L13A)doc.text(`${answers.L13A}`, 42,118) // can't locate A and B on the PDF even after making sure they're in the database
+    if(answer.L13B)doc.text(`${answers.L13B}`, 127,118)
+    if(answer.L14)doc.text(`${answers.L14}`, 90,115.5)
+    if(answer.L29)doc.text(`${answers.L29}`, 70,108)
+    if(answer.L32)doc.text(`${answers.L32}`, 40,200.5)
+    if(answer.L34)doc.text(`${answers.L34}`, 119,212.5)
+    if(answer.L35)doc.text(`${answers.L35}`, 22.5,219.5)
+    if(answer.L37)doc.text(`${answers.L37}`, 26,230)
+    if(answer.L39)doc.text(`${answers.L39}`, 26,240.5)
+    if(answer.L40)doc.text(`${answers.L40}`, 26,247)
+    if(answer.L41)doc.text(`${answers.L41}`, 26,258)///this should have been named differently-L42 
+    if(answer.L45)doc.text(`${answers.L45}`, 67,277)
+    // if(answer.L45)doc.text(`${answers.L45}`, 10,10) shouldn't there be a 45B as well for the date?
     // -----------------------------------------------------------------------------------------
     //                              page # 2
     // -----------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_2, 'JPEG',0,0,210,297)
-    if(answer.DATE)doc.text(`${answers.DATE}`, 10,10)
-    if(answer.L12)doc.text(`${answers.L12}`, 10,10)
+    if(answer.DATE)doc.text(`${answers.DATE}`, 132,300)
+    if(answer.L12)doc.text(`${answers.L12}`, 132,300)
     // L49
     answer.L49 ?  doc.text(`X`, 10,10)   :   doc.text(`X`, 10,10)
     // L53
