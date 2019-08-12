@@ -29,17 +29,17 @@ class PurchaseAgreementDraftsIndividualDocs extends Component {
             icon: "warning",
             buttons: true,
             dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-              swal("Your file has been deleted!", {
-                icon: "success",
-              });
-              this.props.dispatch({ type: 'DELETE_PURCHASE_ANSWER', payload: draft })
-            } else {
-              swal("Your file is safe!");
-            }
-          });
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Your file has been deleted!", {
+                        icon: "success",
+                    });
+                    this.props.dispatch({ type: 'DELETE_PURCHASE_ANSWER', payload: draft })
+                } else {
+                    swal("Your file is safe!");
+                }
+            });
     }
 
     handleEdit = (draft) => {
@@ -51,42 +51,42 @@ class PurchaseAgreementDraftsIndividualDocs extends Component {
         return (
             <div>
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
-                  {this.props.purchaseDrafts.map(draft => (
+                {this.props.purchaseDrafts.map(draft => (
                     <div>
                         <CardActionArea>
-                        <Card>
-                            <Grid item xs={12} container spacing={3}>
-                                <Grid item xs={10}>
-                                    <div style={styles.title}>
-                                        <h2>{draft.BUYER_1}'s Listing Contract</h2>
-                                        <h2>{draft.date}</h2>
-                                    </div>
+                            <Card>
+                                <Grid item xs={12} container spacing={3}>
+                                    <Grid item xs={10}>
+                                        <div style={styles.title}>
+                                            <h2>{draft.BUYER_1}'s Listing Contract</h2>
+                                            <h2>{draft.date}</h2>
+                                        </div>
+                                    </Grid>
+                                    <Grid
+                                        item xs={1}
+                                        className="arrow"
+                                        container
+                                        direction="row"
+                                        justify="center"
+                                        alignItems="center"
+                                        onClick={() => { this.handleEdit(draft) }}>
+                                        <i class="material-icons">edit</i>
+                                    </Grid>
+                                    <Grid
+                                        item xs={1}
+                                        className="arrow"
+                                        container
+                                        direction="row"
+                                        justify="center"
+                                        alignItems="center"
+                                        onClick={() => { this.handleDelete(draft) }}>
+                                        <i class="material-icons">delete</i>
+                                    </Grid>
                                 </Grid>
-                                <Grid
-                                    item xs={1}
-                                    className="arrow"
-                                    container
-                                    direction="row"
-                                    justify="center"
-                                    alignItems="center"
-                                    onClick={() => { this.handleEdit(draft) }}>
-                                    <i class="material-icons">edit</i>
-                                </Grid>
-                                <Grid
-                                    item xs={1}
-                                    className="arrow"
-                                    container
-                                    direction="row"
-                                    justify="center"
-                                    alignItems="center"
-                                    onClick={() => { this.handleDelete(draft) }}>
-                                    <i class="material-icons">delete</i>
-                                </Grid>
-                            </Grid>
-                        </Card>
-                    </CardActionArea>
+                            </Card>
+                        </CardActionArea>
                         <br />
-                        </div>
+                    </div>
                 ))}
             </div>
         )
