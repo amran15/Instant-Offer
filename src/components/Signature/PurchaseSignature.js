@@ -8,6 +8,8 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import swal from 'sweetalert';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
 
 
 const styles = {
@@ -19,10 +21,15 @@ const styles = {
       },
 };
 
+const theme = createMuiTheme({
+    palette: {
+        secondary: { main: '#1DB954' },
+    },
+});
 
 class PurchaseSignature extends Component {
     state = {
-        id:this.props.reduxState.activeUserReducer.id,
+        id:this.props.match.params.id,
         answers:
         {SIGNATURE_BUYER_1: null}
     }
@@ -35,7 +42,7 @@ class PurchaseSignature extends Component {
 
     //exit out of the signature page. return to the review page without saving.
     returnToReview = () => {
-        this.props.history.push('/ListingContract')
+        this.props.history.push(`/PurchaseAgreement/${this.state.id}`)
     }
 
     //this will save the signature once it has been trimmed
@@ -46,7 +53,6 @@ class PurchaseSignature extends Component {
                 SIGNATURE_BUYER_1: this.sigPad.getTrimmedCanvas().toDataURL('image/PNG')
             },
         }, () => {
-            console.log('state goes here', this.state);
             this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state });
         })
 
