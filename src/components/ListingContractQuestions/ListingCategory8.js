@@ -52,22 +52,20 @@ class ListingCategory8 extends Component {
                             <center>
                                 <h2>Agency Representation</h2>
                             </center>
-                            <h4>Seller will agree to dual agency and will consider offers made by buyers represented by broker?</h4>
+                            <h4>Seller will agree to a dual agency representation and will consider offers made by buyers represented by Broker.</h4>
                             <RadioGroup
                                 value={this.state.answers.L196}
                                 onChange={this.handleChangeForInputs('L196')}>
                                 <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
                                 <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
-                            <h4>Seller will not agree to dual agency and not consider offers made by buyers represented by broker?</h4>
-                            <Grid item xs={12}>
-                                <RadioGroup
-                                    value={this.state.answers.L198}
-                                    onChange={this.handleChangeForInputs('L198')}>
-                                    <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
-                                    <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
-                                </RadioGroup>
-                            </Grid>
+                            <h4>Seller will not agree to a dual agency representation and will not consider offers made by buyers represented by Broker.</h4>
+                            <RadioGroup
+                                value={this.state.answers.L198}
+                                onChange={this.handleChangeForInputs('L198')}>
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
+                            </RadioGroup>
                             <h4>Real Estate Company Name:</h4>
                             <TextField
                                 id="name_real_estate"
@@ -77,9 +75,11 @@ class ListingCategory8 extends Component {
                                 onChange={this.handleChangeForInputs('COMPANY')}
                             />
                             <Grid item xs={12}>
-                                <h4>Electronic Signatures:</h4> <p>The parties agree the electronic signature of any party on any document related to this transaction constitute valid, binding signatures.</p>
+                                <h4>Electronic Signatures:</h4> 
+                                <p>The parties agree the electronic signature of any party on any document related to this transaction constitute valid, binding signatures.</p>
 ​
-                                <h4>Consent for communication:</h4> <p>Seller authorizes Broker and its representatives to contract Seller by mail, phone, fax, email or other means of communication during the term of this Contract and anytime thereafter.</p>
+                                <h4>Consent for communication:</h4>
+                                 <p>Seller authorizes Broker and its representatives to contract Seller by mail, phone, fax, email or other means of communication during the term of this Contract and anytime thereafter.</p>
                                 <h4>Other:</h4>
                                 <TextField
                                     id="other_communication_options"
