@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { checkString } from '../helpers/valueCheckerHelpers'
 
 //Material UI
 import Button from '@material-ui/core/Button';
@@ -23,22 +24,20 @@ class PurchaseCategory1 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            DATE: (typeof this.props.purchaseAnswers.DATE === 'undefined') ? null : this.props.purchaseAnswers.DATE,
-            BUYER_1: (typeof this.props.purchaseAnswers.BUYER_1 === 'undefined') ? null : this.props.purchaseAnswers.BUYER_1,
-            L6A: (typeof this.props.purchaseAnswers.L6A === 'undefined') ? null : this.props.purchaseAnswers.L6A,
-            L6B: (typeof this.props.purchaseAnswers.L6B === 'undefined') ? null : this.props.purchaseAnswers.L6B,
-            L7A: (typeof this.props.purchaseAnswers.L7A === 'undefined') ? null : this.props.purchaseAnswers.L7A,
-            L7B: (typeof this.props.purchaseAnswers.L7B === 'undefined') ? null : this.props.purchaseAnswers.L7B,
-            L12: (typeof this.props.purchaseAnswers.L12 === 'undefined') ? null : this.props.purchaseAnswers.L12,
-            L13A: (typeof this.props.purchaseAnswers.L13A === 'undefined') ? null : this.props.purchaseAnswers.L13A,
-            L13B: (typeof this.props.purchaseAnswers.L13B === 'undefined') ? null : this.props.purchaseAnswers.L13B,
-            L14: (typeof this.props.purchaseAnswers.L14 === 'undefined') ? null : this.props.purchaseAnswers.L14,
-            L29: (typeof this.props.purchaseAnswers.L29 === 'undefined') ? null : this.props.purchaseAnswers.L29,
-            L32: (typeof this.props.purchaseAnswers.L32 === 'undefined') ? null : this.props.purchaseAnswers.L32,
+            DATE: checkString(this.props.purchaseAnswers.DATE),
+            BUYER_1: checkString(this.props.purchaseAnswers.BUYER_1),
+            L6A: checkString(this.props.purchaseAnswers.L6A),
+            L6B: checkString(this.props.purchaseAnswers.L6B),
+            L7A: checkString(this.props.purchaseAnswers.L7A),
+            L7B: checkString(this.props.purchaseAnswers.L7B),
+            L12: checkString(this.props.purchaseAnswers.L12),
+            L13A: checkString(this.props.purchaseAnswers.L13A),
+            L13B: checkString(this.props.purchaseAnswers.L13B),
+            L14: checkString(this.props.purchaseAnswers.L14),
+            L29: checkString(this.props.purchaseAnswers.L29),
+            L32: checkString(this.props.purchaseAnswers.L32),
         }
     }
-
-
 
     handleChangeForGeneralInformation = (propertyName) => (event) => {
         this.setState({
@@ -49,13 +48,13 @@ class PurchaseCategory1 extends Component {
           })
         }
 
-
-
     handleClick = () => {
         this.props.history.push(`/PurchaseAgreement/${this.state.id}`)
     }
 
     handleClickNext = () => {
+        console.log('HELLO')
+        this.props.dispatch({ type: 'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state })
         this.props.history.push(`/PurchaseCategory2/${this.state.id}`)
     }
 
@@ -73,7 +72,7 @@ class PurchaseCategory1 extends Component {
                                 id="date"
                                 variant="outlined"
                                 type="date"
-                                value={this.props.purchaseAnswers.DATE}
+                                value={this.state.purchaseAnswers.DATE}
                                 onChange={this.handleChangeForGeneralInformation('DATE')}
                             />
                         </Grid>
@@ -83,7 +82,7 @@ class PurchaseCategory1 extends Component {
                                 id="buyers_name"
                                 fullWidth
                                 variant="outlined"
-                                value={this.props.purchaseAnswers.BUYER_1}
+                                value={this.state.purchaseAnswers.BUYER_1}
                                 onChange={this.handleChangeForGeneralInformation('BUYER_1')}
                             />
                         </Grid>
@@ -93,7 +92,7 @@ class PurchaseCategory1 extends Component {
                                 id="buyers_earnest_money"
                                 fullWidth
                                 variant="outlined"
-                                value={this.props.purchaseAnswers.L6A}
+                                value={this.state.purchaseAnswers.L6A}
                                 onChange={this.handleChangeForGeneralInformation('L6A')}
                             />
                         </Grid>
@@ -105,7 +104,7 @@ class PurchaseCategory1 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                value={this.props.purchaseAnswers.L6B}
+                                value={this.state.purchaseAnswers.L6B}
                                 onChange={this.handleChangeForGeneralInformation('L6B')}
                             />
                             <h4>shall be delivered to listing broker, or if checked, to</h4>
@@ -114,7 +113,7 @@ class PurchaseCategory1 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        value={this.props.purchaseAnswers.L7A}
+                                        value={this.state.purchaseAnswers.L7A}
                                         onChange={this.handleChangeForGeneralInformation('L7A')}
                                     />
                                 </Grid>
@@ -123,7 +122,7 @@ class PurchaseCategory1 extends Component {
                                         id="brokers_name"
                                         fullWidth
                                         variant="outlined"
-                                        value={this.props.purchaseAnswers.L7B}
+                                        value={this.state.purchaseAnswers.L7B}
                                         onChange={this.handleChangeForGeneralInformation('L7B')}
                                     />
                                 </Grid>
@@ -137,7 +136,7 @@ class PurchaseCategory1 extends Component {
                                 label="Street Address"
                                 fullWidth
                                 variant="outlined"
-                                value={this.props.purchaseAnswers.L12}
+                                value={this.state.purchaseAnswers.L12}
                                 onChange={this.handleChangeForGeneralInformation('L12')}
                             />
                         </Grid>
@@ -147,7 +146,7 @@ class PurchaseCategory1 extends Component {
                                 id="city"
                                 fullWidth
                                 variant="outlined"
-                                value={this.props.purchaseAnswers.L13A}
+                                value={this.state.purchaseAnswers.L13A}
                                 onChange={this.handleChangeForGeneralInformation('L13A')}
                             />
                         </Grid>
@@ -157,7 +156,7 @@ class PurchaseCategory1 extends Component {
                                 id="county"
                                 fullWidth
                                 variant="outlined"
-                                value={this.props.purchaseAnswers.L13B}
+                                value={this.state.purchaseAnswers.L13B}
                                 onChange={this.handleChangeForGeneralInformation('L13B')}
                             />
                         </Grid>
@@ -167,7 +166,7 @@ class PurchaseCategory1 extends Component {
                                 id="legal_description"
                                 fullWidth
                                 variant="outlined"
-                                value={this.props.purchaseAnswers.L14}
+                                value={this.state.purchaseAnswers.L14}
                                 onChange={this.handleChangeForGeneralInformation('L14')}
                             />
                         </Grid>
@@ -177,7 +176,7 @@ class PurchaseCategory1 extends Component {
                                 id="built_ins"
                                 fullWidth
                                 variant="outlined"
-                                value={this.props.purchaseAnswers.L29}
+                                value={this.state.purchaseAnswers.L29}
                                 onChange={this.handleChangeForGeneralInformation('L29')}
                             />
                         </Grid>
@@ -187,7 +186,7 @@ class PurchaseCategory1 extends Component {
                                 id="excluded_items"
                                 fullWidth
                                 variant="outlined"
-                                value={this.props.purchaseAnswers.L32}
+                                value={this.state.purchaseAnswers.L32}
                                 onChange={this.handleChangeForGeneralInformation('L32')}
                             />
                         </Grid>

@@ -33,28 +33,12 @@ class PurchaseCategory5 extends Component {
         })
     }
 
-    handleChangeForCheckbox = (propertyName) => (event) => {
-        this.setState({
-            ...this.state,
-            answers: {
-                ...this.state.answers, [propertyName]: true,
-            }
-        })
-    }
-
-    handleChangeForCheckboxNo = (propertyName) => (event) => {
-        this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: false,
-            }
-        })
-    }
-
     handleClick = () => {
         this.props.history.push(`/PurchaseCategory4/${this.state.id}`)
     }
 
     handleClickNext = () => {
+        this.props.dispatch({ type: 'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state })
         this.props.history.push(`/PurchaseCategory6/${this.state.id}`)
     }
 

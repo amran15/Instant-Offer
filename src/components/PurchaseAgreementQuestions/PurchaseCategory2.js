@@ -39,6 +39,7 @@ class PurchaseCategory2 extends Component {
 
 
     handleClickNext = () => {
+        this.props.dispatch({ type: 'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state })
         this.props.history.push(`/PurchaseCategory3/${this.state.id}`)
     }
 
