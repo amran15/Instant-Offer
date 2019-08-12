@@ -3,9 +3,12 @@ import axios from 'axios';
 
 function* fetchListingDetails(action) {
     try {
-        const answers = yield axios.get(`/api/listing/answers/${action.payload.id}`);
-        console.log('listing_answers:', answers);
-        yield put({ type: 'SET_LISTING_ANSWERS', payload: answers.data })
+        console.log('id', action.payload)
+        var answers = yield axios.get(`/api/listing/answers/${action.payload}`);
+        console.log('listing_answers:', answers.data[0]);
+        answers = answers.data[0]
+        delete answers.id
+        yield put({ type: 'SET_LISTING_ANSWERS', payload: answers })
     } catch (error) {
         console.log('error getting listing answers to render on DOM', error);
     }
