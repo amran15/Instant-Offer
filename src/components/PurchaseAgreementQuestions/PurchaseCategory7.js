@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { checkString } from '../helpers/valueCheckerHelpers';
 
 //Material UI
 import Button from '@material-ui/core/Button';
@@ -16,9 +17,9 @@ class PurchaseCategory7 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L198: (typeof this.props.listingAnswers.L198 === 'undefined') ? null : this.props.listingAnswers.L198,
-            L201: (typeof this.props.listingAnswers.L201 === 'undefined') ? null : this.props.listingAnswers.L201,
-            L210: (typeof this.props.listingAnswers.L210 === 'undefined') ? null : this.props.listingAnswers.L210,
+            L198: checkString(this.props.purchaseAnswers.L198),
+            L201: checkString(this.props.purchaseAnswers.L201),
+            L210: checkString(this.props.purchaseAnswers.L210),
         }
     }
     handleChangeForBuyerProperty = (propertyName) => (event) => {

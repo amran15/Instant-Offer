@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { checkString } from '../helpers/valueCheckerHelpers'
+import { checkString } from '../helpers/valueCheckerHelpers';
 
 //Material UI
 import Button from '@material-ui/core/Button';
@@ -72,7 +72,7 @@ class PurchaseCategory1 extends Component {
                                 id="date"
                                 variant="outlined"
                                 type="date"
-                                value={this.state.purchaseAnswers.DATE}
+                                value={this.state.answers.DATE}
                                 onChange={this.handleChangeForGeneralInformation('DATE')}
                             />
                         </Grid>
@@ -82,7 +82,7 @@ class PurchaseCategory1 extends Component {
                                 id="buyers_name"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.purchaseAnswers.BUYER_1}
+                                value={this.state.answers.BUYER_1}
                                 onChange={this.handleChangeForGeneralInformation('BUYER_1')}
                             />
                         </Grid>
@@ -92,7 +92,7 @@ class PurchaseCategory1 extends Component {
                                 id="buyers_earnest_money"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.purchaseAnswers.L6A}
+                                value={this.state.answers.L6A}
                                 onChange={this.handleChangeForGeneralInformation('L6A')}
                             />
                         </Grid>
@@ -104,7 +104,7 @@ class PurchaseCategory1 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                value={this.state.purchaseAnswers.L6B}
+                                value={this.state.answers.L6B}
                                 onChange={this.handleChangeForGeneralInformation('L6B')}
                             />
                             <h4>shall be delivered to listing broker, or if checked, to</h4>
@@ -113,7 +113,7 @@ class PurchaseCategory1 extends Component {
                                     <Checkbox
                                         value="checkedB"
                                         color="primary"
-                                        value={this.state.purchaseAnswers.L7A}
+                                        value={this.state.answers.L7A}
                                         onChange={this.handleChangeForGeneralInformation('L7A')}
                                     />
                                 </Grid>
@@ -122,7 +122,7 @@ class PurchaseCategory1 extends Component {
                                         id="brokers_name"
                                         fullWidth
                                         variant="outlined"
-                                        value={this.state.purchaseAnswers.L7B}
+                                        value={this.state.answers.L7B}
                                         onChange={this.handleChangeForGeneralInformation('L7B')}
                                     />
                                 </Grid>
@@ -136,7 +136,7 @@ class PurchaseCategory1 extends Component {
                                 label="Street Address"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.purchaseAnswers.L12}
+                                value={this.state.answers.L12}
                                 onChange={this.handleChangeForGeneralInformation('L12')}
                             />
                         </Grid>
@@ -146,7 +146,7 @@ class PurchaseCategory1 extends Component {
                                 id="city"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.purchaseAnswers.L13A}
+                                value={this.state.answers.L13A}
                                 onChange={this.handleChangeForGeneralInformation('L13A')}
                             />
                         </Grid>
@@ -156,7 +156,7 @@ class PurchaseCategory1 extends Component {
                                 id="county"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.purchaseAnswers.L13B}
+                                value={this.state.answers.L13B}
                                 onChange={this.handleChangeForGeneralInformation('L13B')}
                             />
                         </Grid>
@@ -166,7 +166,7 @@ class PurchaseCategory1 extends Component {
                                 id="legal_description"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.purchaseAnswers.L14}
+                                value={this.state.answers.L14}
                                 onChange={this.handleChangeForGeneralInformation('L14')}
                             />
                         </Grid>
@@ -176,7 +176,7 @@ class PurchaseCategory1 extends Component {
                                 id="built_ins"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.purchaseAnswers.L29}
+                                value={this.state.answers.L29}
                                 onChange={this.handleChangeForGeneralInformation('L29')}
                             />
                         </Grid>
@@ -186,7 +186,7 @@ class PurchaseCategory1 extends Component {
                                 id="excluded_items"
                                 fullWidth
                                 variant="outlined"
-                                value={this.state.purchaseAnswers.L32}
+                                value={this.state.answers.L32}
                                 onChange={this.handleChangeForGeneralInformation('L32')}
                             />
                         </Grid>

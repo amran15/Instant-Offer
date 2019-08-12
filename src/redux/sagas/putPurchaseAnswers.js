@@ -13,9 +13,9 @@ function* saveAnswers(action) {
 
 
 
-function* putAnswersOffer() {
+function* putPurchaseAnswers() {
     yield takeLatest('SAVE_ANSWERS_FOR_PURCHASE', saveAnswers);
 
   }
   
-  export default putAnswersOffer;
+  export default putPurchaseAnswers;

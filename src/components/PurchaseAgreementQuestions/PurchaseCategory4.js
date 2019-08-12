@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { checkString } from '../helpers/valueCheckerHelpers';
 
 //Material UI
 import { Button, RadioGroup, Radio, } from '@material-ui/core';
@@ -16,33 +17,33 @@ class PurchaseCategory4 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L49: (typeof this.props.listingAnswers.L49 === 'undefined') ? null : this.props.listingAnswers.L49,
-            L53: (typeof this.props.listingAnswers.L53 === 'undefined') ? null : this.props.listingAnswers.L53,
-            L54: (typeof this.props.listingAnswers.L54 === 'undefined') ? null : this.props.listingAnswers.L54,
-            L55: (typeof this.props.listingAnswers.L55 === 'undefined') ? null : this.props.listingAnswers.L55,
-            L57: (typeof this.props.listingAnswers.L57 === 'undefined') ? null : this.props.listingAnswers.L57,
-            L58: (typeof this.props.listingAnswers.L58 === 'undefined') ? null : this.props.listingAnswers.L58,
-            L59: (typeof this.props.listingAnswers.L59 === 'undefined') ? null : this.props.listingAnswers.L59,
-            L60: (typeof this.props.listingAnswers.L60 === 'undefined') ? null : this.props.listingAnswers.L60,
-            L61: (typeof this.props.listingAnswers.L61 === 'undefined') ? null : this.props.listingAnswers.L61,
-            L62A: (typeof this.props.listingAnswers.L62A === 'undefined') ? null : this.props.listingAnswers.L62A,
-            L62B: (typeof this.props.listingAnswers.L62B === 'undefined') ? null : this.props.listingAnswers.L62B,
-            L63: (typeof this.props.listingAnswers.L63 === 'undefined') ? null : this.props.listingAnswers.L63,
-            L64: (typeof this.props.listingAnswers.L64 === 'undefined') ? null : this.props.listingAnswers.L64,
-            L70: (typeof this.props.listingAnswers.L70 === 'undefined') ? null : this.props.listingAnswers.L70,
-            L73: (typeof this.props.listingAnswers.L73 === 'undefined') ? null : this.props.listingAnswers.L73,
-            L76: (typeof this.props.listingAnswers.L76 === 'undefined') ? null : this.props.listingAnswers.L76,
-            L77: (typeof this.props.listingAnswers.L77 === 'undefined') ? null : this.props.listingAnswers.L77,
-            L114: (typeof this.props.listingAnswers.L114 === 'undefined') ? null : this.props.listingAnswers.L114,
-            L118: (typeof this.props.listingAnswers.L118 === 'undefined') ? null : this.props.listingAnswers.L118,
-            L127: (typeof this.props.listingAnswers.L127 === 'undefined') ? null : this.props.listingAnswers.L127,
-            L133: (typeof this.props.listingAnswers.L133 === 'undefined') ? null : this.props.listingAnswers.L133,
-            L141: (typeof this.props.listingAnswers.L141 === 'undefined') ? null : this.props.listingAnswers.L141,
-            L145A: (typeof this.props.listingAnswers.L145A === 'undefined') ? null : this.props.listingAnswers.L145A,
-            L145B: (typeof this.props.listingAnswers.L145B === 'undefined') ? null : this.props.listingAnswers.L145B,
-            L145C: (typeof this.props.listingAnswers.L145C === 'undefined') ? null : this.props.listingAnswers.L145C,
-            L146: (typeof this.props.listingAnswers.L146 === 'undefined') ? null : this.props.listingAnswers.L146,
-            L156: (typeof this.props.listingAnswers.L156 === 'undefined') ? null : this.props.listingAnswers.L156,
+            L49: checkString(this.props.purchaseAnswers.L49),
+            L53: checkString(this.props.purchaseAnswers.L53),
+            L54: checkString(this.props.purchaseAnswers.L54),
+            L55: checkString(this.props.purchaseAnswers.L55),
+            L57: checkString(this.props.purchaseAnswers.L57),
+            L58: checkString(this.props.purchaseAnswers.L58),
+            L59: checkString(this.props.purchaseAnswers.L59),
+            L60: checkString(this.props.purchaseAnswers.L60),
+            L61: checkString(this.props.purchaseAnswers.L61),
+            L62A: checkString(this.props.purchaseAnswers.L62A),
+            L62B: checkString(this.props.purchaseAnswers.L62A),
+            L63: checkString(this.props.purchaseAnswers.L63),
+            L64: checkString(this.props.purchaseAnswers.L64),
+            L70: checkString(this.props.purchaseAnswers.L70),
+            L73: checkString(this.props.purchaseAnswers.L73),
+            L76: checkString(this.props.purchaseAnswers.L76),
+            L77: checkString(this.props.purchaseAnswers.L77),
+            L114: checkString(this.props.purchaseAnswers.L114),
+            L118: checkString(this.props.purchaseAnswers.L118),
+            L127: checkString(this.props.purchaseAnswers.L127),
+            L133: checkString(this.props.purchaseAnswers.L133),
+            L141: checkString(this.props.purchaseAnswers.L141),
+            L145A: checkString(this.props.purchaseAnswers.L145A),
+            L145B: checkString(this.props.purchaseAnswers.L145B),
+            L145C: checkString(this.props.purchaseAnswers.L145C),
+            L146: checkString(this.props.purchaseAnswers.L146),
+            L156: checkString(this.props.purchaseAnswers.L156),
         }
     }
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { checkString } from '../helpers/valueCheckerHelpers';
 
 //Material UI
 import { Button, RadioGroup, Radio, } from '@material-ui/core';
@@ -15,45 +16,45 @@ class PurchaseCategory9 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L250: (typeof this.props.listingAnswers.L250 === 'undefined') ? null : this.props.listingAnswers.L250,
-            L257A: (typeof this.props.listingAnswers.L257A === 'undefined') ? null : this.props.listingAnswers.L257A,
-            L257B: (typeof this.props.listingAnswers.L257B === 'undefined') ? null : this.props.listingAnswers.L257B,
-            L257C: (typeof this.props.listingAnswers.L257C === 'undefined') ? null : this.props.listingAnswers.L257C,
-            L257D: (typeof this.props.listingAnswers.L257D === 'undefined') ? null : this.props.listingAnswers.L257D,
-            L258: (typeof this.props.listingAnswers.L258 === 'undefined') ? null : this.props.listingAnswers.L258,
-            L263: (typeof this.props.listingAnswers.L263 === 'undefined') ? null : this.props.listingAnswers.L263,
-            L265: (typeof this.props.listingAnswers.L265 === 'undefined') ? null : this.props.listingAnswers.L265,
-            L270: (typeof this.props.listingAnswers.L270 === 'undefined') ? null : this.props.listingAnswers.L270,
-            L271A: (typeof this.props.listingAnswers.L271A === 'undefined') ? null : this.props.listingAnswers.L271A,
-            L271B: (typeof this.props.listingAnswers.L271B === 'undefined') ? null : this.props.listingAnswers.L271B,
-            L359: (typeof this.props.listingAnswers.L359 === 'undefined') ? null : this.props.listingAnswers.L359,
-            L360: (typeof this.props.listingAnswers.L360 === 'undefined') ? null : this.props.listingAnswers.L360,
-            L371A: (typeof this.props.listingAnswers.L371A === 'undefined') ? null : this.props.listingAnswers.L371A,
-            L371B: (typeof this.props.listingAnswers.L371B === 'undefined') ? null : this.props.listingAnswers.L371B,
-            L373: (typeof this.props.listingAnswers.L373 === 'undefined') ? null : this.props.listingAnswers.L373,
-            L377: (typeof this.props.listingAnswers.L377 === 'undefined') ? null : this.props.listingAnswers.L377,
-            L379: (typeof this.props.listingAnswers.L379 === 'undefined') ? null : this.props.listingAnswers.L379,
-            L388A: (typeof this.props.listingAnswers.L388A === 'undefined') ? null : this.props.listingAnswers.L388A,
-            L388B: (typeof this.props.listingAnswers.L388B === 'undefined') ? null : this.props.listingAnswers.L388B,
-            L389A: (typeof this.props.listingAnswers.L389A === 'undefined') ? null : this.props.listingAnswers.L389A,
-            L389B: (typeof this.props.listingAnswers.L389B === 'undefined') ? null : this.props.listingAnswers.L389B,
-            L390: (typeof this.props.listingAnswers.L390 === 'undefined') ? null : this.props.listingAnswers.L390,
-            L394A: (typeof this.props.listingAnswers.L394A === 'undefined') ? null : this.props.listingAnswers.L394A,
-            L395: (typeof this.props.listingAnswers.L395 === 'undefined') ? null : this.props.listingAnswers.L395,
-            L394B: (typeof this.props.listingAnswers.L394B === 'undefined') ? null : this.props.listingAnswers.L394B,
-            L394C: (typeof this.props.listingAnswers.L394C === 'undefined') ? null : this.props.listingAnswers.L394C,
-            L394D: (typeof this.props.listingAnswers.L394D === 'undefined') ? null : this.props.listingAnswers.L394D,
-            L394E: (typeof this.props.listingAnswers.L394E === 'undefined') ? null : this.props.listingAnswers.L394E,
-            L396A: (typeof this.props.listingAnswers.L396A === 'undefined') ? null : this.props.listingAnswers.L396A,
-            L397: (typeof this.props.listingAnswers.L397 === 'undefined') ? null : this.props.listingAnswers.L397,
-            L396B: (typeof this.props.listingAnswers.L396B === 'undefined') ? null : this.props.listingAnswers.L396B,
-            L396C: (typeof this.props.listingAnswers.L396C === 'undefined') ? null : this.props.listingAnswers.L396C,
-            L396D: (typeof this.props.listingAnswers.L396D === 'undefined') ? null : this.props.listingAnswers.L396D,
-            L396E: (typeof this.props.listingAnswers.L396E === 'undefined') ? null : this.props.listingAnswers.L396E,
-            L403: (typeof this.props.listingAnswers.L403 === 'undefined') ? null : this.props.listingAnswers.L403, 
-            L404: (typeof this.props.listingAnswers.L404 === 'undefined') ? null : this.props.listingAnswers.L404, 
-            L454: (typeof this.props.listingAnswers.L454 === 'undefined') ? null : this.props.listingAnswers.L454, 
-            L494: (typeof this.props.listingAnswers.L494 === 'undefined') ? null : this.props.listingAnswers.L494, 
+            L250: checkString(this.props.purchaseAnswers.L250),
+            L257A: checkString(this.props.purchaseAnswers.L257A),
+            L257B: checkString(this.props.purchaseAnswers.L257B),
+            L257C: checkString(this.props.purchaseAnswers.L257C),
+            L257D: checkString(this.props.purchaseAnswers.L257A),
+            L258: checkString(this.props.purchaseAnswers.L258),
+            L263: checkString(this.props.purchaseAnswers.L263),
+            L265: checkString(this.props.purchaseAnswers.L265),
+            L270: checkString(this.props.purchaseAnswers.L270),
+            L271A: checkString(this.props.purchaseAnswers.L271A),
+            L271B: checkString(this.props.purchaseAnswers.L271B),
+            L359: checkString(this.props.purchaseAnswers.L359),
+            L360: checkString(this.props.purchaseAnswers.L360),
+            L371A: checkString(this.props.purchaseAnswers.L371A),
+            L371B: checkString(this.props.purchaseAnswers.L371B),
+            L373: checkString(this.props.purchaseAnswers.L373),
+            L377: checkString(this.props.purchaseAnswers.L377),
+            L379: checkString(this.props.purchaseAnswers.L379),
+            L388A: checkString(this.props.purchaseAnswers.L388A),
+            L388B: checkString(this.props.purchaseAnswers.L388B),
+            L389A: checkString(this.props.purchaseAnswers.L389A),
+            L389B: checkString(this.props.purchaseAnswers.L389B),
+            L390: checkString(this.props.purchaseAnswers.L390),
+            L394A: checkString(this.props.purchaseAnswers.L394A),
+            L395: checkString(this.props.purchaseAnswers.L395),
+            L394B: checkString(this.props.purchaseAnswers.L394B),
+            L394C: checkString(this.props.purchaseAnswers.L394C),
+            L394D: checkString(this.props.purchaseAnswers.L394D),
+            L394E: checkString(this.props.purchaseAnswers.L394E),
+            L396A: checkString(this.props.purchaseAnswers.L396A),
+            L397: checkString(this.props.purchaseAnswers.L397),
+            L396B: checkString(this.props.purchaseAnswers.L396B),
+            L396C: checkString(this.props.purchaseAnswers.L396C),
+            L396D: checkString(this.props.purchaseAnswers.L396D),
+            L396E: checkString(this.props.purchaseAnswers.L396E),
+            L403: checkString(this.props.purchaseAnswers.L403),
+            L404: checkString(this.props.purchaseAnswers.L404),
+            L454: checkString(this.props.purchaseAnswers.L454),
+            L494: checkString(this.props.purchaseAnswers.L494),
         }
     }
     handleChangeForAdditionalProvision = (propertyName) => (event) => {
@@ -98,7 +99,7 @@ class PurchaseCategory9 extends Component {
                                 id="date"
                                 variant="outlined"
                                 type="date"
-                                value={this.props.purchaseAnswers.L251}
+                                value={this.state.answers.L251}
                                 onChange={this.handleChangeForAdditionalProvision('L251')}
                             />
                             <h4>If yes, said cancellation shall be obtained no later than:</h4>
@@ -106,7 +107,7 @@ class PurchaseCategory9 extends Component {
                                 id="date"
                                 variant="outlined"
                                 type="date"
-                                value={this.props.purchaseAnswers.L252}
+                                value={this.state.answers.L252}
                                 onChange={this.handleChangeForAdditionalProvision('L252')}
                             />
                             <center>
