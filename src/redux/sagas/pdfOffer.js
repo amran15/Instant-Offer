@@ -17,9 +17,10 @@ function* fetchOffer(action) {
         console.log('error in pdf offer getting answers?', error)
       })
     yield
-    console.log(answers.data[0].id)
+    // console.log(answers.data[0].id)
     const answer = answers.data[0];
     let doc = new jsPDF()
+    doc.setFontSize(11); 
     // -----------------------------------------------------------------------------------------
     //                              page # 1
     // ------------------------------------------------------------------------------------------
@@ -55,36 +56,36 @@ function* fetchOffer(action) {
     if(answer.DATE)doc.text(`${answer.DATE}`, 144,23)
     if(answer.L12)doc.text(`${answer.L12}`, 53,31)
     // L49
-    answer.L49 ?  doc.text(`X`, 10,10)   :   doc.text(`X`, 10,10)
+    answer.L49 ?  doc.text(`X`, 63,46)   :   doc.text(`X`, 67,46)
     // L53
-    answer.L53  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    answer.L53  ?  doc.text(`X`, 22,71)  :  doc.text(`X`, 25,71)
     // L54
-    answer.L54  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
-    if(answer.L55)doc.text(`${answers.L55}`, 10,10)
-    if(answer.L57)doc.text(`X`, 10,10)
-    if(answer.L58)doc.text(`X`, 10,10)
-    if(answer.L59)doc.text(`X`, 10,10)
-    if(answer.L60)doc.text(`X`, 10,10)
-    if(answer.L61)doc.text(`X`, 10,10)
-    if(answer.L62A)doc.text(`X`, 10,10)
-    if(answer.L62B)doc.text(`${answer.L62B}`, 10,10)
-    if(answer.L63)doc.text(`${answer.L63}`, 10,10)
-    if(answer.L64)doc.text(`${answer.L64}`, 10,10)
-    if(answer.L70)doc.text(`X`, 10,10)
+    answer.L54  ?  doc.text(`X`, 38,77)  :  doc.text(`X`, 10,10)
+    if(answer.L55)doc.text(`${answers.L55}`, 45,83.5)
+    if(answer.L57)doc.text(`X`, 22,96.5)
+    if(answer.L58)doc.text(`X`, 22,101.5)
+    if(answer.L59)doc.text(`X`, 22,106.5)
+    if(answer.L60)doc.text(`X`, 22,112)
+    if(answer.L61)doc.text(`X`, 22,117.5)
+    if(answer.L62A)doc.text(`X`, 22,123.5)
+    if(answer.L62B)doc.text(`${answer.L62B}`, 40,123.5)
+    if(answer.L63)doc.text(`${answer.L63}`, 183,130.5)
+    if(answer.L64)doc.text(`${answer.L64}`, 98,137.5)
+    if(answer.L70)doc.text(`X`, 22,171)
     // L73
-    answer.L73  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
-    if(answer.L76)doc.text(`X`, 10,10)
-    if(answer.L77)doc.text(`${answer.L77}`, 10,10)
+    answer.L73  ?  doc.text(`X`, 28,186)  :  doc.text(`X`, 10,10)
+    if(answer.L76)doc.text(`X`, 22,207)
+    if(answer.L77)doc.text(`${answer.L77}`, 43,212.5)
     // -----------------------------------------------------------------------------------------
     //                              page # 3
     // ------------------------------------------------------------------------------------------
     doc.addPage()
     doc.addImage(response.data[0].PAGE_3, 'JPEG',0,0,210,297)
-    if(answer.DATE)doc.text(`${answer.DATE}`, 144,23)
-    if(answer.L12)doc.text(`${answer.L12}`, 53,31)
-    if(answer.L114)doc.text(`X`, 10,10)
-    if(answer.L115)doc.text(`X`, 10,10)
-    if(answer.L118)doc.text(`${answer.L118}`, 10,10)
+    if(answer.DATE)doc.text(`${answer.DATE}`, 185,14.5)
+    if(answer.L12)doc.text(`${answer.L12}`, 22,152) //
+    if(answer.L114)doc.text(`X`, 22,158)
+    if(answer.L115)doc.text(`X`, 24,176)
+    if(answer.L118)doc.text(`${answer.L118}`, 22,176)
     // L127
     answer.L127   ?   doc.text(`X`, 10,10)  :   doc.text(`X`, 10,10)
     if(answer.L133)doc.text(`${answer.L133}`, 10,10)
