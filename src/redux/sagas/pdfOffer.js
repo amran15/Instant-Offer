@@ -20,7 +20,6 @@ function* fetchOffer(action) {
     // console.log(answers.data[0].id)
     const answer = answers.data[0];
     let doc = new jsPDF()
-
     doc.setFontSize(12);
 
     // -----------------------------------------------------------------------------------------
@@ -28,27 +27,27 @@ function* fetchOffer(action) {
     // ------------------------------------------------------------------------------------------
     
     doc.addImage(response.data[0].PAGE_1, 'JPEG',0,0,210,297)
-    if(answer.id)doc.text(`${answer.id}`, 10,10,)
-    if(answer.DATE)doc.text(`${answer.DATE}`, 132,33)//132, 33
+    // if(answer.id)doc.text(`${answer.id}`, 10,10,) // delete this line
+    if(answer.DATE)doc.text(`${answer.DATE}`, 45,102)//132, 33
     if(answer.BUYER_1)doc.text(`${answer.BUYER_1}`, 40,46)//40, 46
     if(answer.L6A)doc.text(`${answer.L6A}`, 30,66)//40, 53 number 6 on the pdf page
     if(answer.L6B)doc.text(`${answer.L6B}`, 145,66) //dollar amount on number 6
     if(answer.L7A)doc.text('X', 105,32) // if(answer.L7A)doc.text(`X`, 135,42) /// does this line exist? i don't see it on the DOM/PDF 
 
-    if(answer.L7B)doc.text(`${answers.L7B}`, 110,72) //110, 72
-    if(answer.L12)doc.text(`${answers.L12}`, 45,102) //
-    if(answer.L13A)doc.text(`${answers.L13A}`, 42,118) // can't locate A and B on the PDF even after making sure they're in the database
-    if(answer.L13B)doc.text(`${answers.L13B}`, 127,118)
-    if(answer.L14)doc.text(`${answers.L14}`, 90,115.5)
-    if(answer.L29)doc.text(`${answers.L29}`, 70,108)
-    if(answer.L32)doc.text(`${answers.L32}`, 40,200.5)
-    if(answer.L34)doc.text(`${answers.L34}`, 119,212.5)
-    if(answer.L35)doc.text(`${answers.L35}`, 22.5,219.5)
-    if(answer.L37)doc.text(`${answers.L37}`, 26,230)
-    if(answer.L39)doc.text(`${answers.L39}`, 26,240.5)
-    if(answer.L40)doc.text(`${answers.L40}`, 26,247)
-    if(answer.L41)doc.text(`${answers.L41}`, 26,258)///this should have been named differently-L42 
-    if(answer.L45)doc.text(`${answers.L45}`, 67,277)
+    if(answer.L7B)doc.text(`${answer.L7B}`, 110,72) //110, 72
+    if(answer.L12)doc.text(`${answer.L12}`, 45,102) //
+    if(answer.L13A)doc.text(`${answer.L13A}`, 34,107.5) // can't locate A and B on the PDF even after making sure they're in the database
+    if(answer.L13B)doc.text(`${answer.L13B}`, 126,107.5)
+    if(answer.L14)doc.text(`${answer.L14}`, 90,115.5)
+    if(answer.L29)doc.text(`${answer.L29}`, 35,185)
+    if(answer.L32)doc.text(`${answer.L32}`, 40,200.5)
+    if(answer.L34)doc.text(`${answer.L34}`, 119,212.5)
+    if(answer.L35)doc.text(`${answer.L35}`, 22.5,219.5)
+    if(answer.L37)doc.text(`${answer.L37}`, 26,230)
+    if(answer.L39)doc.text(`${answer.L39}`, 26,240.5)
+    if(answer.L40)doc.text(`${answer.L40}`, 26,247)
+    if(answer.L41)doc.text(`${answer.L41}`, 26,258)///this should have been named differently-L42 
+    if(answer.L45)doc.text(`${answer.L45}`, 67,277)
     // if(answer.L45)doc.text(`${answers.L45}`, 10,10) shouldn't there be a 45B as well for the date?
     // -----------------------------------------------------------------------------------------
     //                              page # 2
@@ -58,11 +57,11 @@ function* fetchOffer(action) {
     if(answer.DATE)doc.text(`${answer.DATE}`, 144,23)
     if(answer.L12)doc.text(`${answer.L12}`, 53,31)
     // L49
-    answer.L49 ?  doc.text(`X`, 63,46)   :   doc.text(`X`, 67,46)
+    answer.L49 ?  doc.text(`X`, 63,46)   :   doc.text(`X`, 72,46)
     // L53
-    answer.L53  ?  doc.text(`X`, 22,71)  :  doc.text(`X`, 25,71)
+    answer.L53  ?  doc.text(`X`, 22,71)  :  doc.text(`X`, 67,71)
     // L54
-    answer.L54  ?  doc.text(`X`, 38,77)  :  doc.text(`X`, 10,10)
+    answer.L54  ?  doc.text(`X`, 38,77)  :  doc.text(`X`, 54.5,77.5)
     if(answer.L55)doc.text(`${answers.L55}`, 45,83.5)
     if(answer.L57)doc.text(`X`, 22,96.5)
     if(answer.L58)doc.text(`X`, 22,101.5)
@@ -75,7 +74,7 @@ function* fetchOffer(action) {
     if(answer.L64)doc.text(`${answer.L64}`, 98,137.5)
     if(answer.L70)doc.text(`X`, 22,171)
     // L73
-    answer.L73  ?  doc.text(`X`, 28,186)  :  doc.text(`X`, 10,10)
+    answer.L73  ?  doc.text(`X`, 28,186)  :  doc.text(`X`, 70.5,186.5)
     if(answer.L76)doc.text(`X`, 22,207)
     if(answer.L77)doc.text(`${answer.L77}`, 43,212.5)
     // -----------------------------------------------------------------------------------------
@@ -84,13 +83,13 @@ function* fetchOffer(action) {
     doc.addPage()
     doc.addImage(response.data[0].PAGE_3, 'JPEG',0,0,210,297)
     if(answer.DATE)doc.text(`${answer.DATE}`, 185,14.5)
-    if(answer.L12)doc.text(`${answer.L12}`, 22,152) //
-    if(answer.L114)doc.text(`X`, 22,158)
-    if(answer.L115)doc.text(`X`, 24,176)
-    if(answer.L118)doc.text(`${answer.L118}`, 22,176)
+    if(answer.L12)doc.text(`${answer.L12}`, 144,23) //
+    if(answer.L114)doc.text(`X`, 22,152)
+    if(answer.L115)doc.text(`X`, 22,158)
+    if(answer.L118)doc.text(`${answer.L118}`, 24,176)
     // L127
-    answer.L127   ?   doc.text(`X`, 10,10)  :   doc.text(`X`, 10,10)
-    if(answer.L133)doc.text(`${answer.L133}`, 10,10)
+    answer.L127   ?   doc.text(`X`, 22,218.5)  :   doc.text(`X`, 42,219)
+    if(answer.L133)doc.text(`${answer.L133}`, 100,254)
     // -----------------------------------------------------------------------------------------
     //                              page # 4
     // ------------------------------------------------------------------------------------------
