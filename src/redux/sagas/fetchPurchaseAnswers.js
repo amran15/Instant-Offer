@@ -3,7 +3,6 @@ import axios from 'axios';
 
 function* fetchPurchaseDetails(action) {
     try {
-        console.log('I GOTCHU DAWG!')
         const purchase = yield axios.get(`/api/purchase/answers/${action.payload.id}`);
         console.log('purchase_agreement_answers:', purchase);
         yield put({ type: 'SET_PURCHASE_ANSWERS', payload: purchase.data })

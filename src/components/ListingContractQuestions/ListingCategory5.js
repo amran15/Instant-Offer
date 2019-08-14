@@ -9,6 +9,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { TextField, InputAdornment, Radio, RadioGroup } from '@material-ui/core';
+import { stat } from "fs";
 
 
 class ListingCategory5 extends Component {
@@ -23,6 +24,21 @@ class ListingCategory5 extends Component {
             L150C: checkString(this.props.listingAnswers.L150C),
             L152B: checkString(this.props.listingAnswers.L152B),
         }
+    }
+
+
+    autoFill = () => {
+        this.setState({
+            ...this.state,
+            answers: {
+                L146: 'true',
+                L148B: '35',
+                L148C: '2000',
+                L150B: '23',
+                L150C: '600',
+                L152B: '',
+            }
+        })
     }
 
     handleChangeForInputs = (propertyName) => (event) => {
@@ -51,12 +67,12 @@ class ListingCategory5 extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h2>Compensation Disclosure</h2>
+                                <h2 onClick={this.autoFill}>Compensation Disclosure</h2>
                             </center>
                             <h4>Broker will offer compensation to cooperating brokers?</h4>
                             <RadioGroup
                                 value={this.state.answers.L146}
-                                onChange={this.handleChangeForInputs('146')}>
+                                onChange={this.handleChangeForInputs('L146')}>
                                 <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
                                 <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>

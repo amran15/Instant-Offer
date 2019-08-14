@@ -26,11 +26,11 @@ const UserPage = (props) => (
       <br />
       <div align="center">
         <Container component="main" maxWidth="xs">
-          <Grid item xs={8}>
+          <Grid item xs={9}>
             <ListingContractButton />
             <br />
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={9}>
             <PurchaseAgreementButton />
           </Grid>
         </Container>

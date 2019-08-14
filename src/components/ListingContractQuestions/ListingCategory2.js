@@ -17,11 +17,25 @@ class ListingCategory2 extends Component {
         }
     }
 
+    autoFill = () =>{
+        this.setState({
+            answers: {
+                L41: 'true',
+                L54: 'true',
+                L63: 'true',
+                L71: 'true',
+            }
+        })
+    }
+
+
+
+
   handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
-      ...this.state, 
       answers: {
-        ...this.state.answers, [propertyName]: event.target.value,
+        ...this.state.answers,
+        [propertyName]: event.target.value,
       }
     })
   }
@@ -40,10 +54,11 @@ class ListingCategory2 extends Component {
         return (
             <div>
                 <Container component="main">
+                    {/* <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h2>MLS Data Feed Options</h2>
+                                <h2 onClick={this.autoFill}>MLS Data Feed Options</h2>
                             </center>
                             <h4>Display listing on the internet?</h4>
                             <RadioGroup
