@@ -20,18 +20,6 @@ class ListingCategory6 extends Component {
         }
     }
 
-    autofill = () => {
-        this.setState({
-            ...this.state,
-            answers: {
-                L163: 'true',
-                L164: 'true',
-                L165A: '',
-            }
-        })
-    }
-
-
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
             ...this.state,
@@ -58,7 +46,7 @@ class ListingCategory6 extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h2 onClick={this.autofill}>Closing Services</h2>
+                                <h2>Closing Services</h2>
                             </center>
                             <h4>Seller wishes to have a Broker arrange for the closing?</h4>
                             <RadioGroup

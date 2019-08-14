@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import SignatureCanvas, { canvas } from 'react-signature-canvas';
+import {SignatureCanvas} from 'react-signature-canvas';
 
 //Material UI       
 import Button from '@material-ui/core/Button';

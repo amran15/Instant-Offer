@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { checkString } from '../helpers/valueCheckerHelpers';
+import { checkString, checkBoolean} from '../helpers/valueCheckerHelpers';
 
 
 //Material UI
@@ -10,28 +10,27 @@ import Grid from '@material-ui/core/Grid';
 import Checkbox from '@material-ui/core/Checkbox';
 import Container from '@material-ui/core/Container';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory8 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L215A: checkString(this.props.purchaseAnswers.L215A),
-            L215B: checkString(this.props.purchaseAnswers.L215B),
-            L215C: checkString(this.props.purchaseAnswers.L215C),
-            L215D: checkString(this.props.purchaseAnswers.L215D),
+            L215A: checkBoolean(this.props.purchaseAnswers.L215A),
+            L215B: checkBoolean(this.props.purchaseAnswers.L215B),
+            L215C: checkBoolean(this.props.purchaseAnswers.L215C),
+            L215D: checkBoolean(this.props.purchaseAnswers.L215D),
             L215E: checkString(this.props.purchaseAnswers.L215E),
-            L217A: checkString(this.props.purchaseAnswers.L217A),
-            L217B: checkString(this.props.purchaseAnswers.L217B),
-            L217C: checkString(this.props.purchaseAnswers.L217C),
-            L217D: checkString(this.props.purchaseAnswers.L217D),
+            L217A: checkBoolean(this.props.purchaseAnswers.L217A),
+            L217B: checkBoolean(this.props.purchaseAnswers.L217B),
+            L217C: checkBoolean(this.props.purchaseAnswers.L217C),
+            L217D: checkBoolean(this.props.purchaseAnswers.L217D),
             L217E: checkString(this.props.purchaseAnswers.L217E),
-            L219: checkString(this.props.purchaseAnswers.L219),
-            L226: checkString(this.props.purchaseAnswers.L226),
-            L228: checkString(this.props.purchaseAnswers.L228),
-            L231: checkString(this.props.purchaseAnswers.L231),
-            L233: checkString(this.props.purchaseAnswers.L233),
+            L219: checkBoolean(this.props.purchaseAnswers.L219),
+            L226: checkBoolean(this.props.purchaseAnswers.L226),
+            L228: checkBoolean(this.props.purchaseAnswers.L228),
+            L231: checkBoolean(this.props.purchaseAnswers.L231),
+            L233: checkBoolean(this.props.purchaseAnswers.L233),
         }
     }
 

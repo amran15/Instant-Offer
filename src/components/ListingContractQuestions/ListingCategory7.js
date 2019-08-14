@@ -20,15 +20,6 @@ class ListingCategory7 extends Component {
         }
     }
 
-    autoFill = () =>{
-        this.setState({
-            ...this.state,
-            answers: {
-                L175: 'false',
-            }
-        })
-    }
-
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
             ...this.state,
@@ -55,7 +46,7 @@ class ListingCategory7 extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h2 onClick={this.autoFill}>Foreign Investment</h2>
+                                <h2>Foreign Investment</h2>
                             </center>
                             <h4>Seller represents and warrants that seller is a foreign person for purpose of income taxation</h4>
                             <RadioGroup

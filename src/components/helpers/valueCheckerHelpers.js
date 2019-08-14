@@ -1,19 +1,16 @@
 const checkBoolean = (value) => {
-    return String(value) && '';
+    // return String(value) && '';
+    return (typeof value === 'undefined'|| value === null) ? null : String(value)
+}
+
+const checkCheckbox = (value) => {
+    return (typeof value === 'undefined') ? null : value;
+    // return (typeof value === 'undefined') ? "" : value
 }
 
 const checkString = (value) => {
-    return (typeof value === 'undefined') ? "" : value
+    return (typeof value === 'undefined') ? null : value
+    // return (typeof value === 'undefined') ? "" : value
 }
 
-export { checkBoolean, checkString }
-
-
-
-// const checkBoolean = (value) => {
-//     return (typeof value === 'undefined'|| value === null) ? null : String(value)
-// }
-// const checkString = (value) => {
-//     return (typeof value === 'undefined') ? "" : value
-// }
-// export { checkBoolean, checkString }
+export { checkBoolean, checkString, checkCheckbox }

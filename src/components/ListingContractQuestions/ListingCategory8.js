@@ -24,21 +24,6 @@ class ListingCategory8 extends Component {
         }
     }
 
-    autoFill = () => {
-        this.setState({
-            ...this.state,
-            answers: {
-                L196: 'true',
-                L198: 'true',
-                COMPANY: 'PRIME REALTY',
-                L237: 'no other at this time',
-                BUYER_1_ADDRESS: '45 Prime Avenue Minneapolis MN 55454 ',
-                BUYER_1_PHONE: '612-354-3456',
-                BUYER_1_EMAIL: 'primerealty@gmail.com',
-            }
-        })
-    }
-
   handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state, 
@@ -65,7 +50,7 @@ class ListingCategory8 extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h2 onClick={this.autoFill}>Agency Representation</h2>
+                                <h2>Agency Representation</h2>
                             </center>
                             <h4>Seller will agree to a dual agency representation and will consider offers made by buyers represented by Broker.</h4>
                             <RadioGroup
