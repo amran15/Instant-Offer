@@ -49,7 +49,7 @@ class ListingCategory3 extends Component {
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <center>
-                <h2 onClick={this.autoFill}>Listed for Lease</h2>
+                <h2>Listed for Lease</h2>
               </center>
               <h4>The property is currently listed for lease?</h4>
               <RadioGroup

@@ -50,7 +50,7 @@ class ListingCategory8 extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h2 onClick={this.autoFill}>Agency Representation</h2>
+                                <h2>Agency Representation</h2>
                             </center>
                             <h4>Seller will agree to a dual agency representation and will consider offers made by buyers represented by Broker.</h4>
                             <RadioGroup

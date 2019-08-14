@@ -52,7 +52,7 @@ class ListingCategory1 extends Component {
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <center>
-                <h2 onClick={this.autoFill}>General Information</h2>
+                <h2>General Information</h2>
               </center>
               <Grid item xs={12}>
                 <h4>Today's Date</h4>

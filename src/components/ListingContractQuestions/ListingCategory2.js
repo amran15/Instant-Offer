@@ -46,7 +46,7 @@ class ListingCategory2 extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h2 onClick={this.autoFill}>MLS Data Feed Options</h2>
+                                <h2>MLS Data Feed Options</h2>
                             </center>
                             <h4>Display listing on the internet?</h4>
                             <RadioGroup

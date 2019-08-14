@@ -53,7 +53,7 @@ class ListingCategory5 extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h2 onClick={this.autoFill}>Compensation Disclosure</h2>
+                                <h2>Compensation Disclosure</h2>
                             </center>
                             <h4>Broker will offer compensation to cooperating brokers?</h4>
                             <RadioGroup
