@@ -9,7 +9,7 @@ class InfoPage extends Component {
   componentDidMount(){
 //  this.props.dispatch({type: 'FETCH_LISTING', payload: 3})
 
-this.props.dispatch({type: 'FETCH_OFFER', payload: 4})
+this.props.dispatch({type: 'FETCH_OFFER', payload: 5})
 
 // this.props.dispatch({type:'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state})
   }
