@@ -166,7 +166,7 @@ function* fetchListing(action) {
     doc.addImage(response.data[0].PAGE_7, 'JPEG', 0, 0, 210, 297)
     doc.addImage(`${answer.SIGNATURE_BUYER_1}`, 15, 233, 19, 19) // 15,233,18,18
     if (answer.DATE) doc.text(`${answer.DATE}`, 70, 247)  //proper coordinant is 70, 247
-    doc.save('a4.pdf')
+    doc.save('Document')
     // .setFontSize(10);
   } catch (error) {
     console.log('pdfListing listing failed', error);
