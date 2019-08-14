@@ -20,7 +20,9 @@ function* fetchOffer(action) {
     // console.log(answers.data[0].id)
     const answer = answers.data[0];
     let doc = new jsPDF()
-    doc.setFontSize(11); 
+
+    doc.setFontSize(12);
+
     // -----------------------------------------------------------------------------------------
     //                              page # 1
     // ------------------------------------------------------------------------------------------
@@ -95,25 +97,25 @@ function* fetchOffer(action) {
     doc.addPage()
     doc.addImage(response.data[0].PAGE_4, 'JPEG',0,0,210,297)
     if(answer.DATE)doc.text(`${answer.DATE}`, 144,23)
-    if(answer.L12)doc.text(`${answer.L12}`, 53,31)
-    if(answer.L141)doc.text(`${answer.L141}`, 10,10)
-    if(answer.L145A)doc.text(`${answer.L145A}`, 10,10)
+    if(answer.L12)doc.text(`${answer.L12}`, 53,30)
+    if(answer.L141)doc.text(`${answer.L141}`, 147,44)
+    if(answer.L145A)doc.text(`${answer.L145A}`, 22,67)
     // L145 B
-    answer.L145B  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
-    if(answer.L146)doc.text(`${answer.L146}`, 10,10)
-    if(answer.L156)doc.text(`${answer.L156}`, 10,10)
+    answer.L145B  ?  doc.text(`X`, 108,68)  :  doc.text(`X`, 137,68)
+    if(answer.L146)doc.text(`${answer.L146}`, 22,75)
+    if(answer.L156)doc.text(`${answer.L156}`, 90,130)
     // L159
-    answer.L159  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
-    if(answer.L160A)doc.text(`${answer.L160A}`, 10,10)
-    if(answer.L160B)doc.text(`${answer.L160B}`, 10,10)
-    if(answer.L161A)doc.text(`${answer.L161A}`, 10,10)
-    if(answer.L161B)doc.text(`${answer.L161B}`, 10,10)
+    answer.L159  ?  doc.text(`X`, 31,151)  :  doc.text(`X`, 40,151)
+    if(answer.L160A)doc.text(`X`, 22,161)
+    if(answer.L160B)doc.text(`${answer.L160B}`, 29,160)
+    if(answer.L161A)doc.text(`X`, 22,168)
+    if(answer.L161B)doc.text(`${answer.L161B}`, 27,167)
     // L170
-    answer.L170  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    answer.L170  ?  doc.text(`X`, 141,217)  :  doc.text(`X`, 161,217)
     // L172
-    answer.L172  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    answer.L172  ?  doc.text(`X`, 63,230)  :  doc.text(`X`, 72,230)
     // L178
-    answer.L178  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    answer.L178  ?  doc.text(`X`, 31,262)  :  doc.text(`X`, 47,262)
     // -----------------------------------------------------------------------------------------
     //                              page # 5
     // ------------------------------------------------------------------------------------------
@@ -121,28 +123,29 @@ function* fetchOffer(action) {
     doc.addImage(response.data[0].PAGE_5, 'JPEG',0,0,210,297)
     if(answer.DATE)doc.text(`${answer.DATE}`, 144,23)
     if(answer.L12)doc.text(`${answer.L12}`, 53,31)
-    if(answer.L192)doc.text(`${answer.L192}`, 10,10)
-    if(answer.L198)doc.text(`X`, 10,10)
-    if(answer.L201)doc.text(`X`, 10,10)
-    if(answer.L12)doc.text(`${answer.L12}`, 10,10)
-    if(answer.L210)doc.text(`X`, 10,10)
+    if(answer.L184)doc.text(`${answer.L184}`,144, 46)
+    if(answer.L192)doc.text(`${answer.L192}`, 68,85)
+    if(answer.L198)doc.text(`X`, 22,125)
+    if(answer.L201)doc.text(`X`, 22,140)
+    if(answer.L12)doc.text(`${answer.L12}`, 35,145)
+    if(answer.L210)doc.text(`X`, 22,187)
 
     // NEED TO LOOK INTO L215 AND L217
     // L215
-    if(answer.L215A)doc.text(`X`, 10,10)
-    if(answer.L215B)doc.text(`X`, 10,10)
-    if(answer.L215C)doc.text(`X`, 10,10)
-    if(answer.L215D)doc.text(`X`, 10,10)
-    if(answer.L215E)doc.text(`${answers.L215E}`, 10,10)
+    if(answer.L215A)doc.text(`X`, 46,219)
+    if(answer.L215B)doc.text(`X`, 111,219)
+    if(answer.L215C)doc.text(`X`, 123,219)
+    if(answer.L215D)doc.text(`X`, 138,219)
+    if(answer.L215E)doc.text(`${answer.L215E}`, 145,218)
     // L217
-    if(answer.L217A)doc.text(`X`, 10,10)
-    if(answer.L217B)doc.text(`X`, 10,10)
-    if(answer.L217C)doc.text(`X`, 10,10)
-    if(answer.L217D)doc.text(`X`, 10,10)
-    if(answer.L217E)doc.text(`${answers.L217E}`, 10,10)
+    if(answer.L217A)doc.text(`X`, 45,233)
+    if(answer.L217B)doc.text(`X`, 102,233)
+    if(answer.L217C)doc.text(`X`, 114,233)
+    if(answer.L217D)doc.text(`X`, 128,233)
+    if(answer.L217E)doc.text(`${answer.L217E}`, 135,232)
 
     // L219
-    answer.L219  ?  doc.text(`X`, 10,10)  :  doc.text(`X`, 10,10)
+    answer.L219  ?  doc.text(`X`, 158,248)  :  doc.text(`X`, 174,248)
     // -----------------------------------------------------------------------------------------
     //                              page # 6
     // ------------------------------------------------------------------------------------------
@@ -151,17 +154,17 @@ function* fetchOffer(action) {
     if(answer.DATE)doc.text(`${answer.DATE}`, 144,23)
     if(answer.L12)doc.text(`${answer.L12}`, 53,30)
     // l226
-    answer.L226  ?  doc.text(`X`, 22,44)  :  doc.text(`X`, 10,10)
+    answer.L226  ?  doc.text(`X`, 22,44)  :  doc.text(`X`, 61,44)
     // L228
-    answer.L228  ?  doc.text(`X`, 22,59)  :  doc.text(`X`, 10,10)
+    answer.L228  ?  doc.text(`X`, 22,59)  :  doc.text(`X`, 152,59)
     // L231
-    answer.L231  ?  doc.text(`X`, 22,78)  :  doc.text(`X`, 10,10)
+    answer.L231  ?  doc.text(`X`, 22,78)  :  doc.text(`X`, 69,77)
     // L233
-    answer.L233  ?  doc.text(`X`, 22,93)  :  doc.text(`X`, 10,10)
+    answer.L233  ?  doc.text(`X`, 22,93)  :  doc.text(`X`, 68,92)
     // L239
-    answer.L239  ?  doc.text(`X`, 135,127)  :  doc.text(`X`, 10,10)
+    answer.L239  ?  doc.text(`X`, 135,127)  :  doc.text(`X`, 149,127)
     // L250
-    answer.L250  ?  doc.text(`X`, 153,185)  :  doc.text(`X`, 10,10)
+    answer.L250  ?  doc.text(`X`, 153,185)  :  doc.text(`X`, 163,185)
 
     if(answer.L251)doc.text(`${answer.L251}`, 125,193)
     if(answer.L252)doc.text(`${answer.L252}`, 125,200)
@@ -207,21 +210,21 @@ function* fetchOffer(action) {
     if(answer.L12)doc.text(`${answer.L12}`, 53,31)
 
     // L371 A
-    answer.L371A  ?  doc.text(`X`, 44,53)  :  doc.text(`X`, 10,10)
+    answer.L371A  ?  doc.text(`X`, 44,53)  :  doc.text(`X`, 57,53)
     // L371 B
-    answer.L371B  ?  doc.text(`X`, 93,53)  :  doc.text(`X`, 10,10)
+    answer.L371B  ?  doc.text(`X`, 93,53)  :  doc.text(`X`, 106,53)
     // L373 
-    answer.L373  ?  doc.text(`X`, 37,65)  :  doc.text(`X`, 10,10)
+    answer.L373  ?  doc.text(`X`, 37,65)  :  doc.text(`X`, 55,65)
     // L377
-    answer.L377  ?  doc.text(`X`, 39,90)  :  doc.text(`X`, 10,10)
+    answer.L377  ?  doc.text(`X`, 39,90)  :  doc.text(`X`, 59,90)
     // L379
-    answer.L379  ?  doc.text(`X`, 73,104)  :  doc.text(`X`, 10,10)
+    answer.L379  ?  doc.text(`X`, 73,104)  :  doc.text(`X`, 83,104)
     
     if(answer.L388A)doc.text(`X`, 22, 159)
     // L388 B
     answer.L388B  ?  doc.text(`X`, 125,159)  :  doc.text(`X`, 147,159)
     // L389 
-    answer.L389A  ?  doc.text(`X`, 28,169)  :  doc.text(`X`, 10,10)
+    answer.L389A  ?  doc.text(`X`, 28,169)  :  doc.text(`X`, 28,169)
     if(answer.L389B)doc.text(`${answer.L389B}`,95,168)
 
     if(answer.L390)doc.text(answer.L390, 67, 177)
@@ -270,7 +273,7 @@ function* fetchOffer(action) {
     if(answer.DATE)doc.text(`${answer.DATE}`, 144,23)
     if(answer.L12)doc.text(`${answer.L12}`, 53,32)
     if(answer.L490)doc.text(`X`, 21,60)
-    answer.L494    ?   doc.text(`X`, 52,81)    :    doc.text(`X`, 57,81)
+    answer.L494    ?   doc.text(`X`, 52,81)    :    doc.text(`X`, 61,81)
     if(answer.SIGNATURE_BUYER_1)doc.text(`${answer.SIGNATURE_BUYER_1}`, 10,10)
     if(answer.BUYER_1)doc.text(`${answer.BUYER_1}`, 120,130)
     if(answer.SIGNATURE_BUYER_1)doc.text(`${answer.SIGNATURE_BUYER_1}`, 10,10)

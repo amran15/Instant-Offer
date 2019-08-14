@@ -32,14 +32,14 @@ class ListingCategory1 extends Component {
       ...this.state,
       answers: {
         DATE: checkString(this.props.listingAnswers.DATE = '2019-08-12'),
-        L3: checkString(this.props.listingAnswers.L3 = '9200 olympia street Minneapolis, MN 55434'),
+        L3: checkString(this.props.listingAnswers.L3 = '9200 Olympia Street Minneapolis, MN 55434'),
         L4: checkString(this.props.listingAnswers.L4 = 'Lot 011 Block 011 lakeview terrace Heights'),
-        BUYER_1: checkString(this.props.listingAnswers.BUYER_1 = 'Nate Labatt'),
-        L7: checkString(this.props.listingAnswers.L7 = 'Lake sotheby interantional Reallty'),
+        BUYER_1: checkString(this.props.listingAnswers.BUYER_1 = 'Matt Dunfee'),
+        L7: checkString(this.props.listingAnswers.L7 = 'Lake Sothby International Realty'),
         L8A: checkString(this.props.listingAnswers.L8A = '2019-08-12'),
         L8C: checkString(this.props.listingAnswers.L8C = '2020-08-12'),
         L12: checkString(this.props.listingAnswers.L12 = 264900.00),
-        L13: checkString(this.props.listingAnswers.L13 = 'no additional terms'),
+        L13: checkString(this.props.listingAnswers.L13 = 'No additional terms'),
       }
     })
   }
