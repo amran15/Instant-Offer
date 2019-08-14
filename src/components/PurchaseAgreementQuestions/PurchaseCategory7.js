@@ -9,8 +9,6 @@ import Grid from '@material-ui/core/Grid';
 import Checkbox from '@material-ui/core/Checkbox';
 import Container from '@material-ui/core/Container';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import { TextField } from '@material-ui/core';
 
 class PurchaseCategory7 extends Component {
 

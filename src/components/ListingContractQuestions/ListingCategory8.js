@@ -24,21 +24,6 @@ class ListingCategory8 extends Component {
         }
     }
 
-    autoFill = () => {
-        this.setState({
-            ...this.state,
-            answers: {
-                L196: 'true',
-                L198: 'true',
-                COMPANY: 'PRIME REALTY',
-                L237: 'no other at this time',
-                BUYER_1_ADDRESS: '45 Prime Avenue Minneapolis MN 55454 ',
-                BUYER_1_PHONE: '612-354-3456',
-                BUYER_1_EMAIL: 'primerealty@gmail.com',
-            }
-        })
-    }
-
   handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state, 

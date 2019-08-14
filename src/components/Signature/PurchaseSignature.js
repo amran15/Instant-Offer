@@ -1,21 +1,12 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import SignatureCanvas, { canvas } from 'react-signature-canvas';
+import {SignatureCanvas} from 'react-signature-canvas';
 
 //Material UI       
 import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import swal from 'sweetalert';
-
-
-const styles = {
-    Container: {
-        marginTop: '465px',
-    },
-};
-
 
 
 class PurchaseSignature extends Component {
@@ -74,10 +65,6 @@ class PurchaseSignature extends Component {
                         SIGNATURE_BUYER_1 ? <img src={SIGNATURE_BUYER_1} alt="" /> : null
                     }
                 </div>
-                {/* <Container
-                    // component="main"
-                    // style={styles.Container}
-                > */}
                     <Grid container spacing={1}>
                         <Grid item xs={3}>
 
@@ -121,7 +108,6 @@ class PurchaseSignature extends Component {
                             </Button>
                         </Grid>
                     </Grid>
-                {/* </Container> */}
             </div>
         )
     }

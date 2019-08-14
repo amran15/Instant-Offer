@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 import { checkBoolean, checkString } from '../helpers/valueCheckerHelpers'
 
 // Material UI
-import { TextField, Checkbox, FormControlLabel, RadioGroup } from '@material-ui/core';
+import { TextField, FormControlLabel, RadioGroup } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Radio from '@material-ui/core/Radio';
@@ -22,19 +22,6 @@ class ListingCategory3 extends Component {
       L73: checkBoolean(this.props.listingAnswers.L73),
     }
   }
-
-  autoFill = () => {
-    console.log('this is our category 3 for listing');
-    this.setState({
-      ...this.state,
-      answers: {
-        L72: 'true',
-        L7: '',
-        L73: 'true',
-      }
-    })
-  }
-
 
   handleChangeForInputs = (propertyName) => (event) => {
     this.setState({

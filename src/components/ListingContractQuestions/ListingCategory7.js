@@ -20,15 +20,6 @@ class ListingCategory7 extends Component {
         }
     }
 
-    autoFill = () =>{
-        this.setState({
-            ...this.state,
-            answers: {
-                L175: 'false',
-            }
-        })
-    }
-
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
             ...this.state,

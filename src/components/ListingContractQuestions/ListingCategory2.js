@@ -17,18 +17,6 @@ class ListingCategory2 extends Component {
         }
     }
 
-    autoFill = () =>{
-        this.setState({
-            answers: {
-                L41: 'true',
-                L54: 'true',
-                L63: 'true',
-                L71: 'true',
-            }
-        })
-    }
-
-
 
 
   handleChangeForInputs = (propertyName) => (event) => {

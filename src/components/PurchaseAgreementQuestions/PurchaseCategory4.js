@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { checkString } from '../helpers/valueCheckerHelpers';
+import { checkString, checkBoolean, checkCheckbox } from '../helpers/valueCheckerHelpers';
 
 //Material UI
 import { Button, RadioGroup, Radio, } from '@material-ui/core';
@@ -17,31 +17,30 @@ class PurchaseCategory4 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L49: checkString(this.props.purchaseAnswers.L49),
-            L53: checkString(this.props.purchaseAnswers.L53),
-            L54: checkString(this.props.purchaseAnswers.L54),
+            L49: checkBoolean(this.props.purchaseAnswers.L49),
+            L53: checkBoolean(this.props.purchaseAnswers.L53),
+            L54: checkBoolean(this.props.purchaseAnswers.L54),
             L55: checkString(this.props.purchaseAnswers.L55),
-            L57: checkString(this.props.purchaseAnswers.L57),
-            L58: checkString(this.props.purchaseAnswers.L58),
-            L59: checkString(this.props.purchaseAnswers.L59),
-            L60: checkString(this.props.purchaseAnswers.L60),
-            L61: checkString(this.props.purchaseAnswers.L61),
-            L62A: checkString(this.props.purchaseAnswers.L62A),
+            L57: checkCheckbox(this.props.purchaseAnswers.L57),
+            L58: checkCheckbox(this.props.purchaseAnswers.L58),
+            L59: checkCheckbox(this.props.purchaseAnswers.L59),
+            L60: checkCheckbox(this.props.purchaseAnswers.L60),
+            L61: checkCheckbox(this.props.purchaseAnswers.L61),
+            L62A: checkCheckbox(this.props.purchaseAnswers.L62A),
             L62B: checkString(this.props.purchaseAnswers.L62A),
             L63: checkString(this.props.purchaseAnswers.L63),
             L64: checkString(this.props.purchaseAnswers.L64),
-            L70: checkString(this.props.purchaseAnswers.L70),
-            L73: checkString(this.props.purchaseAnswers.L73),
-            L76: checkString(this.props.purchaseAnswers.L76),
+            L70: checkCheckbox(this.props.purchaseAnswers.L70),
+            L73: checkBoolean(this.props.purchaseAnswers.L73),
+            L76: checkCheckbox(this.props.purchaseAnswers.L76),
             L77: checkString(this.props.purchaseAnswers.L77),
-            L114: checkString(this.props.purchaseAnswers.L114),
+            L114: checkBoolean(this.props.purchaseAnswers.L114),
             L118: checkString(this.props.purchaseAnswers.L118),
-            L127: checkString(this.props.purchaseAnswers.L127),
+            L127: checkBoolean(this.props.purchaseAnswers.L127),
             L133: checkString(this.props.purchaseAnswers.L133),
             L141: checkString(this.props.purchaseAnswers.L141),
             L145A: checkString(this.props.purchaseAnswers.L145A),
-            L145B: checkString(this.props.purchaseAnswers.L145B),
-            L145C: checkString(this.props.purchaseAnswers.L145C),
+            L145B: checkBoolean(this.props.purchaseAnswers.L145B),
             L146: checkString(this.props.purchaseAnswers.L146),
             L156: checkString(this.props.purchaseAnswers.L156),
         }
@@ -224,16 +223,16 @@ class PurchaseCategory4 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        color="primary"
                                         value={this.state.answers.L70}
                                         onChange={this.handleChangeForMortgageFinancing('L70')}
+                                        color="primary"
                                     />}
                                     label="If Buyer cannot secure the financing specified in this Purchase Agreement, and this Purchase Agreement does not close on the closing date specified, this Purchase Agreement is canceled. Buyer and Seller shall immediately sign a Cancellation of Purchase Agreement confirming said cancellation and directing all earnest moeny paid here to be"
                             />
                         </Grid>
                         <RadioGroup
                             value={this.state.answers.L73}
-                            onChange={this.handleChangeForMortgageFinancing('L173')}>
+                            onChange={this.handleChangeForMortgageFinancing('L73')}>
                             <FormControlLabel value='true' control={<Radio />} label="Buyer" />
                             <FormControlLabel value='false' control={<Radio />} label="Seller" />
                         </RadioGroup>
@@ -354,28 +353,12 @@ class PurchaseCategory4 extends Component {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="At closing"
+                        <RadioGroup
                                 value={this.state.answers.L145B}
-                                onChange={this.handleChangeForMortgageFinancing('L145B')}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        value="checkedB"
-                                        color="primary"
-                                    />}
-                                label="Added to mortgage amount"
-                                value={this.state.answers.L145B}
-                                onChange={this.handleChangeForMortgageFinancing('L145B')}
-                            />
+                                onChange={this.handleChangeForMortgageFinancing('L145B')}>
+                                <FormControlLabel value='true' control={<Radio />} label="At closing" />
+                                <FormControlLabel value='false' control={<Radio />} label="Added to mortgage amount" />
+                            </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Paid by the Seller</h4>
@@ -404,7 +387,7 @@ class PurchaseCategory4 extends Component {
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
                                 value={this.state.answers.L156}
-                                onChange={this.handleChangeForMortgageFinancing('L56')}
+                                onChange={this.handleChangeForMortgageFinancing('L156')}
                             />
                         </Grid>
                     </Grid>

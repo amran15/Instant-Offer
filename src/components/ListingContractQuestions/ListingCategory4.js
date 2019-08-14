@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { checkBoolean, checkString } from '../helpers/valueCheckerHelpers'
+import { checkString } from '../helpers/valueCheckerHelpers'
 
 //Material UI
 import Button from '@material-ui/core/Button';
@@ -23,18 +23,6 @@ class ListingCategory4 extends Component {
         }
     }
 
-    autoFill = () => {
-        this.setState({
-            ...this.state,
-            answers: {
-                L115:  1000,
-                L118: 10,
-                L119: 500,
-                L121: 'Other things',
-                L131: 300,
-            }
-        })
-    }
 
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({

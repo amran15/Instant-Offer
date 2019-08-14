@@ -20,18 +20,6 @@ class ListingCategory6 extends Component {
         }
     }
 
-    autofill = () => {
-        this.setState({
-            ...this.state,
-            answers: {
-                L163: 'true',
-                L164: 'true',
-                L165A: '',
-            }
-        })
-    }
-
-
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
             ...this.state,

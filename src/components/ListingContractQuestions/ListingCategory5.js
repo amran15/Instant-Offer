@@ -9,7 +9,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { TextField, InputAdornment, Radio, RadioGroup } from '@material-ui/core';
-import { stat } from "fs";
+// import { stat } from "fs";
 
 
 class ListingCategory5 extends Component {
@@ -26,20 +26,6 @@ class ListingCategory5 extends Component {
         }
     }
 
-
-    autoFill = () => {
-        this.setState({
-            ...this.state,
-            answers: {
-                L146: 'true',
-                L148B: '35',
-                L148C: '2000',
-                L150B: '23',
-                L150C: '600',
-                L152B: '',
-            }
-        })
-    }
 
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { checkString } from '../helpers/valueCheckerHelpers';
+import { checkString, checkBoolean } from '../helpers/valueCheckerHelpers';
 
 //Material UI
 import { Button, RadioGroup, Radio, } from '@material-ui/core';
@@ -17,11 +17,11 @@ class PurchaseCategory5 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L59: checkString(this.props.purchaseAnswers.L59),
-            L160A: checkString(this.props.purchaseAnswers.L160A),
+            L159: checkBoolean(this.props.purchaseAnswers.L59),
+            L160A: checkBoolean(this.props.purchaseAnswers.L160A),
             L160B: checkString(this.props.purchaseAnswers.L160B),
-            L61A: checkString(this.props.purchaseAnswers.L61A),
-            L61B: checkString(this.props.purchaseAnswers.L61B),
+            L161A: checkBoolean(this.props.purchaseAnswers.L61A),
+            L161B: checkString(this.props.purchaseAnswers.L61B),
         }
     }
 
@@ -54,8 +54,8 @@ class PurchaseCategory5 extends Component {
                             </center>
                             <h4>Will Seller be contributing to Buyer's costs?</h4>
                             <RadioGroup
-                                value={this.state.answers.L59}
-                                onChange={this.handleChangeForSellerContribution('L59')}>
+                                value={this.state.answers.L159}
+                                onChange={this.handleChangeForSellerContribution('L159')}>
                                 <FormControlLabel value='true' control={<Radio />} label="Yes" />
                                 <FormControlLabel value='false' control={<Radio />} label="No" />
                             </RadioGroup>
@@ -67,8 +67,8 @@ class PurchaseCategory5 extends Component {
                             <Checkbox
                                 id="checkedB"
                                 color="primary"
-                                value={this.state.answers.L60A}
-                                onChange={this.handleChangeForSellerContribution('L60A')}
+                                value={this.state.answers.L160A}
+                                onChange={this.handleChangeForSellerContribution('L160A')}
                             />
                         </Grid>
                         <Grid item xs={10}>
@@ -79,16 +79,16 @@ class PurchaseCategory5 extends Component {
                                 InputProps={{
                                     startAdornment: <InputAdornment position="start">$</InputAdornment>,
                                 }}
-                                value={this.state.answers.L60B}
-                                onChange={this.handleChangeForSellerContribution('L60B')}
+                                value={this.state.answers.L160B}
+                                onChange={this.handleChangeForSellerContribution('L160B')}
                             />
                         </Grid>
                         <Grid item xs={2}>
                             <Checkbox
                                 id="checkedB"
                                 color="primary"
-                                value={this.state.answers.L61A}
-                                onChange={this.handleChangeForSellerContribution('L61A')}
+                                value={this.state.answers.L161A}
+                                onChange={this.handleChangeForSellerContribution('L161A')}
                             />
                         </Grid>
                         <Grid item xs={10}>
@@ -99,8 +99,8 @@ class PurchaseCategory5 extends Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="start">%</InputAdornment>,
                                 }}
-                                value={this.state.answers.L61B}
-                                onChange={this.handleChangeForSellerContribution('L61B')}
+                                value={this.state.answers.L161B}
+                                onChange={this.handleChangeForSellerContribution('L161B')}
                             />
                             <br />
                             <br />

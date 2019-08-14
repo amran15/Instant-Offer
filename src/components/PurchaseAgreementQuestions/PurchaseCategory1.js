@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { checkString } from '../helpers/valueCheckerHelpers';
+import { checkString, checkBoolean} from '../helpers/valueCheckerHelpers';
 
 //Material UI
 import Button from '@material-ui/core/Button';
@@ -28,7 +28,7 @@ class PurchaseCategory1 extends Component {
             BUYER_1: checkString(this.props.purchaseAnswers.BUYER_1),
             L6A: checkString(this.props.purchaseAnswers.L6A),
             L6B: checkString(this.props.purchaseAnswers.L6B),
-            L7A: checkString(this.props.purchaseAnswers.L7A),
+            L7A: checkBoolean(this.props.purchaseAnswers.L7A),
             L7B: checkString(this.props.purchaseAnswers.L7B),
             L12: checkString(this.props.purchaseAnswers.L12),
             L13A: checkString(this.props.purchaseAnswers.L13A),
@@ -53,7 +53,6 @@ class PurchaseCategory1 extends Component {
     }
 
     handleClickNext = () => {
-        console.log('HELLO')
         this.props.dispatch({ type: 'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state })
         this.props.history.push(`/PurchaseCategory2/${this.state.id}`)
     }
@@ -111,7 +110,6 @@ class PurchaseCategory1 extends Component {
                             <Grid container spacing={2}>
                                 <Grid item xs={2}>
                                     <Checkbox
-                                        value="checkedB"
                                         color="primary"
                                         value={this.state.answers.L7A}
                                         onChange={this.handleChangeForGeneralInformation('L7A')}

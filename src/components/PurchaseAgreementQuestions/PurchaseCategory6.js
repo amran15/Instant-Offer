@@ -7,7 +7,7 @@ import { checkString } from '../helpers/valueCheckerHelpers';
 import { Button, RadioGroup, Radio, } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import { Checkbox, FormControlLabel } from '@material-ui/core';
+import { FormControlLabel } from '@material-ui/core';
 import { TextField } from '@material-ui/core';
 
 class PurchaseCategory6 extends Component {
