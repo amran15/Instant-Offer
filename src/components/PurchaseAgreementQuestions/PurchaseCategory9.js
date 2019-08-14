@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { checkString } from '../helpers/valueCheckerHelpers';
+import { checkString, checkBoolean, checkCheckbox } from '../helpers/valueCheckerHelpers';
 
 //Material UI
 import { Button, RadioGroup, Radio, } from '@material-ui/core';
@@ -16,45 +16,48 @@ class PurchaseCategory9 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L250: checkString(this.props.purchaseAnswers.L250),
-            L257A: checkString(this.props.purchaseAnswers.L257A),
-            L257B: checkString(this.props.purchaseAnswers.L257B),
-            L257C: checkString(this.props.purchaseAnswers.L257C),
-            L257D: checkString(this.props.purchaseAnswers.L257A),
-            L258: checkString(this.props.purchaseAnswers.L258),
+            L250: checkBoolean(this.props.purchaseAnswers.L250),
+            L251: checkString(this.props.purchaseAnswers.L251),
+            L252: checkString(this.props.purchaseAnswers.L252),
+            L257A: checkCheckbox(this.props.purchaseAnswers.L257A),
+            L257B: checkCheckbox(this.props.purchaseAnswers.L257B),
+            L257C: checkCheckbox(this.props.purchaseAnswers.L257C),
+            L257D: checkCheckbox(this.props.purchaseAnswers.L257A),
+            L258A: checkCheckbox(this.props.purchaseAnswers.L258),
+            L258B: checkString(this.props.purchaseAnswers.L258B),
             L263: checkString(this.props.purchaseAnswers.L263),
             L265: checkString(this.props.purchaseAnswers.L265),
-            L270: checkString(this.props.purchaseAnswers.L270),
-            L271A: checkString(this.props.purchaseAnswers.L271A),
+            L270: checkCheckbox(this.props.purchaseAnswers.L270),
+            L271A: checkCheckbox(this.props.purchaseAnswers.L271A),
             L271B: checkString(this.props.purchaseAnswers.L271B),
             L359: checkString(this.props.purchaseAnswers.L359),
             L360: checkString(this.props.purchaseAnswers.L360),
-            L371A: checkString(this.props.purchaseAnswers.L371A),
-            L371B: checkString(this.props.purchaseAnswers.L371B),
-            L373: checkString(this.props.purchaseAnswers.L373),
-            L377: checkString(this.props.purchaseAnswers.L377),
-            L379: checkString(this.props.purchaseAnswers.L379),
-            L388A: checkString(this.props.purchaseAnswers.L388A),
-            L388B: checkString(this.props.purchaseAnswers.L388B),
-            L389A: checkString(this.props.purchaseAnswers.L389A),
+            L371A: checkBoolean(this.props.purchaseAnswers.L371A),
+            L371B: checkBoolean(this.props.purchaseAnswers.L371B),
+            L373: checkBoolean(this.props.purchaseAnswers.L373),
+            L377: checkBoolean(this.props.purchaseAnswers.L377),
+            L379: checkBoolean(this.props.purchaseAnswers.L379),
+            L388A: checkCheckbox(this.props.purchaseAnswers.L388A),
+            L388B: checkBoolean(this.props.purchaseAnswers.L388B),
+            L389A: checkBoolean(this.props.purchaseAnswers.L389A),
             L389B: checkString(this.props.purchaseAnswers.L389B),
             L390: checkString(this.props.purchaseAnswers.L390),
             L394A: checkString(this.props.purchaseAnswers.L394A),
             L395: checkString(this.props.purchaseAnswers.L395),
-            L394B: checkString(this.props.purchaseAnswers.L394B),
-            L394C: checkString(this.props.purchaseAnswers.L394C),
-            L394D: checkString(this.props.purchaseAnswers.L394D),
-            L394E: checkString(this.props.purchaseAnswers.L394E),
+            L394B: checkCheckbox(this.props.purchaseAnswers.L394B),
+            L394C: checkCheckbox(this.props.purchaseAnswers.L394C),
+            L394D: checkCheckbox(this.props.purchaseAnswers.L394D),
+            L394E: checkCheckbox(this.props.purchaseAnswers.L394E),
             L396A: checkString(this.props.purchaseAnswers.L396A),
             L397: checkString(this.props.purchaseAnswers.L397),
-            L396B: checkString(this.props.purchaseAnswers.L396B),
-            L396C: checkString(this.props.purchaseAnswers.L396C),
-            L396D: checkString(this.props.purchaseAnswers.L396D),
-            L396E: checkString(this.props.purchaseAnswers.L396E),
-            L403: checkString(this.props.purchaseAnswers.L403),
-            L404: checkString(this.props.purchaseAnswers.L404),
+            L396B: checkCheckbox(this.props.purchaseAnswers.L396B),
+            L396C: checkCheckbox(this.props.purchaseAnswers.L396C),
+            L396D: checkCheckbox(this.props.purchaseAnswers.L396D),
+            L396E: checkCheckbox(this.props.purchaseAnswers.L396E),
+            L403: checkCheckbox(this.props.purchaseAnswers.L403),
+            L404: checkCheckbox(this.props.purchaseAnswers.L404),
             L454: checkString(this.props.purchaseAnswers.L454),
-            L494: checkString(this.props.purchaseAnswers.L494),
+            L494: checkBoolean(this.props.purchaseAnswers.L494),
         }
     }
     handleChangeForAdditionalProvision = (propertyName) => (event) => {
@@ -162,14 +165,16 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L258}
-                                            onChange={this.handleChangeForAdditionalProvision('L258')}
+                                            value={this.state.answers.L258A}
+                                            onChange={this.handleChangeForAdditionalProvision('L258A')}
                                             color="primary"
                                         />}
                                     label="Other Deed:"
                                 />
                             </Grid>
                             <TextField
+                                value={this.state.answers.L258B}
+                                onChange={this.handleChangeForAdditionalProvision('L258B')}
                                 id="deed"
                                 fullWidth
                                 variant="outlined"
