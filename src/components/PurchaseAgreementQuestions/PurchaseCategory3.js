@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { checkString } from '../helpers/valueCheckerHelpers';
 
 //Material UI
 import Button from '@material-ui/core/Button';
@@ -14,7 +15,7 @@ class PurchaseCategory3 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L45: (typeof this.props.purchaseAnswers.L45 === 'undefined') ? null : this.props.purchaseAnswers.L45
+            L45: checkString(this.props.purchaseAnswers.L45),
         }
     }
 
@@ -33,6 +34,7 @@ class PurchaseCategory3 extends Component {
     }
 
     handleClickNext = () => {
+        this.props.dispatch({ type: 'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state })
         this.props.history.push(`/PurchaseCategory4/${this.state.id}`)
     }
 
@@ -50,7 +52,7 @@ class PurchaseCategory3 extends Component {
                                 id="date"
                                 variant="outlined"
                                 type="date"
-                                value={this.props.purchaseAnswers.L45}
+                                value={this.state.answers.L45}
                                 onChange={this.handleChangeDate('L45')}
                             />
                         </Grid>

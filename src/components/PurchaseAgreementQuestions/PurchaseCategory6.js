@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { checkString } from '../helpers/valueCheckerHelpers';
 
 //Material UI       
 import { Button, RadioGroup, Radio, } from '@material-ui/core';
@@ -14,11 +15,11 @@ class PurchaseCategory6 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L170: (typeof this.props.listingAnswers.L170 === 'undefined') ? null : this.props.listingAnswers.L170,
-            L172: (typeof this.props.listingAnswers.L172 === 'undefined') ? null : this.props.listingAnswers.L172,
-            L178: (typeof this.props.listingAnswers.L178 === 'undefined') ? null : this.props.listingAnswers.L178,
-            L184: (typeof this.props.listingAnswers.L184 === 'undefined') ? null : this.props.listingAnswers.L184,
-            L192: (typeof this.props.listingAnswers.L192 === 'undefined') ? null : this.props.listingAnswers.L192
+            L170: checkString(this.props.purchaseAnswers.L170),
+            L172: checkString(this.props.purchaseAnswers.L172),
+            L178: checkString(this.props.purchaseAnswers.L178),
+            L184: checkString(this.props.purchaseAnswers.L184),
+            L192: checkString(this.props.purchaseAnswers.L192),
         }
     }
 
@@ -38,6 +39,7 @@ class PurchaseCategory6 extends Component {
     }
 
     handleClickNext = () => {
+        this.props.dispatch({ type: 'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state })
         this.props.history.push(`/PurchaseCategory7/${this.state.id}`)
     }
 

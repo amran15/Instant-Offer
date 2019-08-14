@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { checkString } from '../helpers/valueCheckerHelpers';
 
 //Material UI
 import { Button, RadioGroup, Radio, } from '@material-ui/core';
@@ -16,11 +17,11 @@ class PurchaseCategory5 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L59: (typeof this.props.listingAnswers.L59 === 'undefined') ? null : this.props.listingAnswers.L59,
-            L160A: (typeof this.props.listingAnswers.l160A === 'undefined') ? null : this.props.listingAnswers.l160A,
-            L160B: (typeof this.props.listingAnswers.L160B === 'undefined') ? null : this.props.listingAnswers.L160B,
-            L61A: (typeof this.props.listingAnswers.L61A === 'undefined') ? null : this.props.listingAnswers.L61A,
-            L61B: (typeof this.props.listingAnswers.L61B === 'undefined') ? null : this.props.listingAnswers.L61B,
+            L59: checkString(this.props.purchaseAnswers.L59),
+            L160A: checkString(this.props.purchaseAnswers.L160A),
+            L160B: checkString(this.props.purchaseAnswers.L160B),
+            L61A: checkString(this.props.purchaseAnswers.L61A),
+            L61B: checkString(this.props.purchaseAnswers.L61B),
         }
     }
 
@@ -33,28 +34,12 @@ class PurchaseCategory5 extends Component {
         })
     }
 
-    handleChangeForCheckbox = (propertyName) => (event) => {
-        this.setState({
-            ...this.state,
-            answers: {
-                ...this.state.answers, [propertyName]: true,
-            }
-        })
-    }
-
-    handleChangeForCheckboxNo = (propertyName) => (event) => {
-        this.setState({
-            answers: {
-                ...this.state.answers, [propertyName]: false,
-            }
-        })
-    }
-
     handleClick = () => {
         this.props.history.push(`/PurchaseCategory4/${this.state.id}`)
     }
 
     handleClickNext = () => {
+        this.props.dispatch({ type: 'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state })
         this.props.history.push(`/PurchaseCategory6/${this.state.id}`)
     }
 

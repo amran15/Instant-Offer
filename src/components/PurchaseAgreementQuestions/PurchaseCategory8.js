@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { checkString } from '../helpers/valueCheckerHelpers';
+
 
 //Material UI
 import { Button, RadioGroup, Radio, } from '@material-ui/core';
@@ -15,21 +17,21 @@ class PurchaseCategory8 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L215A: (typeof this.props.listingAnswers.L215A === 'undefined') ? null : this.props.listingAnswers.L215A,
-            L215B: (typeof this.props.listingAnswers.L215B === 'undefined') ? null : this.props.listingAnswers.L215B,
-            L215C: (typeof this.props.listingAnswers.L215C === 'undefined') ? null : this.props.listingAnswers.L215C,
-            L215D: (typeof this.props.listingAnswers.L215D === 'undefined') ? null : this.props.listingAnswers.L215D,
-            L215E: (typeof this.props.listingAnswers.L215E === 'undefined') ? null : this.props.listingAnswers.L215E,
-            L217A: (typeof this.props.listingAnswers.L217A === 'undefined') ? null : this.props.listingAnswers.L217A,
-            L217B: (typeof this.props.listingAnswers.L217B === 'undefined') ? null : this.props.listingAnswers.L217B,
-            L217C: (typeof this.props.listingAnswers.L217C === 'undefined') ? null : this.props.listingAnswers.L217C,
-            L217D: (typeof this.props.listingAnswers.L217D === 'undefined') ? null : this.props.listingAnswers.L217D,
-            L217E: (typeof this.props.listingAnswers.L217E === 'undefined') ? null : this.props.listingAnswers.L217E,
-            L219: (typeof this.props.listingAnswers.L219 === 'undefined') ? null : this.props.listingAnswers.L219,
-            L226: (typeof this.props.listingAnswers.L226 === 'undefined') ? null : this.props.listingAnswers.L226,
-            L228: (typeof this.props.listingAnswers.L228 === 'undefined') ? null : this.props.listingAnswers.L228,
-            L231: (typeof this.props.listingAnswers.L231 === 'undefined') ? null : this.props.listingAnswers.L231,
-            L233: (typeof this.props.listingAnswers.L233 === 'undefined') ? null : this.props.listingAnswers.L233,
+            L215A: checkString(this.props.purchaseAnswers.L215A),
+            L215B: checkString(this.props.purchaseAnswers.L215B),
+            L215C: checkString(this.props.purchaseAnswers.L215C),
+            L215D: checkString(this.props.purchaseAnswers.L215D),
+            L215E: checkString(this.props.purchaseAnswers.L215E),
+            L217A: checkString(this.props.purchaseAnswers.L217A),
+            L217B: checkString(this.props.purchaseAnswers.L217B),
+            L217C: checkString(this.props.purchaseAnswers.L217C),
+            L217D: checkString(this.props.purchaseAnswers.L217D),
+            L217E: checkString(this.props.purchaseAnswers.L217E),
+            L219: checkString(this.props.purchaseAnswers.L219),
+            L226: checkString(this.props.purchaseAnswers.L226),
+            L228: checkString(this.props.purchaseAnswers.L228),
+            L231: checkString(this.props.purchaseAnswers.L231),
+            L233: checkString(this.props.purchaseAnswers.L233),
         }
     }
 
@@ -49,6 +51,7 @@ class PurchaseCategory8 extends Component {
     }
 
     handleClickNext = () => {
+        this.props.dispatch({ type: 'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state })
         this.props.history.push(`/PurchaseCategory9/${this.state.id}`)
     }
 
@@ -236,8 +239,8 @@ class PurchaseCategory8 extends Component {
                             </Grid>
                         </Grid>
                         <Container component="main">
-                            <Grid container spacing={3}>
-                                <Grid item xs={4}>
+                            <Grid container spacing={2}>
+                                <Grid item xs={6}>
                                     <div align="left" className="Button">
                                         <Button
                                             variant="contained"
@@ -248,7 +251,7 @@ class PurchaseCategory8 extends Component {
                                         </Button>
                                     </div>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item xs={6}>
                                     <div align="right" className="Button">
                                         <Button
                                             variant="contained"

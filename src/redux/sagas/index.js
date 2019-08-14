@@ -20,7 +20,7 @@ import deleteListingAnswer from './deleteListingAnswer';
 import deletePurchaseAnswerSaga from './deletePurchaseAnswer';
 import putAnswers from './putAnswers';
 import thisRootSaga from './signSaga';
-import putAnswersOffer from './putAnswersOffer';
+import putPurchaseAnswers from './putPurchaseAnswers';
 
 
 // rootSaga is the primary saga.
@@ -47,6 +47,6 @@ export default function* rootSaga() {
     deletePurchaseAnswerSaga(),
     putAnswers(),
     thisRootSaga(),
-    putAnswersOffer(),
+    putPurchaseAnswers(),
   ]);
 }

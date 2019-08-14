@@ -32,7 +32,6 @@ class Signature extends Component {
         answers:
             { SIGNATURE_BUYER_1: null }
     }
-
     sigPad = {}
 
     //this will clear the signature if a mistake was made when signing
@@ -53,7 +52,6 @@ class Signature extends Component {
                 SIGNATURE_BUYER_1: this.sigPad.getTrimmedCanvas().toDataURL('image/PNG')
             },
         }, () => {
-            console.log('state goes here', this.state);
             this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state });
         })
 

@@ -13,6 +13,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 const styles = {
     title: {
         margin: '25px 0px 25px 40px',
+        color: '#173F5F',
     },
 };
 
