@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { checkString } from '../helpers/valueCheckerHelpers';
+import { checkString, checkBoolean } from '../helpers/valueCheckerHelpers';
 
 //Material UI       
 import { Button, RadioGroup, Radio, } from '@material-ui/core';
@@ -15,9 +15,9 @@ class PurchaseCategory6 extends Component {
     state = {
         id: this.props.match.params.id,
         answers: {
-            L170: checkString(this.props.purchaseAnswers.L170),
-            L172: checkString(this.props.purchaseAnswers.L172),
-            L178: checkString(this.props.purchaseAnswers.L178),
+            L170: checkBoolean(this.props.purchaseAnswers.L170),
+            L172: checkBoolean(this.props.purchaseAnswers.L172),
+            L178: checkBoolean(this.props.purchaseAnswers.L178),
             L184: checkString(this.props.purchaseAnswers.L184),
             L192: checkString(this.props.purchaseAnswers.L192),
         }
