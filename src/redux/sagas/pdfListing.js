@@ -17,6 +17,7 @@ function* fetchListing(action) {
         console.log('error in pdf listing getting answers?', error)
       })
     yield
+ 
     console.log(answers.data[0].id)//
     const answer = answers.data[0]
     let doc = new jsPDF()
