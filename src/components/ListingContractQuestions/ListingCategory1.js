@@ -25,7 +25,6 @@ class ListingCategory1 extends Component {
     }
   }
 
-
   handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state,

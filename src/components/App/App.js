@@ -191,7 +191,7 @@ class App extends Component {
             />
              <ProtectedRoute
               exact
-              path="/PurchaseSignature"
+              path="/PurchaseSignature/:id"
               component={PurchaseSignature}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
