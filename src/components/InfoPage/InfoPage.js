@@ -11,7 +11,7 @@ class InfoPage extends Component {
 
 
 
-this.props.dispatch({type: 'FETCH_OFFER', payload: 5})
+this.props.dispatch({type: 'FETCH_OFFER', payload: 2})
 
 // this.props.dispatch({type:'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state})
   }
