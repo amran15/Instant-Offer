@@ -26,7 +26,7 @@ function* fetchOffer(action) {
     //                              page # 1
     // ------------------------------------------------------------------------------------------
     
-    doc.addImage(response.data[0].PAGE_1, 'JPEG',0,0,210,297)
+    doc.addImage(response.data[0].PAGE_1, 'JPEG',0,0,210,297) // finalized the coordinate
     // if(answer.id)doc.text(`${answer.id}`, 10,10,) // delete this line
     if(answer.DATE)doc.text(`${answer.DATE}`, 45,102)//132, 33
     if(answer.BUYER_1)doc.text(`${answer.BUYER_1}`, 40,46)//40, 46
