@@ -56,14 +56,14 @@ class PurchaseCategory5 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L159}
                                 onChange={this.handleChangeForSellerContribution('L159')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                     </Grid>
                     <h4>If yes, Seller agrees to pay at closing, up to the amount of the sale price: <i>(Check one)</i></h4>
-                    <Grid container spacing={2}>
-                        <Grid item xs={2}>
+                    <Grid container spacing={1}>
+                        <Grid item xs={1}>
                             <Checkbox
                                 id="checkedB"
                                 color="primary"
@@ -71,7 +71,7 @@ class PurchaseCategory5 extends Component {
                                 onChange={this.handleChangeForSellerContribution('L160A')}
                             />
                         </Grid>
-                        <Grid item xs={10}>
+                        <Grid item xs={11}>
                             <TextField
                                 id="sellers_contribution"
                                 fullWidth
@@ -83,7 +83,7 @@ class PurchaseCategory5 extends Component {
                                 onChange={this.handleChangeForSellerContribution('L160B')}
                             />
                         </Grid>
-                        <Grid item xs={2}>
+                        <Grid item xs={1}>
                             <Checkbox
                                 id="checkedB"
                                 color="primary"
@@ -91,7 +91,7 @@ class PurchaseCategory5 extends Component {
                                 onChange={this.handleChangeForSellerContribution('L161A')}
                             />
                         </Grid>
-                        <Grid item xs={10}>
+                        <Grid item xs={11}>
                             <TextField
                                 id="sellers_contribution"
                                 fullWidth
@@ -108,7 +108,8 @@ class PurchaseCategory5 extends Component {
                     </Grid>
                     <br />
                     <br />
-                    <Container component="main">
+                </Container>
+                <Container component="main">
                         <Grid container spacing={2}>
                             <Grid item xs={6}>
                                 <div align="left" className="Button">
@@ -134,7 +135,6 @@ class PurchaseCategory5 extends Component {
                             </Grid>
                         </Grid>
                     </Container>
-                </Container>
             </div>
         )
     }

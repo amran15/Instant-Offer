@@ -56,8 +56,8 @@ class PurchaseCategory6 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L170}
                                 onChange={this.handleChangeForInspections('L170')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
@@ -65,8 +65,8 @@ class PurchaseCategory6 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L172}
                                 onChange={this.handleChangeForInspections('L172')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
@@ -74,8 +74,8 @@ class PurchaseCategory6 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L178}
                                 onChange={this.handleChangeForInspections('L178')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>

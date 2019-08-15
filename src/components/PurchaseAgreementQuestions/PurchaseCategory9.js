@@ -94,8 +94,8 @@ class PurchaseCategory9 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L250}
                                 onChange={this.handleChangeForAdditionalProvision('L250')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                             <h4>Date of the previously written purchase agreement:</h4>
                             <TextField
@@ -262,36 +262,36 @@ class PurchaseCategory9 extends Component {
                                 <RadioGroup
                                     value={this.state.answers.L371A}
                                     onChange={this.handleChangeForAdditionalProvision('L371A')}>
-                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                    <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                                 </RadioGroup>
                                 <h4>City Water</h4>
                                 <RadioGroup
                                     value={this.state.answers.L371B}
                                     onChange={this.handleChangeForAdditionalProvision('L371B')}>
-                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                    <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                                 </RadioGroup>
                                 <h4>Does the seller know of a subsurface sewage treatment system on or serving the property?</h4>
                                 <RadioGroup
                                     value={this.state.answers.L373}
                                     onChange={this.handleChangeForAdditionalProvision('L373')}>
-                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                    <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                                 </RadioGroup>
                                 <h4>Does the seller know of a well on or serving the property?</h4>
                                 <RadioGroup
                                     value={this.state.answers.L377}
                                     onChange={this.handleChangeForAdditionalProvision('L377')}>
-                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                    <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                                 </RadioGroup>
                                 <h4>Is this Purchase Agreement subject to an Addendum to Purchase Agreement?</h4>
                                 <RadioGroup
                                     value={this.state.answers.L379}
                                     onChange={this.handleChangeForAdditionalProvision('L379')}>
-                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                    <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                                 </RadioGroup>
                                 <center>
                                     <h3>Home Protection/Warranty Plan</h3>
@@ -300,22 +300,22 @@ class PurchaseCategory9 extends Component {
                                 <RadioGroup
                                     value={this.state.answers.L388A}
                                     onChange={this.handleChangeForAdditionalProvision('L388A')}>
-                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                    <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                                 </RadioGroup>
                                 <h4>If yes, which party will obtain the home protection/warranty plan?</h4>
                                 <RadioGroup
                                     value={this.state.answers.L388B}
                                     onChange={this.handleChangeForAdditionalProvision('L388B')}>
-                                    <FormControlLabel value='true' control={<Radio />} label="Buyer" />
-                                    <FormControlLabel value='false' control={<Radio />} label="Seller" />
+                                    <FormControlLabel value='true' control={<Radio color="primary" />} label="Buyer" />
+                                    <FormControlLabel value='false' control={<Radio color="primary" />} label="Seller" />
                                 </RadioGroup>
                                 <h4>If yes, which party will pay for the home protection/warranty plan and who will issue it?</h4>
                                 <RadioGroup
                                     value={this.state.answers.L389A}
                                     onChange={this.handleChangeForAdditionalProvision('L389A')}>
-                                    <FormControlLabel value='true' control={<Radio />} label="Buyer" />
-                                    <FormControlLabel value='false' control={<Radio />} label="Seller" />
+                                    <FormControlLabel value='true' control={<Radio color="primary" />} label="Buyer" />
+                                    <FormControlLabel value='false' control={<Radio color="primary" />} label="Seller" />
                                 </RadioGroup>
                                 <h4>Issued by:</h4>
                                 <TextField
@@ -458,6 +458,7 @@ class PurchaseCategory9 extends Component {
                                         />}
                                     label="Dual Agency representation DOES NOT apply in this transaction."
                                 />
+                                <br/>
                                 <FormControlLabel
                                     control={
                                         <Checkbox
@@ -484,8 +485,8 @@ class PurchaseCategory9 extends Component {
                                 <RadioGroup
                                     value={this.state.answers.L494}
                                     onChange={this.handleChangeForAdditionalProvision('L494')}>
-                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                    <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                                 </RadioGroup>
                             </Grid>
                         </Grid>
