@@ -108,14 +108,14 @@ class PurchaseCategory1 extends Component {
                             />
                             <h4>shall be delivered to listing broker, or if checked, to</h4>
                             <Grid container spacing={2}>
-                                <Grid item xs={2}>
+                                <Grid item xs={1}>
                                     <Checkbox
                                         color="primary"
                                         value={this.state.answers.L7A}
                                         onChange={this.handleChangeForGeneralInformation('L7A')}
                                     />
                                 </Grid>
-                                <Grid item xs={10}>
+                                <Grid item xs={11}>
                                     <TextField
                                         id="brokers_name"
                                         fullWidth

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { checkString, checkBoolean} from '../helpers/valueCheckerHelpers';
+import { checkString, checkBoolean } from '../helpers/valueCheckerHelpers';
 
 
 //Material UI
@@ -61,7 +61,7 @@ class PurchaseCategory8 extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h3>Real Estate Taxes</h3>
+                                <h2>Real Estate Taxes</h2>
                             </center>
                             <Grid item xs={12}>
                                 <h4>Seller shall pay on the date of closing all real estate taxes due and payable in all prior years including all penalties and interest.</h4>
@@ -108,14 +108,14 @@ class PurchaseCategory8 extends Component {
                                             />}
                                     />
                                 </Grid>
-                            </Grid>
-                            <Grid item xs={11}>
-                                <TextField
-                                    value={this.state.answers.L215E}
-                                    onChange={this.handleChangeForRealEstateTaxes('L215E')}
-                                    id="buyer_real_estate_tax"
-                                />/12ths of real estate taxes due and payable in the year of closing.
+                                <Grid item xs={11}>
+                                    <TextField
+                                        value={this.state.answers.L215E}
+                                        onChange={this.handleChangeForRealEstateTaxes('L215E')}
+                                        id="buyer_real_estate_tax"
+                                    />/12ths of real estate taxes due and payable in the year of closing.
                                 </Grid>
+                            </Grid>
                         </Grid>
                         <Grid item xs={12}>
                             <h4>Seller shall pay: <i>(Check one)</i></h4>
@@ -128,57 +128,57 @@ class PurchaseCategory8 extends Component {
                                     />}
                                 label="Prorated from day of closing"
                             />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        value={this.state.answers.L217B}
-                                        onChange={this.handleChangeForRealEstateTaxes('L217B')}
-                                        color="primary"
-                                    />}
-                                label="All"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        value={this.state.answers.L217C}
-                                        onChange={this.handleChangeForRealEstateTaxes('L217C')}
-                                        color="primary"
-                                    />}
-                                label="None"
-                            />
-                        </Grid>
-                        <Grid container spacing={2}>
-                            <Grid item xs={1}>
+                            <Grid item xs={12}>
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L217D}
-                                            onChange={this.handleChangeForRealEstateTaxes('L217D')}
+                                            value={this.state.answers.L217B}
+                                            onChange={this.handleChangeForRealEstateTaxes('L217B')}
                                             color="primary"
                                         />}
+                                    label="All"
                                 />
                             </Grid>
-                            <Grid item xs={11}>
-                                <TextField
-                                    value={this.state.answers.L217E}
-                                    onChange={this.handleChangeForRealEstateTaxes('L217E')}
-                                    id="buyer_real_estate_tax"
-                                />/12ths of real estate taxes due and payable in the year of closing.
+                            <Grid item xs={12}>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            value={this.state.answers.L217C}
+                                            onChange={this.handleChangeForRealEstateTaxes('L217C')}
+                                            color="primary"
+                                        />}
+                                    label="None"
+                                />
+                            </Grid>
+                            <Grid container spacing={2}>
+                                <Grid item xs={1}>
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                value={this.state.answers.L217D}
+                                                onChange={this.handleChangeForRealEstateTaxes('L217D')}
+                                                color="primary"
+                                            />}
+                                    />
                                 </Grid>
+                                <Grid item xs={11}>
+                                    <TextField
+                                        value={this.state.answers.L217E}
+                                        onChange={this.handleChangeForRealEstateTaxes('L217E')}
+                                        id="buyer_real_estate_tax"
+                                    />/12ths of real estate taxes due and payable in the year of closing.
+                                </Grid>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12}>
-                            <h4>If the property tax status is a part-or non-homested classification in the year of closing, will the Seller pay the difference between the homestead and non-homestead?</h4>
-                            <RadioGroup
-                                value={this.state.answers.L219}
-                                onChange={this.handleChangeForRealEstateTaxes('L219')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
-                            </RadioGroup>
-                        </Grid>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <h4>If the property tax status is a part-or non-homested classification in the year of closing, will the Seller pay the difference between the homestead and non-homestead?</h4>
+                        <RadioGroup
+                            value={this.state.answers.L219}
+                            onChange={this.handleChangeForRealEstateTaxes('L219')}>
+                            <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                            <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
+                        </RadioGroup>
                     </Grid>
                     <Grid item xs={12}>
                         <center>
@@ -189,8 +189,8 @@ class PurchaseCategory8 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L226}
                                 onChange={this.handleChangeForRealEstateTaxes('L226')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Seller Shall Buy" />
-                                <FormControlLabel value='false' control={<Radio />} label="Buyer Shall Buy" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Seller Shall Buy" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="Buyer Shall Buy" />
                             </RadioGroup>
                         </Grid>
                     </Grid>
@@ -200,8 +200,8 @@ class PurchaseCategory8 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L228}
                                 onChange={this.handleChangeForRealEstateTaxes('L228')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Buyer and Seller shall prorate as of the date of closing" />
-                                <FormControlLabel value='false' control={<Radio />} label="Seller shall pay on date of closing" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Buyer and Seller shall prorate as of the date of closing" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="Seller shall pay on date of closing" />
                             </RadioGroup>
                         </Grid>
                     </Grid>
@@ -211,8 +211,8 @@ class PurchaseCategory8 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L231}
                                 onChange={this.handleChangeForRealEstateTaxes('L231')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Buyer shall assume" />
-                                <FormControlLabel value='false' control={<Radio />} label="Seller shall pay" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Buyer shall assume" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="Seller shall pay" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
@@ -221,8 +221,8 @@ class PurchaseCategory8 extends Component {
                                 <RadioGroup
                                     value={this.state.answers.L233}
                                     onChange={this.handleChangeForRealEstateTaxes('L233')}>
-                                    <FormControlLabel value='true' control={<Radio />} label="Buyer shall assume" />
-                                    <FormControlLabel value='false' control={<Radio />} label="Seller shall provide for payment" />
+                                    <FormControlLabel value='true' control={<Radio color="primary" />} label="Buyer shall assume" />
+                                    <FormControlLabel value='false' control={<Radio color="primary" />} label="Seller shall provide for payment" />
                                 </RadioGroup>
                             </Grid>
                         </Grid>
@@ -232,12 +232,15 @@ class PurchaseCategory8 extends Component {
                                 <RadioGroup
                                     value={this.state.answers.L239}
                                     onChange={this.handleChangeForRealEstateTaxes('L239')}>
-                                    <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                    <FormControlLabel value='false' control={<Radio />} label="No" />
+                                    <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                    <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                                 </RadioGroup>
                             </Grid>
                         </Grid>
-                        <Container component="main">
+                        <br />
+                    </Grid>
+                </Container>
+                <Container component="main">
                             <Grid container spacing={2}>
                                 <Grid item xs={6}>
                                     <div align="left" className="Button">
@@ -263,8 +266,6 @@ class PurchaseCategory8 extends Component {
                                 </Grid>
                             </Grid>
                         </Container>
-                    </Grid>
-                </Container>
             </div>
         )
     }

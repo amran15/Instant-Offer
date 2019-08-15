@@ -44,7 +44,7 @@ class PurchaseCategory3 extends Component {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>
-                                <h4>Closing Date</h4>
+                                <h2>Closing Date</h2>
                             </center>
                             <h4>Date</h4>
                             <TextField
