@@ -5,7 +5,6 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 const PDF = require("../../src/pdfs/generate_pdfs")
 const path = require('path')
 
-
 //GET route listing_contract 
 router.get('/pdf/:id', (req, res) => {
   const queryText = `SELECT * FROM "Listing_Contract" WHERE "SIGNATURE_BUYER_1" IS not NULL`;
