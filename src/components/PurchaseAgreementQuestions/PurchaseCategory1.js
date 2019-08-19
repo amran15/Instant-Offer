@@ -14,12 +14,12 @@ import { TextField } from '@material-ui/core';
 class PurchaseCategory1 extends Component {
     
     componentDidMount() {
-    const answer_id = this.props.match.params.id
-    console.log(answer_id)
-    this.props.dispatch(
-        { type: 'PURCHASE_ANSWERS', payload: answer_id }
-    )
-}
+        const documentId = this.props.match.params.id
+        console.log(documentId)
+        this.props.dispatch(
+            { type: 'PURCHASE_ANSWERS', payload: documentId }
+        )
+    }
 
     state = {
         id: this.props.match.params.id,
@@ -40,10 +40,12 @@ class PurchaseCategory1 extends Component {
     }
 
     handleChangeForGeneralInformation = (propertyName) => (event) => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
         this.setState({
             ...this.state, 
             answers: {
-              ...this.state.answers, [propertyName]: event.target.value,
+              ...this.state.answers, [propertyName]: value,
             }
           })
         }
@@ -60,6 +62,9 @@ class PurchaseCategory1 extends Component {
     render() {
         return (
             <div>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -111,7 +116,7 @@ class PurchaseCategory1 extends Component {
                                 <Grid item xs={1}>
                                     <Checkbox
                                         color="primary"
-                                        value={this.state.answers.L7A}
+                                        checked={this.state.answers.L7A}
                                         onChange={this.handleChangeForGeneralInformation('L7A')}
                                     />
                                 </Grid>

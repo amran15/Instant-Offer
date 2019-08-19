@@ -26,13 +26,15 @@ class PurchaseCategory5 extends Component {
     }
 
     handleChangeForSellerContribution = (propertyName) => (event) => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
         this.setState({
-            ...this.state,
+            ...this.state, 
             answers: {
-                ...this.state.answers, [propertyName]: event.target.value,
+              ...this.state.answers, [propertyName]: value,
             }
-        })
-    }
+          })
+        }
 
     handleClick = () => {
         this.props.history.push(`/PurchaseCategory4/${this.state.id}`)
@@ -46,6 +48,9 @@ class PurchaseCategory5 extends Component {
     render() {
         return (
             <div>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -67,7 +72,7 @@ class PurchaseCategory5 extends Component {
                             <Checkbox
                                 id="checkedB"
                                 color="primary"
-                                value={this.state.answers.L160A}
+                                checked={this.state.answers.L160A}
                                 onChange={this.handleChangeForSellerContribution('L160A')}
                             />
                         </Grid>
@@ -87,7 +92,7 @@ class PurchaseCategory5 extends Component {
                             <Checkbox
                                 id="checkedB"
                                 color="primary"
-                                value={this.state.answers.L161A}
+                                checked={this.state.answers.L161A}
                                 onChange={this.handleChangeForSellerContribution('L161A')}
                             />
                         </Grid>

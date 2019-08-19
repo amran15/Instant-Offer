@@ -36,13 +36,15 @@ class PurchaseCategory8 extends Component {
 
 
     handleChangeForRealEstateTaxes = (propertyName) => (event) => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
         this.setState({
-            ...this.state,
+            ...this.state, 
             answers: {
-                ...this.state.answers, [propertyName]: event.target.value,
+              ...this.state.answers, [propertyName]: value,
             }
-        })
-    }
+          })
+        }
 
 
     handleClick = () => {
@@ -57,6 +59,9 @@ class PurchaseCategory8 extends Component {
     render() {
         return (
             <div>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -69,7 +74,7 @@ class PurchaseCategory8 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L215A}
+                                            checked={this.state.answers.L215A}
                                             onChange={this.handleChangeForRealEstateTaxes('L215A')}
                                             color="primary"
                                         />}
@@ -80,7 +85,7 @@ class PurchaseCategory8 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L215B}
+                                            checked={this.state.answers.L215B}
                                             onChange={this.handleChangeForRealEstateTaxes('L215B')}
                                             color="primary"
                                         />}
@@ -91,7 +96,7 @@ class PurchaseCategory8 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L215C}
+                                            checked={this.state.answers.L215C}
                                             onChange={this.handleChangeForRealEstateTaxes('L215C')}
                                             color="primary"
                                         />}
@@ -103,7 +108,7 @@ class PurchaseCategory8 extends Component {
                                     <FormControlLabel
                                         control={
                                             <Checkbox
-                                                value={this.state.answers.L215D}
+                                                checked={this.state.answers.L215D}
                                                 onChange={this.handleChangeForRealEstateTaxes('L215D')}
                                             />}
                                     />
@@ -122,7 +127,7 @@ class PurchaseCategory8 extends Component {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        value={this.state.answers.L217A}
+                                        checked={this.state.answers.L217A}
                                         onChange={this.handleChangeForRealEstateTaxes('L217A')}
                                         color="primary"
                                     />}
@@ -132,7 +137,7 @@ class PurchaseCategory8 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L217B}
+                                            checked={this.state.answers.L217B}
                                             onChange={this.handleChangeForRealEstateTaxes('L217B')}
                                             color="primary"
                                         />}
@@ -143,7 +148,7 @@ class PurchaseCategory8 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L217C}
+                                            checked={this.state.answers.L217C}
                                             onChange={this.handleChangeForRealEstateTaxes('L217C')}
                                             color="primary"
                                         />}
@@ -155,7 +160,7 @@ class PurchaseCategory8 extends Component {
                                     <FormControlLabel
                                         control={
                                             <Checkbox
-                                                value={this.state.answers.L217D}
+                                                checked={this.state.answers.L217D}
                                                 onChange={this.handleChangeForRealEstateTaxes('L217D')}
                                                 color="primary"
                                             />}

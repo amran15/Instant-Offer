@@ -1,6 +1,12 @@
 const checkBoolean = (value) => {
     // return String(value) && '';
-    return (typeof value === 'undefined'|| value === null) ? null : String(value)
+    if (value === 'false' || value === false) {
+        return false;
+    } else if (value === 'true' || value === true) {
+        return true;
+    } else {
+        return null;
+    }
 }
 
 const checkCheckbox = (value) => {
