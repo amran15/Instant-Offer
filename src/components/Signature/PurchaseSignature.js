@@ -1,15 +1,16 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import {SignatureCanvas} from 'react-signature-canvas';
+import SignatureCanvas from 'react-signature-canvas';
 
 //Material UI       
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import swal from 'sweetalert';
 import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
+
 import Container from '@material-ui/core/Container';
+import { ThemeProvider } from '@material-ui/styles';
 
 
 const styles = {
@@ -18,7 +19,7 @@ const styles = {
     },
     button: {
         color: 'white',
-      },
+    },
 };
 
 const theme = createMuiTheme({
@@ -29,9 +30,9 @@ const theme = createMuiTheme({
 
 class PurchaseSignature extends Component {
     state = {
-        id:this.props.match.params.id,
+        id: this.props.match.params.id,
         answers:
-        {SIGNATURE_BUYER_1: null}
+            { SIGNATURE_BUYER_1: null }
     }
     sigPad = {}
 
@@ -69,56 +70,60 @@ class PurchaseSignature extends Component {
     render() {
         const { SIGNATURE_BUYER_1 } = this.state;
         return (
-            <div>
-                <div className="sig-canvas">
-                    <SignatureCanvas penColor="black"
-                        canvasProps={{ width:390, height: 525, className: 'sigCanvas' }}
-                        ref={(ref) => { this.sigPad = ref }} />
-                    {
-                        SIGNATURE_BUYER_1 ? <img src={SIGNATURE_BUYER_1} alt="" /> : null
-                    }
-                </div>
+            <>
+                <ThemeProvider theme={theme}>
+                    <div>
+                        <div className="sig-canvas">
+                            <SignatureCanvas penColor="black" canvasProps={{ width: 390, height: 525, className: 'sigCanvas' }}
+                                ref={(ref) => { this.sigPad = ref }} />
+                            {
+                                SIGNATURE_BUYER_1 ? <img src={SIGNATURE_BUYER_1} alt="" /> : null
+                            }
+                        </div>
 
-                <center>
-                <Container style={styles.Container}>
+                        <center>
+                            <Container style={styles.Container}>
 
-                    <Grid container spacing={1}>
-                        <Grid item xs={4}>
-                            <Button
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                onClick={this.returnToReview}
-                            >
-                                Back
+                                <Grid container spacing={1}>
+                                    <Grid item xs={4}>
+                                        <Button
+                                            fullWidth
+                                            variant="contained"
+                                            color="primary"
+                                            onClick={this.returnToReview}
+                                        >
+                                            Back
                             </Button>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Button
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                onClick={this.clearSig}
-                            >
-                                Clear
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Button
+                                            fullWidth
+                                            variant="contained"
+                                            color="primary"
+                                            onClick={this.clearSig}
+                                        >
+                                            Clear
                                 </Button>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Button
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                onClick={this.handleClickToSaveSignature}
-                            >
-                                Confirm
+                                    </Grid>
+                                    <Grid item xs={4}>
+                                        <Button
+                                            fullWidth
+                                            variant="contained"
+                                            color="secondary"
+                                            style={styles.button}
+                                            onClick={this.handleClickToSaveSignature}
+                                        >
+                                            Confirm
                             </Button>
-                        </Grid>
-                    </Grid>
+                                    </Grid>
+                                </Grid>
 
-                    </Container>
-                    </center>
+                            </Container>
+                        </center>
+                    </div>
+                </ThemeProvider>
 
-            </div>
+            </>
         )
     }
 }
