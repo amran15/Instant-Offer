@@ -1,7 +1,4 @@
 
-/* *{
-    font-family: ostrich-regular, Calibri, sans-serif;
-} */
 *{
     font-family: 'Raleway', sans-serif;
 }
@@ -13,11 +10,6 @@ body {
 }
 
 
-/* html{
-    width: 100vw;
-    height: 100vh;
-} */
-
 .App{
     margin: 50px;
 }
@@ -27,17 +19,6 @@ body {
     margin: 25px;
     font-size: 20px;
 }
-
-/* form {
-    background-color: #dbd5d5;
-    width: 30%;
-    height: 250px;
-    margin: 20px auto;
-    padding: 25px;
-    border-radius: 2px;
-} */
-
-
 
 input {
     margin: 5px;
@@ -58,7 +39,6 @@ input {
   background-color: #008183;
 }
 
-/* This line makes the "Register" and "Login" buttons look like links */
 .link-button {
     background:none;
     color:inherit;
@@ -69,11 +49,3 @@ input {
     border-bottom:1px solid #444; 
     cursor: pointer;
 }
-
-
-/* .sig-canvas{
-  height:150px;
-  width: 80px;
-  background-color: white;
-  background-size: 100%;
-} */

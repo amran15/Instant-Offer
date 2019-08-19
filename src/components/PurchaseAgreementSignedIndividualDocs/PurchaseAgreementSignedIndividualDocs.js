@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 //Material UI
 import Card from '@material-ui/core/Card';
-import Grid from '@material-ui/core/Grid';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import Grid from '@material-ui/core/Grid';
 
 const styles = {
     title: {
@@ -34,8 +34,7 @@ class PurchaseAgreementSignedIndividualDocs extends Component {
                                 <Grid item xs={12} container spacing={3}>
                                     <Grid item xs={11}>
                                         <div style={styles.title}>
-                                            <h2>{signed.BUYER_1}'s Listing Contract</h2>
-                                            <h2>{signed.date}</h2>
+                                            <h3>{signed.BUYER_1}'s Listing Contract</h3>
                                         </div>
                                     </Grid>
                                     <Grid
