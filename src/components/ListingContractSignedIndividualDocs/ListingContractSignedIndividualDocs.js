@@ -25,6 +25,7 @@ class ListingContractSignedIndividualDocs extends Component {
 
   handleClick = (id) => {
     window.open(`http://localhost:5000/api/listing/pdf/${id}`)
+
   }
 
   render() {
