@@ -25,6 +25,8 @@ class ListingCategory1 extends Component {
     }
   }
 
+  //this function will handle the onChange event - when the user inputs a value
+  //into the input field.
   handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       ...this.state,
@@ -34,10 +36,15 @@ class ListingCategory1 extends Component {
     })
   }
 
+  //this function will target the back button and bring 
+  //the user to the previous page
   handleClick = () => {
     this.props.history.push(`/ListingContract/${this.state.id}`)
   }
 
+  //this function will target the NEXT 
+  //button and bring the user to the next category of questions 
+  //it has a dispatch of 'SAVE_ANSWER
   handleClickNext = () => {
     console.log("payload", this.state)
     this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })

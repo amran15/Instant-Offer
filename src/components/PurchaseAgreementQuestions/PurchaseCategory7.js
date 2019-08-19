@@ -21,13 +21,15 @@ class PurchaseCategory7 extends Component {
         }
     }
     handleChangeForBuyerProperty = (propertyName) => (event) => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
         this.setState({
-            ...this.state,
+            ...this.state, 
             answers: {
-                ...this.state.answers, [propertyName]: event.target.value,
+              ...this.state.answers, [propertyName]: value,
             }
-        })
-    }
+          })
+        }
 
     handleClick = () => {
         this.props.history.push(`/PurchaseCategory6/${this.state.id}`)
@@ -42,6 +44,9 @@ class PurchaseCategory7 extends Component {
     render() {
         return (
             <div>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -53,7 +58,7 @@ class PurchaseCategory7 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L198}
+                                            checked={this.state.answers.L198}
                                             onChange={this.handleChangeForBuyerProperty('L198')}
                                             color="primary"
                                         />}
@@ -65,7 +70,7 @@ class PurchaseCategory7 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                        value={this.state.answers.L201}
+                                        checked={this.state.answers.L201}
                                         onChange={this.handleChangeForBuyerProperty('L201')}
                                             color="primary"
                                         />}
@@ -77,7 +82,7 @@ class PurchaseCategory7 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                        value={this.state.answers.L210}
+                                        checked={this.state.answers.L210}
                                         onChange={this.handleChangeForBuyerProperty('L210')}
                                             color="primary"
                                         />}

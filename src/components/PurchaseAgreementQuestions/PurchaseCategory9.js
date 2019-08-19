@@ -61,13 +61,15 @@ class PurchaseCategory9 extends Component {
         }
     }
     handleChangeForAdditionalProvision = (propertyName) => (event) => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
         this.setState({
-            ...this.state,
+            ...this.state, 
             answers: {
-                ...this.state.answers, [propertyName]: event.target.value,
+              ...this.state.answers, [propertyName]: value,
             }
-        })
-    }
+          })
+        }
 
     handleClickBack = () => {
         this.props.history.push(`/PurchaseCategory8/${this.state.id}`)
@@ -81,6 +83,10 @@ class PurchaseCategory9 extends Component {
     render() {
         return (
             <div>
+                <pre>
+                    {JSON.stringify(this.state, null, 2)}
+                </pre>
+
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -132,7 +138,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L257B}
+                                            checked={this.state.answers.L257B}
                                             onChange={this.handleChangeForAdditionalProvision('L257B')}
                                             color="primary"
                                         />}
@@ -143,7 +149,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L257C}
+                                            checked={this.state.answers.L257C}
                                             onChange={this.handleChangeForAdditionalProvision('L257C')}
                                             color="primary"
                                         />}
@@ -154,7 +160,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L257D}
+                                            checked={this.state.answers.L257D}
                                             onChange={this.handleChangeForAdditionalProvision('L257D')}
                                             color="primary"
                                         />}
@@ -165,7 +171,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L258A}
+                                            checked={this.state.answers.L258A}
                                             onChange={this.handleChangeForAdditionalProvision('L258A')}
                                             color="primary"
                                         />}
@@ -208,7 +214,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L270}
+                                            checked={this.state.answers.L270}
                                             onChange={this.handleChangeForAdditionalProvision('L270')}
                                             color="primary"
                                         />}
@@ -219,7 +225,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L271A}
+                                            checked={this.state.answers.L271A}
                                             onChange={this.handleChangeForAdditionalProvision('L271A')}
                                             color="primary"
                                         />}
@@ -238,7 +244,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L359}
+                                            checked={this.state.answers.L359}
                                             onChange={this.handleChangeForAdditionalProvision('L359')}
                                             color="primary"
                                         />}
@@ -249,7 +255,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L360}
+                                            checked={this.state.answers.L360}
                                             onChange={this.handleChangeForAdditionalProvision('L360')}
                                             color="primary"
                                         />}
@@ -359,7 +365,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L394B}
+                                            checked={this.state.answers.L394B}
                                             onChange={this.handleChangeForAdditionalProvision('L394B')}
                                             color="primary"
                                         />}
@@ -368,7 +374,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L394C}
+                                            checked={this.state.answers.L394C}
                                             onChange={this.handleChangeForAdditionalProvision('L394C')}
                                             color="primary"
                                         />}
@@ -377,7 +383,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L394D}
+                                            checked={this.state.answers.L394D}
                                             onChange={this.handleChangeForAdditionalProvision('L394D')}
                                             color="primary"
                                         />}
@@ -386,7 +392,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L394E}
+                                            checked={this.state.answers.L394E}
                                             onChange={this.handleChangeForAdditionalProvision('L394E')}
                                             color="primary"
                                         />}
@@ -412,7 +418,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L396B}
+                                            checked={this.state.answers.L396B}
                                             onChange={this.handleChangeForAdditionalProvision('L396B')}
                                             color="primary"
                                         />}
@@ -421,7 +427,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L396C}
+                                            checked={this.state.answers.L396C}
                                             onChange={this.handleChangeForAdditionalProvision('L396C')}
                                             color="primary"
                                         />}
@@ -430,7 +436,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L396D}
+                                            checked={this.state.answers.L396D}
                                             onChange={this.handleChangeForAdditionalProvision('L396D')}
                                             color="primary"
                                         />}
@@ -439,7 +445,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L396E}
+                                            checked={this.state.answers.L396E}
                                             onChange={this.handleChangeForAdditionalProvision('L396E')}
                                             color="primary"
                                         />}
@@ -452,7 +458,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L403}
+                                            checked={this.state.answers.L403}
                                             onChange={this.handleChangeForAdditionalProvision('L403')}
                                             color="primary"
                                         />}
@@ -462,7 +468,7 @@ class PurchaseCategory9 extends Component {
                                 <FormControlLabel
                                     control={
                                         <Checkbox
-                                            value={this.state.answers.L404}
+                                            checked={this.state.answers.L404}
                                             onChange={this.handleChangeForAdditionalProvision('L404')}
                                             color="primary"
                                         />}
