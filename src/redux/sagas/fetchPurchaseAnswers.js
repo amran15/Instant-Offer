@@ -3,9 +3,11 @@ import axios from 'axios';
 
 function* fetchPurchaseDetails(action) {
     try {
-        const purchase = yield axios.get(`/api/purchase/answers/${action.payload.id}`);
-        console.log('purchase_agreement_answers:', purchase);
-        yield put({ type: 'SET_PURCHASE_ANSWERS', payload: purchase.data })
+        var answers = yield axios.get(`/api/purchase/answers/${action.payload}`);
+        answers = answers.data[0]
+        delete answers.id
+        yield put({ type: 'SET_PURCHASE_ANSWERS', payload: answers })
+        console.log('purchase_agreement_answers:');
     } catch (error) {
         console.log('error getting purchase_agreement answers on DOM', error);
     }
