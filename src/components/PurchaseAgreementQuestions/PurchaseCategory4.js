@@ -79,8 +79,8 @@ class PurchaseCategory4 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L49}
                                 onChange={this.handleChangeForMortgageFinancing('L49')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
@@ -88,8 +88,8 @@ class PurchaseCategory4 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L53}
                                 onChange={this.handleChangeForMortgageFinancing('L53')}>
-                                <FormControlLabel value='true' control={<Radio />} label="First Mortage Only" />
-                                <FormControlLabel value='false' control={<Radio />} label="First Mortage and Subordinate Financing" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="First Mortage Only" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="First Mortage and Subordinate Financing" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
@@ -97,8 +97,8 @@ class PurchaseCategory4 extends Component {
                             <RadioGroup
                                 value={this.state.answers.L54}
                                 onChange={this.handleChangeForMortgageFinancing('L54')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Yes" />
-                                <FormControlLabel value='false' control={<Radio />} label="No" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Yes" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="No" />
                             </RadioGroup>
                             <Grid item xs={12}>
                                 <h4>If yes, please specify:</h4>
@@ -233,8 +233,8 @@ class PurchaseCategory4 extends Component {
                         <RadioGroup
                             value={this.state.answers.L73}
                             onChange={this.handleChangeForMortgageFinancing('L73')}>
-                            <FormControlLabel value='true' control={<Radio />} label="Buyer" />
-                            <FormControlLabel value='false' control={<Radio />} label="Seller" />
+                            <FormControlLabel value='true' control={<Radio color="primary" />} label="Buyer" />
+                            <FormControlLabel value='false' control={<Radio color="primary" />} label="Seller" />
                         </RadioGroup>
                         <Grid item xs={12}>
                             <FormControlLabel
@@ -266,8 +266,8 @@ class PurchaseCategory4 extends Component {
                         <RadioGroup
                                value={this.state.answers.L114}
                                onChange={this.handleChangeForMortgageFinancing('L114')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Within five (5) business days of final acceptance date of this purchase agreement" />
-                                <FormControlLabel value='false' control={<Radio />} label="At any time prior to closing or as required by lenders(s)" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Within five (5) business days of final acceptance date of this purchase agreement" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="At any time prior to closing or as required by lenders(s)" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
@@ -293,8 +293,8 @@ class PurchaseCategory4 extends Component {
                         <RadioGroup
                                 value={this.state.answers.L27}
                                 onChange={this.handleChangeForMortgageFinancing('L127')}>
-                                <FormControlLabel value='true' control={<Radio />} label="Seller" />
-                                <FormControlLabel value='false' control={<Radio />} label="Buyer" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="Seller" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="Buyer" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>
@@ -356,8 +356,8 @@ class PurchaseCategory4 extends Component {
                         <RadioGroup
                                 value={this.state.answers.L145B}
                                 onChange={this.handleChangeForMortgageFinancing('L145B')}>
-                                <FormControlLabel value='true' control={<Radio />} label="At closing" />
-                                <FormControlLabel value='false' control={<Radio />} label="Added to mortgage amount" />
+                                <FormControlLabel value='true' control={<Radio color="primary" />} label="At closing" />
+                                <FormControlLabel value='false' control={<Radio color="primary" />} label="Added to mortgage amount" />
                             </RadioGroup>
                         </Grid>
                         <Grid item xs={12}>

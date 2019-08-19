@@ -120,7 +120,8 @@ class ListingCategory5 extends Component {
                     </Grid>
                     <br />
                     <br />
-                    <Container component="main">
+                </Container>
+                <Container component="main">
                         <Grid container spacing={2}>
                             <Grid item xs={6}>
                                 <div align="left" className="Button">
@@ -146,7 +147,6 @@ class ListingCategory5 extends Component {
                             </Grid>
                         </Grid>
                     </Container>
-                </Container>
             </div>
 
         )
