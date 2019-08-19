@@ -1,6 +1,7 @@
 const hummus = require("hummus")
 
-const generateListing = (file_name) => {
+const generateListing = (file_name, answers) => {
+
   const source_file = __dirname + "/original_pdfs/listing_contract.pdf"
   const destination_path = __dirname + "/signed_pdfs/" + file_name
 
@@ -11,7 +12,7 @@ const generateListing = (file_name) => {
   var font = pdfWriter.getFontForFile(__dirname + "/fonts/Arial.ttf")
 
   const page1Content = [
-    { text: "test test test", x_coord: 75, y_coord: 680 }
+    { text: answers.COMPANY, x_coord: 75, y_coord: 680 }
   ]
   writeTextToPage(pdfWriter, 0, page1Content, font)
 

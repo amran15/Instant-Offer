@@ -7,11 +7,20 @@ const path = require('path')
 
 
 //GET route listing_contract 
-router.get('/pdf', (req, res) => {
-  const pdf_filename = "test.pdf"
-  PDF.generateListing(pdf_filename)
-  const pdf_path = path.join(__dirname, "/../../src/pdfs/signed_pdfs/", pdf_filename)
-  res.sendFile(pdf_path)
+router.get('/pdf/:id', (req, res) => {
+  const queryText = `SELECT * FROM "Listing_Contract" WHERE "SIGNATURE_BUYER_1" IS not NULL`;
+  pool.query(queryText)
+    .then(result => {
+      console.log(result.rows);
+      const pdf_filename = "test.pdf"
+      PDF.generateListing(pdf_filename, result.rows[0])
+      const pdf_path = path.join(__dirname, "/../../src/pdfs/signed_pdfs/", pdf_filename)
+      res.sendFile(pdf_path)
+    })
+    .catch(error => {
+      console.log('error making SELECT for listing contract:', error);
+      res.sendStatus(500);
+    })
 }); 
 
 //GET route listing_contract 
