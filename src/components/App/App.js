@@ -21,6 +21,7 @@ import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
 import Signature from '../Signature/Signature';
 import PurchaseSignature from '../Signature/PurchaseSignature';
 import SignedDocs from '../SignedDocs/SignedDocs';
+import Footer from '../Footer/Footer';
 
 // these are the listing question categories
 import ListingContract from '../ListingContract/ListingContract';
@@ -204,7 +205,6 @@ class App extends Component {
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
-          {/* <Footer /> */}
         </div>
       </Router>
     )
