@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import axios from 'axios';
 
 const styles = {
     title: {
@@ -16,6 +17,10 @@ const styles = {
 
 class ListingContractSignedIndividualDocs extends Component {
 
+  getPdf = () => {
+    window.open('http://localhost:5000/api/listing/pdf')
+  }
+ 
     componentDidMount = () => {
         this.props.dispatch({
             type: 'GET_LISTING_SIGNED_DOCS'
@@ -29,6 +34,7 @@ class ListingContractSignedIndividualDocs extends Component {
     render() {
         return (
             <div>
+                <button onClick={this.getPdf}/>
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
                 {this.props.listingSignedDocs.map(signed => (
                     <div>
