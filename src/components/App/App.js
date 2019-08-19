@@ -46,6 +46,10 @@ import PurchaseCategory8 from '../PurchaseAgreementQuestions/PurchaseCategory8';
 import PurchaseCategory9 from '../PurchaseAgreementQuestions/PurchaseCategory9';
 // import PurchaseAgreementReview from '../PurchaseAgreementReview/PurchaseAgreementReview';
 
+//this component will hold all of our protected and unprotected routes
+//protected routes can only be accessed if and when logged in
+//upon logging in, we dispatch 'FETCH_USER' saga/reducer.
+
 
 class App extends Component {
   componentDidMount() {
