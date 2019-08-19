@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import {SignatureCanvas} from 'react-signature-canvas';
+import SignatureCanvas  from 'react-signature-canvas';
 
 //Material UI       
 import Button from '@material-ui/core/Button';
@@ -17,7 +17,7 @@ const styles = {
     },
     button: {
         color: 'white',
-      },
+    },
 };
 
 const theme = createMuiTheme({
@@ -68,6 +68,10 @@ class Signature extends Component {
     render() {
         const { SIGNATURE_BUYER_1 } = this.state;
         return (
+            <>
+            {/* <div>
+                taco
+            </div> */}
             <ThemeProvider theme={theme}>
             <div>
                 <div className="sig-canvas">
@@ -117,6 +121,7 @@ class Signature extends Component {
                 </center>
             </div>
             </ThemeProvider>
+            </>
         )
     }
 }
