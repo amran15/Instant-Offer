@@ -5,15 +5,11 @@ import { connect } from 'react-redux';
 import ListItemText from '@material-ui/core/ListItemText';
 
 const LogOutButton = props => (
-  <button
-    // This button shows up in multiple locations and is styled differently
-    // because it's styled differently depending on where it is used, the className
-    // is passed to it from it's parents through React props
-    className={props.className}
-    onClick={() => props.dispatch({ type: 'LOGOUT' })}
-  >
-            <ListItemText primary="Log Out"></ListItemText>
-  </button>
+  <ListItemText  
+  className={props.className}
+  onClick={() => props.dispatch({ type: 'LOGOUT' })}
+  primary="Log Out">
+  </ListItemText>
 );
 
 // This component doesn't need 'mapStateToProps'
