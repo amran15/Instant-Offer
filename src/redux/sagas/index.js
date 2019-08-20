@@ -18,6 +18,8 @@ import pdfOffer from './pdfOffer';
 
 import deleteListingAnswer from './deleteListingAnswer';
 import deletePurchaseAnswerSaga from './deletePurchaseAnswer';
+import deleteListingDoc from './deleteListingDoc';
+import deletePurchaseDoc from './deletePurchaseDoc';
 import putAnswers from './putAnswers';
 import thisRootSaga from './signSaga';
 import putPurchaseAnswers from './putPurchaseAnswers';
@@ -48,5 +50,7 @@ export default function* rootSaga() {
     putAnswers(),
     thisRootSaga(),
     putPurchaseAnswers(),
+    deleteListingDoc(),
+    deletePurchaseDoc(),
   ]);
 }

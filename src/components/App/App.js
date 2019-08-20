@@ -10,7 +10,6 @@ import { connect } from 'react-redux';
 import './App.css';
 
 import Nav from '../Nav/Nav';
-// import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
@@ -21,7 +20,6 @@ import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
 import Signature from '../Signature/Signature';
 import PurchaseSignature from '../Signature/PurchaseSignature';
 import SignedDocs from '../SignedDocs/SignedDocs';
-import Footer from '../Footer/Footer';
 
 // these are the listing question categories
 import ListingContract from '../ListingContract/ListingContract';
