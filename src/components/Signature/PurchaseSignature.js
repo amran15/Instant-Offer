@@ -54,7 +54,7 @@ class PurchaseSignature extends Component {
                 SIGNATURE_BUYER_1: this.sigPad.getTrimmedCanvas().toDataURL('image/PNG')
             },
         }, () => {
-            this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state });
+            this.props.dispatch({ type: 'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state });
         })
 
         swal({

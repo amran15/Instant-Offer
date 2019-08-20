@@ -15,12 +15,12 @@ const styles = {
 class PurchaseAgreementSignedIndividualDocs extends Component {
     componentDidMount = () => {
         this.props.dispatch({
-            type: 'GET_LISTING_SIGNED_DOCS'
+            type: 'GET_PURCHASE_SIGNED_DOCS'
         });
     }
 
     handleClick = (id) => {
-        this.props.dispatch({ type: 'FETCH_LISTING', payload: id })
+        this.props.dispatch({ type: 'FETCH_OFFER', payload: id })
     }
 
     render() {
