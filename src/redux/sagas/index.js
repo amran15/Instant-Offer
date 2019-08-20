@@ -10,6 +10,7 @@ import fetchPurchaseAnswers from './fetchPurchaseAnswers';
 import newListingContractForm from './newListingContractForm';
 import getListingDrafts from './fetchListingDrafts';
 import getListingSignedDocs from './fetchListingSignedDocs';
+import getPurchaseSignedDocs from './fetchPurchaseSignedDocs';
 
 import newPurchaseAgreementForm from './newPurchaseAgreementForm';
 
@@ -39,6 +40,7 @@ export default function* rootSaga() {
     fetchPurchaseAnswers(),
     getListingDrafts(),
     getListingSignedDocs(),
+    getPurchaseSignedDocs(),
     newListingContractForm(),
     newPurchaseAgreementForm(),
     pdfListing(),

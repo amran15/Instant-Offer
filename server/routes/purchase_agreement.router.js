@@ -3,6 +3,21 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
+//GET route for signed purchase_agreement
+router.get('/signedDocs', (req, res) => {
+    const queryText = `SELECT * FROM "Purchase_Agreement" WHERE "SIGNATURE_BUYER_1" IS not NULL`;
+    pool.query(queryText)
+        .then(result => {
+          console.log("wow")
+            // console.log(result.rows);
+            res.send(result.rows)
+        })
+        .catch(error => {
+            console.log('error making SELECT for listing contract:', error);
+            res.sendStatus(500);
+        })
+});
+
 /**
  * GET route purchase_agreement
  */
