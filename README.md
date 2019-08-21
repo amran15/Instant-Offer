@@ -11,10 +11,11 @@ Before you get started, make sure you have the following software installed on y
 
 ## Create database and table
 
-Create a new database called `Instant_Offer` and run SQL file:
+Create a new database called instant_offer and load the database.sql file:
 
-```SQL
-Run all of "Instant_Offer.sql" postgresql
+```
+# createdb instant_offer
+# psql instant_offer < database.sql
 ```
 
 ## Development Setup Instructions

@@ -4,8 +4,8 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 //GET route for signed purchase_agreement
-router.get('/signedDocs', (req, res) => {
-    const queryText = `SELECT * FROM "Purchase_Agreement" WHERE "SIGNATURE_BUYER_1" IS not NULL`;
+router.get('/signedDocs', rejectUnauthenticated, (req, res) => {
+    const queryText = `SELECT * FROM purchase_agreement WHERE "SIGNATURE_BUYER_1" IS not NULL`;
     pool.query(queryText)
         .then(result => {
           console.log("wow")
@@ -18,12 +18,10 @@ router.get('/signedDocs', (req, res) => {
         })
 });
 
-/**
- * GET route purchase_agreement
- */
+// GET route purchase_agreement
 router.get('/', rejectUnauthenticated, (req, res) => {
     console.log('GET PURCHASE AGREEMENT  SERVER HIT');
-    const queryText = `SELECT * FROM "Purchase_Agreement" ORDER by "id"`;
+    const queryText = `SELECT * FROM purchase_agreement ORDER by "id"`;
     pool.query(queryText)
         .then(result => {
             console.log(result.rows);
@@ -34,27 +32,9 @@ router.get('/', rejectUnauthenticated, (req, res) => {
             res.sendStatus(500);
         })
 });
- 
 
-// gets all pages for PDF contruction for purchase_agreement
-router.get('/PDF_pages', (req,res)=>{
-    pool.query(`
-    select "Purchase_Agreement"."PAGE_1","Purchase_Agreement"."PAGE_2","Purchase_Agreement"."PAGE_3",
-    "Purchase_Agreement"."PAGE_4","Purchase_Agreement"."PAGE_5","Purchase_Agreement"."PAGE_6",
-    "Purchase_Agreement"."PAGE_7","Purchase_Agreement"."PAGE_8","Purchase_Agreement"."PAGE_9",
-    "Purchase_Agreement"."PAGE_10","Purchase_Agreement"."PAGE_11","Purchase_Agreement"."PAGE_12",
-    "Purchase_Agreement"."PAGE_12", "Purchase_Agreement"."PAGE_13" from "Purchase_Agreement" where "id" = 1;`)
-    .then((results)=>{
-        console.log(results.rows)
-        res.send(results.rows)
-    }).catch((error)=>{
-        console.log('error in purchase agreement',error)
-    })
-});
-
-
-router.get('/answers/:id', (req,res)=>{
-    pool.query(` select * from "Purchase_Agreement" where "id" = $1;`,[req.params.id])//req.param.id
+router.get('/answers/:id', rejectUnauthenticated, (req,res)=>{
+    pool.query(` select * from purchase_agreement where "id" = $1;`,[req.params.id])//req.param.id
     .then((results)=>{
         console.log(results.rows)
         res.send(results.rows)
@@ -64,7 +44,7 @@ router.get('/answers/:id', (req,res)=>{
 });
 
 router.put('/update', rejectUnauthenticated, (req, res) => {
-    // console.log('UPDATE Purchase_Agreement SERVER HIT',req.body)
+    // console.log('UPDATE purchase_agreement SERVER HIT',req.body)
     console.log(req.body)
     pool.connect((err, client, done) => {
         let alreadyErroredOut = false;
@@ -90,7 +70,7 @@ router.put('/update', rejectUnauthenticated, (req, res) => {
             client.query('BEGIN').then(()=>{
                 const updatePromises = Object.entries(req.body.answers).map(([lineNumber, answer])=>{
                     return pool.query(`
-                        update "Purchase_Agreement"
+                        update purchase_agreement
                         set "${lineNumber}" = $1
                         where id = $2;
                     `,[answer, req.body.id]).catch(err => shouldAbort(err, res))
@@ -110,27 +90,23 @@ router.put('/update', rejectUnauthenticated, (req, res) => {
     })
 })
 
-/**
- * POST route purchase_agreement
- */
-router.post('/save', (req, res) => {
+// POST route purchase_agreement
+router.post('/save', rejectUnauthenticated, (req, res) => {
     console.log('PURCHASE POST SERVER', req.body)
-    const querySave = `INSERT INTO "Purchase_Agreement" VALUES(DEFAULT) RETURNING "id";`
+    const querySave = `INSERT INTO purchase_agreement VALUES(DEFAULT) RETURNING "id";`
     pool.query(querySave)
         .then(({ rows }) => {
             res.send(rows);
         }).catch(error => {
-            console.log('error making INSERT for post Purchase_Agreement answers', error);
+            console.log('error making INSERT for post purchase_agreement answers', error);
             res.sendStatus(500);
         })
 })
 
-/**
- * DELETE route purchase_agreement
- */
-router.delete('/delete/:id', (req, res) => {
+//DELETE route purchase_agreement
+router.delete('/delete/:id', rejectUnauthenticated, (req, res) => {
     console.log('delete/:id route hit for purchase_agreement')
-    const queryDelete = `DELETE FROM "Purchase_Agreement" WHERE "id"=$1`;
+    const queryDelete = `DELETE FROM purchase_agreement WHERE "id"=$1`;
     pool.query(queryDelete, [req.params.id])
         .then(response => {
             res.send(response.rows)
