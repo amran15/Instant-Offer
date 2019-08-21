@@ -1,6 +1,6 @@
-const purchaseAgreementDraftsReducer = (state = [], action) => {
+const purchaseSignedDocsReducer = (state = [], action) => {
   switch (action.type) {
-    case 'SET_PURCHASEAGREEMENT_SIGNED_DOCS':
+    case 'SET_PURCHASE_SIGNED_DOCS':
       return action.payload
     case 'DELETE_PURCHASE_AGREEMENT':
       return state.filter((value, index, arr) => {
@@ -11,4 +11,4 @@ const purchaseAgreementDraftsReducer = (state = [], action) => {
   }
 }
 
-export default purchaseAgreementDraftsReducer;
+export default purchaseSignedDocsReducer;
