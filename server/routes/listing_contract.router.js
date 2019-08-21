@@ -7,7 +7,7 @@ const path = require('path')
 
 //GET route listing_contract 
 router.get('/pdf/:id', (req, res) => {
-  const queryText = `SELECT * FROM "Listing_Contract" WHERE "SIGNATURE_BUYER_1" IS not NULL`;
+  const queryText = `SELECT * FROM listing_contract WHERE "SIGNATURE_BUYER_1" IS not NULL`;
   pool.query(queryText)
     .then(result => {
       console.log(result.rows);
@@ -24,7 +24,7 @@ router.get('/pdf/:id', (req, res) => {
 
 //GET route listing_contract 
 router.get('/', (req, res) => {
-  const queryText = `SELECT * FROM "Listing_Contract"`;
+  const queryText = `SELECT * FROM listing_contract`;
   pool.query(queryText)
     .then(result => {
       console.log(result.rows);
@@ -39,7 +39,7 @@ router.get('/', (req, res) => {
 
 //GET route for draft listing_contracts
 router.get('/drafts', (req, res) => {
-  const queryText = `SELECT * FROM "Listing_Contract" WHERE "SIGNATURE_BUYER_1" IS NULL`;
+  const queryText = `SELECT * FROM listing_contract WHERE "SIGNATURE_BUYER_1" IS NULL`;
   pool.query(queryText)
     .then(result => {
       console.log(result.rows);
@@ -53,7 +53,7 @@ router.get('/drafts', (req, res) => {
 
 //GET route for signed listing_contracts
 router.get('/signedDocs', (req, res) => {
-  const queryText = `SELECT * FROM "Listing_Contract" WHERE "SIGNATURE_BUYER_1" IS not NULL`;
+  const queryText = `SELECT * FROM listing_contract WHERE "SIGNATURE_BUYER_1" IS not NULL`;
   pool.query(queryText)
     .then(result => {
       console.log(result.rows);
@@ -65,24 +65,9 @@ router.get('/signedDocs', (req, res) => {
     })
 });
 
-// gets all pages for PDF pages for listing_contract
-router.get('/PDF_pages', (req, res) => {
-  pool.query(` 
-    select "Listing_Contract"."PAGE_1", "Listing_Contract"."PAGE_2", 
-    "Listing_Contract"."PAGE_3", "Listing_Contract"."PAGE_4",
-    "Listing_Contract"."PAGE_5", "Listing_Contract"."PAGE_6", 
-    "Listing_Contract"."PAGE_7" FROM "Listing_Contract" WHERE "id" = 1;`)
-    .then((results) => {
-      console.log(results.rows)
-      res.send(results.rows)
-    }).catch((error) => {
-      console.log('error in purchase agreement', error)
-    })
-});
-
 
 router.get('/answers/:id', (req, res) => {
-  pool.query(` select * from "Listing_Contract" where "id" = $1;`, [req.params.id])
+  pool.query(` select * from listing_contract where "id" = $1;`, [req.params.id])
     .then((results) => {
       console.log(results.rows)
       res.send(results.rows)
@@ -122,7 +107,7 @@ router.put('/update',rejectUnauthenticated, (req, res) => {
       client.query('BEGIN').then(()=>{
         const updatePromises = Object.entries(req.body.answers).map(([lineNumber, answer])=>{
           return pool.query(`
-                        update "Listing_Contract"
+                        update listing_contract
                         set "${lineNumber}" = $1
                         where id = $2;
                     `,[answer, req.body.id]).catch(err => shouldAbort(err, res))
@@ -147,7 +132,7 @@ router.put('/update',rejectUnauthenticated, (req, res) => {
 // POST route listing_contract
 router.post('/save', (req, res) => {
   console.log('LISTING POST SERVER', req.body)
-  const querySave = `INSERT INTO "Listing_Contract" VALUES(DEFAULT) RETURNING "id";`
+  const querySave = `INSERT INTO listing_contract VALUES(DEFAULT) RETURNING "id";`
   pool.query(querySave)
     .then(({ rows }) => {
       res.send(rows);
@@ -161,7 +146,7 @@ router.post('/save', (req, res) => {
 // DELETE route listing_contract
 router.delete('/delete/:id', (req, res) => {
   console.log('delete/:id route hit for listing_contract')
-  const queryDelete = `DELETE FROM "Listing_Contract" WHERE "id"=$1`;
+  const queryDelete = `DELETE FROM listing_contract WHERE "id"=$1`;
   pool.query(queryDelete, [req.params.id])
     .then(response => {
       res.send(response.rows)
@@ -170,29 +155,5 @@ router.delete('/delete/:id', (req, res) => {
       res.sendStatus(500);
     })
 });
-
-
-//testing signature with our app
-// this will post the sigature to the database
-
-// router.post('/signature', (req, res) => {
-//     console.log('i just sent the image to database', req.body.params);
-//     const poolSign = `INSERT INTO "Listing_Contract" ("SIGNATURE_BUYER_1")
-//     VALUES ($1); `
-//     pool.query(poolSign,[req.body.params])
-//         .then(response => {
-//             res.send( response.rows );
-//         }).catch(error => {
-//             console.log('error making INSERT for post listing_contract signature', error);
-//             res.sendStatus(500);
-//         })
-// });
-
-
-
-//LOG THE URL AND MAKE SURE YOU'RE GETTIINT IT
-
-
-
 
 module.exports = router;
