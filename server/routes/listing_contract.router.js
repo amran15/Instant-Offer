@@ -6,7 +6,7 @@ const PDF = require("../../src/pdfs/generate_pdfs")
 const path = require('path')
 
 //GET route listing_contract 
-router.get('/pdf/:id', (req, res) => {
+router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
   const queryText = `SELECT * FROM listing_contract WHERE "SIGNATURE_BUYER_1" IS not NULL`;
   pool.query(queryText)
     .then(result => {
@@ -22,7 +22,7 @@ router.get('/pdf/:id', (req, res) => {
 }); 
 
 //GET route listing_contract 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
   const queryText = `SELECT * FROM listing_contract`;
   pool.query(queryText)
     .then(result => {
@@ -36,7 +36,7 @@ router.get('/', (req, res) => {
 
 
 //GET route for draft listing_contracts
-router.get('/drafts', (req, res) => {
+router.get('/drafts', rejectUnauthenticated, (req, res) => {
   const queryText = `SELECT * FROM listing_contract WHERE "SIGNATURE_BUYER_1" IS NULL`;
   pool.query(queryText)
     .then(result => {
@@ -49,7 +49,7 @@ router.get('/drafts', (req, res) => {
 });
 
 // GET all signed listing contracts
-router.get('/signedDocs', (req, res) => {
+router.get('/signedDocs', rejectUnauthenticated, (req, res) => {
   const queryText = `SELECT * FROM listing_contract WHERE "SIGNATURE_BUYER_1" IS not NULL`;
   pool.query(queryText)
     .then(result => {
@@ -63,7 +63,7 @@ router.get('/signedDocs', (req, res) => {
 });
 
 // GET answers given id
-router.get('/answers/:id', (req, res) => {
+router.get('/answers/:id', rejectUnauthenticated, (req, res) => {
   pool.query(` select * from listing_contract where "id" = $1;`, [req.params.id])
     .then((results) => {
       console.log(results.rows)
@@ -122,7 +122,7 @@ router.put('/update',rejectUnauthenticated, (req, res) => {
 })
 
 // POST route listing_contract
-router.post('/save', (req, res) => {
+router.post('/save', rejectUnauthenticated, (req, res) => {
   console.log('LISTING POST SERVER', req.body)
   const querySave = `INSERT INTO listing_contract VALUES(DEFAULT) RETURNING "id";`
   pool.query(querySave)
@@ -135,7 +135,7 @@ router.post('/save', (req, res) => {
 })
 
 // DELETE route listing_contract
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', rejectUnauthenticated ,(req, res) => {
   pool.query(`DELETE FROM listing_contract WHERE "id"=$1`, [req.params.id])
     .then(response => {
       res.send(response.rows)

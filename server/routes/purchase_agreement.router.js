@@ -4,7 +4,7 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 //GET route for signed purchase_agreement
-router.get('/signedDocs', (req, res) => {
+router.get('/signedDocs', rejectUnauthenticated, (req, res) => {
     const queryText = `SELECT * FROM purchase_agreement WHERE "SIGNATURE_BUYER_1" IS not NULL`;
     pool.query(queryText)
         .then(result => {
@@ -33,7 +33,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         })
 });
 
-router.get('/answers/:id', (req,res)=>{
+router.get('/answers/:id', rejectUnauthenticated, (req,res)=>{
     pool.query(` select * from purchase_agreement where "id" = $1;`,[req.params.id])//req.param.id
     .then((results)=>{
         console.log(results.rows)
@@ -91,7 +91,7 @@ router.put('/update', rejectUnauthenticated, (req, res) => {
 })
 
 // POST route purchase_agreement
-router.post('/save', (req, res) => {
+router.post('/save', rejectUnauthenticated, (req, res) => {
     console.log('PURCHASE POST SERVER', req.body)
     const querySave = `INSERT INTO purchase_agreement VALUES(DEFAULT) RETURNING "id";`
     pool.query(querySave)
@@ -104,7 +104,7 @@ router.post('/save', (req, res) => {
 })
 
 //DELETE route purchase_agreement
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', rejectUnauthenticated, (req, res) => {
     console.log('delete/:id route hit for purchase_agreement')
     const queryDelete = `DELETE FROM purchase_agreement WHERE "id"=$1`;
     pool.query(queryDelete, [req.params.id])
