@@ -10,14 +10,13 @@ router.get('/pdf/:id', (req, res) => {
   const queryText = `SELECT * FROM listing_contract WHERE "SIGNATURE_BUYER_1" IS not NULL`;
   pool.query(queryText)
     .then(result => {
-      console.log(result.rows);
       const pdf_filename = "test.pdf"
       PDF.generateListing(pdf_filename, result.rows[0])
       const pdf_path = path.join(__dirname, "/../../src/pdfs/signed_pdfs/", pdf_filename)
       res.sendFile(pdf_path)
     })
     .catch(error => {
-      console.log('error making SELECT for listing contract:', error);
+      console.log('error generating listing_contract pdf:', error);
       res.sendStatus(500);
     })
 }); 
@@ -27,11 +26,10 @@ router.get('/', (req, res) => {
   const queryText = `SELECT * FROM listing_contract`;
   pool.query(queryText)
     .then(result => {
-      console.log(result.rows);
       res.send(result.rows)
     })
     .catch(error => {
-      console.log('error making SELECT for listing contract:', error);
+      console.log('error making SELECT * for listing contract:', error);
       res.sendStatus(500);
     })
 });
@@ -42,7 +40,6 @@ router.get('/drafts', (req, res) => {
   const queryText = `SELECT * FROM listing_contract WHERE "SIGNATURE_BUYER_1" IS NULL`;
   pool.query(queryText)
     .then(result => {
-      console.log(result.rows);
       res.send(result.rows)
     })
     .catch(error => {
@@ -51,7 +48,7 @@ router.get('/drafts', (req, res) => {
     })
 });
 
-//GET route for signed listing_contracts
+// GET all signed listing contracts
 router.get('/signedDocs', (req, res) => {
   const queryText = `SELECT * FROM listing_contract WHERE "SIGNATURE_BUYER_1" IS not NULL`;
   pool.query(queryText)
@@ -65,7 +62,7 @@ router.get('/signedDocs', (req, res) => {
     })
 });
 
-
+// GET answers given id
 router.get('/answers/:id', (req, res) => {
   pool.query(` select * from listing_contract where "id" = $1;`, [req.params.id])
     .then((results) => {
@@ -76,10 +73,7 @@ router.get('/answers/:id', (req, res) => {
     })
 });
 
-
-/**
- * EDIT route for listing_contract
- */
+// EDIT route for listing_contract
 router.put('/update',rejectUnauthenticated, (req, res) => {
   // console.log('UPDATE listing_contract SERVER HIT',req.body)
   console.log(req.body)
@@ -127,8 +121,6 @@ router.put('/update',rejectUnauthenticated, (req, res) => {
   })
 })
 
-
-
 // POST route listing_contract
 router.post('/save', (req, res) => {
   console.log('LISTING POST SERVER', req.body)
@@ -142,12 +134,9 @@ router.post('/save', (req, res) => {
     })
 })
 
-
 // DELETE route listing_contract
 router.delete('/delete/:id', (req, res) => {
-  console.log('delete/:id route hit for listing_contract')
-  const queryDelete = `DELETE FROM listing_contract WHERE "id"=$1`;
-  pool.query(queryDelete, [req.params.id])
+  pool.query(`DELETE FROM listing_contract WHERE "id"=$1`, [req.params.id])
     .then(response => {
       res.send(response.rows)
     }).catch(error => {
