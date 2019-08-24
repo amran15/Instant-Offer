@@ -11,7 +11,7 @@ const generateListing = (file_name, answers) => {
   // load the font you want to use
   var font = pdfWriter.getFontForFile(__dirname + "/fonts/Arial.ttf")
 
-  page1coords = [
+  var page1coords = [
     { text: "8", x_coord: 428, y_coord: 670 },
     { text: answers.DATE, x_coord: 390, y_coord: 689 },
     { text: answers.L3, x_coord: 350, y_coord: 652 },
@@ -27,7 +27,7 @@ const generateListing = (file_name, answers) => {
   page1coords.push(boolCoords(answers.L41, 507, 93))
   // }
 
-  page2coords = [
+  var page2coords = [
     { text: answers.L3, x_coord: 160, y_coord: 699 },
   ]
   // if (answers.L54) {
