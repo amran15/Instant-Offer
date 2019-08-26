@@ -26,7 +26,7 @@ class PurchaseAgreement extends Component {
         axios.post('api/purchase/save')
         .then(response => {
             console.log(response.data[0].id)
-            this.props.history.push(`/PurchaseAgreement/${response.data[0].id}`)
+            this.props.history.push(`/purchase/${response.data[0].id}`)
         })
     }
 

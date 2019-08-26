@@ -7,38 +7,29 @@ import {connect} from 'react-redux'
 
 class InfoPage extends Component {
   componentDidMount(){
-//  this.props.dispatch({type: 'FETCH_LISTING', payload: 3})
+    //  this.props.dispatch({type: 'FETCH_LISTING', payload: 3})
+    this.props.dispatch({type: 'FETCH_OFFER', payload: 2})
 
-
-
-this.props.dispatch({type: 'FETCH_OFFER', payload: 2})
-
-// this.props.dispatch({type:'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state})
+    // this.props.dispatch({type:'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state})
   }
-
-
-
 
   state={
-    id: 3,//this.props.reduxState.activeUser,
+    id: 3,
     answers: {
-      
-        L7A: true
-        // {lineNumber:"L4", answer:'updated'},
-        // {lineNumber:"L7", answer: 'id!'}
-      }
 
-
-
-  }
-    render() {
-      
-        return (
-            <p>
-                This is the InfoPage page
-            </p>
-        )
+      L7A: true
+      // {lineNumber:"L4", answer:'updated'},
+      // {lineNumber:"L7", answer: 'id!'}
     }
+  }
+  render() {
+
+    return (
+      <p>
+        This is the InfoPage page
+      </p>
+    )
+  }
 }
 
 const mapStateToProps = state => ({

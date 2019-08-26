@@ -2,7 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
-const PDF = require("../../src/pdfs/generate_pdfs")
+const PDF = require("../pdfs/generate_pdfs")
 const path = require('path')
 
 //GET route listing_contract 
@@ -12,7 +12,7 @@ router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
     .then(result => {
       const pdf_filename = "test.pdf"
       PDF.generateListing(pdf_filename, result.rows[0])
-      const pdf_path = path.join(__dirname, "/../../src/pdfs/signed_pdfs/", pdf_filename)
+      const pdf_path = path.join(__dirname, "../pdfs/signed_pdfs/", pdf_filename)
       res.sendFile(pdf_path)
     })
     .catch(error => {
@@ -122,12 +122,12 @@ router.put('/update',rejectUnauthenticated, (req, res) => {
 })
 
 // POST route listing_contract
-router.post('/save', rejectUnauthenticated, (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   console.log('LISTING POST SERVER', req.body)
-  const querySave = `INSERT INTO listing_contract VALUES(DEFAULT) RETURNING "id";`
+  const querySave = `INSERT INTO listing_contract ("BUYER_1") VALUES ('${req.body.BUYER_1}') RETURNING "id";`
   pool.query(querySave)
     .then(({ rows }) => {
-      res.send(rows);
+      res.send(rows[0]);
     }).catch(error => {
       console.log('error making INSERT for post listing_contract answers', error);
       res.sendStatus(500);

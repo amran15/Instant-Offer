@@ -5,10 +5,9 @@ import userSaga from './userSaga';
 
 import fetchListingAnswers from './fetchListingAnswers';
 import fetchPurchaseAnswers from './fetchPurchaseAnswers';
+import fetchDraftsSaga from './fetchDraftsSaga';
+import deleteDraftSaga from './deleteDraftSaga';
 
-
-import newListingContractForm from './newListingContractForm';
-import getListingDrafts from './fetchListingDrafts';
 import getListingSignedDocs from './fetchListingSignedDocs';
 import getPurchaseSignedDocs from './fetchPurchaseSignedDocs';
 
@@ -17,8 +16,6 @@ import newPurchaseAgreementForm from './newPurchaseAgreementForm';
 import pdfListing from './pdfListing';
 import pdfOffer from './pdfOffer';
 
-import deleteListingAnswer from './deleteListingAnswer';
-import deletePurchaseAnswerSaga from './deletePurchaseAnswer';
 import deleteListingDoc from './deleteListingDoc';
 import deletePurchaseDoc from './deletePurchaseDoc';
 import putAnswers from './putAnswers';
@@ -38,17 +35,15 @@ export default function* rootSaga() {
     loginSaga(),
     registrationSaga(),
     userSaga(),
+    fetchDraftsSaga(),
+    deleteDraftSaga(),
     fetchListingAnswers(),
     fetchPurchaseAnswers(),
-    getListingDrafts(),
     getListingSignedDocs(),
     getPurchaseSignedDocs(),
-    newListingContractForm(),
     newPurchaseAgreementForm(),
     pdfListing(),
     pdfOffer(),
-    deleteListingAnswer(),
-    deletePurchaseAnswerSaga(),
     putAnswers(),
     thisRootSaga(),
     putPurchaseAnswers(),

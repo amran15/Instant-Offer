@@ -78,7 +78,7 @@ class PurchaseCategory9 extends Component {
 
     handleSaveButton = () => {
         this.props.dispatch({ type: 'SAVE_ANSWERS_FOR_PURCHASE', payload: this.state })
-        this.props.history.push(`/PurchaseAgreement/${this.state.id}`)
+        this.props.history.push(`/purchase/${this.state.id}`)
     }
 
     render() {

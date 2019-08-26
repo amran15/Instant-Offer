@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import SignatureCanvas from 'react-signature-canvas';
+import MediaQuery from 'react-responsive';
 
 //Material UI       
 import Button from '@material-ui/core/Button';
@@ -11,6 +12,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 import Container from '@material-ui/core/Container';
 import { ThemeProvider } from '@material-ui/styles';
+
 
 
 const styles = {
@@ -43,7 +45,7 @@ class PurchaseSignature extends Component {
 
     //exit out of the signature page. return to the review page without saving.
     returnToReview = () => {
-        this.props.history.push(`/PurchaseAgreement/${this.state.id}`)
+        this.props.history.push(`/purchase/${this.state.id}`)
     }
 
     //this will save the signature once it has been trimmed
@@ -73,13 +75,25 @@ class PurchaseSignature extends Component {
             <>
                 <ThemeProvider theme={theme}>
                     <div>
-                        <div className="sig-canvas">
-                            <SignatureCanvas penColor="black" canvasProps={{ width: 390, height: 525, className: 'sigCanvas' }}
-                                ref={(ref) => { this.sigPad = ref }} />
-                            {
-                                SIGNATURE_BUYER_1 ? <img src={SIGNATURE_BUYER_1} alt="" /> : null
-                            }
-                        </div>
+                        <MediaQuery query="(orientation:portrait)">
+                            <div className="sig-canvas">
+                                <SignatureCanvas penColor="black" canvasProps={{ width: 390, height: 525, className: 'sigCanvas' }}
+                                    ref={(ref) => { this.sigPad = ref }} />
+                                {
+                                    SIGNATURE_BUYER_1 ? <img src={SIGNATURE_BUYER_1} alt="" /> : null
+                                }
+                            </div>
+                        </MediaQuery>
+                        <MediaQuery query="(orientation:landscape)">
+                            <div className="sig-canvas">
+                                <SignatureCanvas penColor="black"
+                                    canvasProps={{ width: 800, height: 390, className: 'sigCanvas' }}
+                                    ref={(ref) => { this.sigPad = ref }} />
+                                {
+                                    SIGNATURE_BUYER_1 ? <img src={SIGNATURE_BUYER_1} alt="" /> : null
+                                }
+                            </div>
+                        </MediaQuery>
 
                         <center>
                             <Container style={styles.Container}>
