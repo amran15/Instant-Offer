@@ -3,6 +3,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import SignatureCanvas  from 'react-signature-canvas';
 import MediaQuery from 'react-responsive';
+import './Signature.css'
 
 //Material UI
 import Button from '@material-ui/core/Button';
