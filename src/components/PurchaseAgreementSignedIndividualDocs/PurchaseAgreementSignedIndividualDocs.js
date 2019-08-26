@@ -5,9 +5,15 @@ import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import PreviewIcon from '@material-ui/icons/OpenInNew';
+// import DownloadIcon from '@material-ui/icons/SaveAlt';
+import swal from 'sweetalert';
 
 const styles = {
     title: {
+        fontSize: '10px',
         margin: '25px 0px 25px 40px',
     },
 };
@@ -19,37 +25,63 @@ class PurchaseAgreementSignedIndividualDocs extends Component {
         });
     }
 
+    // handleClick = (id) => {
+    //     this.props.dispatch({ type: 'FETCH_OFFER', payload: id })
+    // }
+
     handleClick = (id) => {
-        this.props.dispatch({ type: 'FETCH_OFFER', payload: id })
+        window.open(`http://localhost:5000/api/purchase/pdf/${id}`)
+    }
+
+    handleDelete = (doc) => {
+        swal({
+            title: "Confirm Delete",
+            text: "Once deleted, you will not be able to recover this file.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Your file has been deleted!", {
+                        icon: "success",
+                    });
+                    this.props.dispatch({ type: 'DELETE_LISTING_DOC', payload: doc })
+                } else {
+                    swal("Your file is safe!");
+                }
+            });
     }
 
     render() {
         return (
             <div>
-                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
                 {this.props.purchaseAgreementSignedDocs.map(signed => (
                     <div>
-                        <CardActionArea>
-                            <Card onClick={() => { this.handleClick(signed.id) }}>
-                                <Grid item xs={12} container spacing={3}>
-                                    <Grid item xs={11}>
-                                        <div style={styles.title}>
-                                            <h2>{signed.BUYER_1}'s Listing Contract</h2>
-                                            <h2>{signed.date}</h2>
-                                        </div>
-                                    </Grid>
-                                    <Grid
-                                        item xs={1}
-                                        className="arrow"
-                                        container
-                                        direction="row"
-                                        justify="center"
-                                        alignItems="center">
-                                        <i className="material-icons">arrow_forward_ios</i>
-                                    </Grid>
+                        <Card>
+                            <Grid item xs={12} container spacing={3}>
+                                <Grid item xs={10}>
+                                    <div style={styles.title}>
+                                        <h2>{signed.BUYER_1}'s Listing Contract</h2>
+                                    </div>
                                 </Grid>
-                            </Card>
-                        </CardActionArea>
+                                <Grid
+                                    item xs={2}
+                                    className="arrow"
+                                    container
+                                    direction="row"
+                                    justify="right"
+                                    alignItems="center"
+                                >
+                                    <IconButton onClick={() => { this.handleDelete(signed) }}>
+                                        <DeleteIcon />
+                                    </IconButton>
+                                    <IconButton onClick={() => { this.handleClick(signed.id) }}>
+                                        <PreviewIcon />
+                                    </IconButton>
+                                </Grid>
+                            </Grid>
+                        </Card>
                         <br />
                     </div>
                 ))}
