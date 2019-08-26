@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 //Material UI
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import PreviewIcon from '@material-ui/icons/OpenInNew';
@@ -24,10 +23,6 @@ class PurchaseAgreementSignedIndividualDocs extends Component {
             type: 'GET_PURCHASE_SIGNED_DOCS'
         });
     }
-
-    // handleClick = (id) => {
-    //     this.props.dispatch({ type: 'FETCH_OFFER', payload: id })
-    // }
 
     handleClick = (id) => {
         window.open(`http://localhost:5000/api/purchase/pdf/${id}`)
