@@ -39,7 +39,7 @@ class ListingCategory1 extends Component {
   //this function will target the back button and bring 
   //the user to the previous page
   handleClick = () => {
-    this.props.history.push(`/ListingContract/${this.state.id}`)
+    this.props.history.push(`/listing/${this.state.id}`)
   }
 
   //this function will target the NEXT 

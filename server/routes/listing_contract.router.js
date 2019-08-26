@@ -122,12 +122,12 @@ router.put('/update',rejectUnauthenticated, (req, res) => {
 })
 
 // POST route listing_contract
-router.post('/save', rejectUnauthenticated, (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   console.log('LISTING POST SERVER', req.body)
-  const querySave = `INSERT INTO listing_contract VALUES(DEFAULT) RETURNING "id";`
+  const querySave = `INSERT INTO listing_contract ("BUYER_1") VALUES ('${req.body.BUYER_1}') RETURNING "id";`
   pool.query(querySave)
     .then(({ rows }) => {
-      res.send(rows);
+      res.send(rows[0]);
     }).catch(error => {
       console.log('error making INSERT for post listing_contract answers', error);
       res.sendStatus(500);

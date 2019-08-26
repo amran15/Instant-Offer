@@ -17,7 +17,7 @@ const styles = {
 class PurchaseAgreementDraftsIndividualDocs extends Component {
     componentDidMount = () => {
         this.props.dispatch({
-            type: 'GET_PURCHASE_DRAFTS'
+            type: 'FETCH_PURCHASE_DRAFTS'
         });
     }
 
@@ -43,7 +43,7 @@ class PurchaseAgreementDraftsIndividualDocs extends Component {
 
     handleEdit = (draft) => {
         console.log('draft_id', draft.id)
-        this.props.history.push(`/ListingContract/${draft.id}`)
+        this.props.history.push(`/listing/${draft.id}`)
     }
 
     render() {

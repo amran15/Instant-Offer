@@ -43,7 +43,7 @@ class PurchaseSignature extends Component {
 
     //exit out of the signature page. return to the review page without saving.
     returnToReview = () => {
-        this.props.history.push(`/PurchaseAgreement/${this.state.id}`)
+        this.props.history.push(`/purchase/${this.state.id}`)
     }
 
     //this will save the signature once it has been trimmed
