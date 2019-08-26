@@ -10,8 +10,16 @@ router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
   const queryText = `SELECT * FROM listing_contract WHERE "SIGNATURE_BUYER_1" IS not NULL`;
   pool.query(queryText)
     .then(result => {
-      const pdf_filename = "test.pdf"
-      PDF.generateListing(pdf_filename, result.rows[0])
+      const answers = result.rows[0]
+
+      var pdf_filename = `${answers.BUYER_1 || ""}'s Listing Contract`
+      if (answers.L3) {
+        pdf_filename += `for ${answers.L3}`
+      }
+      pdf_filename += ".pdf"
+      console.log(pdf_filename)
+
+      PDF.generateListing(pdf_filename, answers)
       const pdf_path = path.join(__dirname, "../pdfs/signed_pdfs/", pdf_filename)
       res.sendFile(pdf_path)
     })

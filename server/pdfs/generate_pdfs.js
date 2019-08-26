@@ -10,8 +10,6 @@ const generateListing = (file_name, answers) => {
   const source_file = __dirname + "/original_pdfs/listing_contract.pdf"
   const destination_path = signed_pdfs_dir + file_name
 
-  console.log(source_file, " ", destination_path)
-
   // create a pdf writer with path to pdf file
   var pdfWriter = hummus.createWriterToModify(
     source_file, {modifiedFilePath: destination_path}

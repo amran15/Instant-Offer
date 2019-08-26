@@ -2,6 +2,32 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+const PDF = require("../pdfs/generate_pdfs")
+const path = require('path')
+
+//GET route purchase_agreement 
+router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
+  const queryText = `SELECT * FROM purchase_agreement WHERE "SIGNATURE_BUYER_1" IS not NULL`;
+  pool.query(queryText)
+    .then(result => {
+      const answers = result.rows[0]
+
+      var pdf_filename = `${answers.BUYER_1 || ""}'s Purchase Agreement`
+      if (answers.L3) {
+        pdf_filename += `for ${answers.L3}`
+      }
+      pdf_filename += ".pdf"
+      console.log(pdf_filename)
+
+      PDF.generatePurchase(pdf_filename, answers)
+      const pdf_path = path.join(__dirname, "../pdfs/signed_pdfs/", pdf_filename)
+      res.sendFile(pdf_path)
+    })
+    .catch(error => {
+      console.log('error generating purchase_agreement pdf:', error);
+      res.sendStatus(500);
+    })
+});
 
 //GET route for signed purchase_agreement
 router.get('/signedDocs', rejectUnauthenticated, (req, res) => {
@@ -13,12 +39,12 @@ router.get('/signedDocs', rejectUnauthenticated, (req, res) => {
             res.send(result.rows)
         })
         .catch(error => {
-            console.log('error making SELECT for listing contract:', error);
+            console.log('error making SELECT for purchase_agreement contract:', error);
             res.sendStatus(500);
         })
 });
 
-// POST route listing_contract
+// POST route purchase_agreement
 router.post('/', rejectUnauthenticated, (req, res) => {
   console.log('PURCHASE POST SERVER', req.body)
   const querySave = `INSERT INTO purchase_agreement ("BUYER_1") VALUES ('${req.body.BUYER_1}') RETURNING "id";`
@@ -26,12 +52,12 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     .then(({ rows }) => {
       res.send(rows[0]);
     }).catch(error => {
-      console.log('error making INSERT for post listing_contract answers', error);
+      console.log('error making INSERT for post purchase_agreement answers', error);
       res.sendStatus(500);
     })
 })
 
-//GET route for draft listing_contracts
+//GET route for draft purchase_agreement
 router.get('/drafts', rejectUnauthenticated, (req, res) => {
   const queryText = `SELECT * FROM purchase_agreement WHERE "SIGNATURE_BUYER_1" IS NULL`;
   pool.query(queryText)
@@ -39,7 +65,7 @@ router.get('/drafts', rejectUnauthenticated, (req, res) => {
       res.send(result.rows)
     })
     .catch(error => {
-      console.log('error making SELECT for listing contract:', error);
+      console.log('error making SELECT for purchase_agreement contract:', error);
       res.sendStatus(500);
     })
 });
