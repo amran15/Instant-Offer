@@ -74,6 +74,7 @@ class PurchaseAgreementSignedIndividualDocs extends Component {
                                     <IconButton onClick={() => { this.handleClick(signed.id) }}>
                                         <PreviewIcon />
                                     </IconButton>
+
                                 </Grid>
                             </Grid>
                         </Card>
