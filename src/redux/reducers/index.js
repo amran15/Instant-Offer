@@ -4,18 +4,13 @@ import loginMode from './loginModeReducer';
 import user from './userReducer';
 
 // import listingContract1 from './listingContract1Reducer';
-import createNewListingForm from './createNewListingFormReducer';
-import listingDrafts from './listingDraftsReducer';
+import drafts from './draftsReducer';
 import listingSignedDocs from './listingSignedDocsReducer';
 import listingAnswers from './listingAnswersReducer';
 import setListingAnswers from './setListingAnswersReducer';
 import purchaseAnswers from './purchaseAnswersReducer';
 import purchaseAgreementSignedDocs from './purchaseSignedDocsReducer';
-import createNewPurchaseForm from './createNewPurchaseFormReducer';
-import deletePurchaseAnswerReducer from './deletePurchaseAnswerReducer';
-import purchaseDrafts from './purchaseDraftReducer';
 import signReducer from './signReducer';
-import activeUserReducer from './activeUserReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -30,17 +25,12 @@ const rootReducer = combineReducers({
   
   
  //creates new Listing form
-  createNewListingForm, 
-  listingDrafts,
+  drafts,
   listingSignedDocs,
   purchaseAgreementSignedDocs,
   listingAnswers,
   setListingAnswers,
   purchaseAnswers,
-  purchaseDrafts,
-  createNewPurchaseForm,
-  deletePurchaseAnswerReducer,
-  activeUserReducer,
   signReducer,
 });
 

@@ -18,6 +18,32 @@ router.get('/signedDocs', rejectUnauthenticated, (req, res) => {
         })
 });
 
+// POST route listing_contract
+router.post('/', rejectUnauthenticated, (req, res) => {
+  console.log('PURCHASE POST SERVER', req.body)
+  const querySave = `INSERT INTO purchase_agreement ("BUYER_1") VALUES ('${req.body.BUYER_1}') RETURNING "id";`
+  pool.query(querySave)
+    .then(({ rows }) => {
+      res.send(rows[0]);
+    }).catch(error => {
+      console.log('error making INSERT for post listing_contract answers', error);
+      res.sendStatus(500);
+    })
+})
+
+//GET route for draft listing_contracts
+router.get('/drafts', rejectUnauthenticated, (req, res) => {
+  const queryText = `SELECT * FROM purchase_agreement WHERE "SIGNATURE_BUYER_1" IS NULL`;
+  pool.query(queryText)
+    .then(result => {
+      res.send(result.rows)
+    })
+    .catch(error => {
+      console.log('error making SELECT for listing contract:', error);
+      res.sendStatus(500);
+    })
+});
+
 // GET route purchase_agreement
 router.get('/', rejectUnauthenticated, (req, res) => {
     console.log('GET PURCHASE AGREEMENT  SERVER HIT');

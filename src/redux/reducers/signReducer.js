@@ -1,6 +1,3 @@
-
-
-
 const signReducer = (state = '', action) => {
     switch (action.type) {
         case 'SET_SIGNATURE':
@@ -10,10 +7,6 @@ const signReducer = (state = '', action) => {
             return state;
     }
 }
-
-
-
-
 
 
 // const signReducer = combineReducers({

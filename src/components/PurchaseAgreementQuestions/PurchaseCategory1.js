@@ -51,7 +51,7 @@ class PurchaseCategory1 extends Component {
         }
 
     handleClick = () => {
-        this.props.history.push(`/PurchaseAgreement/${this.state.id}`)
+        this.props.history.push(`/purchase/${this.state.id}`)
     }
 
     handleClickNext = () => {

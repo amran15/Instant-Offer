@@ -13,7 +13,8 @@ import Nav from '../Nav/Nav';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
+import Home from '../Home/Home';
+import NewDocument from '../NewDocument/NewDocument';
 import InfoPage from '../InfoPage/InfoPage';
 import Drafts from '../Drafts/Drafts';
 import PurchaseAgreement from '../PurchaseAgreement/PurchaseAgreement';
@@ -70,7 +71,12 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/home"
-              component={UserPage}
+              component={Home}
+            />
+            <ProtectedRoute
+              exact
+              path="/new/:docType"
+              component={NewDocument}
             />
             <ProtectedRoute
               exact
@@ -84,7 +90,7 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/ListingContract/:id"
+              path="/listing/:id"
               component={ListingContract}
             />
              <ProtectedRoute
@@ -134,7 +140,7 @@ class App extends Component {
             /> */}
             <ProtectedRoute
               exact
-              path="/PurchaseAgreement/:id"
+              path="/purchase/:id"
               component={PurchaseAgreement}
             />
              <ProtectedRoute

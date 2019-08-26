@@ -40,7 +40,7 @@ class ListingCategory8 extends Component {
     handleSaveButton = () => {
         console.log("payload", this.state)
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
-        this.props.history.push(`/ListingContract/${this.state.id}`)
+        this.props.history.push(`/listing/${this.state.id}`)
     }
 
     render() {
