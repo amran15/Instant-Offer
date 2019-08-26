@@ -5,19 +5,19 @@ import { withRouter } from 'react-router';
 //Material UI
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import swal from 'sweetalert';
+import IconButton from '@material-ui/core/IconButton';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+
 const styles = {
   title: {
-    // textAlign: 'center',
-    // fontSize: '20px',
+    fontSize: '10px',
     margin: '25px 0px 25px 40px',
-    // marginTop: '40px',
   },
 };
 
 class IndividualDrafts extends Component {
-
   componentDidMount = () => {
     this.props.dispatch({
       type: 'GET_DRAFTS', payload: this.props.docType
@@ -55,41 +55,32 @@ class IndividualDrafts extends Component {
   render() {
     return (
       <div>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
         {this.props.drafts.map(draft => (
           <div>
-            <CardActionArea>
-              <Card>
-                <Grid item xs={12} container spacing={3}>
-                  <Grid item xs={10}>
-                    <div style={styles.title}>
-                      <h2>{draft.BUYER_1}'s Listing Contract</h2>
-                      <h2>{draft.DATE}</h2>
-                    </div>
-                  </Grid>
-                  <Grid
-                    item xs={1}
-                    className="arrow"
-                    container
-                    direction="row"
-                    justify="center"
-                    alignItems="center"
-                    onClick={() => { this.handleEdit(draft) }}>
-                    <i class="material-icons">edit</i>
-                  </Grid>
-                  <Grid
-                    item xs={1}
-                    className="arrow"
-                    container
-                    direction="row"
-                    justify="center"
-                    alignItems="center"
-                    onClick={() => { this.handleDelete(draft) }}>
-                    <i class="material-icons">delete</i>
-                  </Grid>
+            <Card>
+              <Grid item xs={12} container spacing={3}>
+                <Grid item xs={10}>
+                  <div style={styles.title}>
+                    <h2>{draft.BUYER_1}'s Listing Contract</h2>
+                  </div>
                 </Grid>
-              </Card>
-            </CardActionArea>
+                <Grid
+                  item xs={2}
+                  className="arrow"
+                  container
+                  direction="row"
+                  justify="right"
+                  alignItems="center"
+                >
+                  <IconButton onClick={() => { this.handleDelete(draft) }}>
+                    <DeleteIcon />
+                  </IconButton>
+                  <IconButton onClick={() => { this.handleEdit(draft.id) }}>
+                    <EditIcon />
+                  </IconButton>
+                </Grid>
+              </Grid>
+            </Card>
             <br />
           </div>
         ))}
