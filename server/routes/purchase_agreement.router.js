@@ -34,7 +34,6 @@ router.get('/signedDocs', rejectUnauthenticated, (req, res) => {
     const queryText = `SELECT * FROM purchase_agreement WHERE "SIGNATURE_BUYER_1" IS not NULL`;
     pool.query(queryText)
         .then(result => {
-          console.log("wow")
             // console.log(result.rows);
             res.send(result.rows)
         })
