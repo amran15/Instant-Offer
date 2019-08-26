@@ -48,12 +48,13 @@ class PurchaseCategory9 extends Component {
             L394C: checkCheckbox(this.props.purchaseAnswers.L394C),
             L394D: checkCheckbox(this.props.purchaseAnswers.L394D),
             L394E: checkCheckbox(this.props.purchaseAnswers.L394E),
+            L395: checkCheckbox(this.props.purchaseAnswers.L395),
             L396A: checkString(this.props.purchaseAnswers.L396A),
-            L397: checkString(this.props.purchaseAnswers.L397),
             L396B: checkCheckbox(this.props.purchaseAnswers.L396B),
             L396C: checkCheckbox(this.props.purchaseAnswers.L396C),
             L396D: checkCheckbox(this.props.purchaseAnswers.L396D),
             L396E: checkCheckbox(this.props.purchaseAnswers.L396E),
+            L397: checkString(this.props.purchaseAnswers.L397),
             L403: checkCheckbox(this.props.purchaseAnswers.L403),
             L404: checkCheckbox(this.props.purchaseAnswers.L404),
             L454: checkString(this.props.purchaseAnswers.L454),
@@ -64,12 +65,12 @@ class PurchaseCategory9 extends Component {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         this.setState({
-            ...this.state, 
+            ...this.state,
             answers: {
-              ...this.state.answers, [propertyName]: value,
+                ...this.state.answers, [propertyName]: value,
             }
-          })
-        }
+        })
+    }
 
     handleClickBack = () => {
         this.props.history.push(`/PurchaseCategory8/${this.state.id}`)
@@ -86,7 +87,6 @@ class PurchaseCategory9 extends Component {
                 <pre>
                     {JSON.stringify(this.state, null, 2)}
                 </pre>
-
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -96,7 +96,7 @@ class PurchaseCategory9 extends Component {
                             <center>
                                 <h3>Previously Written Purchase Agreement</h3>
                             </center>
-                            <h4>Is this Purchase Agreement subjecto to cancellation of a previously written Purchase Agreement?</h4>
+                            <h4>Is this Purchase Agreement subject to cancellation of a previously written Purchase Agreement?</h4>
                             <RadioGroup
                                 value={this.state.answers.L250}
                                 onChange={this.handleChangeForAdditionalProvision('L250')}>
@@ -464,7 +464,7 @@ class PurchaseCategory9 extends Component {
                                         />}
                                     label="Dual Agency representation DOES NOT apply in this transaction."
                                 />
-                                <br/>
+                                <br />
                                 <FormControlLabel
                                     control={
                                         <Checkbox

@@ -54,7 +54,7 @@ const generateListing = (file_name, answers) => {
   page2coords.push(boolCoords(answers.L71, 507, 345))
   // }
   // if (answers.L72) {
-  page2coords.push(boolCoords(answers.L72, 236, 321))
+  page2coords.push(boolCoords(answers.L72, 242, 321))
   // }
   // if (answers.L72) {
   page2coords.push(boolCoords(answers.L72, 326, 297, 38))

@@ -4,7 +4,7 @@ const purchaseSignedDocsReducer = (state = [], action) => {
       return action.payload
     case 'DELETE_PURCHASE_AGREEMENT':
       return state.filter((value, index, arr) => {
-        return value.id != action.payload;
+        return value.id !== action.payload;
       })
     default:
       return state;

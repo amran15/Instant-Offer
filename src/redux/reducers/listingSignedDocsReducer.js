@@ -5,7 +5,7 @@ const listingSignedDocsReducer = (state = [], action) => {
     case 'DELETE_LISTING_CONTRACT':
       console.log('inDeleteListingContract')
       return state.filter((value, index, arr) => {
-        return value.id != action.payload;
+        return value.id !== action.payload;
       })
     default:
       return state;

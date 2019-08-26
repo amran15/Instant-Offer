@@ -20,7 +20,7 @@ class PurchaseCategory4 extends Component {
             L49: checkBoolean(this.props.purchaseAnswers.L49),
             L53: checkBoolean(this.props.purchaseAnswers.L53),
             L54: checkBoolean(this.props.purchaseAnswers.L54),
-            L55: checkString(this.props.purchaseAnswers.L55),
+            L55: checkString(this.props.purchaseAnswers.L55) || '',
             L57: checkCheckbox(this.props.purchaseAnswers.L57),
             L58: checkCheckbox(this.props.purchaseAnswers.L58),
             L59: checkCheckbox(this.props.purchaseAnswers.L59),
