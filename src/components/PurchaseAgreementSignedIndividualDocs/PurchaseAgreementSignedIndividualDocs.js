@@ -41,7 +41,7 @@ class PurchaseAgreementSignedIndividualDocs extends Component {
                     swal("Your file has been deleted!", {
                         icon: "success",
                     });
-                    this.props.dispatch({ type: 'DELETE_LISTING_DOC', payload: doc })
+                    this.props.dispatch({ type: 'DELETE_PURCHASE_DOC', payload: doc })
                 } else {
                     swal("Your file is safe!");
                 }
