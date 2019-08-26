@@ -1,16 +1,30 @@
 const hummus = require("hummus")
+const fs = require('fs')
 
 const generateListing = (file_name, answers) => {
 
+  const signed_pdfs_dir = __dirname + "/signed_pdfs/"
+  if ( !fs.existsSync(signed_pdfs_dir) ) {
+    fs.mkdirSync(signed_pdfs_dir);
+  }
   const source_file = __dirname + "/original_pdfs/listing_contract.pdf"
-  const destination_path = __dirname + "/signed_pdfs/" + file_name
+  const destination_path = signed_pdfs_dir + file_name
+
+  console.log(source_file, " ", destination_path)
 
   // create a pdf writer with path to pdf file
-  var pdfWriter = hummus.createWriterToModify(source_file, {modifiedFilePath: destination_path})
+  var pdfWriter = hummus.createWriterToModify(
+    source_file, {modifiedFilePath: destination_path}
+  )
 
   // load the font you want to use
   var font = pdfWriter.getFontForFile(__dirname + "/fonts/Arial.ttf")
 
+  // page#coords is an array of objects representing coordinates.
+  // page1coords = coordinates for Page 1
+  // Each object has three keys: text (column from database), x & y coordinates
+  // If the column is a boolean, use the boolCoords() function below and then
+  // push it to the page#coords array.
   var page1coords = [
     { text: "8", x_coord: 428, y_coord: 670 },
     { text: answers.DATE, x_coord: 390, y_coord: 689 },
@@ -66,7 +80,6 @@ const writeTextToPage = (pdfWriter, page, content, font) => {
   // get the context. you will use this to write as much as you need
   var pageContext = pageModifier.startContext().getContext()
 
-
   // data has text, x_coord, and y_coord keys
   // will remove red color and add logic to handle null after dropping coords
   content.map(data => {
@@ -78,6 +91,9 @@ const writeTextToPage = (pdfWriter, page, content, font) => {
   pageModifier.endContext().writePage();
 }
 
+// Function to handle booleans. Will place the X in the correct spot. If the
+// column = false, the function adds the adjustment to the x_coord to push the X
+// to the right box. If the adjustment is wrong, change the number.
 const boolCoords = (bool, x_coord, y_coord, adjustment = 45) => {
   if (!bool) {
     x_coord += adjustment
