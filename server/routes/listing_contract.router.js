@@ -4,6 +4,7 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 const PDF = require("../pdfs/generate_pdfs")
 const path = require('path')
+const fs = require('fs')
 
 //GET route listing_contract 
 router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
@@ -17,10 +18,12 @@ router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
         pdf_filename += `for ${answers.L3}`
       }
       pdf_filename += ".pdf"
-      console.log(pdf_filename)
-
       PDF.generateListing(pdf_filename, answers)
       const pdf_path = path.join(__dirname, "../pdfs/signed_pdfs/", pdf_filename)
+      pool.query(
+        `update listing_contract set pdf_path = $1 where id = $2;`,
+        [pdf_path, req.params.id]
+      )
       res.sendFile(pdf_path)
     })
     .catch(error => {
@@ -144,9 +147,13 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
 // DELETE route listing_contract
 router.delete('/delete/:id', rejectUnauthenticated ,(req, res) => {
-  pool.query(`DELETE FROM listing_contract WHERE "id"=$1`, [req.params.id])
+  pool.query(`DELETE FROM listing_contract WHERE "id"=$1 returning pdf_path`, [req.params.id])
     .then(response => {
-      res.send(response.rows)
+      const pdf_path = response.rows[0].pdf_path
+      if ( fs.existsSync(pdf_path) ) {
+        fs.unlinkSync(response.rows[0].pdf_path)
+      }
+      res.sendStatus(200)
     }).catch(error => {
       console.log('error making DELETE for listing contract', error);
       res.sendStatus(500);
