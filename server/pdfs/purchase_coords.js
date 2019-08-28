@@ -211,7 +211,7 @@ const purchaseCoords = (answers) => {
   page6coords.push(boolCoords(answers.L257D, 435, 190))
   // }
   // if (answers.L258A) {
-  page6coords.push(boolCoords(answers.L258A, 20, 348))
+  page6coords.push(boolCoords(answers.L258A, 20, 173))
   // }
 
 
@@ -299,11 +299,32 @@ const purchaseCoords = (answers) => {
   var page10coords = [
     { text: answers.DATE, x_coord: 425, y_coord: 731 },
     { text: answers.L12, x_coord: 160, y_coord: 715 },
-
+    // if (answers.L403) {
+    { text: "X", x_coord: 65, y_coord: 652 },
+    // if (answers.L404D {
+    { text: "X", x_coord: 65, y_coord: 632 },
+    { text: "sig_path", x_coord: 380, y_coord: 448 },
   ]
 
+  var page11coords = [
+    { text: answers.DATE, x_coord: 425, y_coord: 731 },
+    { text: answers.L12, x_coord: 160, y_coord: 708 },
+    { text: answers.L454, x_coord: 110, y_coord: 584 },
+  ]
 
-  return [page1coords, page2coords, page3coords, page4coords, page5coords, page6coords, page7coords, page8coords, page9coords, page10coords]
+  var page12coords = [
+    { text: answers.DATE, x_coord: 425, y_coord: 731 },
+    { text: answers.L12, x_coord: 160, y_coord: 708 },
+    { text: "sig_path", x_coord: 375, y_coord: 483 },
+    { text: "sig_path", x_coord: 395, y_coord: 135 },
+  ]
+  page12coords.push(boolCoords(answers.L494, 136, 579))
+
+  var page13coords = [
+    { text: "sig_path", x_coord: 56, y_coord: 135 },
+  ]
+
+  return [page1coords, page2coords, page3coords, page4coords, page5coords, page6coords, page7coords, page8coords, page9coords, page10coords, page11coords, page12coords, page13coords]
 
 }
 
