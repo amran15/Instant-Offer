@@ -52,25 +52,69 @@ const generateListing = (file_name, answers) => {
   page2coords.push(boolCoords(answers.L71, 507, 345))
   // }
   // if (answers.L72) {
-  page2coords.push(boolCoords(answers.L72, 242, 321))
+  page2coords.push(boolCoords(answers.L72, 236, 321))
   // }
   // if (answers.L72) {
   page2coords.push(boolCoords(answers.L72, 326, 297, 38))
   // }
 
+  var page3coords = [
+    { text: answers.L3, x_coord: 160, y_coord: 699 },
+    { text: answers.L115, x_coord: 300, y_coord: 400},
+    { text: answers.L118, x_coord: 355, y_coord: 358},
+    { text: answers.L119, x_coord: 80, y_coord: 340},
+    { text: answers.L121, x_coord: 100, y_coord: 306},
+    { text: answers.L121, x_coord: 110, y_coord: 173},
+  ]
+
+  var page4coords = [
+    { text: answers.L3, x_coord: 160, y_coord: 699 },
+    { text: answers.L148B, x_coord: 90, y_coord: 606 },
+    { text: answers.L148C, x_coord: 275, y_coord: 606 },
+    { text: answers.L150B, x_coord: 90, y_coord: 577 },
+    { text: answers.L150C, x_coord: 275, y_coord: 577 },
+    { text: answers.L152B, x_coord: 120, y_coord: 544 },
+    { text: answers.L165A, x_coord: 80, y_coord: 333 },
+  ]
+  page4coords.push(boolCoords(answers.L146, 258, 642))
+  page4coords.push(boolCoords(answers.L148A, 20, 604))
+  page4coords.push(boolCoords(answers.L150A, 20, 575))
+  page4coords.push(boolCoords(answers.L152A, 20, 544))
+  page4coords.push(boolCoords(answers.L163, 20, 370))
+  page4coords.push(boolCoords(answers.L164, 20, 354))
+  page4coords.push(boolCoords(answers.L175, 215, 178))
+
+  var page5coords = [
+    { text: answers.L3, x_coord: 160, y_coord: 701 },
+    { text: answers.COMPANY, x_coord: 200, y_coord: 472 },
+    { text: answers.SIGNATURE_BUYER_1, x_coord: 375, y_coord: 454 },
+    { text: answers.DATE, x_coord: 375, y_coord: 415 },
+  ]
+  page5coords.push(boolCoords(answers.L196, 20, 524))
+  page5coords.push(boolCoords(answers.L198, 20, 498))
+
+  var page6coords = [
+    { text: answers.L3, x_coord: 160, y_coord: 702 },
+    { text: answers.L237, x_coord: 110, y_coord: 621 },
+    { text: answers.SIGNATURE_BUYER_1, x_coord: 425, y_coord: 492 },
+    { text: answers.DATE, x_coord: 340, y_coord: 454 },
+    { text: answers.BUYER_1_ADDRESS, x_coord: 340, y_coord: 415 },
+    { text: answers.BUYER_1_PHONE, x_coord: 340, y_coord: 377 },
+    { text: answers.BUYER_1_EMAIL, x_coord: 340, y_coord: 337 },
+  ]
+
+  var page7coords = [
+    { text: answers.SIGNATURE_BUYER_1, x_coord: 50, y_coord: 134 },
+    { text: answers.DATE, x_coord: 225 , y_coord: 134 },
+  ]
+
   writeTextToPage(pdfWriter, 0, page1coords, font)
   writeTextToPage(pdfWriter, 1, page2coords, font)
-  // writeTextToPage(pdfWriter, 2, page3coords, font)
-  // writeTextToPage(pdfWriter, 3, page4coords, font)
-  // writeTextToPage(pdfWriter, 4, page5coords, font)
-  // writeTextToPage(pdfWriter, 5, page6coords, font)
-  // writeTextToPage(pdfWriter, 6, page7coords, font)
-  // writeTextToPage(pdfWriter, 7, page8coords, font)
-  // writeTextToPage(pdfWriter, 8, page9coords, font)
-  // writeTextToPage(pdfWriter, 9, page10coords, font)
-  // writeTextToPage(pdfWriter, 10, page11coords, font)
-  // writeTextToPage(pdfWriter, 11, page12coords, font)
-  // writeTextToPage(pdfWriter, 12, page13coords, font)
+  writeTextToPage(pdfWriter, 2, page3coords, font)
+  writeTextToPage(pdfWriter, 3, page4coords, font)
+  writeTextToPage(pdfWriter, 4, page5coords, font)
+  writeTextToPage(pdfWriter, 5, page6coords, font)
+  writeTextToPage(pdfWriter, 6, page7coords, font)
 
   // close the pdfwriter
   pdfWriter.end();
