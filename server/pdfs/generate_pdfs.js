@@ -3,7 +3,7 @@ const fs = require('fs')
 const listingCoords = require("./listing_coords.js")
 const purchaseCoords = require("./purchase_coords.js")
 
-const generatePDF = (file_name, type, answers) => {
+const generatePDF = (file_name, type, answers, sig_path) => {
 
   const signed_pdfs_dir = __dirname + "/signed_pdfs/"
   if ( !fs.existsSync(signed_pdfs_dir) ) {
@@ -22,22 +22,23 @@ const generatePDF = (file_name, type, answers) => {
 
   // create a pdf writer with path to pdf file
   var pdfWriter = hummus.createWriterToModify(
-    source_file, {modifiedFilePath: destination_path}
+    source_file, {modifiedFilePath: destination_path, log: __dirname + "log.txt"}
   )
 
   // load the font you want to use
   const font = pdfWriter.getFontForFile(__dirname + "/fonts/Arial.ttf")
 
-
   for (i =0; i < coords.length; i++) {
-    writeTextToPage(pdfWriter, i, coords[i], font)
+  // for (i =0; i < 5; i++) {
+    writeTextToPage(pdfWriter, i, coords[i], font, sig_path)
   }
   // close the pdfwriter
   pdfWriter.end();
 }
 
 // expect content to be an array of text and x, y coordinates
-const writeTextToPage = (pdfWriter, page, content, font) => {
+const writeTextToPage = (pdfWriter, page, content, font, sig_path) => {
+
   // PDFPageModifier takes a PDFWriter, the page number
   var pageModifier = new hummus.PDFPageModifier(pdfWriter, page, true);
 
@@ -47,11 +48,17 @@ const writeTextToPage = (pdfWriter, page, content, font) => {
   // data has text, x_coord, and y_coord keys
   // will remove red color and add logic to handle null after dropping coords
   content.map(data => {
-    // if (data.text != null) {
-    pageContext.writeText(data.text, data.x_coord, data.y_coord, { color: "red", font: font, size: 10 });
-
+    if (data.text === "sig_path") {
+      console.log(sig_path)
+      // sig_path = "/Users/josephwan/Desktop/favicon_green.png"
+      pageContext.drawImage(data.x_coord, data.y_coord, sig_path)
+    } else {
+      // if (data.text != null) {
+      pageContext.writeText(data.text, data.x_coord, data.y_coord, { color: "red", font: font, size: 10 });
+    }
   })
-  // close the context and write the page
+
+  // // close the context and write the page
   pageModifier.endContext().writePage();
 }
 

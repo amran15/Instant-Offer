@@ -5,25 +5,41 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 const generatePDF = require("../pdfs/generate_pdfs")
 const path = require('path')
 const fs = require('fs')
+var base64Img = require('base64-img');
+
 
 //GET route listing_contract 
 router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
-  const queryText = `SELECT * FROM listing_contract WHERE "SIGNATURE_BUYER_1" IS not NULL`;
+  const queryText = `SELECT * FROM listing_contract WHERE id = ${req.params.id}`;
   pool.query(queryText)
     .then(result => {
       const answers = result.rows[0]
 
+      const signature_dir = path.join(__dirname, "../pdfs/signatures/")
+      if ( !fs.existsSync(signature_dir) ) {
+        fs.mkdirSync(signature_dir);
+      }
+      const name = `${answers.BUYER_1 || ""}_signature`
+      const sig_path = signature_dir + `${name}.png`
+
       var pdf_filename = `${answers.BUYER_1 || ""}'s Listing Contract`
+
+      base64Img.imgSync(answers.SIGNATURE_BUYER_1,signature_dir, name, function(err, filepath) {
+        console.log(filepath)
+        console.log(sig_path)
+      });
+
       if (answers.L3) {
         pdf_filename += `for ${answers.L3}`
       }
       pdf_filename += ".pdf"
-      generatePDF(pdf_filename, "listing", answers)
+      generatePDF(pdf_filename, "listing", answers, sig_path)
       const pdf_path = path.join(__dirname, "../pdfs/signed_pdfs/", pdf_filename)
       pool.query(
         `update listing_contract set pdf_path = $1 where id = $2;`,
         [pdf_path, req.params.id]
       )
+      fs.unlinkSync(sig_path)
       res.sendFile(pdf_path)
     })
     .catch(error => {
@@ -112,10 +128,10 @@ router.put('/update',rejectUnauthenticated, (req, res) => {
       client.query('BEGIN').then(()=>{
         const updatePromises = Object.entries(req.body.answers).map(([lineNumber, answer])=>{
           return pool.query(`
-                        update listing_contract
-                        set "${lineNumber}" = $1
-                        where id = $2;
-                    `,[answer, req.body.id]).catch(err => shouldAbort(err, res))
+          update listing_contract
+          set "${lineNumber}" = $1
+          where id = $2;
+          `,[answer, req.body.id]).catch(err => shouldAbort(err, res))
         })
         Promise.all(updatePromises).then(() => {
           if(!alreadyErroredOut) {

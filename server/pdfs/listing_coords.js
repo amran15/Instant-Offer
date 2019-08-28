@@ -71,7 +71,7 @@ const listingCoords = (answers) => {
   var page5coords = [
     { text: answers.L3, x_coord: 160, y_coord: 701 },
     { text: answers.COMPANY, x_coord: 200, y_coord: 472 },
-    { text: answers.SIGNATURE_BUYER_1, x_coord: 375, y_coord: 454 },
+    { text: "sig_path", x_coord: 375, y_coord: 454 },
     { text: answers.DATE, x_coord: 375, y_coord: 415 },
   ]
   page5coords.push(boolCoords(answers.L196, 20, 524))
@@ -80,7 +80,7 @@ const listingCoords = (answers) => {
   var page6coords = [
     { text: answers.L3, x_coord: 160, y_coord: 702 },
     { text: answers.L237, x_coord: 110, y_coord: 621 },
-    { text: answers.SIGNATURE_BUYER_1, x_coord: 425, y_coord: 492 },
+    { text: "sig_path", x_coord: 425, y_coord: 492 },
     { text: answers.DATE, x_coord: 340, y_coord: 454 },
     { text: answers.BUYER_1_ADDRESS, x_coord: 340, y_coord: 415 },
     { text: answers.BUYER_1_PHONE, x_coord: 340, y_coord: 377 },
@@ -88,7 +88,7 @@ const listingCoords = (answers) => {
   ]
 
   var page7coords = [
-    { text: answers.SIGNATURE_BUYER_1, x_coord: 50, y_coord: 134 },
+    { text: "sig_path", x_coord: 50, y_coord: 134 },
     { text: answers.DATE, x_coord: 225 , y_coord: 134 },
   ]
   return [page1coords, page2coords, page3coords, page4coords, page5coords, page6coords, page7coords]
