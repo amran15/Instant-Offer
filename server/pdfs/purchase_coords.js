@@ -45,4 +45,4 @@ const purchaseCoords = (answers) => {
 
 }
 
-export default purchaseCoords
+module.exports = purchaseCoords

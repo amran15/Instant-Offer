@@ -1,7 +1,7 @@
 const hummus = require("hummus")
 const fs = require('fs')
-var listingCoords = require("./listing_coords.js")
-// const purchaseCoords = require("./purchaseCoords")
+const listingCoords = require("./listing_coords.js")
+const purchaseCoords = require("./purchase_coords.js")
 
 const generatePDF = (file_name, type, answers) => {
 
@@ -9,7 +9,15 @@ const generatePDF = (file_name, type, answers) => {
   if ( !fs.existsSync(signed_pdfs_dir) ) {
     fs.mkdirSync(signed_pdfs_dir);
   }
-  const source_file = __dirname + "/original_pdfs/listing_contract.pdf"
+  var source_file = __dirname + "/original_pdfs"
+  var coords = []
+  if (type === "listing") {
+    coords = listingCoords(answers)
+    source_file += "/listing_contract.pdf"
+  } else {
+    coords = purchaseCoords(answers)
+    source_file += "/purchase_agreement.pdf"
+  }
   const destination_path = signed_pdfs_dir + file_name
 
   // create a pdf writer with path to pdf file
@@ -20,12 +28,6 @@ const generatePDF = (file_name, type, answers) => {
   // load the font you want to use
   const font = pdfWriter.getFontForFile(__dirname + "/fonts/Arial.ttf")
 
-  var coords = []
-  if (type === "listing") {
-    coords = listingCoords(answers)
-    // } else {
-    //   coords = purchaseCoords(answers)
-  }
 
   for (i =0; i < coords.length; i++) {
     writeTextToPage(pdfWriter, i, coords[i], font)
