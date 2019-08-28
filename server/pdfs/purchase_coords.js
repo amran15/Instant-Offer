@@ -322,6 +322,7 @@ const purchaseCoords = (answers) => {
 
   var page13coords = [
     { text: "sig_path", x_coord: 56, y_coord: 135 },
+    {text:answers.DATE, x_coord: 225 , y_coord: 134},
   ]
 
   return [page1coords, page2coords, page3coords, page4coords, page5coords, page6coords, page7coords, page8coords, page9coords, page10coords, page11coords, page12coords, page13coords]
