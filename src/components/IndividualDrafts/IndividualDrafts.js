@@ -59,14 +59,24 @@ class IndividualDrafts extends Component {
           <div>
             <Card>
               <Grid item xs={12} container spacing={3}>
-                <Grid item xs={10}>
+                <Grid item xs={9}>
                   <div style={styles.title}>
                     <h2>{draft.BUYER_1}'s Listing Contract</h2>
                   </div>
                 </Grid>
                 <Grid
-                  item xs={2}
-                  className="arrow"
+                  item xs={1}
+                  container
+                  direction="row"
+                  justify="right"
+                  alignItems="center"
+                >
+                  <IconButton onClick={() => { this.handleEdit(draft.id) }}>
+                    <EditIcon />
+                  </IconButton>
+                </Grid>
+                <Grid
+                  item xs={1}
                   container
                   direction="row"
                   justify="right"
@@ -74,9 +84,6 @@ class IndividualDrafts extends Component {
                 >
                   <IconButton onClick={() => { this.handleDelete(draft) }}>
                     <DeleteIcon />
-                  </IconButton>
-                  <IconButton onClick={() => { this.handleEdit(draft.id) }}>
-                    <EditIcon />
                   </IconButton>
                 </Grid>
               </Grid>

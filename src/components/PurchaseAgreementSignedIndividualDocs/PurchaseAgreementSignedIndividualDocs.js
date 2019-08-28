@@ -55,14 +55,24 @@ class PurchaseAgreementSignedIndividualDocs extends Component {
                     <div>
                         <Card>
                             <Grid item xs={12} container spacing={3}>
-                                <Grid item xs={10}>
+                                <Grid item xs={9}>
                                     <div style={styles.title}>
                                         <h2>{signed.BUYER_1}'s Listing Contract</h2>
                                     </div>
                                 </Grid>
                                 <Grid
-                                    item xs={2}
-                                    className="arrow"
+                                    item xs={1}
+                                    container
+                                    direction="row"
+                                    justify="right"
+                                    alignItems="center"
+                                >
+                                    <IconButton onClick={() => { this.handleClick(signed.id) }}>
+                                        <PreviewIcon />
+                                    </IconButton>
+                                </Grid>
+                                <Grid
+                                    item xs={1}
                                     container
                                     direction="row"
                                     justify="right"
@@ -71,10 +81,6 @@ class PurchaseAgreementSignedIndividualDocs extends Component {
                                     <IconButton onClick={() => { this.handleDelete(signed) }}>
                                         <DeleteIcon />
                                     </IconButton>
-                                    <IconButton onClick={() => { this.handleClick(signed.id) }}>
-                                        <PreviewIcon />
-                                    </IconButton>
-
                                 </Grid>
                             </Grid>
                         </Card>
