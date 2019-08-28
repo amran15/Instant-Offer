@@ -211,7 +211,7 @@ const purchaseCoords = (answers) => {
   page6coords.push(boolCoords(answers.L257D, 435, 190))
   // }
   // if (answers.L258A) {
-  page6coords.push(boolCoords(answers.L258A, 20, 175))
+  page6coords.push(boolCoords(answers.L258A, 20, 348))
   // }
 
 
@@ -242,9 +242,68 @@ const purchaseCoords = (answers) => {
   var page9coords = [
     { text: answers.DATE, x_coord: 425, y_coord: 731 },
     { text: answers.L12, x_coord: 160, y_coord: 715 },
+    { text: answers.L389B, x_coord: 280, y_coord: 348 },
+    { text: answers.L390, x_coord: 200, y_coord: 320 },
+    { text: answers.COMPANY_1, x_coord: 70, y_coord: 218 },
+  ]
+  // if (answers.L371A) {
+  page9coords.push(boolCoords(answers.L371A, 123, 654))
+  // }
+  // if (answers.L371B) {
+  page9coords.push(boolCoords(answers.L371B, 117, 621))
+  // }
+  // if (answers.L377) {
+  page9coords.push(boolCoords(answers.L377, 130, 553))
+  // }
+  // if (answers.L379) {
+  page9coords.push(boolCoords(answers.L379, 170, 518))
+  // }
+  // if (answers.L388A) {
+  page9coords.push(boolCoords(answers.L388A, 20, 368))
+  // }
+  // if (answers.L388B) {
+  page9coords.push(boolCoords(answers.L388B, 385, 368))
+  // }
+  // if (answers.L389A) {
+  page9coords.push(boolCoords(answers.L389A, 95, 345))
+  // }
+  // if (answers.L391) {
+  page9coords.push(boolCoords(answers.L391, 20, 300))
+  // }
+  // if (answers.L394A) {
+  page9coords.push(boolCoords(answers.L394A, 235, 242))
+  // }
+  // if (answers.L394B) {
+  page9coords.push(boolCoords(answers.L394B, 319, 242))
+  // }
+  // if (answers.L394C) {
+  page9coords.push(boolCoords(answers.L394C, 400, 242))
+  // }
+  // if (answers.L394D) {
+  page9coords.push(boolCoords(answers.L394D, 470, 242))
+  // }
+  // if (answers.L396A) {
+  page9coords.push(boolCoords(answers.L396A, 235, 188))
+  // }
+  // if (answers.L396B) {
+  page9coords.push(boolCoords(answers.L396B, 319, 188))
+  // }
+  // if (answers.L396C) {
+  page9coords.push(boolCoords(answers.L396C, 400, 188))
+  // }
+  // if (answers.L396D) {
+  page9coords.push(boolCoords(answers.L396D, 470, 188))
+  // }
+
+
+  var page10coords = [
+    { text: answers.DATE, x_coord: 425, y_coord: 731 },
+    { text: answers.L12, x_coord: 160, y_coord: 715 },
+
   ]
 
-  return [page1coords, page2coords, page3coords, page4coords, page5coords, page6coords, page7coords, page8coords, page9coords]
+
+  return [page1coords, page2coords, page3coords, page4coords, page5coords, page6coords, page7coords, page8coords, page9coords, page10coords]
 
 }
 
