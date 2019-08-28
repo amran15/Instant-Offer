@@ -18,29 +18,17 @@ const listingCoords = (answers) => {
     { text: answers.L12, x_coord: 340, y_coord: 487 },
     { text: answers.L13, x_coord: 105, y_coord: 468 }
   ]
-  // if (answers.L41) {
   page1coords.push(boolCoords(answers.L41, 507, 93))
-  // }
 
   var page2coords = [
     { text: answers.L3, x_coord: 160, y_coord: 699 },
     { text: answers.L7, x_coord: 75, y_coord: 300 },
   ]
-  // if (answers.L54) {
   page2coords.push(boolCoords(answers.L54, 507, 575))
-  // }
-  // if (answers.L63) {
   page2coords.push(boolCoords(answers.L63, 507, 454))
-  // }
-  // if (answers.L71) {
   page2coords.push(boolCoords(answers.L71, 507, 345))
-  // }
-  // if (answers.L72) {
   page2coords.push(boolCoords(answers.L72, 236, 321))
-  // }
-  // if (answers.L72) {
   page2coords.push(boolCoords(answers.L72, 326, 297, 38))
-  // }
 
   var page3coords = [
     { text: answers.L3, x_coord: 160, y_coord: 699 },

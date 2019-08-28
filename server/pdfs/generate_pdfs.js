@@ -52,8 +52,9 @@ const writeTextToPage = (pdfWriter, page, content, font, sig_path) => {
       console.log(sig_path)
       pageContext.drawImage(data.x_coord, data.y_coord, sig_path, { transformation: [.15, 0, 0, .15, 0, 0] })
     } else {
-      // if (data.text != null) {
+      if (data.text != null) {
       pageContext.writeText(data.text, data.x_coord, data.y_coord, { color: "red", font: font, size: 10 });
+      }
     }
   })
 
