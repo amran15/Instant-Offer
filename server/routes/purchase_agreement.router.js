@@ -5,6 +5,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 const generatePDF = require("../pdfs/generate_pdfs")
 const path = require('path')
 const fs = require('fs')
+var base64Img = require('base64-img');
 
 //GET route purchase_agreement 
 router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
@@ -13,17 +14,31 @@ router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
     .then(result => {
       const answers = result.rows[0]
 
+      const purchaseSignature_dir = path.join(__dirname, "../pdfs/purchaseSignature/")
+      if (!fs.existsSync(purchaseSignature_dir) ) {
+        fs.mkdirSync(purchaseSignature_dir);
+      }
+      const name = `${answers.BUYER_1 || ""}_purchaseSignature`
+      const sig_path = purchaseSignature_dir + `${name}.png`
+      
       var pdf_filename = `${answers.BUYER_1 || ""}'s Purchase Agreement`
+      
+      base64Img.imgSync(answers.SIGNATURE_BUYER_1, purchaseSignature_dir, name, function(err, filepath) {
+        console.log(filepath);
+        console.log(sig_path);
+      });
+      
       if (answers.L3) {
         pdf_filename += `for ${answers.L3}`
       }
       pdf_filename += ".pdf"
-      generatePDF(pdf_filename, "purchase", answers)
+      generatePDF(pdf_filename, "purchase", answers, sig_path)
       const pdf_path = path.join(__dirname, "../pdfs/signed_pdfs/", pdf_filename)
       pool.query(
         `update purchase_agreement set pdf_path = $1 where id = $2;`,
         [pdf_path, req.params.id]
       )
+      fs.unlinkSync(sig_path)
       res.sendFile(pdf_path)
     })
     .catch(error => {
