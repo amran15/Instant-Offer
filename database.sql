@@ -29,14 +29,6 @@ CREATE TABLE public.listing_contract (
     "BUYER_1" character varying,
     "SIGNATURE_BUYER_1" character varying,
     "DATE" character varying,
-    "PAGE_1" character varying,
-    "PAGE_2" character varying,
-    "PAGE_3" character varying,
-    "PAGE_4" character varying,
-    "PAGE_5" character varying,
-    "PAGE_6" character varying,
-    "PAGE_7" character varying,
-    "PAGE_8" character varying,
     "L3" character varying,
     "L4" character varying,
     "L5" character varying,
@@ -87,7 +79,8 @@ CREATE TABLE public.listing_contract (
     "BUYER_1_PHONE" character varying,
     "COMPANY_ADDRESS" text,
     "BUYER_1_EMAIL" text,
-    "BUYER_1_ADDRESS" text
+    "BUYER_1_ADDRESS" text,
+    pdf_path character varying
 );
 
 
@@ -117,19 +110,6 @@ ALTER SEQUENCE public.listing_contract_id_seq OWNED BY public.listing_contract.i
 
 CREATE TABLE public.purchase_agreement (
     id integer NOT NULL,
-    "PAGE_1" character varying,
-    "PAGE_2" character varying,
-    "PAGE_3" character varying,
-    "PAGE_4" character varying,
-    "PAGE_5" character varying,
-    "PAGE_6" character varying,
-    "PAGE_7" character varying,
-    "PAGE_8" character varying,
-    "PAGE_9" character varying,
-    "PAGE_10" character varying,
-    "PAGE_11" character varying,
-    "PAGE_12" character varying,
-    "PAGE_13" character varying,
     "BUYER_1" text,
     "DATE" text,
     "COMPANY_1" text,
@@ -247,7 +227,8 @@ CREATE TABLE public.purchase_agreement (
     "L404" boolean,
     "L454" text,
     "L490" boolean,
-    "L494" boolean
+    "L494" boolean,
+    pdf_path character varying
 );
 
 
