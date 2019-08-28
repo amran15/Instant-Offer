@@ -120,6 +120,8 @@ CREATE TABLE public.purchase_agreement (
     "L7A" boolean,
     "L7B" text,
     "L12" text,
+    "L13A" text,
+    "L13B" text,
     "L14" text,
     "L29" text,
     "L32" text,
