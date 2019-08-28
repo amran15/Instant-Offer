@@ -29,7 +29,7 @@ const generatePDF = (file_name, type, answers, sig_path) => {
   const font = pdfWriter.getFontForFile(__dirname + "/fonts/Arial.ttf")
 
   for (i =0; i < coords.length; i++) {
-  // for (i =0; i < 5; i++) {
+    // for (i =0; i < 5; i++) {
     writeTextToPage(pdfWriter, i, coords[i], font, sig_path)
   }
   // close the pdfwriter
@@ -50,8 +50,7 @@ const writeTextToPage = (pdfWriter, page, content, font, sig_path) => {
   content.map(data => {
     if (data.text === "sig_path") {
       console.log(sig_path)
-      // sig_path = "/Users/josephwan/Desktop/favicon_green.png"
-      pageContext.drawImage(data.x_coord, data.y_coord, sig_path)
+      pageContext.drawImage(data.x_coord, data.y_coord, sig_path, { transformation: [.15, 0, 0, .15, 0, 0] })
     } else {
       // if (data.text != null) {
       pageContext.writeText(data.text, data.x_coord, data.y_coord, { color: "red", font: font, size: 10 });
