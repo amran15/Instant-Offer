@@ -41,6 +41,7 @@ const generateListing = (file_name, answers) => {
 
   var page2coords = [
     { text: answers.L3, x_coord: 160, y_coord: 699 },
+    { text: answers.L7, x_coord: 75, y_coord: 300 },
   ]
   // if (answers.L54) {
   page2coords.push(boolCoords(answers.L54, 507, 575))
