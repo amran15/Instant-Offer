@@ -27,7 +27,7 @@ const listingCoords = (answers) => {
   page2coords.push(boolCoords(answers.L54, 507, 575))
   page2coords.push(boolCoords(answers.L63, 507, 454))
   page2coords.push(boolCoords(answers.L71, 507, 345))
-  page2coords.push(boolCoords(answers.L72, 245, 321))
+  page2coords.push(boolCoords(answers.L72, 240, 321))
   page2coords.push(boolCoords(answers.L73, 326, 297, 38))
 
   var page3coords = [
@@ -52,7 +52,7 @@ const listingCoords = (answers) => {
   page4coords.push(boolCoords(answers.L148A, 20, 604))
   page4coords.push(boolCoords(answers.L150A, 20, 575))
   page4coords.push(boolCoords(answers.L152A, 20, 544))
-  page4coords.push(boolCoords(answers.L163, 65, 370))
+  page4coords.push(boolCoords(answers.L163, 20, 370))
   page4coords.push(boolCoords(answers.L164, 65, 354))
   page4coords.push(boolCoords(answers.L175, 260, 178))
 
