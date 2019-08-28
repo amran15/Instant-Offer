@@ -2,7 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
-const PDF = require("../pdfs/generate_pdfs")
+const generatePDF = require("../pdfs/generate_pdfs")
 const path = require('path')
 const fs = require('fs')
 
@@ -18,9 +18,7 @@ router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
         pdf_filename += `for ${answers.L3}`
       }
       pdf_filename += ".pdf"
-      console.log(pdf_filename)
-
-      PDF.generatePurchase(pdf_filename, answers)
+      generatePDF(pdf_filename, "purchase", answers)
       const pdf_path = path.join(__dirname, "../pdfs/signed_pdfs/", pdf_filename)
       pool.query(
         `update purchase_agreement set pdf_path = $1 where id = $2;`,
