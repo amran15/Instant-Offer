@@ -48,7 +48,6 @@ class PurchaseCategory9 extends Component {
             L394C: checkCheckbox(this.props.purchaseAnswers.L394C),
             L394D: checkCheckbox(this.props.purchaseAnswers.L394D),
             L394E: checkCheckbox(this.props.purchaseAnswers.L394E),
-            L395: checkCheckbox(this.props.purchaseAnswers.L395),
             L396A: checkString(this.props.purchaseAnswers.L396A),
             L396B: checkCheckbox(this.props.purchaseAnswers.L396B),
             L396C: checkCheckbox(this.props.purchaseAnswers.L396C),

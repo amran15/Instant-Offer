@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { checkString, checkCheckbox } from '../helpers/valueCheckerHelpers';
+import { checkCheckbox } from '../helpers/valueCheckerHelpers';
 
 //Material UI
 import Button from '@material-ui/core/Button';
