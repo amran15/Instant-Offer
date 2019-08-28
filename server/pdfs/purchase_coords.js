@@ -179,7 +179,6 @@ const purchaseCoords = (answers) => {
     { text: answers.L258B, x_coord: 125, y_coord: 175 },
     { text: answers.L264, x_coord: 125, y_coord: 93 },
     { text: answers.L266, x_coord: 125, y_coord: 57 },
-
   ]
   // if (answers.L226) {
   page6coords.push(boolCoords(answers.L226, 135, 677))
@@ -199,23 +198,53 @@ const purchaseCoords = (answers) => {
   // if (answers.L250) {
   page6coords.push(boolCoords(answers.L250, 400, 300))
   // }
-   // if (answers.L257A) {
-    page6coords.push(boolCoords(answers.L257A, 20, 190))
-    // }
-     // if (answers.L257B) {
+  // if (answers.L257A) {
+  page6coords.push(boolCoords(answers.L257A, 20, 190))
+  // }
+  // if (answers.L257B) {
   page6coords.push(boolCoords(answers.L257B, 120, 190))
   // }
-   // if (answers.L257C) {
-    page6coords.push(boolCoords(answers.L257C, 315, 190))
-    // }
-     // if (answers.L257D) {
+  // if (answers.L257C) {
+  page6coords.push(boolCoords(answers.L257C, 315, 190))
+  // }
+  // if (answers.L257D) {
   page6coords.push(boolCoords(answers.L257D, 435, 190))
   // }
-       // if (answers.L258A) {
-        page6coords.push(boolCoords(answers.L258A, 20, 175))
-        // }
+  // if (answers.L258A) {
+  page6coords.push(boolCoords(answers.L258A, 20, 175))
+  // }
 
-  return [page1coords, page2coords, page3coords, page4coords, page5coords, page6coords, page7coords]
+
+  var page7coords = [
+    { text: answers.DATE, x_coord: 425, y_coord: 731 },
+    { text: answers.L12, x_coord: 160, y_coord: 715 },
+    { text: answers.L271B, x_coord: 120, y_coord: 664 },
+  ]
+  // if (answers.L270) {
+  page7coords.push(boolCoords(answers.L270, 20, 677))
+  // }
+  // if (answers.L271A) {
+  page7coords.push(boolCoords(answers.L271A, 20, 660))
+  // }
+
+
+  var page8coords = [
+    { text: answers.DATE, x_coord: 425, y_coord: 731 },
+    { text: answers.L12, x_coord: 160, y_coord: 715 },
+  ]
+  // if (answers.L359) {
+  page8coords.push(boolCoords(answers.L359, 268, 155))
+  // }
+  // if (answers.L360) {
+  page8coords.push(boolCoords(answers.L360, 170, 142))
+  // }
+
+  var page9coords = [
+    { text: answers.DATE, x_coord: 425, y_coord: 731 },
+    { text: answers.L12, x_coord: 160, y_coord: 715 },
+  ]
+
+  return [page1coords, page2coords, page3coords, page4coords, page5coords, page6coords, page7coords, page8coords, page9coords]
 
 }
 
