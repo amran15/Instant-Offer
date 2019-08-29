@@ -11,7 +11,8 @@ const purchaseCoords = (answers) => {
     { text: answers.DATE, x_coord: 390, y_coord: 704 },
     { text: answers.L6A, x_coord: 75, y_coord: 620 },
     { text: answers.L6B, x_coord: 425, y_coord: 620 },
-    { text: answers.L7B, x_coord: 300, y_coord: 600 },
+    { text: answers.L7A, x_coord: 282, y_coord: 600 },
+    { text: answers.L7B, x_coord: 330, y_coord: 600 },
     { text: answers.L12, x_coord: 140, y_coord: 523 },
     { text: answers.L13A, x_coord: 105, y_coord: 507 },
     { text: answers.L13B, x_coord: 375, y_coord: 507 },
@@ -32,10 +33,6 @@ const purchaseCoords = (answers) => {
     { text: answers.DATE, x_coord: 425, y_coord: 731 },
     { text: answers.L12, x_coord: 160, y_coord: 715 },
     { text: answers.L55, x_coord: 150, y_coord: 570 },
-    { text: answers.L62B, x_coord: 130, y_coord: 463 },
-    { text: answers.L63, x_coord: 545, y_coord: 447 },
-    { text: answers.L64, x_coord: 310, y_coord: 430 },
-    { text: answers.L77, x_coord: 125, y_coord: 225 },
   ]
   page2coords.push(coords.boolCoords(answers.L49, 185, 670, 25))
   page2coords.push(coords.boolCoords(answers.L53, 65, 605, 130))
@@ -82,7 +79,7 @@ const purchaseCoords = (answers) => {
   var page5coords = [
     { text: answers.DATE, x_coord: 425, y_coord: 731 },
     { text: answers.L12, x_coord: 160, y_coord: 715 },
-    { text: answers.L184, x_coord: 425, y_coord: 673 },
+    { text: answers.L184, x_coord: 420, y_coord: 673 },
     { text: answers.L192, x_coord: 210, y_coord: 565 },
     { text: answers.L215E, x_coord: 430, y_coord: 212 },
     { text: answers.L217E, x_coord: 398, y_coord: 175 },
@@ -99,7 +96,6 @@ const purchaseCoords = (answers) => {
   page5coords.push(coords.checkCoords(answers.L217C, 333, 172))
   page5coords.push(coords.checkCoords(answers.L217D, 375, 172))
   page5coords.push(coords.boolCoords(answers.L219, 462, 133))
-
 
   var page6coords = [
     { text: answers.DATE, x_coord: 425, y_coord: 731 },
@@ -122,19 +118,10 @@ const purchaseCoords = (answers) => {
   page6coords.push(coords.checkCoords(answers.L257D, 480, 190))
   page6coords.push(coords.checkCoords(answers.L258A, 65, 173))
 
-
   var page7coords = [
     { text: answers.DATE, x_coord: 425, y_coord: 731 },
     { text: answers.L12, x_coord: 160, y_coord: 715 },
     { text: answers.L271B, x_coord: 120, y_coord: 664 },
-  ]
-  page7coords.push(coords.checkCoords(answers.L270, 65, 677))
-  page7coords.push(coords.checkCoords(answers.L271A, 65, 660))
-
-
-  var page8coords = [
-    { text: answers.DATE, x_coord: 425, y_coord: 731 },
-    { text: answers.L12, x_coord: 160, y_coord: 715 },
   ]
   page8coords.push(coords.checkCoords(answers.L359, 313, 155))
   page8coords.push(coords.checkCoords(answers.L360, 215, 142))
@@ -150,6 +137,7 @@ const purchaseCoords = (answers) => {
     { text: answers.L397, x_coord: 68, y_coord: 161 },
     { text: answers.COMPANY_1, x_coord: 70, y_coord: 218 },
   ]
+
   page9coords.push(coords.boolCoords(answers.L371A, 130, 654, 35))
   page9coords.push(coords.boolCoords(answers.L371B, 275, 654, 35))
   page9coords.push(coords.boolCoords(answers.L373, 110, 621, 50))
@@ -167,7 +155,6 @@ const purchaseCoords = (answers) => {
   page9coords.push(coords.checkCoords(answers.L396C, 363, 186))
   page9coords.push(coords.checkCoords(answers.L396D, 445, 186))
   page9coords.push(coords.checkCoords(answers.L396E, 513, 186))
-
 
   var page10coords = [
     { text: answers.DATE, x_coord: 425, y_coord: 731 },
@@ -193,7 +180,7 @@ const purchaseCoords = (answers) => {
 
   var page13coords = [
     { text: "sig_path", x_coord: 56, y_coord: 135 },
-    {text:answers.DATE, x_coord: 225 , y_coord: 134},
+    { text:answers.DATE, x_coord: 225 , y_coord: 134 },
   ]
 
   return [page1coords, page2coords, page3coords, page4coords, page5coords, page6coords, page7coords, page8coords, page9coords, page10coords, page11coords, page12coords, page13coords]

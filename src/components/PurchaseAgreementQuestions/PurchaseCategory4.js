@@ -27,7 +27,7 @@ class PurchaseCategory4 extends Component {
             L60: checkCheckbox(this.props.purchaseAnswers.L60),
             L61: checkCheckbox(this.props.purchaseAnswers.L61),
             L62A: checkCheckbox(this.props.purchaseAnswers.L62A),
-            L62B: checkString(this.props.purchaseAnswers.L62A),
+            L62B: checkString(this.props.purchaseAnswers.L62B),
             L63: checkString(this.props.purchaseAnswers.L63),
             L64: checkString(this.props.purchaseAnswers.L64),
             L70: checkCheckbox(this.props.purchaseAnswers.L70),
@@ -35,6 +35,7 @@ class PurchaseCategory4 extends Component {
             L76: checkCheckbox(this.props.purchaseAnswers.L76),
             L77: checkString(this.props.purchaseAnswers.L77),
             L114: checkBoolean(this.props.purchaseAnswers.L114),
+            L115: checkBoolean(this.props.purchaseAnswers.L115),
             L118: checkString(this.props.purchaseAnswers.L118),
             L127: checkBoolean(this.props.purchaseAnswers.L127),
             L133: checkString(this.props.purchaseAnswers.L133),
@@ -278,6 +279,17 @@ class PurchaseCategory4 extends Component {
                             </center>
                         </Grid>
                         <h4>Nothing in this Purchase Agreement shall be construed as a warranty that Seller shall make repairs required by the lender commitment. However, Seller agrees to pay up to the following amount to make repairs as required by the lender commitment.</h4>
+                        <Grid item xs={12}>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox
+                                            color="primary"
+                                            value={this.state.answers.L115}
+                                            onChange={this.handleChangeForMortgageFinancing('L115')}
+                                        />}
+                                    label="L115"
+                                />
+                            </Grid>
                         <Grid item xs={12}>
                             <TextField
                                 id="buyers_earnest_money"
