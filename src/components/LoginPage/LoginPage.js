@@ -100,7 +100,6 @@ class LoginPage extends Component {
                       autoFocus
                       value={this.state.username}
                       onChange={this.handleInputChangeFor('username')}
-                      style={styles.TextField}
                       style={{
                         backgroundColor: "rgba(255, 255, 255, 0.9)"
                       }}
@@ -122,11 +121,10 @@ class LoginPage extends Component {
                       label="Password"
                       name="password"
                       autoComplete="password"
-                      autoFocus
+                      // autoFocus
                       value={this.state.password}
                       onChange={this.handleInputChangeFor('password')}
                       color="primary"
-                      style={styles.TextField}
                       style={{
                         backgroundColor: "rgba(255, 255, 255, 0.9)"
                       }}

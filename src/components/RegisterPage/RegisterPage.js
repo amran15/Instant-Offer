@@ -1,5 +1,40 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+import './RegisterPage.css';
+
+//Material UI
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
+import TextField from '@material-ui/core/TextField';
+import Container from '@material-ui/core/Container';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+const styles = {
+  title: {
+    textAlign: 'center',
+    color: '#FFF',
+  },
+  button: {
+    marginTop: '15px',
+    color: 'white',
+  },
+  link: {
+    margin: '15px',
+  },
+  Grid: {
+    margin: '175px 0px 0px 0px',
+  },
+};
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#000080' },
+  },
+});
+
 
 class RegisterPage extends Component {
   state = {
@@ -19,7 +54,7 @@ class RegisterPage extends Component {
         },
       });
     } else {
-      this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
+      this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }
   } // end registerUser
 
@@ -31,68 +66,115 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <div>
-        {this.props.errors.registrationMessage && (
-          <h2
-            className="alert"
-            role="alert"
-          >
-            {this.props.errors.registrationMessage}
-          </h2>
-        )}
-        <form onSubmit={this.registerUser}>
-          <h1>Register User</h1>
-          <div>
-            <label htmlFor="username">
-              Username:
-              <input
-                type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="password">
-              Password:
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
-              />
-            </label>
-          </div>
-          <div>
-            <input
-              className="register"
-              type="submit"
-              name="submit"
-              value="Register"
-            />
-          </div>
-        </form>
-        <center>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
-          >
-            Login
-          </button>
-        </center>
+      <div className="body">
+        <ThemeProvider theme={theme}>
+          <Container component="main" maxWidth="xs">
+          </Container>
+          <Container component="main" maxWidth="xs">
+            <div align="center">
+              <Grid
+                item xs={11}
+                style={styles.Grid}
+              >
+                {this.props.errors.registrationMessage && (
+                  <h2
+                    className="alert"
+                    role="alert"
+                  >
+                    {this.props.errors.registrationMessage}
+                  </h2>
+                )}
+                <form onSubmit={this.registerUser}>
+                  <center>
+                    <h1 className="header">Register User</h1>
+                  </center>
+                  <div>
+                    <TextField
+                      variant="outlined"
+                      margin="normal"
+                      required
+                      fullWidth
+                      id="username"
+                      label="Username"
+                      name="username"
+                      autoComplete="username"
+                      autoFocus
+                      value={this.state.username}
+                      onChange={this.handleInputChangeFor('username')}
+                      style={styles.TextField}
+                      style={{
+                        backgroundColor: "rgba(255, 255, 255, 0.9)"
+                      }}
+                      InputProps={{
+                        style: {
+                          color: "black"
+                        }
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <TextField
+                      variant="outlined"
+                      margin="normal"
+                      required
+                      fullWidth
+                      type="password"
+                      id="password"
+                      label="Password"
+                      name="password"
+                      autoComplete="password"
+                      autoFocus
+                      value={this.state.password}
+                      onChange={this.handleInputChangeFor('password')}
+                      color="primary"
+                      style={styles.TextField}
+                      style={{
+                        backgroundColor: "rgba(255, 255, 255, 0.9)"
+                      }}
+                      InputProps={{
+                        style: {
+                          color: "black"
+                        }
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      style={styles.button}
+                      value="Log In"
+                      color="primary"
+                    >
+                      Sign In
+                </Button>
+                  </div>
+                </form>
+              </Grid>
+              <center style={styles.link}>
+                <Link
+                  component="button"
+                  variant="body2"
+                  fullWidth
+                  variant="outlined"
+                  onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
+                >
+                  {"Back to Login"}
+                </Link>
+              </center>
+            </div>
+          </Container>
+        </ThemeProvider>
       </div>
     );
   }
 }
 
-// Instead of taking everything from state, we just want the error messages.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({errors}) => ({ errors });
 const mapStateToProps = state => ({
   errors: state.errors,
 });
 
-export default connect(mapStateToProps)(RegisterPage);
+const mapReduxStateToProps = reduxState => reduxState
 
+export default connect(mapReduxStateToProps)(withRouter(RegisterPage));
