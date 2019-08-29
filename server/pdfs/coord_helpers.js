@@ -12,4 +12,17 @@ const boolCoords = (bool, x_coord, y_coord, adjustment = 45) => {
   }
 }
 
-module.exports = boolCoords
+const checkCoords = (bool, x_coord, y_coord) => {
+  if (bool === null) {
+    return { text: null }
+  } else if (bool) {
+    return { text: "X", x_coord: x_coord, y_coord: y_coord }
+  } else {
+    return { text: "" }
+  }
+}
+
+module.exports = {
+  boolCoords: boolCoords,
+  checkCoords: checkCoords
+}
