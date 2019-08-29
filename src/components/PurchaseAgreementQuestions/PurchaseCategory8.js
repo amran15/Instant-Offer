@@ -107,6 +107,7 @@ class PurchaseCategory8 extends Component {
                                             <Checkbox
                                                 checked={this.state.answers.L215D}
                                                 onChange={this.handleChangeForRealEstateTaxes('L215D')}
+                                                color="primary"
                                             />}
                                     />
                                 </Grid>
