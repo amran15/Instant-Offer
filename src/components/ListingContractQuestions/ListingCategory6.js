@@ -33,11 +33,9 @@ class ListingCategory6 extends Component {
     }
 
     handleClickNext = () => {
-        console.log("payload", this.state)
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push(`/ListingCategory7/${this.state.id}`)
     }
-
 
     render() {
         return (
@@ -88,7 +86,7 @@ class ListingCategory6 extends Component {
                                     onClick={this.handleClick}
                                 >
                                     Back
-                </Button>
+                                </Button>
                             </div>
                         </Grid>
                         <Grid item xs={6}>
@@ -99,7 +97,7 @@ class ListingCategory6 extends Component {
                                     onClick={this.handleClickNext}
                                 >
                                     Next
-                </Button>
+                                </Button>
                             </div>
                         </Grid>
                     </Grid>

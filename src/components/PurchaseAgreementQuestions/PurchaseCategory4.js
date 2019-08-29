@@ -72,9 +72,6 @@ class PurchaseCategory4 extends Component {
     render() {
         return (
             <div>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>

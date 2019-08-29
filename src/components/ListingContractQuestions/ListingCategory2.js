@@ -17,9 +17,7 @@ class ListingCategory2 extends Component {
         }
     }
 
-
-
-  handleChangeForInputs = (propertyName) => (event) => {
+    handleChangeForInputs = (propertyName) => (event) => {
     this.setState({
       answers: {
         ...this.state.answers,
@@ -42,7 +40,6 @@ class ListingCategory2 extends Component {
         return (
             <div>
                 <Container component="main">
-                    {/* <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <center>

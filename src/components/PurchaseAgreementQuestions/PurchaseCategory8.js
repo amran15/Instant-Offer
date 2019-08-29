@@ -59,9 +59,6 @@ class PurchaseCategory8 extends Component {
     render() {
         return (
             <div>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
@@ -110,6 +107,7 @@ class PurchaseCategory8 extends Component {
                                             <Checkbox
                                                 checked={this.state.answers.L215D}
                                                 onChange={this.handleChangeForRealEstateTaxes('L215D')}
+                                                color="primary"
                                             />}
                                     />
                                 </Grid>
