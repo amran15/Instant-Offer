@@ -166,7 +166,7 @@ class ListingCategory1 extends Component {
                   onClick={this.handleClick}
                 >
                   Back
-      </Button>
+                </Button>
               </div>
             </Grid>
             <Grid item xs={6}>
@@ -177,7 +177,7 @@ class ListingCategory1 extends Component {
                   onClick={this.handleClickNext}
                 >
                   Next
-      </Button>
+                </Button>
               </div>
             </Grid>
           </Grid>
