@@ -61,7 +61,12 @@ class IndividualDrafts extends Component {
               <Grid item xs={12} container spacing={3}>
                 <Grid item xs={9}>
                   <div style={styles.title}>
-                    <h2>{draft.BUYER_1}'s Contract</h2>
+                    <h2>{draft.BUYER_1}'s {this.props.docType === 'listing' ?
+                    'Listing Contract Draft'
+                    :
+                    'Purchase Agreement Draft'
+                }
+              </h2>
                   </div>
                 </Grid>
                 <Grid
