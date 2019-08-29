@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 //Material UI
 import Card from '@material-ui/core/Card';
@@ -26,7 +27,9 @@ class ListingContractSignedIndividualDocs extends Component {
   }
 
   handleClick = (id) => {
-    window.open(`http://localhost:5000/api/listing/pdf/${id}`)
+    axios.post(`api/listing/pdf/${id}`).then(response => {
+      window.open(`http://localhost:5000/api/listing/pdf/${response.data}`)
+    })
   }
 
   handleDelete = (doc) => {
@@ -52,42 +55,42 @@ class ListingContractSignedIndividualDocs extends Component {
   render() {
     return (
       <div>
-        {this.props.listingSignedDocs.map(signed => (
-          <div>
-            <Card>
-              <Grid item xs={12} container spacing={3}>
-                <Grid item xs={9}>
-                  <div style={styles.title}>
-                    <h2>{signed.BUYER_1}'s Listing Contract</h2>
-                  </div>
-                </Grid>
-                <Grid
-                  item xs={1}
-                  container
-                  direction="row"
-                  justify="right"
-                  alignItems="center"
-                >
-                  <IconButton onClick={() => { this.handleClick(signed.id) }}>
-                    <PreviewIcon />
-                  </IconButton>
-                </Grid>
-                <Grid
-                  item xs={1}
-                  container
-                  direction="row"
-                  justify="right"
-                  alignItems="center"
-                >
-                  <IconButton onClick={() => { this.handleDelete(signed) }}>
-                    <DeleteIcon />
-                  </IconButton>
-                </Grid>
+      {this.props.listingSignedDocs.map(signed => (
+        <div>
+          <Card>
+            <Grid item xs={12} container spacing={3}>
+              <Grid item xs={9}>
+                <div style={styles.title}>
+                  <h2>{signed.BUYER_1}'s Listing Contract</h2>
+                </div>
               </Grid>
-            </Card>
-            <br />
-          </div>
-        ))}
+              <Grid
+                item xs={1}
+                container
+                direction="row"
+                justify="right"
+                alignItems="center"
+              >
+                <IconButton onClick={() => { this.handleClick(signed.id) }}>
+                  <PreviewIcon />
+                </IconButton>
+              </Grid>
+              <Grid
+                item xs={1}
+                container
+                direction="row"
+                justify="right"
+                alignItems="center"
+              >
+                <IconButton onClick={() => { this.handleDelete(signed) }}>
+                  <DeleteIcon />
+                </IconButton>
+              </Grid>
+            </Grid>
+          </Card>
+          <br />
+        </div>
+      ))}
       </div>
     )
   }

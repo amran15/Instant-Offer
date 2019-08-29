@@ -24,21 +24,20 @@ class ListingCategory8 extends Component {
         }
     }
 
-  handleChangeForInputs = (propertyName) => (event) => {
-    this.setState({
-      ...this.state, 
-      answers: {
-        ...this.state.answers, [propertyName]: event.target.value,
-      }
-    })
-  }
+    handleChangeForInputs = (propertyName) => (event) => {
+        this.setState({
+            ...this.state,
+            answers: {
+                ...this.state.answers, [propertyName]: event.target.value,
+            }
+        })
+    }
 
     handleClickBack = () => {
         this.props.history.push(`/ListingCategory7/${this.state.id}`)
     }
 
     handleSaveButton = () => {
-        console.log("payload", this.state)
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push(`/listing/${this.state.id}`)
     }
@@ -75,11 +74,11 @@ class ListingCategory8 extends Component {
                                 onChange={this.handleChangeForInputs('COMPANY')}
                             />
                             <Grid item xs={12}>
-                                <h4>Electronic Signatures:</h4> 
+                                <h4>Electronic Signatures:</h4>
                                 <p>The parties agree the electronic signature of any party on any document related to this transaction constitute valid, binding signatures.</p>
-​
+
                                 <h4>Consent for communication:</h4>
-                                 <p>Seller authorizes Broker and its representatives to contract Seller by mail, phone, fax, email or other means of communication during the term of this Contract and anytime thereafter.</p>
+                                <p>Seller authorizes Broker and its representatives to contract Seller by mail, phone, fax, email or other means of communication during the term of this Contract and anytime thereafter.</p>
                                 <h4>Other:</h4>
                                 <TextField
                                     id="other_communication_options"
@@ -135,7 +134,7 @@ class ListingCategory8 extends Component {
                                     color="primary"
                                 >
                                     Back
-                        </Button>
+                                </Button>
                             </div>
                         </Grid>
                         <Grid item xs={6}>
@@ -144,10 +143,9 @@ class ListingCategory8 extends Component {
                                     onClick={this.handleSaveButton}
                                     variant="contained"
                                     color="primary"
-                                // onClick={this.handleSave}
                                 >
                                     Save
-                        </Button>
+                                </Button>
                             </div>
                         </Grid>
                     </Grid>

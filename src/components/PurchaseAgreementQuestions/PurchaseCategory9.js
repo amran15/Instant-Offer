@@ -43,11 +43,11 @@ class PurchaseCategory9 extends Component {
             L389B: checkString(this.props.purchaseAnswers.L389B),
             L390: checkString(this.props.purchaseAnswers.L390),
             L394A: checkString(this.props.purchaseAnswers.L394A),
-            L395: checkString(this.props.purchaseAnswers.L395),
             L394B: checkCheckbox(this.props.purchaseAnswers.L394B),
             L394C: checkCheckbox(this.props.purchaseAnswers.L394C),
             L394D: checkCheckbox(this.props.purchaseAnswers.L394D),
             L394E: checkCheckbox(this.props.purchaseAnswers.L394E),
+            L395: checkString(this.props.purchaseAnswers.L395),
             L396A: checkString(this.props.purchaseAnswers.L396A),
             L396B: checkCheckbox(this.props.purchaseAnswers.L396B),
             L396C: checkCheckbox(this.props.purchaseAnswers.L396C),
@@ -83,9 +83,6 @@ class PurchaseCategory9 extends Component {
     render() {
         return (
             <div>
-                <pre>
-                    {JSON.stringify(this.state, null, 2)}
-                </pre>
                 <Container component="main">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>

@@ -32,5 +32,6 @@ This version uses React, Redux, Express, Passport, jsPDF, React-signature-canvas
 ## Authors
 Amran Ahmed
 Mang Wan
-Matthew Dunfee
 Samuel Titiloye
+Joseph Wan
+Matthew Dunfee

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-// import { connect } from 'react-redux';
+
 import IndividualDrafts from "../IndividualDrafts/IndividualDrafts";
 
 //Material UI
@@ -23,7 +23,6 @@ const styles = {
     color: 'white',
   },
 };
-
 
 class Drafts extends Component {
   state = {
@@ -58,9 +57,9 @@ class Drafts extends Component {
             <center>
               <h2>
                 {this.state.docType === 'listing' ?
-                    'Listing Contract Drafts'
-                    :
-                    'Purchase Agreement Drafts'
+                  'Listing Contract Drafts'
+                  :
+                  'Purchase Agreement Drafts'
                 }
               </h2>
             </center>
@@ -91,7 +90,7 @@ class Drafts extends Component {
             </center>
             <br />
             <br />
-            <IndividualDrafts docType={this.state.docType}/>
+            <IndividualDrafts docType={this.state.docType} />
           </Container>
         </ThemeProvider>
       </div>

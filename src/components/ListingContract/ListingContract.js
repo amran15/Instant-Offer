@@ -25,7 +25,7 @@ class ListingContract extends Component {
         this.props.dispatch({
             type: 'LISTING_ANSWERS', payload: this.props.match.params.id
         })
-        
+
     }
 
     handleClick = (propertyName) => (event) => {
@@ -222,7 +222,9 @@ class ListingContract extends Component {
                                 variant="contained"
                                 color="primary"
                                 onClick={this.handleClickSign}
-                            >Sign</Button>
+                            >
+                                Sign
+                            </Button>
                         </div>
                     </Grid>
                     <br />
