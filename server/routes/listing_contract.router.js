@@ -8,8 +8,8 @@ const fs = require('fs')
 var base64Img = require('base64-img');
 
 
-//GET route listing_contract 
-router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
+//POST route listing_contract 
+router.post('/pdf/:id', rejectUnauthenticated, (req, res) => {
   const queryText = `SELECT * FROM listing_contract WHERE id = ${req.params.id}`;
   pool.query(queryText)
     .then(result => {
@@ -34,13 +34,12 @@ router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
       }
       pdf_filename += ".pdf"
       generatePDF(pdf_filename, "listing", answers, sig_path)
-      const pdf_path = path.join(__dirname, "../pdfs/signed_pdfs/", pdf_filename)
       pool.query(
         `update listing_contract set pdf_path = $1 where id = $2;`,
-        [pdf_path, req.params.id]
+        [pdf_filename, req.params.id]
       )
       fs.unlinkSync(sig_path)
-      res.sendFile(pdf_path)
+      res.send(pdf_filename)
     })
     .catch(error => {
       console.log('error generating listing_contract pdf:', error);
@@ -49,17 +48,11 @@ router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
 }); 
 
 //GET route listing_contract 
-router.get('/', rejectUnauthenticated, (req, res) => {
-  const queryText = `SELECT * FROM listing_contract`;
-  pool.query(queryText)
-    .then(result => {
-      res.send(result.rows)
-    })
-    .catch(error => {
-      console.log('error making SELECT * for listing contract:', error);
-      res.sendStatus(500);
-    })
-});
+router.get('/pdf/:pdf_name', rejectUnauthenticated, (req, res) => {
+  const pdf_path = path.join(__dirname, "../pdfs/signed_pdfs/", req.params.pdf_name)
+  res.sendFile(pdf_path)
+})
+
 
 
 //GET route for draft listing_contracts
@@ -165,9 +158,9 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 router.delete('/delete/:id', rejectUnauthenticated ,(req, res) => {
   pool.query(`DELETE FROM listing_contract WHERE "id"=$1 returning pdf_path`, [req.params.id])
     .then(response => {
-      const pdf_path = response.rows[0].pdf_path
+      const pdf_path = path.join(__dirname, "../pdfs/signed_pdfs/", response.rows[0].pdf_path)
       if ( fs.existsSync(pdf_path) ) {
-        fs.unlinkSync(response.rows[0].pdf_path)
+        fs.unlinkSync(pdf_path)
       }
       res.sendStatus(200)
     }).catch(error => {

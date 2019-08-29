@@ -8,8 +8,8 @@ const fs = require('fs')
 var base64Img = require('base64-img');
 
 //GET route purchase_agreement 
-router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
-  const queryText = `SELECT * FROM purchase_agreement WHERE "SIGNATURE_BUYER_1" IS not NULL`;
+router.post('/pdf/:id', rejectUnauthenticated, (req, res) => {
+  const queryText = `SELECT * FROM purchase_agreement WHERE id = ${req.params.id}`;
   pool.query(queryText)
     .then(result => {
       const answers = result.rows[0]
@@ -20,32 +20,37 @@ router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
       }
       const name = `${answers.BUYER_1 || ""}_purchaseSignature`
       const sig_path = purchaseSignature_dir + `${name}.png`
-      
+
       var pdf_filename = `${answers.BUYER_1 || ""}'s Purchase Agreement`
-      
+
       base64Img.imgSync(answers.SIGNATURE_BUYER_1, purchaseSignature_dir, name, function(err, filepath) {
         console.log(filepath);
         console.log(sig_path);
       });
-      
+
       if (answers.L3) {
         pdf_filename += `for ${answers.L3}`
       }
       pdf_filename += ".pdf"
       generatePDF(pdf_filename, "purchase", answers, sig_path)
-      const pdf_path = path.join(__dirname, "../pdfs/signed_pdfs/", pdf_filename)
       pool.query(
         `update purchase_agreement set pdf_path = $1 where id = $2;`,
-        [pdf_path, req.params.id]
+        [pdf_filename, req.params.id]
       )
       fs.unlinkSync(sig_path)
-      res.sendFile(pdf_path)
+      res.send(pdf_filename)
     })
     .catch(error => {
       console.log('error generating purchase_agreement pdf:', error);
       res.sendStatus(500);
     })
 });
+
+//GET route listing_contract 
+router.get('/pdf/:pdf_name', rejectUnauthenticated, (req, res) => {
+  const pdf_path = path.join(__dirname, "../pdfs/signed_pdfs/", req.params.pdf_name)
+  res.sendFile(pdf_path)
+})
 
 //GET route for signed purchase_agreement
 router.get('/signedDocs', rejectUnauthenticated, (req, res) => {
@@ -178,9 +183,9 @@ router.delete('/delete/:id', rejectUnauthenticated, (req, res) => {
   const queryDelete = `DELETE FROM purchase_agreement WHERE "id"=$1 returning pdf_path`;
   pool.query(queryDelete, [req.params.id])
     .then(response => {
-      const pdf_path = response.rows[0].pdf_path
+      const pdf_path = path.join(__dirname, "../pdfs/signed_pdfs/", response.rows[0].pdf_path)
       if ( fs.existsSync(pdf_path) ) {
-        fs.unlinkSync(response.rows[0].pdf_path)
+        fs.unlinkSync(pdf_path)
       }
       res.sendStatus(200)
     }).catch(error => {
