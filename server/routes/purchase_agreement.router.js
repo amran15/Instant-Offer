@@ -9,7 +9,7 @@ var base64Img = require('base64-img');
 
 //GET route purchase_agreement 
 router.get('/pdf/:id', rejectUnauthenticated, (req, res) => {
-  const queryText = `SELECT * FROM purchase_agreement WHERE "SIGNATURE_BUYER_1" IS not NULL`;
+  const queryText = `SELECT * FROM purchase_agreement WHERE id = ${req.params.id}`;
   pool.query(queryText)
     .then(result => {
       const answers = result.rows[0]
