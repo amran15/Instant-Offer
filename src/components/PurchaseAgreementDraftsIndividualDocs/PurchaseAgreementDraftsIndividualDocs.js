@@ -42,7 +42,6 @@ class PurchaseAgreementDraftsIndividualDocs extends Component {
     }
 
     handleEdit = (draft) => {
-        console.log('draft_id', draft.id)
         this.props.history.push(`/listing/${draft.id}`)
     }
 

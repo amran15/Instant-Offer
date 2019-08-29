@@ -93,7 +93,6 @@ class ListingContractButton extends Component {
   }
 }
 
-// bringing redux store so we can have access to it
 const mapReduxStateToProps = reduxState => ({ reduxState })
 export default connect(mapReduxStateToProps)(withRouter(ListingContractButton));
 

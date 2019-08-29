@@ -37,7 +37,6 @@ class ListingCategory4 extends Component {
     }
 
     handleClickNext = () => {
-        console.log("payload", this.state)
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push(`/ListingCategory5/${this.state.id}`)
     }

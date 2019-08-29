@@ -20,7 +20,6 @@ const styles = {
     },
 };
 
-
 class PurchaseAgreement extends Component {
     handleClickForPurchaseAgreementDocuments = () => {
         axios.post('api/purchase/save')
@@ -29,7 +28,6 @@ class PurchaseAgreement extends Component {
             this.props.history.push(`/purchase/${response.data[0].id}`)
         })
     }
-
 
     render() {
         return (
@@ -53,7 +51,6 @@ class PurchaseAgreement extends Component {
     }
 }
 
-//bring in redux store to access to it and use props
 const mapReduxStateToProps = reduxState => ({ reduxState })
 export default connect(mapReduxStateToProps)(withRouter(PurchaseAgreement));
 

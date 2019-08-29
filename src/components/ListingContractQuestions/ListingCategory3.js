@@ -12,8 +12,8 @@ import Grid from '@material-ui/core/Grid';
 
 class ListingCategory3 extends Component {
   componentDidMount() {
-    console.log(this.props.listingAnswers)
   }
+
   state = {
     id: this.props.match.params.id,
     answers: {
@@ -37,7 +37,6 @@ class ListingCategory3 extends Component {
   }
 
   handleClickNext = () => {
-    console.log("payload", this.state)
     this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
     this.props.history.push(`/ListingCategory4/${this.state.id}`)
   }
@@ -92,7 +91,7 @@ class ListingCategory3 extends Component {
                   onClick={this.handleClick}
                 >
                   Back
-      </Button>
+                </Button>
               </div>
             </Grid>
             <Grid item xs={6}>
@@ -103,7 +102,7 @@ class ListingCategory3 extends Component {
                   onClick={this.handleClickNext}
                 >
                   Next
-      </Button>
+                </Button>
               </div>
             </Grid>
           </Grid>

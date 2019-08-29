@@ -9,7 +9,6 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { TextField, InputAdornment, Radio, RadioGroup } from '@material-ui/core';
-// import { stat } from "fs";
 
 
 class ListingCategory5 extends Component {
@@ -26,7 +25,6 @@ class ListingCategory5 extends Component {
         }
     }
 
-
     handleChangeForInputs = (propertyName) => (event) => {
         this.setState({
             ...this.state,
@@ -41,7 +39,6 @@ class ListingCategory5 extends Component {
     }
 
     handleClickNext = () => {
-        console.log("payload", this.state)
         this.props.dispatch({ type: 'SAVE_ANSWERS', payload: this.state })
         this.props.history.push(`/ListingCategory6/${this.state.id}`)
     }
