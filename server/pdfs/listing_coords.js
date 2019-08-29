@@ -1,10 +1,10 @@
-const boolCoords = require("./bool_coords.js")
+const coords = require("./coord_helpers.js")
 const listingCoords = (answers) => {
 
   // page#coords is an array of objects representing coordinates.
   // page1coords = coordinates for Page 1
   // Each object has three keys: text (column from database), x & y coordinates
-  // If the column is a boolean, use the boolCoords() function below and then
+  // If the column is a boolean, use the coords.boolCoords() function below and then
   // push it to the page#coords array.
   var page1coords = [
     { text: "7", x_coord: 428, y_coord: 670 },
@@ -18,17 +18,17 @@ const listingCoords = (answers) => {
     { text: answers.L12, x_coord: 340, y_coord: 487 },
     { text: answers.L13, x_coord: 105, y_coord: 468 }
   ]
-  page1coords.push(boolCoords(answers.L41, 507, 93))
+  page1coords.push(coords.boolCoords(answers.L41, 507, 93))
 
   var page2coords = [
     { text: answers.L3, x_coord: 160, y_coord: 699 },
     { text: answers.L7, x_coord: 75, y_coord: 300 },
   ]
-  page2coords.push(boolCoords(answers.L54, 507, 575))
-  page2coords.push(boolCoords(answers.L63, 507, 454))
-  page2coords.push(boolCoords(answers.L71, 507, 345))
-  page2coords.push(boolCoords(answers.L72, 245, 321))
-  page2coords.push(boolCoords(answers.L73, 326, 297, 38))
+  page2coords.push(coords.boolCoords(answers.L54, 507, 575))
+  page2coords.push(coords.boolCoords(answers.L63, 507, 454))
+  page2coords.push(coords.boolCoords(answers.L71, 507, 345))
+  page2coords.push(coords.boolCoords(answers.L72, 245, 321))
+  page2coords.push(coords.boolCoords(answers.L73, 326, 297, 38))
 
   var page3coords = [
     { text: answers.L3, x_coord: 160, y_coord: 699 },
@@ -48,13 +48,13 @@ const listingCoords = (answers) => {
     { text: answers.L152B, x_coord: 120, y_coord: 544 },
     { text: answers.L165A, x_coord: 80, y_coord: 333 },
   ]
-  page4coords.push(boolCoords(answers.L146, 254, 642))
-  page4coords.push(boolCoords(answers.L148A, 20, 604))
-  page4coords.push(boolCoords(answers.L150A, 20, 575))
-  page4coords.push(boolCoords(answers.L152A, 20, 544))
-  page4coords.push(boolCoords(answers.L163, 65, 370))
-  page4coords.push(boolCoords(answers.L164, 65, 354))
-  page4coords.push(boolCoords(answers.L175, 260, 178))
+  page4coords.push(coords.boolCoords(answers.L146, 254, 642))
+  page4coords.push(coords.boolCoords(answers.L148A, 20, 604))
+  page4coords.push(coords.boolCoords(answers.L150A, 20, 575))
+  page4coords.push(coords.boolCoords(answers.L152A, 20, 544))
+  page4coords.push(coords.boolCoords(answers.L163, 65, 370))
+  page4coords.push(coords.boolCoords(answers.L164, 65, 354))
+  page4coords.push(coords.boolCoords(answers.L175, 260, 178))
 
   var page5coords = [
     { text: answers.L3, x_coord: 160, y_coord: 701 },
@@ -62,8 +62,8 @@ const listingCoords = (answers) => {
     { text: "sig_path", x_coord: 375, y_coord: 454 },
     { text: answers.DATE, x_coord: 375, y_coord: 415 },
   ]
-  page5coords.push(boolCoords(answers.L196, 20, 524))
-  page5coords.push(boolCoords(answers.L198, 65, 498))
+  page5coords.push(coords.boolCoords(answers.L196, 20, 524))
+  page5coords.push(coords.boolCoords(answers.L198, 65, 498))
 
   var page6coords = [
     { text: answers.L3, x_coord: 160, y_coord: 702 },
